@@ -1,0 +1,14 @@
+\babel@toc {naustrian}{}\relax 
+\babel@toc {naustrian}{}\relax 
+\contentsline {section}{\numberline {1}Organisatorisches}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Team}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Aufteilung der Verantwortlichkeitsbereiche}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Aufwand}{4}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Anforderungsdefinition (Systemspezifikation)}{5}{section.2}%
+\contentsline {section}{\numberline {3}Systementwurf}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Klassendiagramm}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Designentscheidungen}{6}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Dokumentation der Komponenten (Klassen)}{7}{section.4}%
+\contentsline {section}{\numberline {5}Testprotokollierung}{8}{section.5}%
+\contentsline {section}{\numberline {6}Quellcode}{9}{section.6}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

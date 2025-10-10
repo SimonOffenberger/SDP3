@@ -4,29 +4,32 @@
 #include "Object.hpp"
 #include "DriveRecord.hpp"
 
+enum TFuel {
+	Diesel = 0,
+	Benzin = 1,
+	Elektro = 2,
+};
+
 class Vehicle: public Object {
 public:
-	enum TFuel {
-		Diesel = 0,
-		Benzin = 1,
-		Elektro = 2,
-	};
 
-	Vehicle(std::string brand, Vehicle::TFuel fuelType) : m_brand{ brand }, m_fuel{ fuelType } {}
 
 	std::string GetBrand() const;
 
 	std::string GetPlate() const;
 
-	Vehicle::TFuel GetFuelType() const;
+	TFuel GetFuelType() const;
 
 	const DriveRecord & GetDriveRecord() const;
 
 	void SetPlate(std::string brand);
 
+	void AddRecord(const RecordEntry& entry);
+
+
 protected:
 
-	Vehicle() = default;
+	Vehicle(std::string brand, TFuel fuelType) : m_brand{ brand }, m_fuel{ fuelType } {}
 
 private:
 	std::string m_brand;

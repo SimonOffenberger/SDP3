@@ -10,7 +10,7 @@ std::string Vehicle::GetPlate() const
     return m_plate;
 }
 
-Vehicle::TFuel Vehicle::GetFuelType() const
+TFuel Vehicle::GetFuelType() const
 {
     return m_fuel;
 }
@@ -23,5 +23,10 @@ const DriveRecord & Vehicle::GetDriveRecord() const
 void Vehicle::SetPlate(std::string brand)
 {
     m_plate = brand;
+}
+
+void Vehicle::AddRecord(const RecordEntry& entry)
+{
+    m_record.AddRecord(entry);
 }
 

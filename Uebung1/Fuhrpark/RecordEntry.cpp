@@ -23,7 +23,7 @@ std::ostream& RecordEntry::Print(std::ostream& ost) const
 {
 	if (!ost.good()) throw Object::ERROR_BAD_OSTREAM;
 
-	ost << std::setfill('0') << std::setw(2) << m_date.day() << "."
+	ost << std::setfill('0')<< right << std::setw(2) << m_date.day() << "."
 		<< std::setw(2) << static_cast<unsigned>(m_date.month()) << "."
 		<< std::setw(4) << m_date.year() << ":" << std::setfill(' ')
 		<< std::setw(6) << m_distance << " km\n";

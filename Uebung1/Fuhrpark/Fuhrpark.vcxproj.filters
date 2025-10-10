@@ -33,6 +33,9 @@
     <ClInclude Include="Object.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RecordEntry.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Truck.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

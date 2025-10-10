@@ -132,7 +132,7 @@
     <ClInclude Include="DriveRecord.hpp" />
     <ClInclude Include="Garage.hpp" />
     <ClInclude Include="Object.hpp" />
-    <ClInclude Include="Test.hpp" />
+    <ClInclude Include="RecordEntry.hpp" />
     <ClInclude Include="Truck.hpp" />
     <ClInclude Include="Vehicle.hpp" />
   </ItemGroup>

@@ -9,8 +9,8 @@ void DriveRecord::AddRecord(const RecordEntry& entry)
 
 size_t DriveRecord::Get_Milage() const
 {
-	return std::accumulate(m_driveRecords.cbegin(), m_driveRecords.cend(), 0,
-		[](const int val,const RecordEntry& entry) {return val + entry.GetDistance();});
+	return std::accumulate(m_driveRecords.cbegin(), m_driveRecords.cend(), static_cast<size_t>(0),
+		[](const size_t val,const RecordEntry& entry) {return val + entry.GetDistance();});
 }
 
 std::ostream& DriveRecord::Print(std::ostream& ost) const

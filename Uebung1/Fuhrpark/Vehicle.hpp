@@ -12,13 +12,15 @@ public:
 		Elektro = 2,
 	};
 
+	Vehicle(std::string brand, Vehicle::TFuel fuelType) : m_brand{ brand }, m_fuel{ fuelType } {}
+
 	std::string GetBrand() const;
 
 	std::string GetPlate() const;
 
-	TFuel GetFuelType() const;
+	Vehicle::TFuel GetFuelType() const;
 
-	DriveRecord GetDriveRecord() const;
+	const DriveRecord & GetDriveRecord() const;
 
 	void SetPlate(std::string brand);
 
@@ -30,6 +32,7 @@ private:
 	std::string m_brand;
 	std::string m_plate;
 	TFuel m_fuel;
+	DriveRecord m_record;
 };
 
 

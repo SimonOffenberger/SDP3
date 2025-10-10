@@ -20,7 +20,7 @@ const DriveRecord & Vehicle::GetDriveRecord() const
     return m_record;
 }
 
-void Vehicle::SetPlate(std::string brand)
+void Vehicle::SetPlate(const std::string & brand)
 {
     m_plate = brand;
 }
@@ -28,5 +28,10 @@ void Vehicle::SetPlate(std::string brand)
 void Vehicle::AddRecord(const RecordEntry& entry)
 {
     m_record.AddRecord(entry);
+}
+
+size_t Vehicle::Get_Milage() const
+{
+    return m_record.Get_Milage();
 }
 

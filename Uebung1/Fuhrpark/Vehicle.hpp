@@ -13,7 +13,6 @@ enum TFuel {
 class Vehicle: public Object {
 public:
 
-
 	std::string GetBrand() const;
 
 	std::string GetPlate() const;
@@ -22,14 +21,15 @@ public:
 
 	const DriveRecord & GetDriveRecord() const;
 
-	void SetPlate(std::string brand);
+	void SetPlate(const std::string & brand);
 
 	void AddRecord(const RecordEntry& entry);
 
+	size_t Get_Milage() const;
 
 protected:
 
-	Vehicle(std::string brand, TFuel fuelType) : m_brand{ brand }, m_fuel{ fuelType } {}
+	Vehicle(const std::string & brand,const TFuel & fuelType) : m_brand{ brand }, m_fuel{ fuelType } {}
 
 private:
 	std::string m_brand;

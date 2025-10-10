@@ -17,7 +17,7 @@
 
 #define ON 1
 #define OFF 0
-#define COLOR_OUTPUT OFF
+#define COLOR_OUTPUT ON
 
 // Definitions of colors in order to change the color of the output stream.
 const std::string colorRed = "\x1B[31m";
@@ -107,17 +107,17 @@ bool check_dump(std::ostream& ostr, const std::string& testcase, const T& expect
 	if (ostr.good()) {
 #if COLOR_OUTPUT
 		if (expected == result) {
-			ostr << testcase << std::endl << "Result: (Expected: " << std::boolalpha << expected << " ==" << " Result: " << result << ") Test " << colorGreen << "OK" << colorWhite << std::noboolalpha << std::endl << std::endl;
+			ostr << testcase << std::endl <<  colorGreen << "[Test OK] " << colorWhite <<"Result: (Expected: " << std::boolalpha << expected << " ==" << " Result: " << result << ")"  << std::noboolalpha << std::endl << std::endl;
 		}
 		else {
-			ostr << testcase << std::endl << "Result: (Expected: " << std::boolalpha << expected << " !=" << " Result: " << result << ") Test " << colorRed << "Failed!" << colorWhite << std::noboolalpha << std::endl << std::endl;
+			ostr << testcase << std::endl << colorRed << "[Test FAILED] " << colorWhite << "Result: (Expected: " << std::boolalpha << expected << " !=" << " Result: " << result << ")"  << std::noboolalpha << std::endl << std::endl;
 		}
 #else
 		if (expected == result) {
-			ostr << testcase << std::endl << "Result: (Expected: " << std::boolalpha << expected << " ==" << " Result: " << result << ") Test " << "OK" << std::noboolalpha << std::endl << std::endl;
+			ostr << testcase << std::endl << "[Test OK] "  << "Result: (Expected: " << std::boolalpha << expected << " ==" << " Result: " << result << ")" << std::noboolalpha << std::endl << std::endl;
 		}
 		else {
-			ostr << testcase << std::endl << "Result: (Expected: " << std::boolalpha << expected << " !=" << " Result: " << result << ") Test " << "Failed!" << std::noboolalpha << std::endl << std::endl;
+			ostr << testcase << std::endl  << "[Test FAILED] "  << "Result: (Expected: " << std::boolalpha << expected << " !=" << " Result: " << result << ")" << std::noboolalpha << std::endl << std::endl;
 		}
 #endif
 		if (ostr.fail()) {

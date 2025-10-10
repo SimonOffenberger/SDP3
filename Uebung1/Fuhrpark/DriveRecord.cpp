@@ -4,7 +4,7 @@
 
 void DriveRecord::AddRecord(const RecordEntry& entry)
 {
-	m_driveRecords.push_back(entry);
+	m_driveRecords.insert(entry);
 }
 
 size_t DriveRecord::Get_Milage() const

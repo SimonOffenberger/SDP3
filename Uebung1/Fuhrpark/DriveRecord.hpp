@@ -1,11 +1,11 @@
 #ifndef DRIVE_RECORD_HPP
 #define DRIVE_RECORD_HPP
 
-#include <vector>
+#include <set>
 #include "RecordEntry.hpp"
 #include "Object.hpp"
 
-using TCont = std::vector<RecordEntry>;
+using TCont = std::multiset<RecordEntry>;
 
 class DriveRecord : public Object {
 public:

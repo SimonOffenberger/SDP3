@@ -32,3 +32,8 @@ std::ostream& RecordEntry::Print(std::ostream& ost) const
 
 	return ost;
 }
+
+bool RecordEntry::operator<(const RecordEntry& rh) const
+{
+	return m_date < rh.m_date;
+}

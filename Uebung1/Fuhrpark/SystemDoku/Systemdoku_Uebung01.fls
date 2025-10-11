@@ -1,6 +1,6 @@
-PWD c:\Repos\SDP3\Uebung1\Doku
+PWD c:\HSD_SEM_3\SDP3\Uebung1\Fuhrpark\SystemDoku
 INPUT C:\Users\Simon\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Repos\SDP3\Uebung1\Doku\Systemdoku_Uebung01.tex
+INPUT c:\HSD_SEM_3\SDP3\Uebung1\Fuhrpark\SystemDoku\Systemdoku_Uebung01.tex
 OUTPUT Systemdoku_Uebung01.log
 INPUT C:\Users\Simon\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrartcl.cls
 INPUT C:\Users\Simon\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrartcl.cls

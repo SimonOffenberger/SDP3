@@ -118,7 +118,7 @@ bool Test_DriveRecord(ostream& ost)
 
 	const size_t total_milage = 450;
 
-	Test_OK = Test_OK && check_dump(ost, "Test DriveRecord Get Milage", total_milage, dRecord.Get_Milage());
+	Test_OK = Test_OK && check_dump(ost, "Test DriveRecord Get Milage", total_milage, dRecord.GetMilage());
 
 	ofstream badstream;
 	badstream.setstate(ios::badbit);

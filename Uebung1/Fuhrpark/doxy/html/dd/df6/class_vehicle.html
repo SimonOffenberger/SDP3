@@ -88,7 +88,7 @@ $(function(){initNavTree('dd/df6/class_vehicle.html','../../','d0/db9/class_vehi
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Vehicle Class Reference</div></div>
+  <div class="headertitle"><div class="title">Vehicle Class Reference<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -120,6 +120,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a563fc693b1226af46b4b27b3399e9dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Methode for adding a record entry to the drive record collection.  <br /></td></tr>
 <tr class="memitem:ab1298438ed93b8d7f2078e005d7a7aa8" id="r_ab1298438ed93b8d7f2078e005d7a7aa8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1298438ed93b8d7f2078e005d7a7aa8">GetMilage</a> () const</td></tr>
 <tr class="memdesc:ab1298438ed93b8d7f2078e005d7a7aa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the total milage of a vehicle.  <br /></td></tr>
+<tr class="memitem:a20e46a56c0765ca79a6f566c96b9bb54" id="r_a20e46a56c0765ca79a6f566c96b9bb54"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../dd/df6/class_vehicle.html">Vehicle</a> const *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20e46a56c0765ca79a6f566c96b9bb54">Clone</a> () const =0</td></tr>
+<tr class="memdesc:a20e46a56c0765ca79a6f566c96b9bb54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a clone of the vehicle.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_object')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../d8/d83/class_object.html">Object</a></td></tr>
 <tr class="memitem:a226f2ae2af766b77d83c09a4d766b725 inherit pub_methods_class_object" id="r_a226f2ae2af766b77d83c09a4d766b725"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d83/class_object.html#a226f2ae2af766b77d83c09a4d766b725">~Object</a> ()=default</td></tr>
 <tr class="memitem:a0ddfacb1738bd1c6ae7079aa3b7d1584 inherit pub_methods_class_object" id="r_a0ddfacb1738bd1c6ae7079aa3b7d1584"><td class="memItemLeft" align="right" valign="top">virtual std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d83/class_object.html#a0ddfacb1738bd1c6ae7079aa3b7d1584">Print</a> (std::ostream &amp;ost=std::cout) const =0</td></tr>
@@ -185,7 +187,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00083">83</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00090">90</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
 
 </div>
 </div>
@@ -214,6 +216,36 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html#l00028">28</a> of file <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html">Vehicle.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a20e46a56c0765ca79a6f566c96b9bb54" name="a20e46a56c0765ca79a6f566c96b9bb54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20e46a56c0765ca79a6f566c96b9bb54">&#9670;&#160;</a></span>Clone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="../../dd/df6/class_vehicle.html">Vehicle</a> const  * Vehicle::Clone </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a clone of the vehicle. </p>
+<dl class="section return"><dt>Returns</dt><dd>a excat replicate of a vehicle </dd></dl>
+
+<p>Implemented in <a class="el" href="../../d6/d44/class_car.html#ae091c374711bbd70417257382f472554">Car</a>.</p>
 
 </div>
 </div>
@@ -375,7 +407,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00086">86</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00093">93</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
 
 </div>
 </div>
@@ -399,7 +431,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00088">88</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00095">95</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
 
 </div>
 </div>
@@ -423,7 +455,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00087">87</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00094">94</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
 
 </div>
 </div>
@@ -447,7 +479,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00089">89</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00096">96</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
 
 </div>
 </div>

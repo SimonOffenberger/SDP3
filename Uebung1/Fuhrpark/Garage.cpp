@@ -67,8 +67,7 @@ std::ostream& Garage::Print(std::ostream& ost) const
 
     for (auto& elem : m_vehicles)
     {
-        elem->Print();
-        ost << std::endl;
+        elem->Print(ost);
     }
 
     return ost;

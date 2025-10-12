@@ -178,13 +178,83 @@ bool Test_DriveRecord(ostream& ost)
 static bool Test_Garage(ostream& ost)
 {
 	// car must be dynamically allocated in order for delete in ~Garade to work.
-	Car* testCar = new Car{ "UAZ", Diesel };
-	testCar->SetPlate("SR770BA");
-	testCar->AddRecord({ { 2025y,October,13d }, 25 });
-	
-	Garage testGarage;
-	testGarage.AddVehicle(testCar);
-	testGarage.Print(ost);
+	bool Test_OK = true;
+	string error_msg;
 
-	return true;
+	ost << TestStart;
+
+	try
+	{
+		// Testing search plate func
+		std::string testPlate = "SR770BA";
+		Car* testCar = new Car{ "UAZ", Diesel };
+		testCar->SetPlate(testPlate);
+		testCar->AddRecord({ { 2025y,October,13d }, 25 });
+
+		Garage testGarage;
+		testGarage.AddVehicle(testCar);
+
+		Test_OK = Test_OK &&
+			check_dump(
+				ost,
+				"vehicle plate search",
+				(const Vehicle*) testCar,
+				testGarage.SearchPlate(testPlate)
+			);
+	}
+
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test garage plate search - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	try
+	{
+		std::string testPlate = "SR770BA";
+		Car* testCar = new Car{ "UAZ", Diesel };
+		testCar->SetPlate(testPlate);
+		testCar->AddRecord({ { 2025y,October,13d }, 25 });
+
+		Garage testGarage;
+		testGarage.AddVehicle(testCar);
+
+		// testing print
+		std::stringstream expectation;
+		std::stringstream result;
+
+		testCar->Print(expectation);
+		testGarage.Print(result);
+		Test_OK = Test_OK && check_dump(ost, "Test Garage Print", expectation.str(), result.str());
+
+	}
+
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test garage print - error buffer", error_msg.empty(), true);
+
+	// End of garage testing
+	ost << TestEnd;
+	return Test_OK;
 }

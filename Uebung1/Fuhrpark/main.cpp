@@ -175,7 +175,7 @@ bool Test_DriveRecord(ostream& ost)
 	return Test_OK;
 }
 
-static bool Test_Garage(ostream& ost) // Removed default argument to avoid redefinition error
+static bool Test_Garage(ostream& ost)
 {
 	Car testCar = { "UAZ", Diesel };
 	testCar.SetPlate("SR770BA");

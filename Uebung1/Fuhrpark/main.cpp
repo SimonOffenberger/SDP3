@@ -5,18 +5,21 @@
 #include "RecordEntry.hpp"
 #include "DriveRecord.hpp"
 #include "Car.hpp"
+#include "Garage.hpp"
 
 using namespace std;
 using namespace chrono;
 
 static bool Test_RecordEntry(ostream & ost = cout);
 static bool Test_DriveRecord(ostream & ost = cout);
+static bool Test_Garage(ostream & ost = cout);
 
 int main(void){
 	bool Test_OK = true;
 
 	Test_OK = Test_OK && Test_RecordEntry(cout);
 	Test_OK = Test_OK && Test_DriveRecord(cout);
+	Test_OK = Test_OK && Test_Garage(cout);
 
 	if (Test_OK) TestCaseOK(cout);
 	else TestCaseFail(cout);
@@ -170,4 +173,17 @@ bool Test_DriveRecord(ostream& ost)
 	ost << TestEnd;
 
 	return Test_OK;
+}
+
+static bool Test_Garage(ostream& ost) // Removed default argument to avoid redefinition error
+{
+	Car testCar = { "UAZ", Diesel };
+	testCar.SetPlate("SR770BA");
+	testCar.AddRecord({ { 2025y,October,13d }, 25 });
+	
+	Garage testGarage;
+	testGarage.AddVehicle<Car>(testCar);
+	testGarage.Print(ost);
+
+	return true;
 }

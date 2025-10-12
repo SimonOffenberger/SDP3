@@ -14,14 +14,17 @@ class Garage : public Object {
 public:
     Garage() = default;
 
-    template<typename TVehicleType, typename... Args>
-    void AddVehicle(Args&&... args);
+    template<typename TVehicleType>
+    void AddVehicle(TVehicleType newVehicle) {
+        Vehicle* pNewVehicle = new TVehicleType(newVehicle);
+        m_vehicles.push_back(pNewVehicle);
+    }
     
     void DeleteVehicle(Vehicle* pVehicle);
     
     Vehicle* SearchPlate(std::string plate);
     
-    void Print(std::ostream& ost = std::cout);
+    std::ostream& Print(std::ostream& ost = std::cout) const override;
     
     // TODO: Copy / assignement implementation
     Garage(const Garage&) = delete;

@@ -6,14 +6,7 @@
  *********************************************************************/
 #include "Garage.hpp"
 
-template<typename TVehicleType, typename... Args>
-void Garage::AddVehicle(Args&&... args)
-{
-    // dynamicly allocate new vehicle (of any type)
-    // and add it to container
-    Vehicle* pNewVehicle = new TVehicleType(std::forward<Args>(args)...);
-    m_vehicles.push_back(pNewVehicle);
-}
+//template<typename TVehicleType, typename... Args>
 
 void Garage::DeleteVehicle(Vehicle* pVehicle)
 {
@@ -36,12 +29,17 @@ Vehicle* Garage::SearchPlate(std::string plate)
     return nullptr;
 }
 
-void Garage::Print(std::ostream& ost)
+std::ostream& Garage::Print(std::ostream& ost) const
 {
-    for (auto &elem : m_vehicles)
+    if (ost.bad())
+        return ost;
+
+    for (auto& elem : m_vehicles)
     {
         elem->Print();
     }
+
+    return ost;
 }
 
 Garage::~Garage()

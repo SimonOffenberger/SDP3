@@ -315,6 +315,7 @@ static bool Test_Garage(ostream& ost)
 	error_msg.clear();
 
 	// TODO: Test Garage::DeleteVehicle
+	// TODO: Test Copy and Swap
 
 	// End of garage testing
 	ost << TestEnd;

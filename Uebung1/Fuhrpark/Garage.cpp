@@ -15,7 +15,7 @@
  * \brief This casted Pointer is copied ito this methode and added to the collection
  * \param newVehicle : Pointer to a Vehicle.
  */
-void Garage::AddVehicle(Vehicle * const newVehicle)
+void Garage::AddVehicle(Vehicle const * const newVehicle)
 {   
     if (newVehicle == nullptr) throw ERROR_NULLPTR;
     // Add the new vehicle to the collection.
@@ -71,6 +71,19 @@ std::ostream& Garage::Print(std::ostream& ost) const
     }
 
     return ost;
+}
+
+Garage::Garage(const Garage&)
+{
+    for_each(
+        m_vehicles.cbegin(), m_vehicles.cend(), 
+        [&](auto v) {AddVehicle(v->Clone()); 
+        });
+}
+
+void Garage::operator=(Garage garage)
+{
+    std::swap(m_vehicles, garage.m_vehicles);
 }
 
 /**

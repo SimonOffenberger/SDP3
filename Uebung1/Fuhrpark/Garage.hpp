@@ -25,7 +25,7 @@ public:
      * \brief This casted Pointer is copied ito this methode and added to the collection
      * \param newVehicle : Pointer to a Vehicle.
      */
-    void AddVehicle(Vehicle * const newVehicle);
+    void AddVehicle(Vehicle const * const newVehicle);
     
     /**
      * \brief deletes Vehicle inside garage from provided pointer.
@@ -49,8 +49,8 @@ public:
     
     // TODO: Copy / assignement implementation
     // is identical to the Simple Animal Project.
-    Garage(const Garage&) = delete;
-    Garage& operator=(const Garage&) = delete;
+    Garage(const Garage&);
+    void operator=(Garage garage);
 
     ~Garage();
 private:

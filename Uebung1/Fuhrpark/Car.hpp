@@ -10,6 +10,13 @@ public:
 
 	virtual std::ostream& Print(std::ostream& ost = std::cout) const override;
 
+	/**
+	 * @brief Creates a clone of the vehicle.
+	 *
+	 * \return a excat replicate of a vehicle
+	 */
+	virtual Vehicle const* Clone() const;
+
 private:
 };
 

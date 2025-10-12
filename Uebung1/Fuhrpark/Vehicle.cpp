@@ -35,3 +35,4 @@ size_t Vehicle::GetMilage() const
     return m_record.GetMilage();
 }
 
+

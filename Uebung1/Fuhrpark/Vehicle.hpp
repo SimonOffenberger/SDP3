@@ -71,6 +71,13 @@ public:
 	 */
 	size_t GetMilage() const;
 
+	/**
+	 * @brief Creates a clone of the vehicle.
+	 *
+	 * \return a excat replicate of a vehicle
+	 */
+	virtual Vehicle const* Clone() const = 0;
+
 protected:
 
 	/**

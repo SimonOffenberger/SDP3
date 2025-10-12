@@ -15,3 +15,8 @@ std::ostream& Car::Print(std::ostream& ost) const
 
 	return ost;
 }
+
+Vehicle const* Car::Clone() const
+{
+	return new Car(*this);
+}

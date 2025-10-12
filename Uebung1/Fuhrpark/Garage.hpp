@@ -12,6 +12,9 @@
 
 class Garage : public Object {
 public:
+
+    inline static const std::string ERROR_NULLPTR= "ERROR: Passed in Nullptr!";
+
     Garage() = default;
 
     void AddVehicle(Vehicle * const newVehicle);
@@ -23,6 +26,7 @@ public:
     std::ostream& Print(std::ostream& ost = std::cout) const override;
     
     // TODO: Copy / assignement implementation
+    // is identical to the Simple Animal Project.
     Garage(const Garage&) = delete;
     Garage& operator=(const Garage&) = delete;
 

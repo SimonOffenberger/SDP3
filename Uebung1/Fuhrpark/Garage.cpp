@@ -5,6 +5,7 @@
  * \date   October 2025
  *********************************************************************/
 #include "Garage.hpp"
+#include <algorithm>
 
 /**
  * \brief Adds a vehicle to a vehicle collection.
@@ -16,6 +17,7 @@
  */
 void Garage::AddVehicle(Vehicle * const newVehicle)
 {   
+    if (newVehicle == nullptr) throw ERROR_NULLPTR;
     // Add the new vehicle to the collection.
     m_vehicles.push_back(newVehicle);
 }

@@ -183,9 +183,10 @@ static bool Test_Garage(ostream& ost)
 
 	ost << TestStart;
 
+	// Testing search plate func
 	try
 	{
-		// Testing search plate func
+		
 		std::string testPlate = "SR770BA";
 		Car* testCar = new Car{ "UAZ", Diesel };
 		testCar->SetPlate(testPlate);
@@ -217,6 +218,39 @@ static bool Test_Garage(ostream& ost)
 	}
 
 	Test_OK = Test_OK && check_dump(ost, "Test garage plate search - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Searching invalid plate
+	try
+	{
+
+		std::string testPlate = "SR770BA";
+		Car* testCar = new Car{ "UAZ", Diesel };
+		testCar->SetPlate(testPlate);
+		testCar->AddRecord({ { 2025y,October,13d }, 25 });
+
+		Garage testGarage;
+		testGarage.AddVehicle(testCar);
+
+		Vehicle const* result = testGarage.SearchPlate("NOTREAL");
+		Test_OK = Test_OK && check_dump(ost, "Test garage plate search invalid plate", result, (Vehicle const*)nullptr);
+
+	}
+
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test garage plate search invalid plate - error buffer", error_msg.empty(), true);
 	error_msg.clear();
 
 	try
@@ -253,6 +287,34 @@ static bool Test_Garage(ostream& ost)
 	}
 
 	Test_OK = Test_OK && check_dump(ost, "Test garage print - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Empty Garage
+	try
+	{
+		Garage testGarage;
+		std::stringstream result;
+		testGarage.Print(result);
+		Test_OK = Test_OK && check_dump(ost, "Test garage print empty garage ", result.str().empty(), true);
+	}
+
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test garage print empty garage - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// TODO: Test Garage::DeleteVehicle
 
 	// End of garage testing
 	ost << TestEnd;

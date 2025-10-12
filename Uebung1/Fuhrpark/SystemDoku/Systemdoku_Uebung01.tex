@@ -1,5 +1,5 @@
 % Systemdokumentation OOP3
-% Unterlage für Studenten als Leitfaden für die Erstellung einer SystemDoku
+% Unterlage fÃ¼r Studenten als Leitfaden fÃ¼r die Erstellung einer SystemDoku
 % 17. Oktober 2022
 % ---------------------------------------------------------------------------
 
@@ -17,17 +17,17 @@
 
 % Packages
 % --------
-\usepackage[utf8]{inputenc}  % fuer Umlaute, ß
+\usepackage[utf8]{inputenc}  % fuer Umlaute, Ü
 \usepackage[T1]{fontenc}
 \usepackage{a4wide}
 \usepackage{times}      % Times Schriften (zusammen mit fontencoding, s.o.)
 
 \usepackage{babel}
-\usepackage{graphicx}	  % für das Einbinden von Grafiken
-\usepackage{color}      % für färbigen Text
-\usepackage{framed}     % für (Text-) Rahmen
-\usepackage{fancyhdr}   % für Kopf- und Fusszeilen
-\usepackage{listings}   % für den Sourcecode
+\usepackage{graphicx}	  % fÃ¼r das Einbinden von Grafiken
+\usepackage{color}      % fÃ¼r fÃ¤rbigen Text
+\usepackage{framed}     % fÃ¼r (Text-) Rahmen
+\usepackage{fancyhdr}   % fÃ¼r Kopf- und Fusszeilen
+\usepackage{listings}   % fÃ¼r den Sourcecode
 \usepackage{pdfpages}
 
 \pagestyle{fancy}       % Kopf- / Fusszeile aktivieren
@@ -75,7 +75,7 @@
 % Seitenspiegel
 % -------------
 
-\typearea{8}	% Festlegung des Seitenspiegels gem. Koma. 4..groß, 9..klein
+\typearea{8}	% Festlegung des Seitenspiegels gem. Koma. 4..groÃŸ, 9..klein
 
 
 % Kopfzeile
@@ -92,16 +92,16 @@
 
 % Absatzformatierung
 % ------------------
-\setlength{\parindent}{0cm}   % Einrückung der 1. Zeile jedes Absatzes
-\setlength{\parskip}{10pt}    % Abstand zwischen den Absätzen
+\setlength{\parindent}{0cm}   % EinrÃ¼ckung der 1. Zeile jedes Absatzes
+\setlength{\parskip}{10pt}    % Abstand zwischen den AbsÃ¤tzen
 
 
-% Package für Hyperlinks (mit pdf-Optionen)
+% Package fÃ¼r Hyperlinks (mit pdf-Optionen)
 % -----------------------------------------
 \usepackage[
 urlcolor=blue,		% blaue weblinks
 linkcolor=black,	% interne Links sind schwarz
-colorlinks=true,        % links werden eingefärbt
+colorlinks=true,        % links werden eingefÃ¤rbt
 pdfstartview=FitH,      % PDF-Anzeige: Fensterbreite
 pdfborder={0 0 0},      % keine Umrandung um links
 pdftitle   ={Systemdokumentation},% Referenzen in der Pdf-Datei
@@ -117,7 +117,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 % ---------------------
 \begin{document}
 
-\selectlanguage{naustrian}   % oder "american" für engl. Texte
+\selectlanguage{naustrian}   % oder "american" fÃ¼r engl. Texte
 
 
 % Titelblatt
@@ -136,7 +136,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \maketitle
 
 %\begin{abstract}
-%Dieses Dokument zeigt den prinzipiellen Aufbau einer Systemdokumentation für Software-Projekte. Die einzelnen Kapitel sind mit Kommentaren versehen, welche die Struktur und den Inhalt erläutern. 
+%Dieses Dokument zeigt den prinzipiellen Aufbau einer Systemdokumentation fÃ¼r Software-Projekte. Die einzelnen Kapitel sind mit Kommentaren versehen, welche die Struktur und den Inhalt erlÃ¤utern. 
 %\end{abstract}
 
 \clearpage
@@ -191,21 +191,29 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \subsection{Aufwand}
 	
 	\begin{itemize}
-		\item Simon Offenberger: geschätzt 10 Ph / tatsächlich x Ph
-		\item Simon Vogelhuber:  geschätzt x Ph / tatsächlich x Ph
+		\item Simon Offenberger: geschÃ¤tzt 10 Ph / tatsÃ¤chlich x Ph
+		\item Simon Vogelhuber:  geschÃ¤tzt x Ph / tatsÃ¤chlich x Ph
 	\end{itemize}
 
 \clearpage
 \section{Anforderungsdefinition (Systemspezifikation)}
-
-In diesem System werden die Tiere eines Zoo's abgebildet und dort gespeichert. Die Tiere speichern das Gewicht in Kilogramm als Ganzzahl und werden mit einer forlaufenden Nummer identifiziert. Sie besitzen eine gemeinsame Schnittstelle die folgende Funktionalität liefert:
+In diesem System werden Fahrzeuge in einem Fuhrpark verwaltet. 
+Zusätzlich soll auch noch ein Fahrtenbuch zu jedem Fahrzeug gespeichert werden.
+\\
+\\
+\textbf{Funktionen des Fahrtenbuches}
 \begin{itemize}
-	\item Gib einen Laut (entsprechende Ausgabe auf std::cout).
-	\item Liefere einen String mit den gespeicherten Attributen.
-	\item Erstelle einen Klon von sich selbst.
+	\item Berechnen den Kilometerstand der aufgezeichneten Fahrten.
+	\item Speichere Datum und Distanz einer Fahrt.
 \end{itemize}
 
-Der Zoo speichert alle Tiere und besitzt die Tier-Objekte nach dem Hinzufügen. Via Zugriffsmethoden kann auf die Tiere zugegriffen werden und eine String-Methode liefert eine Repräsentation aller Tiere im Zoo mit allen Attributen als eine abgeschlossene Zeichenkette. Zusätzlich kann der Zoo inklusive all seiner Tiere kopiert und zugewiesen werden.
+\textbf{Funktionen des Fuhrparks}
+\begin{itemize}
+	\item Hinzufügen und löschen eines Fahrzeuges
+	\item Ausgabe aller Fahrzeugdaten inklusive der Fahrtenbucheinträge.
+	\item Suchen nach einem Fahrzeug mit dessen Kennzeichen.
+	\item Berechnung der Gesamtkilomenter aller Fahrzeuge im Fuhrpark.
+\end{itemize}
 
 \clearpage
 \section{Systementwurf}
@@ -218,13 +226,15 @@ Verweisen Sie an dieser Stelle auf diese Datei.
 
 
 \subsection{Designentscheidungen}
-	Im Klassendiagramm wurde der Polymorphismus angewendet, um unterschiedliche Tierarten mit der gemeinsamen Schnittstelle 'Animal' anzusprechen. Die Klasse 'Zoo' speichert einen Container mit der abstrakte Basisklasse 'Animal' als Elementtyp und kann somit alle bestehenden und auch neuen Tierarten verwalten, die sich von der gemeinsamen Basisklasse 'Animal' ableiten.
+Im Klassendiagramm wurde der Polymorphismus angewendet, um unterschiedliche Fahrzeugarten mit der gemeinsamen Schnittstelle 'Vehicle' anzusprechen. Die Klasse 'Garage' speichert einen Container mit der abstrakte Basisklasse 'Vehicle' als Elementtyp und kann somit alle bestehenden und auch neuen Fahrzeugarten verwalten, die sich von der gemeinsamen Basisklasse 'Vehicle' ableiten.
+Für die Aufzeichnung eines Fahrtenbuches wurde die Klasse \textbf{DriveRecord} implementiert. Diese Klasse speichert mehrere Objekte der Klasse \textbf{RecordEntry}.
+Die Record Entries werden im Fahrtenbuch in einem \textbf{Multiset} gespeichert, damit sind die Einträge ins Fahrtenbuch immer nach dem Datum aufsteigend sortiert.
+Aus diesem Grund wurde der \textbf{operator<} für die Record Entries definiert. Dieser vergleicht das Datum der Einträge.
+Dadurch, dass die Einträge ins Fahrtenbuch als eigene Klasse implemeniert wurde, lassen sich die einzelnen Einträge schnell und einfach erweitern.
 
-\color{blue}
-Designentscheidungen sind von entscheidender Bedeutung für die Qualität und den Erfolg einer Softwareanwendung. Sie beeinflussen nicht nur die technische Umsetzung, sondern auch die Fähigkeit der Anwendung, zukünftigen Anforderungen gerecht zu werden und Änderungen effizient zu bewältigen.\\
 Sie beantworten meist folgende Fragen:\\
 \begin{itemize}
-	\item Warum wurde die Klassenhierarchie so gewählt?
+	\item Warum wurde die Klassenhierarchie so gewÃ¤hlt?
 	\item Wurden Design Pattern verwendet und warum?
 	\item Wurde Abstraktion und der Polymorphismus angewendet?
 	\item Wie kann die Klassenstruktur einfach erweitert werden?
@@ -234,15 +244,9 @@ Sie beantworten meist folgende Fragen:\\
 \color{black}
 
 \section{Dokumentation der Komponenten (Klassen)}
-\color{blue}
-Die Dokumentation der einzelnen Klassen und Komponenten erfolgt direkt im Quellcode mit Doxygen-Kommentaren. Erzeugen Sie danach 
-eine HTML-Doku und verweisen Sie auf die Start-HTML-Datei.\\
-
-\color{black}
 Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.html}{./../doxy/html/index.html}
 
 \clearpage
-\section{Testprotokollierung}
 \section{Testprotokollierung}
 \lstinputlisting[style=teststyle]{../TestOutput.txt}
 

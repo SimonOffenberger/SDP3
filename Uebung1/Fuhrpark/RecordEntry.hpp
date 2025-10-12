@@ -38,7 +38,7 @@ public:
 	/**
 	 * \brief Getter of the data member of the Record Entry Class.
 	 * 
-	 * \return Date of tis Record Entry
+	 * \return Date of this Record Entry
 	 */
 	TDate GetDate() const;
 

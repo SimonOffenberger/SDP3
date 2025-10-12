@@ -6,5 +6,6 @@ var searchData=
   ['m_5fdriverecords_3',['m_driveRecords',['../d8/ddb/class_drive_record.html#acea5d230b1a8692718c79c20aef5f1e2',1,'DriveRecord']]],
   ['m_5ffuel_4',['m_fuel',['../dd/df6/class_vehicle.html#aac5d63b0c4c8a7b30e70a04fc9b58e22',1,'Vehicle']]],
   ['m_5fplate_5',['m_plate',['../dd/df6/class_vehicle.html#ab6378767c820f1c0f918210df41bd91f',1,'Vehicle']]],
-  ['m_5frecord_6',['m_record',['../dd/df6/class_vehicle.html#a38356829f7043221fccc913732943e20',1,'Vehicle']]]
+  ['m_5frecord_6',['m_record',['../dd/df6/class_vehicle.html#a38356829f7043221fccc913732943e20',1,'Vehicle']]],
+  ['m_5fvehicles_7',['m_vehicles',['../d2/d91/class_garage.html#a5671eec663620da036cd995122894d16',1,'Garage']]]
 ];

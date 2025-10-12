@@ -7,7 +7,7 @@ var files_dup =
     [ "DriveRecord.cpp", "d8/d0d/_drive_record_8cpp.html", null ],
     [ "DriveRecord.hpp", "dd/dfa/_drive_record_8hpp.html", "dd/dfa/_drive_record_8hpp" ],
     [ "Garage.cpp", "dd/d51/_garage_8cpp.html", null ],
-    [ "Garage.hpp", "d9/d02/_garage_8hpp.html", null ],
+    [ "Garage.hpp", "d9/d02/_garage_8hpp.html", "d9/d02/_garage_8hpp" ],
     [ "main.cpp", "df/d0a/main_8cpp.html", "df/d0a/main_8cpp" ],
     [ "Object.hpp", "db/d78/_object_8hpp.html", "db/d78/_object_8hpp" ],
     [ "RecordEntry.cpp", "d8/d5d/_record_entry_8cpp.html", null ],

@@ -28,15 +28,40 @@
 \usepackage{framed}     % für (Text-) Rahmen
 \usepackage{fancyhdr}   % für Kopf- und Fusszeilen
 \usepackage{listings}   % für den Sourcecode
-
-
+\usepackage{pdfpages}
 
 \pagestyle{fancy}       % Kopf- / Fusszeile aktivieren
 
+\definecolor{failred}{rgb}{0.7, 0.0, 0.0}
+\definecolor{okgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{gray}{rgb}{0.0, 0.5, 0.0}
+
+\lstdefinelanguage{TestOutput}{
+    morekeywords={},
+    morecomment=[l]{//},
+    morestring=[b]",
+    sensitive=false,
+}
+
+\lstdefinestyle{teststyle}{
+    language=TestOutput,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{black},
+    commentstyle=\color{gray},
+    stringstyle=\color{black},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+    literate={OK}{{\textcolor{okgreen}{OK}}}2
+             {Fail}{{\textcolor{failred}{Fail}}}4,
+}
 
 \lstset{
 	language={C++},
-	basicstyle=\footnotesize\ttfamily,
+	basicstyle=\tiny\ttfamily,
 	keywordstyle=\color{blue},%\bfseries,
 	commentstyle=\color{green},
 	frame=single,
@@ -45,6 +70,7 @@
 	tabsize=3,
 	numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt
 }
+
 
 % Seitenspiegel
 % -------------
@@ -217,46 +243,56 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 
 \clearpage
 \section{Testprotokollierung}
-
-\begin{verbatim}
-Visual Leak Detector read settings from: C:\Program Files (x86)\Visual Leak Detector\vld.ini
-Visual Leak Detector Version 2.5.1 installed.
-Testing Invalid Animal Creation...
-[PASS] Exception caught: Weight must be a positive number
-[FAIL] Expected exception for invalid cat weight not thrown.
-Testing Null Animal Addition to Zoo...
-[PASS] Exception caught: null_pointer param in Zoo::Add(...)
-Testing Animal Weights...
-[PASS] Animal weight test passed.
-[PASS] Animal weight test passed.
-[PASS] Animal weight test passed.
-Testing Animal IDs...
-[PASS] Animal ID test passed.
-[PASS] Animal ID test passed.
-[PASS] Animal ID test passed.
-Testing Animal Sounds...
-[PASS] Animal sound test passed.
-[PASS] Animal sound test passed.
-[PASS] Animal sound test passed.
-Testing Animal ToString...
-[PASS] Animal ToString test passed.
-[PASS] Animal ToString test passed.
-[PASS] Animal ToString test passed.
-Testing Animal Cloning...
-[PASS] Animal cloning test passed.
-[PASS] Animal cloning test passed.
-Testing Zoo Contents...
-[PASS] Zoo ToString test passed.
-No memory leaks detected.
-Visual Leak Detector is now exiting.
-\end{verbatim}
+\section{Testprotokollierung}
+\lstinputlisting[style=teststyle]{../TestOutput.txt}
 
 \clearpage
 \section{Quellcode}
-\color{blue}
-Die Klassen werden entsprechend der Klassenhierarchie von oben nach unten angegeben. Zuerst die Header-Datei, gefolgt von der Implementierung.
-Der Testtreiber (oder Client-Klassen) werden am Ende angegeben.
-\color{black}
+
+\subsection{Object.hpp}
+\lstinputlisting{../Object.hpp}
+
+\subsection{RecordEntry.hpp}
+\lstinputlisting{./../RecordEntry.hpp}
+
+\subsection{RecordEntry.cpp}
+\lstinputlisting{./../RecordEntry.cpp}
+
+\subsection{DriveRecord.hpp}
+\lstinputlisting{./../DriveRecord.hpp}
+
+\subsection{DriveRecord.cpp}
+\lstinputlisting{./../DriveRecord.cpp}
+
+\subsection{Garage.hpp}
+\lstinputlisting{./../Garage.hpp}
+
+\subsection{Garage.cpp}
+\lstinputlisting{./../Garage.cpp}
+
+\subsection{Vehicle.hpp}
+\lstinputlisting{./../Vehicle.hpp}
+
+\subsection{Vehicle.cpp}
+\lstinputlisting{./../Vehicle.cpp}
+
+\subsection{Car.hpp}
+\lstinputlisting{./../Car.hpp}
+
+\subsection{Car.cpp}
+\lstinputlisting{./../Car.cpp}
+
+\subsection{Truck.hpp}
+\lstinputlisting{./../Truck.hpp}
+
+\subsection{Truck.cpp}
+\lstinputlisting{./../Truck.cpp}
+
+\subsection{Bike.hpp}
+\lstinputlisting{./../Bike.hpp}
+
+\subsection{Bike.cpp}
+\lstinputlisting{./../Bike.cpp}
 
 % Literaturverzeichnis
 % --------------------

@@ -14,15 +14,11 @@ class Garage : public Object {
 public:
     Garage() = default;
 
-    template<typename TVehicleType>
-    void AddVehicle(TVehicleType newVehicle) {
-        Vehicle* pNewVehicle = new TVehicleType(newVehicle);
-        m_vehicles.push_back(pNewVehicle);
-    }
+    void AddVehicle(Vehicle * const newVehicle);
     
-    void DeleteVehicle(Vehicle* pVehicle);
+    void DeleteVehicle(Vehicle * const pVehicle);
     
-    Vehicle* SearchPlate(std::string plate);
+    const Vehicle*  SearchPlate(const std::string & plate);
     
     std::ostream& Print(std::ostream& ost = std::cout) const override;
     
@@ -32,5 +28,5 @@ public:
 
     ~Garage();
 private:
-    std::vector<Vehicle*> m_vehicles;
+    std::vector<Vehicle const *> m_vehicles;
 };

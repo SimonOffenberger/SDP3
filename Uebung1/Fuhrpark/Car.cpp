@@ -11,7 +11,7 @@ std::ostream& Car::Print(std::ostream& ost) const
 	ost << left << setw(14) << "Kennzeichen:" << GetPlate() << endl;
 	GetDriveRecord().Print(ost);
 
-	if (ost.fail()) throw Object::ERROR_FAIL_WRITE;
+		if (ost.fail()) throw Object::ERROR_FAIL_WRITE;
 
 	return ost;
 }

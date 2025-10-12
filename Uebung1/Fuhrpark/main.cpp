@@ -177,12 +177,13 @@ bool Test_DriveRecord(ostream& ost)
 
 static bool Test_Garage(ostream& ost)
 {
-	Car testCar = { "UAZ", Diesel };
-	testCar.SetPlate("SR770BA");
-	testCar.AddRecord({ { 2025y,October,13d }, 25 });
+	// car must be dynamically allocated in order for delete in ~Garade to work.
+	Car* testCar = new Car{ "UAZ", Diesel };
+	testCar->SetPlate("SR770BA");
+	testCar->AddRecord({ { 2025y,October,13d }, 25 });
 	
 	Garage testGarage;
-	testGarage.AddVehicle<Car>(testCar);
+	testGarage.AddVehicle(testCar);
 	testGarage.Print(ost);
 
 	return true;

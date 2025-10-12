@@ -14,6 +14,9 @@ static bool Test_RecordEntry(ostream & ost = cout);
 static bool Test_DriveRecord(ostream & ost = cout);
 static bool Test_Garage(ostream & ost = cout);
 
+
+#define WriteOutputFile true
+
 int main(void){
 	bool Test_OK = true;
 
@@ -23,16 +26,22 @@ int main(void){
 
 	if (Test_OK) TestCaseOK(cout);
 	else TestCaseFail(cout);
+	
 
-	//Car Audi{ "Audi A3",TFuel::Diesel };
-	//Audi.SetPlate("SB278FH");
-	//Audi.AddRecord(RecordEntry{ TDate{2025y,October,10d}, 10 });
-	//Audi.AddRecord(RecordEntry{ TDate{2025y,October,11d}, 150 });
-	//Audi.AddRecord(RecordEntry{ TDate{2025y,October,12d}, 1980 });
-	//Audi.AddRecord(RecordEntry{ TDate{2025y,October,13d}, 150 });
-	//Audi.Print();
+	if (WriteOutputFile) {
 
-	//cout << endl << Audi.Get_Milage();
+		ofstream test_output;
+		test_output.open("TestOutput.txt");
+
+		Test_OK = Test_OK && Test_RecordEntry(test_output);
+		Test_OK = Test_OK && Test_DriveRecord(test_output);
+		Test_OK = Test_OK && Test_Garage(test_output);
+
+		if (Test_OK) TestCaseOK(test_output);
+		else TestCaseFail(test_output);
+
+		test_output.close();
+	}
 }
 
 bool Test_RecordEntry(ostream& ost)

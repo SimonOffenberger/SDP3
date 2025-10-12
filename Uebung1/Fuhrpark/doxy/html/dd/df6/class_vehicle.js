@@ -2,6 +2,7 @@ var class_vehicle =
 [
     [ "Vehicle", "dd/df6/class_vehicle.html#ac466fef0e672783edef804c947ff01ee", null ],
     [ "AddRecord", "dd/df6/class_vehicle.html#a563fc693b1226af46b4b27b3399e9dea", null ],
+    [ "Clone", "dd/df6/class_vehicle.html#a20e46a56c0765ca79a6f566c96b9bb54", null ],
     [ "GetBrand", "dd/df6/class_vehicle.html#a9e11aa66f6220797b5e53c73bc46f846", null ],
     [ "GetDriveRecord", "dd/df6/class_vehicle.html#a2f5cc8f8ea69fcd45d7a45d798856e7c", null ],
     [ "GetFuelType", "dd/df6/class_vehicle.html#a2434ddb546ed209c418763181cbec658", null ],

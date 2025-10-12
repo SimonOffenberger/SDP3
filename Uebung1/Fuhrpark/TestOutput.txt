@@ -1,0 +1,46 @@
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test RecordEntry Get Date
+[Test OK] Result: (Expected: 2025-10-13 == Result: 2025-10-13)
+
+Test RecordEntry Get Distance
+[Test OK] Result: (Expected: 150 == Result: 150)
+
+Test RecordEntry Print
+[Test OK] Result: (Expected: true == Result: true)
+
+Test RecordEntry Exception Bad Ostream
+[Test OK] Result: (Expected: ERROR: Provided Ostream is bad == Result: ERROR: Provided Ostream is bad)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test DriveRecord Print Sorted and Add Record
+[Test OK] Result: (Expected: true == Result: true)
+
+Test DriveRecord Get Milage
+[Test OK] Result: (Expected: 450 == Result: 450)
+
+Test DriveRecord Exception Bad Ostream
+[Test OK] Result: (Expected: ERROR: Provided Ostream is bad == Result: ERROR: Provided Ostream is bad)
+
+Test DriveRecord Empty Print
+[Test OK] Result: (Expected: No Exception == Result: No Exception)
+
+
+*******************************************
+
+
+Fahrzeugart:  Auto
+Marke:        UAZ
+Kennzeichen:  SR770BA
+13.10.2025:    25 km
+TEST OK!!

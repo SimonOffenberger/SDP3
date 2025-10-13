@@ -54,7 +54,7 @@ std::ostream& Garage::Print(std::ostream& ost) const
 
 size_t Garage::GetTotalDrivenKilometers() const
 { 
-    size_t sum = std::accumulate(m_vehicles.cbegin(), m_vehicles.cend(), 0,
+    size_t sum = std::accumulate(m_vehicles.cbegin(), m_vehicles.cend(), static_cast<size_t>(0),
         [](auto last_val, auto vehicle) {
             return last_val + vehicle->GetMilage();
         });

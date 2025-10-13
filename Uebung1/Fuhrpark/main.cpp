@@ -263,7 +263,7 @@ static bool Test_Garage(ostream& ost)
 	try
 	{
 		std::string testPlate = "SR770BA";
-		Car* testCar = new Car{ "UAZ", Diesel,testPlate };
+		Car* testCar = new Car{ "UAZ", Diesel, testPlate };
 		testCar->AddRecord({ { 2025y,October,13d }, 25 });
 
 		Garage testGarage;
@@ -321,6 +321,42 @@ static bool Test_Garage(ostream& ost)
 	error_msg.clear();
 
 	// TODO: Test Garage::DeleteVehicle
+	error_msg.clear();
+
+	try
+	{
+		std::string testPlate = "SR770BA";
+		Car* testCar = new Car{ "UAZ", Diesel, testPlate };
+		Car* testCar2 = new Car{"Mercedes", Benzin, "UU1234AB"};
+
+		testCar->AddRecord({ { 2025y,October,13d }, 25 });
+		testCar2->AddRecord({ { 2025y,October,13d }, 25 });
+
+		Garage testGarage;
+		testGarage.AddVehicle(testCar);
+		testGarage.AddVehicle(testCar2);
+
+		testGarage.DeleteVehicle(testGarage.SearchPlate(testPlate));
+		Vehicle const * const testPtr = testGarage.SearchPlate(testPlate);
+
+		Test_OK = Test_OK && check_dump(ost, "Test Delete Vehicle", testPtr, (Vehicle const* const) 0);
+	}
+
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test garage print - error buffer", error_msg.empty(), true);
+
 	// TODO: Test Copy and Swap
 
 	// End of garage testing

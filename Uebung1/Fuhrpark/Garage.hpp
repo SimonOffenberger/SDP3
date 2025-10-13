@@ -33,7 +33,7 @@ public:
      * \brief deletes Vehicle inside garage from provided pointer.
      * \param pVehicle : Pointer to a Vehicle.
      */
-    void DeleteVehicle(Vehicle * const pVehicle);
+    void DeleteVehicle(const Vehicle * const pVehicle);
     
     /**
      * \brief Functions searches for vehicle with matching plate.
@@ -48,9 +48,9 @@ public:
      * \return Referenced ostream
      */
     std::ostream& Print(std::ostream& ost = std::cout) const override;
+
+    // TODO: SUM of all miles all vehicles have driven.
     
-    // TODO: Copy / assignement implementation
-    // is identical to the Simple Animal Project.
     Garage(const Garage&);
     void operator=(Garage garage);
 
@@ -59,3 +59,5 @@ public:
 private:
     TGarageCont m_vehicles;
 };
+
+// TODO: Overload ostream operator

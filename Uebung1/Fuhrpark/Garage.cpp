@@ -26,7 +26,7 @@ void Garage::AddVehicle(Vehicle const * const newVehicle)
  * \brief deletes Vehicle inside garage from provided pointer.
  * \param pVehicle : Pointer to a Vehicle.
  */
-void Garage::DeleteVehicle(Vehicle* pVehicle)
+void Garage::DeleteVehicle(const Vehicle * const pVehicle)
 {   
     // if pVehicle is inside m_Vehicles -> erase and free
     auto itr = std::find(m_vehicles.begin(), m_vehicles.end(), pVehicle);

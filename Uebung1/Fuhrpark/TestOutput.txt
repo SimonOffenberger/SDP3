@@ -44,7 +44,7 @@ Test DriveRecord Empty Print
 *******************************************
 
 vehicle plate search
-[Test OK] Result: (Expected: 000001FE0BD4CD80 == Result: 000001FE0BD4CD80)
+[Test OK] Result: (Expected: 000001D13573CD80 == Result: 000001D13573CD80)
 
 Test garage plate search - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -86,13 +86,31 @@ Test garage print - error buffer
 Test Delete Vehicle
 [Test OK] Result: (Expected: 0000000000000000 == Result: 0000000000000000)
 
-Test garage print - error buffer
+Test Delete Vehicle - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
-Test garage print empty garage 
+TTest GetTotalDrivenKilometers()
 [Test OK] Result: (Expected: 118 == Result: 118)
 
-Test garage print empty garage - error buffer
+Test GetTotalDrivenKilometers() - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test ostream operator
+[Test OK] Result: (Expected: 
+Fahrzeugart:  Auto
+Marke:        Madza
+Kennzeichen:  WD40AHAH
+13.10.2025:    25 km
+28.10.2025:    34 km
+ == Result: 
+Fahrzeugart:  Auto
+Marke:        Madza
+Kennzeichen:  WD40AHAH
+13.10.2025:    25 km
+28.10.2025:    34 km
+)
+
+Test ostream operator - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 

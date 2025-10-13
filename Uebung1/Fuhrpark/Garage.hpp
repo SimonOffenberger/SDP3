@@ -65,4 +65,8 @@ private:
     TGarageCont m_vehicles;
 };
 
-// TODO: Overload ostream operator
+/**
+ * \brief Override for ostream operator
+ * \return ostream
+ */
+std::ostream& operator <<(std::ostream& ost, Garage& garage);

@@ -83,3 +83,9 @@ Garage::~Garage()
 
     m_vehicles.clear();
 }
+
+std::ostream& operator<<(std::ostream& ost, Garage& garage)
+{
+    garage.Print(ost);
+    return ost;
+}

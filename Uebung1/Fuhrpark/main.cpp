@@ -390,7 +390,7 @@ static bool Test_Garage(ostream& ost)
 		error_msg = "Unhandled exception";
 	}
 
-	Test_OK = Test_OK && check_dump(ost, "Test garage print - error buffer", error_msg.empty(), true);
+	Test_OK = Test_OK && check_dump(ost, "Test Delete Vehicle - error buffer", error_msg.empty(), true);
 	error_msg.clear();
 
 	// Test GetTotalDrivenKilometers()
@@ -413,7 +413,7 @@ static bool Test_Garage(ostream& ost)
 
 		size_t result = testGarage.GetTotalDrivenKilometers();
 
-		Test_OK = Test_OK && check_dump(ost, "Test garage print empty garage ", expect, result);
+		Test_OK = Test_OK && check_dump(ost, "TTest GetTotalDrivenKilometers()", expect, result);
 	}
 
 	catch (const string& err) {
@@ -429,10 +429,43 @@ static bool Test_Garage(ostream& ost)
 		error_msg = "Unhandled exception";
 	}
 
-	Test_OK = Test_OK && check_dump(ost, "Test garage print empty garage - error buffer", error_msg.empty(), true);
+	Test_OK = Test_OK && check_dump(ost, "Test GetTotalDrivenKilometers() - error buffer", error_msg.empty(), true);
 	error_msg.clear();
 
 	// TODO: Test ostream operator
+	try
+	{
+		Car* const testCar1 = new Car{ "Madza", Elektro, "WD40AHAH" };
+
+		testCar1->AddRecord({ { 2025y,October,13d }, 25 });
+		testCar1->AddRecord({ { 2025y,October,28d }, 34 });
+		Garage testGarage;
+		testGarage.AddVehicle(testCar1);
+
+		std::stringstream expect;
+		std::stringstream result;
+
+		testGarage.Print(expect);
+		result << testGarage;
+
+		Test_OK = Test_OK && check_dump(ost, "Test ostream operator", expect.str(), result.str());
+	}
+
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test ostream operator - error buffer", error_msg.empty(), true);
+	error_msg.clear();
 	// End of garage testing
 	ost << TestEnd;
 	return Test_OK;

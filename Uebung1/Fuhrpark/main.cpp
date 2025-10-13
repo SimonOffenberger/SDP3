@@ -197,8 +197,7 @@ static bool Test_Garage(ostream& ost)
 	{
 		
 		std::string testPlate = "SR770BA";
-		Car* testCar = new Car{ "UAZ", Diesel };
-		testCar->SetPlate(testPlate);
+		Car* testCar = new Car{ "UAZ", Diesel,testPlate };
 		testCar->AddRecord({ { 2025y,October,13d }, 25 });
 
 		Garage testGarage;
@@ -234,8 +233,7 @@ static bool Test_Garage(ostream& ost)
 	{
 
 		std::string testPlate = "SR770BA";
-		Car* testCar = new Car{ "UAZ", Diesel };
-		testCar->SetPlate(testPlate);
+		Car* testCar = new Car{ "UAZ", Diesel, testPlate };
 		testCar->AddRecord({ { 2025y,October,13d }, 25 });
 
 		Garage testGarage;
@@ -265,8 +263,7 @@ static bool Test_Garage(ostream& ost)
 	try
 	{
 		std::string testPlate = "SR770BA";
-		Car* testCar = new Car{ "UAZ", Diesel };
-		testCar->SetPlate(testPlate);
+		Car* testCar = new Car{ "UAZ", Diesel,testPlate };
 		testCar->AddRecord({ { 2025y,October,13d }, 25 });
 
 		Garage testGarage;

@@ -39,8 +39,45 @@ Test DriveRecord Empty Print
 *******************************************
 
 
+*******************************************
+             TESTCASE START                
+*******************************************
+
+vehicle plate search
+[Test OK] Result: (Expected: 0000020BFF87C930 == Result: 0000020BFF87C930)
+
+Test garage plate search - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test garage plate search invalid plate
+[Test OK] Result: (Expected: 0000000000000000 == Result: 0000000000000000)
+
+Test garage plate search invalid plate - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Garage Print
+[Test OK] Result: (Expected: 
 Fahrzeugart:  Auto
 Marke:        UAZ
 Kennzeichen:  SR770BA
 13.10.2025:    25 km
+ == Result: 
+Fahrzeugart:  Auto
+Marke:        UAZ
+Kennzeichen:  SR770BA
+13.10.2025:    25 km
+)
+
+Test garage print - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test garage print empty garage 
+[Test OK] Result: (Expected: true == Result: true)
+
+Test garage print empty garage - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
 TEST OK!!

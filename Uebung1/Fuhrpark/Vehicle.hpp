@@ -51,13 +51,6 @@ public:
 	const DriveRecord & GetDriveRecord() const;
 
 	/**
-	 * \brief Setter for the plate member of a vehicle.
-	 * 
-	 * \param plate : string that represents the plate
-	 */
-	void SetPlate(const std::string & plate);
-
-	/**
 	 * \brief Methode for adding a record entry to the drive record collection.
 	 * 
 	 * \param entry : Entry which should be added to the drive recod
@@ -87,7 +80,7 @@ protected:
 	 * \param brand : string that represents the brand of the vehicle
 	 * \param fuelType : Fuel type of the vehicle
 	 */
-	Vehicle(const std::string & brand,const TFuel & fuelType) : m_brand{ brand }, m_fuel{ fuelType } {}
+	Vehicle(const std::string& brand, const TFuel& fuelType, const std::string& plate) : m_brand{ brand }, m_fuel{ fuelType }, m_plate{plate} {}
 
 private:
 	std::string m_brand;

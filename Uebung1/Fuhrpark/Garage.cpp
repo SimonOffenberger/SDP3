@@ -42,7 +42,7 @@ void Garage::DeleteVehicle(Vehicle* pVehicle)
  * \param pVehicle : Pointer to a Vehicle.
  * \return pointer to the vehicle inside the garage
  */
-const Vehicle*  Garage::SearchPlate(const std::string & plate)
+const Vehicle* const Garage::SearchPlate(const std::string & plate) const
 {
     for (const auto &elem : m_vehicles)
     {

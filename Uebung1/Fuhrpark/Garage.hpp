@@ -40,7 +40,7 @@ public:
      * \param pVehicle : Pointer to a Vehicle.
      * \return pointer to the vehicle inside the garage
      */
-    const Vehicle*  SearchPlate(const std::string & plate);
+    const Vehicle* const SearchPlate(const std::string & plate) const;
     
     /**
      * \brief Formatted of every car and its drive record

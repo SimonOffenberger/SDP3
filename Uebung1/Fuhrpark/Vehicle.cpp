@@ -20,11 +20,6 @@ const DriveRecord & Vehicle::GetDriveRecord() const
     return m_record;
 }
 
-void Vehicle::SetPlate(const std::string & plate)
-{
-    m_plate = plate;
-}
-
 void Vehicle::AddRecord(const RecordEntry& entry)
 {
     m_record.AddRecord(entry);

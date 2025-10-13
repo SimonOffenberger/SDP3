@@ -49,7 +49,12 @@ public:
      */
     std::ostream& Print(std::ostream& ost = std::cout) const override;
 
-    // TODO: SUM of all miles all vehicles have driven.
+    /**
+     * \brief Calculates sum of every kilometer every vehicle has driven 
+     * \brief in total
+     * \return size_t total kilometers
+     */
+    size_t GetTotalDrivenKilometers() const;
     
     Garage(const Garage&);
     void operator=(Garage garage);

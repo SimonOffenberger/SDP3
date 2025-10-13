@@ -393,6 +393,46 @@ static bool Test_Garage(ostream& ost)
 	Test_OK = Test_OK && check_dump(ost, "Test garage print - error buffer", error_msg.empty(), true);
 	error_msg.clear();
 
+	// Test GetTotalDrivenKilometers()
+	
+	try
+	{
+		Car* const testCar1 = new Car{ "Madza", Elektro, "WD40AHAH" };
+		Car* const testCar2 = new Car{ "MG", Elektro, "DeiMama" };
+
+		testCar1->AddRecord({ { 2025y,October,13d }, 25 });
+		testCar1->AddRecord({ { 2025y,October,28d }, 34 });
+		testCar2->AddRecord({ { 2025y,September,13d }, 25 });
+		testCar2->AddRecord({ { 2025y,March,28d }, 34 });
+
+		size_t expect = testCar1->GetMilage() + testCar2->GetMilage();
+
+		Garage testGarage;
+		testGarage.AddVehicle(testCar1);
+		testGarage.AddVehicle(testCar2);
+
+		size_t result = testGarage.GetTotalDrivenKilometers();
+
+		Test_OK = Test_OK && check_dump(ost, "Test garage print empty garage ", expect, result);
+	}
+
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test garage print empty garage - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// TODO: Test ostream operator
 	// End of garage testing
 	ost << TestEnd;
 	return Test_OK;

@@ -6,15 +6,8 @@
  *********************************************************************/
 #include "Garage.hpp"
 #include <algorithm>
+#include <numeric>
 
-/**
- * \brief Adds a vehicle to a vehicle collection.
- * \brief A specific vehicle is passed in and casted to a vehicle Pointer.
- * \brief This is allowed because Car,Truck and Bike are derived from Vehicle.
- * \brief A car is a Vehicle. 
- * \brief This casted Pointer is copied ito this methode and added to the collection
- * \param newVehicle : Pointer to a Vehicle.
- */
 void Garage::AddVehicle(Vehicle const * const newVehicle)
 {   
     if (newVehicle == nullptr) throw ERROR_NULLPTR;
@@ -22,10 +15,6 @@ void Garage::AddVehicle(Vehicle const * const newVehicle)
     m_vehicles.push_back(newVehicle);
 }
 
-/**
- * \brief deletes Vehicle inside garage from provided pointer.
- * \param pVehicle : Pointer to a Vehicle.
- */
 void Garage::DeleteVehicle(const Vehicle * const pVehicle)
 {   
     // if pVehicle is inside m_Vehicles -> erase and free
@@ -37,11 +26,6 @@ void Garage::DeleteVehicle(const Vehicle * const pVehicle)
     }
 }
 
-/**
- * \brief Functions searches for vehicle with matching plate.
- * \param pVehicle : Pointer to a Vehicle.
- * \return pointer to the vehicle inside the garage
- */
 const Vehicle* const Garage::SearchPlate(const std::string & plate) const
 {
     for (const auto &elem : m_vehicles)
@@ -55,11 +39,6 @@ const Vehicle* const Garage::SearchPlate(const std::string & plate) const
     return nullptr;
 }
 
-/**
- * \brief Formatted of every car and its drive record
- * \param ost : Refernce to an ostream where the Entry should be printed at.
- * \return Referenced ostream
- */
 std::ostream& Garage::Print(std::ostream& ost) const
 {
     if (ost.fail())
@@ -71,6 +50,15 @@ std::ostream& Garage::Print(std::ostream& ost) const
     }
 
     return ost;
+}
+
+size_t Garage::GetTotalDrivenKilometers() const
+{ 
+    size_t sum = std::accumulate(m_vehicles.cbegin(), m_vehicles.cend(), 0,
+        [](auto last_val, auto vehicle) {
+            return last_val + vehicle->GetMilage();
+        });
+    return sum;
 }
 
 Garage::Garage(const Garage&)
@@ -86,10 +74,6 @@ void Garage::operator=(Garage garage)
     std::swap(m_vehicles, garage.m_vehicles);
 }
 
-/**
- * \brief Frees every vehicle from memory.
- * \brief Caution! pointers get invalidated.
- */
 Garage::~Garage()
 {
     for (auto elem : m_vehicles)

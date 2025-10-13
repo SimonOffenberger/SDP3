@@ -44,7 +44,7 @@ Test DriveRecord Empty Print
 *******************************************
 
 vehicle plate search
-[Test OK] Result: (Expected: 000002DF1154CD80 == Result: 000002DF1154CD80)
+[Test OK] Result: (Expected: 000001E9190FCD80 == Result: 000001E9190FCD80)
 
 Test garage plate search - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -75,6 +75,12 @@ Test garage print empty garage
 [Test OK] Result: (Expected: true == Result: true)
 
 Test garage print empty garage - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Delete Vehicle
+[Test OK] Result: (Expected: 0000000000000000 == Result: 0000000000000000)
+
+Test garage print - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test Delete Vehicle

@@ -10,6 +10,8 @@
 #include "Object.hpp"
 #include "Vehicle.hpp"
 
+using TGarageCont = std::vector<Vehicle const*>;
+
 class Garage : public Object {
 public:
 
@@ -53,6 +55,7 @@ public:
     void operator=(Garage garage);
 
     ~Garage();
+
 private:
-    std::vector<Vehicle const *> m_vehicles;
+    TGarageCont m_vehicles;
 };

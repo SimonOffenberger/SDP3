@@ -44,7 +44,7 @@ Test DriveRecord Empty Print
 *******************************************
 
 vehicle plate search
-[Test OK] Result: (Expected: 000001E23142C390 == Result: 000001E23142C390)
+[Test OK] Result: (Expected: 00000130E39FFCD0 == Result: 00000130E39FFCD0)
 
 Test garage plate search - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -57,12 +57,12 @@ Test garage plate search invalid plate - error buffer
 
 Test Garage Print
 [Test OK] Result: (Expected: 
-Fahrzeugart:  Auto
+Fahrzeugart:  PKW
 Marke:        UAZ
 Kennzeichen:  SR770BA
 13.10.2025:    25 km
  == Result: 
-Fahrzeugart:  Auto
+Fahrzeugart:  PKW
 Marke:        UAZ
 Kennzeichen:  SR770BA
 13.10.2025:    25 km
@@ -115,5 +115,13 @@ Test ostream operator - error buffer
 
 
 *******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Car Print
+[Test OK] Result: (Expected: true == Result: true)
 
 TEST OK!!

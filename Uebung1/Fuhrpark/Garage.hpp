@@ -33,14 +33,14 @@ public:
      * \brief deletes Vehicle inside garage from provided pointer.
      * \param pVehicle : Pointer to a Vehicle.
      */
-    void DeleteVehicle(const Vehicle * const pVehicle);
+    void DeleteVehicle(Vehicle const * const pVehicle);
     
     /**
      * \brief Functions searches for vehicle with matching plate.
      * \param pVehicle : Pointer to a Vehicle.
      * \return pointer to the vehicle inside the garage
      */
-    const Vehicle* const SearchPlate(const std::string & plate) const;
+    Vehicle const * const SearchPlate(const std::string & plate) const;
     
     /**
      * \brief Formatted of every car and its drive record
@@ -55,6 +55,10 @@ public:
      * \return size_t total kilometers
      */
     size_t GetTotalDrivenKilometers() const;
+    
+
+    // TODO: Copy / assignement implementation
+    // TODO: overload for output operator <<
     
     Garage(const Garage&);
     void operator=(Garage garage);

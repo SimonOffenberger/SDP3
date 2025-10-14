@@ -26,7 +26,7 @@ void Garage::AddVehicle(Vehicle const * const newVehicle)
  * \brief deletes Vehicle inside garage from provided pointer.
  * \param pVehicle : Pointer to a Vehicle.
  */
-void Garage::DeleteVehicle(Vehicle* pVehicle)
+void Garage::DeleteVehicle(Vehicle const * const pVehicle)
 {   
     // if pVehicle is inside m_Vehicles -> erase and free
     auto itr = std::find(m_vehicles.begin(), m_vehicles.end(), pVehicle);
@@ -62,13 +62,16 @@ const Vehicle* const Garage::SearchPlate(const std::string & plate) const
  */
 std::ostream& Garage::Print(std::ostream& ost) const
 {
-    if (ost.fail())
+    if (!ost.good())
         throw Object::ERROR_BAD_OSTREAM;
 
     for (auto& elem : m_vehicles)
     {
         elem->Print(ost);
     }
+
+    if (ost.fail())
+        throw Object::ERROR_FAIL_WRITE;
 
     return ost;
 }

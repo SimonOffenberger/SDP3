@@ -99,8 +99,10 @@ Inheritance diagram for Vehicle:</div>
  <div class="center">
   <img src="../../dd/df6/class_vehicle.png" usemap="#Vehicle_map" alt=""/>
   <map id="Vehicle_map" name="Vehicle_map">
-<area href="../../d8/d83/class_object.html" alt="Object" shape="rect" coords="0,0,55,24"/>
-<area href="../../d6/d44/class_car.html" alt="Car" shape="rect" coords="0,112,55,136"/>
+<area href="../../d8/d83/class_object.html" alt="Object" shape="rect" coords="65,0,120,24"/>
+<area href="../../d2/d3d/class_bike.html" alt="Bike" shape="rect" coords="0,112,55,136"/>
+<area href="../../d6/d44/class_car.html" alt="Car" shape="rect" coords="65,112,120,136"/>
+<area href="../../db/d95/class_truck.html" alt="Truck" shape="rect" coords="130,112,185,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -114,8 +116,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2434ddb546ed209c418763181cbec658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the fuel member.  <br /></td></tr>
 <tr class="memitem:a2f5cc8f8ea69fcd45d7a45d798856e7c" id="r_a2f5cc8f8ea69fcd45d7a45d798856e7c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d8/ddb/class_drive_record.html">DriveRecord</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f5cc8f8ea69fcd45d7a45d798856e7c">GetDriveRecord</a> () const</td></tr>
 <tr class="memdesc:a2f5cc8f8ea69fcd45d7a45d798856e7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the drive record.  <br /></td></tr>
-<tr class="memitem:afbddf7e15ca889a885196b0fa1294c03" id="r_afbddf7e15ca889a885196b0fa1294c03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbddf7e15ca889a885196b0fa1294c03">SetPlate</a> (const std::string &amp;plate)</td></tr>
-<tr class="memdesc:afbddf7e15ca889a885196b0fa1294c03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for the plate member of a vehicle.  <br /></td></tr>
 <tr class="memitem:a563fc693b1226af46b4b27b3399e9dea" id="r_a563fc693b1226af46b4b27b3399e9dea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a563fc693b1226af46b4b27b3399e9dea">AddRecord</a> (const <a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a> &amp;entry)</td></tr>
 <tr class="memdesc:a563fc693b1226af46b4b27b3399e9dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Methode for adding a record entry to the drive record collection.  <br /></td></tr>
 <tr class="memitem:ab1298438ed93b8d7f2078e005d7a7aa8" id="r_ab1298438ed93b8d7f2078e005d7a7aa8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1298438ed93b8d7f2078e005d7a7aa8">GetMilage</a> () const</td></tr>
@@ -128,8 +128,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ac466fef0e672783edef804c947ff01ee" id="r_ac466fef0e672783edef804c947ff01ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac466fef0e672783edef804c947ff01ee">Vehicle</a> (const std::string &amp;brand, const <a class="el" href="../../d5/d41/_vehicle_8hpp.html#a4ba8f0fe0470c76ce7ee40db1ea59fbe">TFuel</a> &amp;fuelType)</td></tr>
-<tr class="memdesc:ac466fef0e672783edef804c947ff01ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">protected CTOR of a vehicle.  <br /></td></tr>
+<tr class="memitem:a1eff69903d28abcce12da2e460b33ed8" id="r_a1eff69903d28abcce12da2e460b33ed8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1eff69903d28abcce12da2e460b33ed8">Vehicle</a> (const std::string &amp;brand, const <a class="el" href="../../d5/d41/_vehicle_8hpp.html#a4ba8f0fe0470c76ce7ee40db1ea59fbe">TFuel</a> &amp;fuelType, const std::string &amp;plate)</td></tr>
+<tr class="memdesc:a1eff69903d28abcce12da2e460b33ed8"><td class="mdescLeft">&#160;</td><td class="mdescRight">protected CTOR of a vehicle.  <br /></td></tr>
 <tr class="inherit_header pro_methods_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_object')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../d8/d83/class_object.html">Object</a></td></tr>
 <tr class="memitem:afe9eeddd7068a37f62d3276a2fb49864 inherit pro_methods_class_object" id="r_afe9eeddd7068a37f62d3276a2fb49864"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d83/class_object.html#afe9eeddd7068a37f62d3276a2fb49864">Object</a> ()=default</td></tr>
 </table><table class="memberdecls">
@@ -150,8 +150,8 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00022">22</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac466fef0e672783edef804c947ff01ee" name="ac466fef0e672783edef804c947ff01ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac466fef0e672783edef804c947ff01ee">&#9670;&#160;</a></span>Vehicle()</h2>
+<a id="a1eff69903d28abcce12da2e460b33ed8" name="a1eff69903d28abcce12da2e460b33ed8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eff69903d28abcce12da2e460b33ed8">&#9670;&#160;</a></span>Vehicle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,7 +167,12 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../d5/d41/_vehicle_8hpp.html#a4ba8f0fe0470c76ce7ee40db1ea59fbe">TFuel</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>fuelType</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="../../d5/d41/_vehicle_8hpp.html#a4ba8f0fe0470c76ce7ee40db1ea59fbe">TFuel</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>fuelType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>plate</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -187,7 +192,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00090">90</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00083">83</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
 
 </div>
 </div>
@@ -215,7 +220,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html#l00028">28</a> of file <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html">Vehicle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html#l00055">55</a> of file <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html">Vehicle.cpp</a>.</p>
 
 </div>
 </div>
@@ -245,7 +250,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Creates a clone of the vehicle. </p>
 <dl class="section return"><dt>Returns</dt><dd>a excat replicate of a vehicle </dd></dl>
 
-<p>Implemented in <a class="el" href="../../d6/d44/class_car.html#ae091c374711bbd70417257382f472554">Car</a>.</p>
+<p>Implemented in <a class="el" href="../../d2/d3d/class_bike.html#a808cbc29aa2952dc6b015e3625bab98f">Bike</a>, <a class="el" href="../../d6/d44/class_car.html#ae091c374711bbd70417257382f472554">Car</a>, and <a class="el" href="../../db/d95/class_truck.html#adb5ec1ff05a5c99c4c97ebce279b7c55">Truck</a>.</p>
 
 </div>
 </div>
@@ -267,7 +272,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Getter for the brand member. </p>
 <dl class="section return"><dt>Returns</dt><dd>string with the brand name </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html#l00003">3</a> of file <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html">Vehicle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html#l00015">15</a> of file <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html">Vehicle.cpp</a>.</p>
 
 </div>
 </div>
@@ -289,7 +294,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Getter for the drive record. </p>
 <dl class="section return"><dt>Returns</dt><dd>const refernce to the drive record </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html#l00018">18</a> of file <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html">Vehicle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html#l00045">45</a> of file <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html">Vehicle.cpp</a>.</p>
 
 </div>
 </div>
@@ -311,7 +316,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Getter for the fuel member. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d5/d41/_vehicle_8hpp.html#a4ba8f0fe0470c76ce7ee40db1ea59fbe">TFuel</a> with the specified fuel type </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html#l00013">13</a> of file <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html">Vehicle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html#l00035">35</a> of file <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html">Vehicle.cpp</a>.</p>
 
 </div>
 </div>
@@ -333,7 +338,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Getter for the total milage of a vehicle. </p>
 <dl class="section return"><dt>Returns</dt><dd>Total milage of a vehicle </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html#l00033">33</a> of file <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html">Vehicle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html#l00065">65</a> of file <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html">Vehicle.cpp</a>.</p>
 
 </div>
 </div>
@@ -355,34 +360,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Getter for the plate member. </p>
 <dl class="section return"><dt>Returns</dt><dd>string with the plate name </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html#l00008">8</a> of file <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html">Vehicle.cpp</a>.</p>
-
-</div>
-</div>
-<a id="afbddf7e15ca889a885196b0fa1294c03" name="afbddf7e15ca889a885196b0fa1294c03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbddf7e15ca889a885196b0fa1294c03">&#9670;&#160;</a></span>SetPlate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Vehicle::SetPlate </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>plate</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Setter for the plate member of a vehicle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">plate</td><td>: string that represents the plate </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html#l00023">23</a> of file <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html">Vehicle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html#l00025">25</a> of file <a class="el" href="../../d3/dce/_vehicle_8cpp_source.html">Vehicle.cpp</a>.</p>
 
 </div>
 </div>
@@ -407,7 +385,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00093">93</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00086">86</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
 
 </div>
 </div>
@@ -431,7 +409,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00095">95</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00088">88</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
 
 </div>
 </div>
@@ -455,7 +433,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00094">94</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00087">87</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
 
 </div>
 </div>
@@ -479,7 +457,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00096">96</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00089">89</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
 
 </div>
 </div>

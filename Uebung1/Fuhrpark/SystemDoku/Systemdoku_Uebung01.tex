@@ -226,27 +226,26 @@ Zusätzlich soll auch noch ein Fahrtenbuch zu jedem Fahrzeug gespeichert werden.
 \section{Systementwurf}
 
 \subsection{Klassendiagramm}
-\color{blue}
-Hier wird das Klassendiagramm eingefügt. Sollte dieses nicht auf eine A4-Seite passen, so kann es in eine eingene pdf-Datei ausgelagert werden.
-Verweisen Sie an dieser Stelle auf diese Datei.
-\color{black}
-
+\includegraphics[width=14cm]{./Images/Klassendiagramm.png}
+\newpage
 
 \subsection{Designentscheidungen}
 Im Klassendiagramm wurde der Polymorphismus angewendet, um unterschiedliche Fahrzeugarten mit der gemeinsamen Schnittstelle 'Vehicle' anzusprechen. Die Klasse 'Garage' speichert einen Container mit der abstrakte Basisklasse 'Vehicle' als Elementtyp und kann somit alle bestehenden und auch neuen Fahrzeugarten verwalten, die sich von der gemeinsamen Basisklasse 'Vehicle' ableiten.
 Für die Aufzeichnung eines Fahrtenbuches wurde die Klasse \textbf{DriveRecord} implementiert. Diese Klasse speichert mehrere Objekte der Klasse \textbf{RecordEntry}.
 Die Record Entries werden im Fahrtenbuch in einem \textbf{Multiset} gespeichert, damit sind die Einträge ins Fahrtenbuch immer nach dem Datum aufsteigend sortiert.
 Aus diesem Grund wurde der \textbf{operator<} für die Record Entries definiert. Dieser vergleicht das Datum der Einträge.
-Dadurch, dass die Einträge ins Fahrtenbuch als eigene Klasse implementiert wurde, lassen sich die einzelnen Einträge schnell und einfach erweitern.
-
-Sie beantworten meist folgende Fragen:\\
-\begin{itemize}
-	\item Warum wurde die Klassenhierarchie so gewÃ¤hlt?
-	\item Wurden Design Pattern verwendet und warum?
-	\item Wurde Abstraktion und der Polymorphismus angewendet?
-	\item Wie kann die Klassenstruktur einfach erweitert werden?
-	\item 
-\end{itemize}
+Dadurch, dass die Einträge ins Fahrtenbuch als eigene Klasse implementiert wurde, lassen sich die einzelnen Einträge schnell und einfach erweitern.\\
+\\
+\\
+Als Container für die Speicherung der Fahrzeuge in der Klasse \textbf{Garage} wurde der Vektor verwendet. 
+Dieser erlaubt es schnell Fahrzeuge hinzuzufügen, und das Suchen geschieht relativ schnell in O(n).
+Einzig und allein, das Löschen aus der Mitte des Vektors stellt bei größerwerdenden Fuhrparks ein Problem dar.
+Wenn dies in der Verwendung des Fuhrparks öfters passiert sollte der verwendete Container ausgetauscht werden.
+\\
+\\
+Die Klassen \textbf{Car, Truck und Bike} wurden für die Konkretisierung der Printfunktion verwendet.
+Diese Klassen lassen sich schnell und einfach erweitern, und können trotzdem weiter vom Fuhrpark verwaltet werden.\\
+\\
 
 \color{black}
 

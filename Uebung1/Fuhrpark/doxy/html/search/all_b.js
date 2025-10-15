@@ -8,6 +8,8 @@ var searchData=
   ['testend_5',['TestEnd',['../d9/dfc/_test_8hpp.html#a691840f2987a116a057b9d3ed20b0840',1,'Test.hpp']]],
   ['teststart_6',['TestStart',['../d9/dfc/_test_8hpp.html#a70ab735d21302384bf5ad55a9f430610',1,'Test.hpp']]],
   ['tfuel_7',['TFuel',['../d5/d41/_vehicle_8hpp.html#a4ba8f0fe0470c76ce7ee40db1ea59fbe',1,'Vehicle.hpp']]],
-  ['truck_2ecpp_8',['Truck.cpp',['../db/d35/_truck_8cpp.html',1,'']]],
-  ['truck_2ehpp_9',['Truck.hpp',['../df/dc1/_truck_8hpp.html',1,'']]]
+  ['tgaragecont_8',['TGarageCont',['../d9/d02/_garage_8hpp.html#ac26c0400fd5a6429197f8848b6a778b3',1,'Garage.hpp']]],
+  ['truck_9',['Truck',['../db/d95/class_truck.html',1,'Truck'],['../db/d95/class_truck.html#a02eba85dd130f6eac9810197218c69ed',1,'Truck::Truck()']]],
+  ['truck_2ecpp_10',['Truck.cpp',['../db/d35/_truck_8cpp.html',1,'']]],
+  ['truck_2ehpp_11',['Truck.hpp',['../df/dc1/_truck_8hpp.html',1,'']]]
 ];

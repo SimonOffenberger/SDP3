@@ -44,7 +44,7 @@ Test DriveRecord Empty Print
 *******************************************
 
 vehicle plate search
-[Test OK] Result: (Expected: 00000130E39FFCD0 == Result: 00000130E39FFCD0)
+[Test OK] Result: (Expected: 000001FBA98DFCC0 == Result: 000001FBA98DFCC0)
 
 Test garage plate search - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -121,7 +121,7 @@ Test ostream operator - error buffer
              TESTCASE START                
 *******************************************
 
-Test Car Print
+Test Car Print without record
 [Test OK] Result: (Expected: true == Result: true)
 
 TEST OK!!

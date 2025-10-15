@@ -10,7 +10,7 @@
 #include "Object.hpp"
 #include "Vehicle.hpp"
 
-using TGarageCont = std::vector<Vehicle const*>;
+using TGarageCont = std::vector<Vehicle const *>;
 
 class Garage : public Object {
 public:

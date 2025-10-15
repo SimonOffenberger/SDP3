@@ -107,6 +107,12 @@ bool Test_RecordEntry(ostream& ost)
 	
 	badstream.close();
 
+
+	RecordEntry entrygreater{ {2025y,October,8d},10 };
+	RecordEntry entryless{ {2025y,October,6d},6 };
+
+	Test_OK = Test_OK && check_dump(ost, "Test RecordEntry less than operator", true, entryless<entrygreater);
+
 	ost << TestEnd;
 
 	return Test_OK;

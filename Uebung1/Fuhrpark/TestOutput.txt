@@ -15,6 +15,9 @@ Test RecordEntry Print
 Test RecordEntry Exception Bad Ostream
 [Test OK] Result: (Expected: ERROR: Provided Ostream is bad == Result: ERROR: Provided Ostream is bad)
 
+Test RecordEntry less than operator
+[Test OK] Result: (Expected: true == Result: true)
+
 
 *******************************************
 

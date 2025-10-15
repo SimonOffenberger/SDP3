@@ -56,10 +56,6 @@ public:
      */
     size_t GetTotalDrivenKilometers() const;
     
-
-    // TODO: Copy / assignement implementation
-    // TODO: overload for output operator <<
-    
     Garage(const Garage&);
     void operator=(Garage garage);
 

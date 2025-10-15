@@ -27,7 +27,6 @@ static bool Test_Car(ostream & ost = cout);
 static bool Test_Bike(ostream & ost = cout);
 static bool Test_Truck(ostream & ost = cout);
 
-
 #define WriteOutputFile true
 
 int main(void){
@@ -339,12 +338,6 @@ static bool Test_Garage(ostream& ost)
 	Test_OK = Test_OK && check_dump(ost, "Test garage print empty garage - error buffer", error_msg.empty(), true);
 	error_msg.clear();
 
-	// TODO: Test Garage::DeleteVehicle
-	// TODO: Test Copy and Swap Assign Operator
-	// TODO: Test Add Vehicle with nullptr
-	// TODO: Test Total Driven Kilometers
-	// TODO: Test output operator 
-
 	try
 	{
 		std::string testPlate = "SR770BA";
@@ -380,7 +373,7 @@ static bool Test_Garage(ostream& ost)
 	Test_OK = Test_OK && check_dump(ost, "Test garage print - error buffer", error_msg.empty(), true);
 	error_msg.clear();
 
-	// TODO: Test Copy and Swap
+	//Test Copy and Swap
 	try
 	{
 		std::string testPlate = "SR770BA";
@@ -455,7 +448,7 @@ static bool Test_Garage(ostream& ost)
 	Test_OK = Test_OK && check_dump(ost, "Test GetTotalDrivenKilometers() - error buffer", error_msg.empty(), true);
 	error_msg.clear();
 
-	// TODO: Test ostream operator
+	//Test ostream operator
 	try
 	{
 		Car* const testCar1 = new Car{ "Madza", Elektro, "WD40AHAH" };

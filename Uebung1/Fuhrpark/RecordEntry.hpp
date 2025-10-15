@@ -20,13 +20,15 @@ using TDate = std::chrono::year_month_day;
 class RecordEntry : public Object {
 public:
 
+	inline static const std::string ERROR_DISTANCE_ZERO = "ERROR: Distance cannot be zero!";
+
 	/**
 	 * \brief CTOR of a drive record.
 	 * 
 	 * \param date : date when the drive happend
 	 * \param distance : the distance of the drive in km
 	 */
-	RecordEntry(const TDate & date,const size_t & distance) : m_date{ date }, m_distance{ distance } {}
+	RecordEntry(const TDate& date, const size_t& distance);
 
 	/**
 	 * \brief Getter of the distance member of the Record Entry Class.

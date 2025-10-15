@@ -9,6 +9,12 @@
 
 using namespace std;
 
+RecordEntry::RecordEntry(const TDate& date, const size_t& distance) : m_date{date}
+{
+	if (distance == 0) throw RecordEntry::ERROR_DISTANCE_ZERO;
+	m_distance = distance;
+}
+
 /**
 * \brief Getter of the distance member of the Record Entry Class.
 *

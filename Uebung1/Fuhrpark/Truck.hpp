@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   Truck.hpp
+ * \brief  Header fo the specific Class Truck
+ *
+ * \author Simon
+ * \date   October 2025
+ *********************************************************************/
 #ifndef TRUCK_HPP
 #define TRUCK_HPP
 

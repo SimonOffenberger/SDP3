@@ -50,7 +50,7 @@ public:
 	 * \param ost : Refernce to an ostream where the Entry should be printed at.
 	 * \return Referenced ostream
 	 */
-	virtual std::ostream& Print(std::ostream& ost = std::cout) const override;
+	virtual std::ostream& Print(std::ostream& ost = std::cout) const;
 
 	/**
 	 * \brief less than operater, is used for storing the Entries in a multiset.

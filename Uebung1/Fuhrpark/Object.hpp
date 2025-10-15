@@ -20,11 +20,7 @@ public:
     * Virtual DTOR, once virtual always virtual.
     */
    virtual ~Object() = default;  
- 
-   /**
-    * .
-    */
-   virtual std::ostream& Print(std::ostream & ost = std::cout) const = 0;  
+
 
 protected:  
    Object() = default;  

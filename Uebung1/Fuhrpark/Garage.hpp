@@ -5,6 +5,9 @@
  * \author Simon Vogelhuber
  * \date   October 2025
  *********************************************************************/
+#ifndef GARAGE_HPP
+#define GARAGE_HPP
+
 #include <vector>
 #include <string>
 #include "Object.hpp"
@@ -47,7 +50,7 @@ public:
      * \param ost : Refernce to an ostream where the Entry should be printed at.
      * \return Referenced ostream
      */
-    std::ostream& Print(std::ostream& ost = std::cout) const override;
+	std::ostream& Print(std::ostream& ost = std::cout) const;
 
     /**
      * \brief Calculates sum of every kilometer every vehicle has driven 
@@ -70,3 +73,5 @@ private:
  * \return ostream
  */
 std::ostream& operator <<(std::ostream& ost, Garage& garage);
+
+#endif

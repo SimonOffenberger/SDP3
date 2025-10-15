@@ -41,7 +41,7 @@ public:
 	 * \param ost : Refernce to an ostream where the Entries should be printed at.
 	 * \return Referenced ostream
 	 */
-	virtual std::ostream& Print(std::ostream& ost = std::cout) const override;
+	virtual std::ostream& Print(std::ostream& ost = std::cout) const;
 
 private:
 

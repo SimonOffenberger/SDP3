@@ -11,13 +11,7 @@
 
 #include "Object.hpp"
 #include "DriveRecord.hpp"
-
-// Enumeration for a fuel type
-enum TFuel {
-	Diesel = 0,
-	Benzin = 1,
-	Elektro = 2,
-};
+#include "TFuel.hpp"
 
 class Vehicle: public Object {
 public:
@@ -70,6 +64,16 @@ public:
 	 * \return a excat replicate of a vehicle
 	 */
 	virtual Vehicle const* Clone() const = 0;
+
+
+	/**
+	 * \brief Print function that is implementet by dirved Classes.
+	 * 
+	 * \param ost Reference to an ostream where the Result should be printed at
+	 * \return referenced ostream
+	 */
+	virtual std::ostream& Print(std::ostream& ost = std::cout) const = 0;
+
 
 protected:
 

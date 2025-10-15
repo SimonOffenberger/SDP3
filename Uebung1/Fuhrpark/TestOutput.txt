@@ -18,6 +18,9 @@ Test RecordEntry Exception Bad Ostream
 Test RecordEntry less than operator
 [Test OK] Result: (Expected: true == Result: true)
 
+Test RecordEntry Exceotion Distance = 0
+[Test OK] Result: (Expected: ERROR: Distance cannot be zero! == Result: ERROR: Distance cannot be zero!)
+
 
 *******************************************
 
@@ -47,7 +50,7 @@ Test DriveRecord Empty Print
 *******************************************
 
 vehicle plate search
-[Test OK] Result: (Expected: 0000021CA8F22FA0 == Result: 0000021CA8F22FA0)
+[Test OK] Result: (Expected: 0000026BCA0565E0 == Result: 0000026BCA0565E0)
 
 Test garage plate search - error buffer
 [Test OK] Result: (Expected: true == Result: true)

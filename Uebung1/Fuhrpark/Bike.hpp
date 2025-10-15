@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   Bike.hpp
+ * \brief  Header fo the specific Class Bike
+ *
+ * \author Simon
+ * \date   October 2025
+ *********************************************************************/
 #ifndef BIKE_HPP
 #define BIKE_HPP
 

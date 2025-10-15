@@ -44,7 +44,7 @@ Test DriveRecord Empty Print
 *******************************************
 
 vehicle plate search
-[Test OK] Result: (Expected: 000001FBA98DFCC0 == Result: 000001FBA98DFCC0)
+[Test OK] Result: (Expected: 0000021CA8F22FA0 == Result: 0000021CA8F22FA0)
 
 Test garage plate search - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -97,13 +97,13 @@ Test GetTotalDrivenKilometers() - error buffer
 
 Test ostream operator
 [Test OK] Result: (Expected: 
-Fahrzeugart:  Auto
+Fahrzeugart:  PKW
 Marke:        Madza
 Kennzeichen:  WD40AHAH
 13.10.2025:    25 km
 28.10.2025:    34 km
  == Result: 
-Fahrzeugart:  Auto
+Fahrzeugart:  PKW
 Marke:        Madza
 Kennzeichen:  WD40AHAH
 13.10.2025:    25 km
@@ -112,6 +112,9 @@ Kennzeichen:  WD40AHAH
 
 Test ostream operator - error buffer
 [Test OK] Result: (Expected: true == Result: true)
+
+TestAdding Car as nullptr;
+[Test OK] Result: (Expected: ERROR: Passed in Nullptr! == Result: ERROR: Passed in Nullptr!)
 
 
 *******************************************

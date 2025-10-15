@@ -50,7 +50,7 @@ Test DriveRecord Empty Print
 *******************************************
 
 vehicle plate search
-[Test OK] Result: (Expected: 0000026BCA0565E0 == Result: 0000026BCA0565E0)
+[Test OK] Result: (Expected: 0000028418CD2560 == Result: 0000028418CD2560)
 
 Test garage plate search - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -95,7 +95,7 @@ Test Delete Vehicle
 Test Delete Vehicle - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
-TTest GetTotalDrivenKilometers()
+Test GetTotalDrivenKilometers()
 [Test OK] Result: (Expected: 118 == Result: 118)
 
 Test GetTotalDrivenKilometers() - error buffer
@@ -120,6 +120,9 @@ Test ostream operator - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 TestAdding Car as nullptr;
+[Test OK] Result: (Expected: ERROR: Passed in Nullptr! == Result: ERROR: Passed in Nullptr!)
+
+TestDeleting Car as nullptr;
 [Test OK] Result: (Expected: ERROR: Passed in Nullptr! == Result: ERROR: Passed in Nullptr!)
 
 

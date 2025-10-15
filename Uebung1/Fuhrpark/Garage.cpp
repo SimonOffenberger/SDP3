@@ -21,6 +21,8 @@ void Garage::AddVehicle(Vehicle const * const newVehicle)
  */
 void Garage::DeleteVehicle(Vehicle const * const pVehicle)
 {   
+    if (pVehicle == nullptr) throw ERROR_NULLPTR;
+
     // if pVehicle is inside m_Vehicles -> erase and free
     auto itr = std::find(m_vehicles.begin(), m_vehicles.end(), pVehicle);
     if (itr != m_vehicles.end())

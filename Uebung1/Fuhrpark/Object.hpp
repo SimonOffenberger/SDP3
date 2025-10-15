@@ -21,8 +21,10 @@ public:
     */
    virtual ~Object() = default;  
 
-
-protected:  
+protected: 
+	/**
+	 * \brief protected CTOR -> abstract.
+	 */
    Object() = default;  
 };  
 

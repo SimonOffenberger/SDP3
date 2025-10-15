@@ -454,7 +454,7 @@ static bool Test_Garage(ostream& ost)
 
 		size_t result = testGarage.GetTotalDrivenKilometers();
 
-		Test_OK = Test_OK && check_dump(ost, "TTest GetTotalDrivenKilometers()", expect, result);
+		Test_OK = Test_OK && check_dump(ost, "Test GetTotalDrivenKilometers()", expect, result);
 	}
 
 	catch (const string& err) {
@@ -523,6 +523,23 @@ static bool Test_Garage(ostream& ost)
 	}
 
 	Test_OK = Test_OK && check_dump(ost, "TestAdding Car as nullptr;", error_msg, Garage::ERROR_NULLPTR);
+	error_msg.clear();	
+	
+	// Adding Deleting as nullptr;
+	try
+	{
+		Car* const testCar1 = nullptr;
+		Garage testGarage;
+		testGarage.DeleteVehicle(testCar1);	
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "TestDeleting Car as nullptr;", error_msg, Garage::ERROR_NULLPTR);
 	error_msg.clear();
 
 	// End of garage testing

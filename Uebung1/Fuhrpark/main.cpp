@@ -113,6 +113,25 @@ bool Test_RecordEntry(ostream& ost)
 
 	Test_OK = Test_OK && check_dump(ost, "Test RecordEntry less than operator", true, entryless<entrygreater);
 
+	try {
+		RecordEntry entry{ TDate{2025y,October,13d}, 0 };
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test RecordEntry Exceotion Distance = 0", RecordEntry::ERROR_DISTANCE_ZERO, error_msg);
+
+
 	ost << TestEnd;
 
 	return Test_OK;

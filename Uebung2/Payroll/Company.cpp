@@ -1,0 +1,116 @@
+#include <algorithm>
+#include <numeric>
+#include <iostream>
+#include "Company.hpp"
+#include "Employee.hpp"
+using namespace std;
+
+/**
+ * \brief Ostream manipulater for creating a horizontal line.
+ *
+ * \return string
+ */
+static ostream & hline(ostream & ost) {
+
+	ost << string(60, '-') << endl;
+	return ost;
+}
+
+/**
+ * \brief Ostream manipulater for creating a horizontal line.
+ *
+ * \return string
+ */
+static ostream & hstar(ostream & ost) {
+
+	ost << string(60, '*') << endl;
+	return ost;
+}
+
+void Company::AddEmployee(Employee const* empl)
+{
+	m_Employees.emplace( empl->GetID(), empl );
+}
+
+Company::Company(const Company& comp)
+{
+	// clone all employees from one company to the other
+	for_each(
+		comp.m_Employees.cbegin(), comp.m_Employees.cend(),
+		[&](auto& e) {AddEmployee(e.second->Clone());
+		});
+}
+
+void Company::operator=(Company comp)
+{
+	std::swap(m_Employees, comp.m_Employees);
+}
+
+size_t Company::GetCompanySize() const
+{
+	return m_Employees.size();
+}
+
+size_t Company::GetWorkerCount(const TWorker& workerType) const
+{
+	return count_if(m_Employees.cbegin(), m_Employees.cend(),
+					[&](auto& e) {return e.second->GetWorkerType() == workerType;});
+}
+
+size_t Company::GetSoldItems() const
+{
+	return accumulate(m_Employees.cbegin(), m_Employees.cend(),static_cast<size_t>(0),
+		[](size_t val, const auto& e) { return val + e.second->GetSoldItems();});
+}
+
+size_t Company::GetProducedItems() const
+{
+	return accumulate(m_Employees.cbegin(), m_Employees.cend(), static_cast<size_t>(0),
+		[](size_t val, const auto& e) { return val + e.second->GetProducedItems();});
+}
+
+size_t Company::GetCountWorkerBeforData(const TDate& date) const
+{
+	return count_if(m_Employees.cbegin(), m_Employees.cend(),
+		[&](const auto& e) {return e.second->GetDateBirth() < date;});
+}
+
+Employee const * Company::FindWorkerByID(const std::string& id) const
+{
+	return m_Employees.find(id)->second;
+}
+
+Employee const * Company::GetLongestServing(void) const
+{
+	return min_element(m_Employees.cbegin(), m_Employees.cend(),
+		[](const auto& lhs, const auto& rhs) { return lhs.second->GetDateBirth() < rhs.second->GetDateBirth();})->second;
+}
+
+std::ostream& Company::PrintDataSheet(std::ostream& ost) const
+{
+	if (!ost.good()) throw Object::ERROR_BAD_OSTREAM;
+
+	ost << hstar;
+	ost << m_companyName << endl;
+	ost << hstar;
+	
+	for_each(m_Employees.cbegin(), m_Employees.cend(), [&](const auto& e) { e.second->PrintDatasheet(ost);});
+
+	ost << hline;
+	ost << std::chrono::system_clock::now() << endl;
+	ost << hline;
+
+	if (ost.fail()) throw Object::ERROR_FAIL_WRITE;
+
+	return ost;
+}
+
+Company::~Company()
+{
+	for (auto elem : m_Employees)
+	{
+		delete elem.second;
+	}
+
+	m_Employees.clear();
+}

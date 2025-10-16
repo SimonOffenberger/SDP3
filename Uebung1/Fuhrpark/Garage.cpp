@@ -70,10 +70,10 @@ size_t Garage::GetTotalDrivenKilometers() const
     return sum;
 }
 
-Garage::Garage(const Garage&)
+Garage::Garage(const Garage& garage)
 {
     for_each(
-        m_vehicles.cbegin(), m_vehicles.cend(), 
+        garage.m_vehicles.cbegin(), garage.m_vehicles.cend(), 
         [&](auto v) {AddVehicle(v->Clone()); 
         });
 }

@@ -8,21 +8,21 @@
 class IComp{
 public:
 
-	virtual size_t GetCompanySize() = 0;
+	virtual size_t GetCompanySize() const = 0;
 
-	virtual size_t GetWorkerCount(TWorker workerType) = 0;
+	virtual size_t GetWorkerCount(const TWorker & workerType) const = 0;
 
-	virtual size_t GetSoldItems() = 0;
+	virtual size_t GetSoldItems() const = 0;
 
-	virtual size_t GetProducedItems() = 0;
+	virtual size_t GetProducedItems() const = 0;
 
-	virtual size_t GetCountWorkerBeforData(TDate date) = 0;
+	virtual size_t GetCountWorkerBeforData(const TDate & date) const = 0;
 
-	virtual Employee* FindWorkerByID(std::string) = 0;
+	virtual Employee const * FindWorkerByID(const std::string & id) const = 0;
 	
-	virtual Employee* GetLongestServing(void) = 0;
+	virtual Employee const * GetLongestServing(void) const = 0;
 
-	virtual std::ostream& PrintDataSheet(std::ostream& ost) = 0;
+	virtual std::ostream& PrintDataSheet(std::ostream& ost) const = 0;
 
 	
 };

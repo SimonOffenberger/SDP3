@@ -12,7 +12,7 @@ public:
      * \param
      * \param
      */
-    std::ostream& PrintSpecificData(std::ostream& ost) override;
+    std::ostream& PrintSpecificData(std::ostream& ost) const  override;
 
     /**
      * \brief HERE
@@ -20,7 +20,7 @@ public:
      * \param
      * \param
      */
-    size_t GetProducedItems() override;
+    size_t GetProducedItems() const override;
 
     /**
      * \brief HERE

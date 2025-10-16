@@ -59,7 +59,7 @@ public:
      */
     size_t GetTotalDrivenKilometers() const;
     
-    Garage(const Garage&);
+    Garage(const Garage& garage);
     void operator=(Garage garage);
 
     ~Garage();

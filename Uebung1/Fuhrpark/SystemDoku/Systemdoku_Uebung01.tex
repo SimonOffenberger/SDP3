@@ -30,6 +30,7 @@
 \usepackage{listings}   % fÃ¼r den Sourcecode
 \usepackage{pdfpages}
 
+
 \pagestyle{fancy}       % Kopf- / Fusszeile aktivieren
 
 \definecolor{failred}{rgb}{0.7, 0.0, 0.0}
@@ -119,7 +120,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 
 \selectlanguage{naustrian}   % oder "american" fÃ¼r engl. Texte
 
-\includepdf{Deckblatt_Uebung01.pdf}
+\includepdf[pages=1-3]{Deckblatt_Uebung01.pdf}
 
 % Titelblatt
 % ----------
@@ -215,6 +216,8 @@ Zusätzlich soll auch noch ein Fahrtenbuch zu jedem Fahrzeug gespeichert werden.
 	\item Ausgabe aller Fahrzeugdaten inklusive der Fahrtenbucheinträge.
 	\item Suchen nach einem Fahrzeug mit dessen Kennzeichen.
 	\item Berechnung der Gesamtkilometer aller Fahrzeuge im Fuhrpark.
+	\item Der Fuhrpark muss kopierbar und zuweisbar sein.
+	\item Nach hinzufügen der Fahrzeuge sind diese im Besitz des Fuhrparks, dieser ist dadurch auch für das Löschen verantwortlich.
 \end{itemize}
 
 \textbf{Funktionen der Fahrzeuge}
@@ -230,13 +233,17 @@ Zusätzlich soll auch noch ein Fahrtenbuch zu jedem Fahrzeug gespeichert werden.
 
 \subsection{Klassendiagramm}
 \includegraphics[width=14cm]{./Images/Klassendiagramm.png}
+In diesem Klassendiagramm ist der Systementwurf für diese Aufgabe abgebildet. \\
+Dies entspricht nicht dem endgültigen Stand der in der Software abgebildet ist. \\
+Außerdem sind CTOR und DTOR nur im Object eingetragen. \\
+Da dies implementierungsspezifische Angaben sind und nicht im UML Standard definiert sind. \\
 \newpage
 
 \subsection{Designentscheidungen}
-Im Klassendiagramm wurde der Polymorphismus angewendet, um unterschiedliche Fahrzeugarten mit der gemeinsamen Schnittstelle 'Vehicle' anzusprechen. Die Klasse 'Garage' speichert einen Container mit der abstrakte Basisklasse 'Vehicle' als Elementtyp und kann somit alle bestehenden und auch neuen Fahrzeugarten verwalten, die sich von der gemeinsamen Basisklasse 'Vehicle' ableiten.
+Im Klassendiagramm wurde der Polymorphismus angewendet, um unterschiedliche Fahrzeugarten mit der gemeinsamen Schnittstelle 'Vehicle' anzusprechen. Die Klasse \textbf{Garage} speichert einen Container mit der abstrakte Basisklasse 'Vehicle' als Elementtyp und kann somit alle bestehenden und auch neuen Fahrzeugarten verwalten, die sich von der gemeinsamen Basisklasse 'Vehicle' ableiten.
 Für die Aufzeichnung eines Fahrtenbuches wurde die Klasse \textbf{DriveRecord} implementiert. Diese Klasse speichert mehrere Objekte der Klasse \textbf{RecordEntry}.
 Die Record Entries werden im Fahrtenbuch in einem \textbf{Multiset} gespeichert, damit sind die Einträge ins Fahrtenbuch immer nach dem Datum aufsteigend sortiert.
-Aus diesem Grund wurde der \textbf{operator<} für die Record Entries definiert. Dieser vergleicht das Datum der Einträge.
+\\Aus diesem Grund wurde der \textbf{operator<} für die Record Entries definiert. Dieser vergleicht das Datum der Einträge.
 Dadurch, dass die Einträge ins Fahrtenbuch als eigene Klasse implementiert wurde, lassen sich die einzelnen Einträge schnell und einfach erweitern.\\
 \\
 \\
@@ -264,49 +271,62 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 
 \subsection{Object.hpp}
 \lstinputlisting{../Object.hpp}
+\clearpage
 
 \subsection{RecordEntry.hpp}
 \lstinputlisting{./../RecordEntry.hpp}
 
+\clearpage
 \subsection{RecordEntry.cpp}
 \lstinputlisting{./../RecordEntry.cpp}
+\clearpage
 
 \subsection{DriveRecord.hpp}
 \lstinputlisting{./../DriveRecord.hpp}
 
+\clearpage
 \subsection{DriveRecord.cpp}
 \lstinputlisting{./../DriveRecord.cpp}
-
+\clearpage
 \subsection{Garage.hpp}
 \lstinputlisting{./../Garage.hpp}
+\clearpage
 
 \subsection{Garage.cpp}
 \lstinputlisting{./../Garage.cpp}
+\clearpage
 
 \subsection{TFuel.hpp}
 \lstinputlisting{./../TFuel.hpp}
+\clearpage
 
 \subsection{Vehicle.hpp}
 \lstinputlisting{./../Vehicle.hpp}
-
+\clearpage
 \subsection{Vehicle.cpp}
 \lstinputlisting{./../Vehicle.cpp}
+\clearpage
 
 \subsection{Car.hpp}
 \lstinputlisting{./../Car.hpp}
+\clearpage
 
 \subsection{Car.cpp}
 \lstinputlisting{./../Car.cpp}
 
+\clearpage
 \subsection{Truck.hpp}
 \lstinputlisting{./../Truck.hpp}
+\clearpage
 
 \subsection{Truck.cpp}
 \lstinputlisting{./../Truck.cpp}
+\clearpage
 
 \subsection{Bike.hpp}
 \lstinputlisting{./../Bike.hpp}
 
+\clearpage
 \subsection{Bike.cpp}
 \lstinputlisting{./../Bike.cpp}
 

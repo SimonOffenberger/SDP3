@@ -550,23 +550,443 @@ static bool Test_Garage(ostream& ost)
 
 static bool Test_Car(ostream& ost) {
 	ost << TestStart;
-
 	bool Test_OK = true;
+	std::string error_msg;
 
-	Car Audi{ "Audi A3",Diesel,"SB278FH" };
+	// Test Fuel Type Getter
+	try
+	{
+		TFuel testType = Benzin;
+		Car testCar{ "Audi", testType, "SR770BA" };
 
-	string expected = "\nFahrzeugart:  PKW\nMarke:        Audi A3\nKennzeichen:  SB278FH\n";
-	stringstream result;
-	Audi.Print(result);
+		Test_OK = Test_OK && check_dump(ost, "Test car fueltype", testCar.GetFuelType(), testType);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
 
-	Test_OK = Test_OK && check_dump(ost, "Test Car Print without record",true ,expected == result.str());
+	Test_OK = Test_OK && check_dump(ost, "Test car fueltype - error buffer", error_msg.empty(), true);
+	error_msg.clear();
 
+	// Test Plate Getter
+	try
+	{
+		TFuel testType = Benzin;
+		std::string testPlate = "SR770BA";
+		Car testCar{ "Audi", testType, testPlate };
+
+		Test_OK = Test_OK && check_dump(ost, "Test car plate", testCar.GetPlate(), testPlate);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test car plate - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Test Brand Getter
+	try
+	{
+		TFuel testType = Benzin;
+		std::string testPlate = "SR770BA";
+		std::string testBrand= "Steyr";
+		Car testCar{ testBrand, testType, testPlate };
+
+		Test_OK = Test_OK && check_dump(ost, "Test car brand", testCar.GetBrand(), testBrand);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test car brand - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Test Milage Getter
+	try
+	{
+		TFuel testType = Benzin;
+		std::string testPlate = "SR770BA";
+		std::string testBrand = "Steyr";
+		Car testCar{ testBrand, testType, testPlate };
+		size_t miles = 25;
+		testCar.AddRecord({ { 2025y,October,13d }, miles });
+
+		Test_OK = Test_OK && check_dump(ost, "Test car milage", testCar.GetMilage(), miles);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test car milage - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Test DriveRecord Getter
+	try
+	{
+		TFuel testType = Benzin;
+		std::string testPlate = "SR770BA";
+		std::string testBrand = "Steyr";
+		Car testCar{ testBrand, testType, testPlate };
+		size_t miles = 25;
+		DriveRecord driveRecord; 
+		RecordEntry recordEntry = { { 2025y,October,13d }, miles };
+		driveRecord.AddRecord(recordEntry);
+		testCar.AddRecord(recordEntry);
+
+		stringstream expect;
+		stringstream result;
+		driveRecord.Print(expect);
+		testCar.GetDriveRecord().Print(result);
+		Test_OK = Test_OK && check_dump(ost, "Test car driveRecord", expect.str(), result.str());
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test car driveRecord - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+
+	ost << TestEnd;
 	return Test_OK;
 
 }
 static bool Test_Bike(ostream& ost) {
-	return true;
+	ost << TestStart;
+	bool Test_OK = true;
+	std::string error_msg;
+
+	// Test Fuel Type Getter
+	try
+	{
+		TFuel testType = Benzin;
+		Bike testCar{ "Audi", testType, "SR770BA" };
+
+		Test_OK = Test_OK && check_dump(ost, "Test Bike fueltype", testCar.GetFuelType(), testType);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test Bike fueltype - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Test Plate Getter
+	try
+	{
+		TFuel testType = Benzin;
+		std::string testPlate = "SR770BA";
+		Bike testCar{ "Audi", testType, testPlate };
+
+		Test_OK = Test_OK && check_dump(ost, "Test Bike plate", testCar.GetPlate(), testPlate);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test Bike plate - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Test Brand Getter
+	try
+	{
+		TFuel testType = Benzin;
+		std::string testPlate = "SR770BA";
+		std::string testBrand = "Steyr";
+		Bike testCar{ testBrand, testType, testPlate };
+
+		Test_OK = Test_OK && check_dump(ost, "Test Bike brand", testCar.GetBrand(), testBrand);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test Bike brand - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Test Milage Getter
+	try
+	{
+		TFuel testType = Benzin;
+		std::string testPlate = "SR770BA";
+		std::string testBrand = "Steyr";
+		Car testCar{ testBrand, testType, testPlate };
+		size_t miles = 25;
+		testCar.AddRecord({ { 2025y,October,13d }, miles });
+
+		Test_OK = Test_OK && check_dump(ost, "Test Bike milage", testCar.GetMilage(), miles);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test Bike milage - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Test DriveRecord Getter
+	try
+	{
+		TFuel testType = Benzin;
+		std::string testPlate = "SR770BA";
+		std::string testBrand = "Steyr";
+		Bike testCar{ testBrand, testType, testPlate };
+		size_t miles = 25;
+		DriveRecord driveRecord;
+		RecordEntry recordEntry = { { 2025y,October,13d }, miles };
+		driveRecord.AddRecord(recordEntry);
+		testCar.AddRecord(recordEntry);
+
+		stringstream expect;
+		stringstream result;
+		driveRecord.Print(expect);
+		testCar.GetDriveRecord().Print(result);
+		Test_OK = Test_OK && check_dump(ost, "Test Bike driveRecord", expect.str(), result.str());
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test Bike driveRecord - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+
+	ost << TestEnd;
+	return Test_OK;
 }
 static bool Test_Truck(ostream& ost){
-	return true;
+	ost << TestStart;
+	bool Test_OK = true;
+	std::string error_msg;
+
+	// Test Fuel Type Getter
+	try
+	{
+		TFuel testType = Benzin;
+		Truck testCar{ "Audi", testType, "SR770BA" };
+
+		Test_OK = Test_OK && check_dump(ost, "Test Truck fueltype", testCar.GetFuelType(), testType);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test Truck fueltype - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Test Plate Getter
+	try
+	{
+		TFuel testType = Benzin;
+		std::string testPlate = "SR770BA";
+		Truck testCar{ "Audi", testType, testPlate };
+
+		Test_OK = Test_OK && check_dump(ost, "Test Truck plate", testCar.GetPlate(), testPlate);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test Truck plate - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Test Brand Getter
+	try
+	{
+		TFuel testType = Benzin;
+		std::string testPlate = "SR770BA";
+		std::string testBrand = "Steyr";
+		Truck testCar{ testBrand, testType, testPlate };
+
+		Test_OK = Test_OK && check_dump(ost, "Test Truck brand", testCar.GetBrand(), testBrand);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test car brand - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Test Milage Getter
+	try
+	{
+		TFuel testType = Benzin;
+		std::string testPlate = "SR770BA";
+		std::string testBrand = "Steyr";
+		Truck testCar{ testBrand, testType, testPlate };
+		size_t miles = 25;
+		testCar.AddRecord({ { 2025y,October,13d }, miles });
+
+		Test_OK = Test_OK && check_dump(ost, "Test Truck milage", testCar.GetMilage(), miles);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test Truck milage - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Test DriveRecord Getter
+	try
+	{
+		TFuel testType = Benzin;
+		std::string testPlate = "SR770BA";
+		std::string testBrand = "Steyr";
+		Truck testCar{ testBrand, testType, testPlate };
+		size_t miles = 25;
+		DriveRecord driveRecord;
+		RecordEntry recordEntry = { { 2025y,October,13d }, miles };
+		driveRecord.AddRecord(recordEntry);
+		testCar.AddRecord(recordEntry);
+
+		stringstream expect;
+		stringstream result;
+		driveRecord.Print(expect);
+		testCar.GetDriveRecord().Print(result);
+		Test_OK = Test_OK && check_dump(ost, "Test truck driveRecord", expect.str(), result.str());
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test truck driveRecord - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+
+	ost << TestEnd;
+	return Test_OK;
 }

@@ -50,7 +50,7 @@ Test DriveRecord Empty Print
 *******************************************
 
 vehicle plate search
-[Test OK] Result: (Expected: 0000028418CD2560 == Result: 0000028418CD2560)
+[Test OK] Result: (Expected: 000001F2945709D0 == Result: 000001F2945709D0)
 
 Test garage plate search - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -133,7 +133,119 @@ TestDeleting Car as nullptr;
              TESTCASE START                
 *******************************************
 
-Test Car Print without record
+Test car fueltype
+[Test OK] Result: (Expected: 1 == Result: 1)
+
+Test car fueltype - error buffer
 [Test OK] Result: (Expected: true == Result: true)
+
+Test car plate
+[Test OK] Result: (Expected: SR770BA == Result: SR770BA)
+
+Test car plate - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test car brand
+[Test OK] Result: (Expected: Steyr == Result: Steyr)
+
+Test car brand - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test car milage
+[Test OK] Result: (Expected: 25 == Result: 25)
+
+Test car milage - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test car driveRecord
+[Test OK] Result: (Expected: 13.10.2025:    25 km
+ == Result: 13.10.2025:    25 km
+)
+
+Test car driveRecord - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Bike fueltype
+[Test OK] Result: (Expected: 1 == Result: 1)
+
+Test Bike fueltype - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Bike plate
+[Test OK] Result: (Expected: SR770BA == Result: SR770BA)
+
+Test Bike plate - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Bike brand
+[Test OK] Result: (Expected: Steyr == Result: Steyr)
+
+Test Bike brand - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Bike milage
+[Test OK] Result: (Expected: 25 == Result: 25)
+
+Test Bike milage - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Bike driveRecord
+[Test OK] Result: (Expected: 13.10.2025:    25 km
+ == Result: 13.10.2025:    25 km
+)
+
+Test Bike driveRecord - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Truck fueltype
+[Test OK] Result: (Expected: 1 == Result: 1)
+
+Test Truck fueltype - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Truck plate
+[Test OK] Result: (Expected: SR770BA == Result: SR770BA)
+
+Test Truck plate - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Truck brand
+[Test OK] Result: (Expected: Steyr == Result: Steyr)
+
+Test car brand - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Truck milage
+[Test OK] Result: (Expected: 25 == Result: 25)
+
+Test Truck milage - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test truck driveRecord
+[Test OK] Result: (Expected: 13.10.2025:    25 km
+ == Result: 13.10.2025:    25 km
+)
+
+Test truck driveRecord - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
 
 TEST OK!!

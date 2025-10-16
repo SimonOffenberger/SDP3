@@ -26,8 +26,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Fuhrpark
+   <div id="projectname">Fuhrpark<span id="projectnumber">&#160;V1.0</span>
    </div>
+   <div id="projectbrief">This projects implements a Software Architektor for administrationg a vehicle fleet.</div>
   </td>
  </tr>
  </tbody>
@@ -106,19 +107,23 @@ Inheritance diagram for Garage:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9c32438d0bb8f96de432f97dbb07dd80" id="r_a9c32438d0bb8f96de432f97dbb07dd80"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c32438d0bb8f96de432f97dbb07dd80">Garage</a> ()=default</td></tr>
+<tr class="memdesc:a9c32438d0bb8f96de432f97dbb07dd80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default CTOR.  <br /></td></tr>
 <tr class="memitem:a0099b296564271908b0f9ba661e309b4" id="r_a0099b296564271908b0f9ba661e309b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0099b296564271908b0f9ba661e309b4">AddVehicle</a> (<a class="el" href="../../dd/df6/class_vehicle.html">Vehicle</a> const *const newVehicle)</td></tr>
 <tr class="memdesc:a0099b296564271908b0f9ba661e309b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a vehicle to a vehicle collection.  <br /></td></tr>
 <tr class="memitem:a4c6da2898f17e892169bc6d1a1c52f85" id="r_a4c6da2898f17e892169bc6d1a1c52f85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c6da2898f17e892169bc6d1a1c52f85">DeleteVehicle</a> (<a class="el" href="../../dd/df6/class_vehicle.html">Vehicle</a> const *const pVehicle)</td></tr>
 <tr class="memdesc:a4c6da2898f17e892169bc6d1a1c52f85"><td class="mdescLeft">&#160;</td><td class="mdescRight">deletes <a class="el" href="../../dd/df6/class_vehicle.html">Vehicle</a> inside garage from provided pointer.  <br /></td></tr>
 <tr class="memitem:a3248bd1694728ed3fbbe22dad39af42a" id="r_a3248bd1694728ed3fbbe22dad39af42a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/df6/class_vehicle.html">Vehicle</a> const *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3248bd1694728ed3fbbe22dad39af42a">SearchPlate</a> (const std::string &amp;plate) const</td></tr>
 <tr class="memdesc:a3248bd1694728ed3fbbe22dad39af42a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functions searches for vehicle with matching plate.  <br /></td></tr>
-<tr class="memitem:a86071f9ed6cd3ecccbc3c2c3dc56bce9" id="r_a86071f9ed6cd3ecccbc3c2c3dc56bce9"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86071f9ed6cd3ecccbc3c2c3dc56bce9">Print</a> (std::ostream &amp;ost=std::cout) const override</td></tr>
-<tr class="memdesc:a86071f9ed6cd3ecccbc3c2c3dc56bce9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formatted of every car and its drive record.  <br /></td></tr>
+<tr class="memitem:a27a4c36caa8096c44ebe5672fc46239d" id="r_a27a4c36caa8096c44ebe5672fc46239d"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27a4c36caa8096c44ebe5672fc46239d">Print</a> (std::ostream &amp;ost=std::cout) const</td></tr>
+<tr class="memdesc:a27a4c36caa8096c44ebe5672fc46239d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formatted of every car and its drive record.  <br /></td></tr>
 <tr class="memitem:aac65d9e50e4aaa9e4560bc11838394ff" id="r_aac65d9e50e4aaa9e4560bc11838394ff"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac65d9e50e4aaa9e4560bc11838394ff">GetTotalDrivenKilometers</a> () const</td></tr>
 <tr class="memdesc:aac65d9e50e4aaa9e4560bc11838394ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates sum of every kilometer every vehicle has driven.  <br /></td></tr>
-<tr class="memitem:a3a7f9239d8de7898e339b6d5ebb8d64a" id="r_a3a7f9239d8de7898e339b6d5ebb8d64a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a7f9239d8de7898e339b6d5ebb8d64a">Garage</a> (const <a class="el" href="../../d2/d91/class_garage.html">Garage</a> &amp;)</td></tr>
+<tr class="memitem:a9018ef73a0ae3d3a4eb2d1d38193f7a0" id="r_a9018ef73a0ae3d3a4eb2d1d38193f7a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9018ef73a0ae3d3a4eb2d1d38193f7a0">Garage</a> (const <a class="el" href="../../d2/d91/class_garage.html">Garage</a> &amp;garage)</td></tr>
+<tr class="memdesc:a9018ef73a0ae3d3a4eb2d1d38193f7a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy CTOR of <a class="el" href="../../d2/d91/class_garage.html">Garage</a>. Is Needed because <a class="el" href="../../d2/d91/class_garage.html">Garage</a>.  <br /></td></tr>
 <tr class="memitem:af9eca3071daaaa24411cbe6e60f9f097" id="r_af9eca3071daaaa24411cbe6e60f9f097"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9eca3071daaaa24411cbe6e60f9f097">operator=</a> (<a class="el" href="../../d2/d91/class_garage.html">Garage</a> garage)</td></tr>
+<tr class="memdesc:af9eca3071daaaa24411cbe6e60f9f097"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign Operator for a <a class="el" href="../../d8/d83/class_object.html">Object</a> of <a class="el" href="../../d2/d91/class_garage.html">Garage</a>.  <br /></td></tr>
 <tr class="memitem:a6ca5d5442fc034da72120fe281c14db3" id="r_a6ca5d5442fc034da72120fe281c14db3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ca5d5442fc034da72120fe281c14db3">~Garage</a> ()</td></tr>
+<tr class="memdesc:a6ca5d5442fc034da72120fe281c14db3"><td class="mdescLeft">&#160;</td><td class="mdescRight">DTOR of a <a class="el" href="../../d2/d91/class_garage.html">Garage</a> obj.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_object')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../d8/d83/class_object.html">Object</a></td></tr>
 <tr class="memitem:a226f2ae2af766b77d83c09a4d766b725 inherit pub_methods_class_object" id="r_a226f2ae2af766b77d83c09a4d766b725"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d83/class_object.html#a226f2ae2af766b77d83c09a4d766b725">~Object</a> ()=default</td></tr>
 </table><table class="memberdecls">
@@ -137,10 +142,11 @@ Private Attributes</h2></td></tr>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_object')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../d8/d83/class_object.html">Object</a></td></tr>
 <tr class="memitem:afe9eeddd7068a37f62d3276a2fb49864 inherit pro_methods_class_object" id="r_afe9eeddd7068a37f62d3276a2fb49864"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d83/class_object.html#afe9eeddd7068a37f62d3276a2fb49864">Object</a> ()=default</td></tr>
+<tr class="memdesc:afe9eeddd7068a37f62d3276a2fb49864 inherit pro_methods_class_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">protected CTOR -&gt; abstract.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d9/d02/_garage_8hpp_source.html#l00015">15</a> of file <a class="el" href="../../d9/d02/_garage_8hpp_source.html">Garage.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d02/_garage_8hpp_source.html#l00019">19</a> of file <a class="el" href="../../d9/d02/_garage_8hpp_source.html">Garage.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9c32438d0bb8f96de432f97dbb07dd80" name="a9c32438d0bb8f96de432f97dbb07dd80"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9c32438d0bb8f96de432f97dbb07dd80">&#9670;&#160;</a></span>Garage() <span class="overload">[1/2]</span></h2>
@@ -165,10 +171,12 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Default CTOR. </p>
+
 </div>
 </div>
-<a id="a3a7f9239d8de7898e339b6d5ebb8d64a" name="a3a7f9239d8de7898e339b6d5ebb8d64a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a7f9239d8de7898e339b6d5ebb8d64a">&#9670;&#160;</a></span>Garage() <span class="overload">[2/2]</span></h2>
+<a id="a9018ef73a0ae3d3a4eb2d1d38193f7a0" name="a9018ef73a0ae3d3a4eb2d1d38193f7a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9018ef73a0ae3d3a4eb2d1d38193f7a0">&#9670;&#160;</a></span>Garage() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -176,13 +184,22 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">Garage::Garage </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d2/d91/class_garage.html">Garage</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d91/class_garage.html">Garage</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>garage</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d51/_garage_8cpp_source.html#l00071">71</a> of file <a class="el" href="../../dd/d51/_garage_8cpp_source.html">Garage.cpp</a>.</p>
+<p>Copy CTOR of <a class="el" href="../../d2/d91/class_garage.html">Garage</a>. Is Needed because <a class="el" href="../../d2/d91/class_garage.html">Garage</a>. </p>
+<p>owns all the <a class="el" href="../../dd/df6/class_vehicle.html">Vehicle</a> Objects that are allocated on the heap.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">garage</td><td><a class="el" href="../../d2/d91/class_garage.html">Garage</a> that should be copied </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/d51/_garage_8cpp_source.html#l00073">73</a> of file <a class="el" href="../../dd/d51/_garage_8cpp_source.html">Garage.cpp</a>.</p>
 
 </div>
 </div>
@@ -201,7 +218,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d51/_garage_8cpp_source.html#l00084">84</a> of file <a class="el" href="../../dd/d51/_garage_8cpp_source.html">Garage.cpp</a>.</p>
+<p>DTOR of a <a class="el" href="../../d2/d91/class_garage.html">Garage</a> obj. </p>
+<p>Frees all the allocated Memory </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/d51/_garage_8cpp_source.html#l00086">86</a> of file <a class="el" href="../../dd/d51/_garage_8cpp_source.html">Garage.cpp</a>.</p>
 
 </div>
 </div>
@@ -281,7 +301,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Calculates sum of every kilometer every vehicle has driven. </p>
 <p>in total </p><dl class="section return"><dt>Returns</dt><dd>size_t total kilometers </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d51/_garage_8cpp_source.html#l00062">62</a> of file <a class="el" href="../../dd/d51/_garage_8cpp_source.html">Garage.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d51/_garage_8cpp_source.html#l00064">64</a> of file <a class="el" href="../../dd/d51/_garage_8cpp_source.html">Garage.cpp</a>.</p>
 
 </div>
 </div>
@@ -300,18 +320,23 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d51/_garage_8cpp_source.html#l00079">79</a> of file <a class="el" href="../../dd/d51/_garage_8cpp_source.html">Garage.cpp</a>.</p>
+<p>Assign Operator for a <a class="el" href="../../d8/d83/class_object.html">Object</a> of <a class="el" href="../../d2/d91/class_garage.html">Garage</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">garage</td><td><a class="el" href="../../d2/d91/class_garage.html">Garage</a> of the right hand side of the assignment. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../dd/d51/_garage_8cpp_source.html#l00081">81</a> of file <a class="el" href="../../dd/d51/_garage_8cpp_source.html">Garage.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a86071f9ed6cd3ecccbc3c2c3dc56bce9" name="a86071f9ed6cd3ecccbc3c2c3dc56bce9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86071f9ed6cd3ecccbc3c2c3dc56bce9">&#9670;&#160;</a></span>Print()</h2>
+<a id="a27a4c36caa8096c44ebe5672fc46239d" name="a27a4c36caa8096c44ebe5672fc46239d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27a4c36caa8096c44ebe5672fc46239d">&#9670;&#160;</a></span>Print()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::ostream &amp; Garage::Print </td>
@@ -320,11 +345,6 @@ Additional Inherited Members</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Formatted of every car and its drive record. </p>
@@ -335,10 +355,15 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Referenced ostream </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ERROR_BAD_OSTREAM</td><td></td></tr>
+    <tr><td class="paramname">ERROR_WRITE_FAIL</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Implements <a class="el" href="../../d8/d83/class_object.html#a0ddfacb1738bd1c6ae7079aa3b7d1584">Object</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="../../dd/d51/_garage_8cpp_source.html#l00046">46</a> of file <a class="el" href="../../dd/d51/_garage_8cpp_source.html">Garage.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d51/_garage_8cpp_source.html#l00048">48</a> of file <a class="el" href="../../dd/d51/_garage_8cpp_source.html">Garage.cpp</a>.</p>
 
 </div>
 </div>
@@ -358,15 +383,9 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Functions searches for vehicle with matching plate. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pVehicle</td><td>: Pointer to a <a class="el" href="../../dd/df6/class_vehicle.html">Vehicle</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>pointer to the vehicle inside the garage </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d51/_garage_8cpp_source.html#l00033">33</a> of file <a class="el" href="../../dd/d51/_garage_8cpp_source.html">Garage.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d51/_garage_8cpp_source.html#l00035">35</a> of file <a class="el" href="../../dd/d51/_garage_8cpp_source.html">Garage.cpp</a>.</p>
 
 </div>
 </div>
@@ -390,8 +409,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Defintions of the Exceptionmessages </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d02/_garage_8hpp_source.html#l00018">18</a> of file <a class="el" href="../../d9/d02/_garage_8hpp_source.html">Garage.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d02/_garage_8hpp_source.html#l00025">25</a> of file <a class="el" href="../../d9/d02/_garage_8hpp_source.html">Garage.hpp</a>.</p>
 
 </div>
 </div>
@@ -415,7 +435,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d02/_garage_8hpp_source.html#l00069">69</a> of file <a class="el" href="../../d9/d02/_garage_8hpp_source.html">Garage.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d02/_garage_8hpp_source.html#l00095">95</a> of file <a class="el" href="../../d9/d02/_garage_8hpp_source.html">Garage.hpp</a>.</p>
 
 </div>
 </div>

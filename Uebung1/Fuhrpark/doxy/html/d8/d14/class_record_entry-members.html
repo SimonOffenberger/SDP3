@@ -26,8 +26,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Fuhrpark
+   <div id="projectname">Fuhrpark<span id="projectnumber">&#160;V1.0</span>
    </div>
+   <div id="projectbrief">This projects implements a Software Architektor for administrationg a vehicle fleet.</div>
   </td>
  </tr>
  </tbody>
@@ -95,16 +96,17 @@ $(function(){initNavTree('d2/de3/class_record_entry.html','../../',''); });
 <p>This is the complete list of members for <a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a>, including all inherited members.</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="../../d8/d83/class_object.html#a57c0b8c70b9dc9f1d1688b989cd08c04">ERROR_BAD_OSTREAM</a></td><td class="entry"><a class="el" href="../../d8/d83/class_object.html">Object</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d83/class_object.html#a2adb788f2ffb1c6d56e8ec8b9789b0ac">ERROR_FAIL_WRITE</a></td><td class="entry"><a class="el" href="../../d8/d83/class_object.html">Object</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html#a38eeb0bb872429e92437af0f919de9cc">GetDate</a>() const</td><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html#adf783500915555d2fca10f062c80c984">GetDistance</a>() const</td><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html#aeb95f7b23126710c18faea64ff4b51f1">m_date</a></td><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html#a2359ed560a6355172754740d77a54128">m_distance</a></td><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d8/d83/class_object.html#afe9eeddd7068a37f62d3276a2fb49864">Object</a>()=default</td><td class="entry"><a class="el" href="../../d8/d83/class_object.html">Object</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html#af1471375678f8a8703fa6997b4f7bfb0">operator&lt;</a>(const RecordEntry &amp;rh) const</td><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html#ad6d31b52d34fc83d9212de630bdb5ef3">Print</a>(std::ostream &amp;ost=std::cout) const override</td><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html#a6621d88ec82b641c2ba097f026f8b6fd">RecordEntry</a>(const TDate &amp;date, const size_t &amp;distance)</td><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d8/d83/class_object.html#a226f2ae2af766b77d83c09a4d766b725">~Object</a>()=default</td><td class="entry"><a class="el" href="../../d8/d83/class_object.html">Object</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html#a78ac5f517d5154f34c6a584df9572adb">ERROR_DISTANCE_ZERO</a></td><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d83/class_object.html#a2adb788f2ffb1c6d56e8ec8b9789b0ac">ERROR_FAIL_WRITE</a></td><td class="entry"><a class="el" href="../../d8/d83/class_object.html">Object</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html#a38eeb0bb872429e92437af0f919de9cc">GetDate</a>() const</td><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html#adf783500915555d2fca10f062c80c984">GetDistance</a>() const</td><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html#aeb95f7b23126710c18faea64ff4b51f1">m_date</a></td><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html#a2359ed560a6355172754740d77a54128">m_distance</a></td><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d83/class_object.html#afe9eeddd7068a37f62d3276a2fb49864">Object</a>()=default</td><td class="entry"><a class="el" href="../../d8/d83/class_object.html">Object</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html#af1471375678f8a8703fa6997b4f7bfb0">operator&lt;</a>(const RecordEntry &amp;rh) const</td><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html#a3a81e7ed1ea4e8831611cf349e783207">Print</a>(std::ostream &amp;ost=std::cout) const</td><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html#a6621d88ec82b641c2ba097f026f8b6fd">RecordEntry</a>(const TDate &amp;date, const size_t &amp;distance)</td><td class="entry"><a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d83/class_object.html#a226f2ae2af766b77d83c09a4d766b725">~Object</a>()=default</td><td class="entry"><a class="el" href="../../d8/d83/class_object.html">Object</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

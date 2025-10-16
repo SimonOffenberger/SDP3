@@ -691,11 +691,57 @@ static bool Test_Car(ostream& ost) {
 	Test_OK = Test_OK && check_dump(ost, "Test car driveRecord - error buffer", error_msg.empty(), true);
 	error_msg.clear();
 
+	// Test Exception emtpy string
+	try
+	{
+		TFuel testType = Benzin;
+
+		Car testCar{ "", testType, "SB278FH" };
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test Car CTOR empty brand", Vehicle::ERROR_EMPTY_STRING, error_msg);
+	error_msg.clear();
+
+	try
+	{
+		TFuel testType = Benzin;
+
+		Car testCar{ "Audi", testType, "" };
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test Car CTOR empty plate", Vehicle::ERROR_EMPTY_STRING, error_msg);
+	error_msg.clear();
 
 	ost << TestEnd;
 	return Test_OK;
 
 }
+
+
 static bool Test_Bike(ostream& ost) {
 	ost << TestStart;
 	bool Test_OK = true;
@@ -839,10 +885,55 @@ static bool Test_Bike(ostream& ost) {
 	Test_OK = Test_OK && check_dump(ost, "Test Bike driveRecord - error buffer", error_msg.empty(), true);
 	error_msg.clear();
 
+	// Test Exception emtpy string
+	try
+	{
+		TFuel testType = Benzin;
+
+		Bike testCar{ "", testType, "SB278FH" };
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test Bike CTOR empty brand", Vehicle::ERROR_EMPTY_STRING, error_msg);
+	error_msg.clear();
+
+	try
+	{
+		TFuel testType = Benzin;
+
+		Bike testCar{ "Audi", testType, "" };
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test Bike CTOR empty plate", Vehicle::ERROR_EMPTY_STRING, error_msg);
+	error_msg.clear();
 
 	ost << TestEnd;
 	return Test_OK;
 }
+
 static bool Test_Truck(ostream& ost){
 	ost << TestStart;
 	bool Test_OK = true;
@@ -932,8 +1023,9 @@ static bool Test_Truck(ostream& ost){
 		Truck testCar{ testBrand, testType, testPlate };
 		size_t miles = 25;
 		testCar.AddRecord({ { 2025y,October,13d }, miles });
+		testCar.AddRecord({ { 2025y,October,13d }, miles });
 
-		Test_OK = Test_OK && check_dump(ost, "Test Truck milage", testCar.GetMilage(), miles);
+		Test_OK = Test_OK && check_dump(ost, "Test Truck milage", testCar.GetMilage(), 2*miles);
 	}
 	catch (const string& err) {
 		error_msg = err;
@@ -984,6 +1076,51 @@ static bool Test_Truck(ostream& ost){
 	}
 
 	Test_OK = Test_OK && check_dump(ost, "Test truck driveRecord - error buffer", error_msg.empty(), true);
+	error_msg.clear();	
+	
+	// Test Exception emtpy string
+	try
+	{
+		TFuel testType = Benzin;
+
+		Truck testCar{ "", testType, "SB278FH" };
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test truck CTOR empty brand", Vehicle::ERROR_EMPTY_STRING,error_msg);
+	error_msg.clear();	
+	
+	try
+	{
+		TFuel testType = Benzin;
+
+		Truck testCar{ "Audi", testType, "" };
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandled exception";
+	}
+
+	Test_OK = Test_OK && check_dump(ost, "Test truck CTOR empty plate", Vehicle::ERROR_EMPTY_STRING,error_msg);
 	error_msg.clear();
 
 

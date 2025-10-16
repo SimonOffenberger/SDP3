@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   Vehicle.c
+ * \file   Garage.cpp
  * \brief  Implementation of Garage.h
  * \author Simon Vogelhuber
  * \date   October 2025

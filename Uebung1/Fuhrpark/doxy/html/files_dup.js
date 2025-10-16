@@ -13,6 +13,7 @@ var files_dup =
     [ "RecordEntry.cpp", "d8/d5d/_record_entry_8cpp.html", null ],
     [ "RecordEntry.hpp", "d7/d3e/_record_entry_8hpp.html", "d7/d3e/_record_entry_8hpp" ],
     [ "Test.hpp", "d9/dfc/_test_8hpp.html", "d9/dfc/_test_8hpp" ],
+    [ "TFuel.hpp", "d8/d0c/_t_fuel_8hpp.html", "d8/d0c/_t_fuel_8hpp" ],
     [ "Truck.cpp", "db/d35/_truck_8cpp.html", null ],
     [ "Truck.hpp", "df/dc1/_truck_8hpp.html", "df/dc1/_truck_8hpp" ],
     [ "Vehicle.cpp", "d3/dce/_vehicle_8cpp.html", null ],

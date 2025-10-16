@@ -26,8 +26,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Fuhrpark
+   <div id="projectname">Fuhrpark<span id="projectnumber">&#160;V1.0</span>
    </div>
+   <div id="projectbrief">This projects implements a Software Architektor for administrationg a vehicle fleet.</div>
   </td>
  </tr>
  </tbody>
@@ -110,25 +111,25 @@ $(function(){initNavTree('dd/dfa/_drive_record_8hpp_source.html','../../',''); }
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>   <span class="keywordtype">size_t</span> <a class="code hl_function" href="../../d8/ddb/class_drive_record.html#ad1cc0bc0e74b6f2c797faa3cc723402b">GetMilage</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>   <span class="keyword">virtual</span> std::ostream&amp; <a class="code hl_function" href="../../d8/ddb/class_drive_record.html#ade750374eb69d0d5871fcddb79ea74f0">Print</a>(std::ostream&amp; ost = std::cout) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>   <span class="keyword">virtual</span> std::ostream&amp; <a class="code hl_function" href="../../d8/ddb/class_drive_record.html#a3d7bc6118a3871d511ddc27257730ffb">Print</a>(std::ostream&amp; ost = std::cout) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../d8/ddb/class_drive_record.html#acea5d230b1a8692718c79c20aef5f1e2">   48</a></span>   <a class="code hl_typedef" href="../../dd/dfa/_drive_record_8hpp.html#ab4cf23958b2426702dc9609cd6cf45ec">TCont</a> <a class="code hl_variable" href="../../d8/ddb/class_drive_record.html#acea5d230b1a8692718c79c20aef5f1e2">m_driveRecords</a>;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d8/ddb/class_drive_record.html#acea5d230b1a8692718c79c20aef5f1e2">   50</a></span>   <a class="code hl_typedef" href="../../dd/dfa/_drive_record_8hpp.html#ab4cf23958b2426702dc9609cd6cf45ec">TCont</a> <a class="code hl_variable" href="../../d8/ddb/class_drive_record.html#acea5d230b1a8692718c79c20aef5f1e2">m_driveRecords</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
 </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#endif </span><span class="comment">// !1</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#endif </span><span class="comment">// !1</span></div>
 <div class="ttc" id="a_drive_record_8hpp_html_ab4cf23958b2426702dc9609cd6cf45ec"><div class="ttname"><a href="../../dd/dfa/_drive_record_8hpp.html#ab4cf23958b2426702dc9609cd6cf45ec">TCont</a></div><div class="ttdeci">std::multiset&lt; RecordEntry &gt; TCont</div><div class="ttdef"><b>Definition</b> <a href="#l00019">DriveRecord.hpp:19</a></div></div>
 <div class="ttc" id="a_object_8hpp_html"><div class="ttname"><a href="../../db/d78/_object_8hpp.html">Object.hpp</a></div><div class="ttdoc">Root of all Objects.</div></div>
 <div class="ttc" id="a_record_entry_8hpp_html"><div class="ttname"><a href="../../d7/d3e/_record_entry_8hpp.html">RecordEntry.hpp</a></div><div class="ttdoc">Class that defines an entry in a dirve record.</div></div>
 <div class="ttc" id="aclass_drive_record_html"><div class="ttname"><a href="../../d8/ddb/class_drive_record.html">DriveRecord</a></div><div class="ttdef"><b>Definition</b> <a href="#l00021">DriveRecord.hpp:21</a></div></div>
-<div class="ttc" id="aclass_drive_record_html_a0a557c1cf38e05cce95201a5231c942a"><div class="ttname"><a href="../../d8/ddb/class_drive_record.html#a0a557c1cf38e05cce95201a5231c942a">DriveRecord::AddRecord</a></div><div class="ttdeci">void AddRecord(const RecordEntry &amp;entry)</div><div class="ttdoc">Methode for adding a record entry to a collection of drive records.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d0d/_drive_record_8cpp_source.html#l00017">DriveRecord.cpp:17</a></div></div>
-<div class="ttc" id="aclass_drive_record_html_acea5d230b1a8692718c79c20aef5f1e2"><div class="ttname"><a href="../../d8/ddb/class_drive_record.html#acea5d230b1a8692718c79c20aef5f1e2">DriveRecord::m_driveRecords</a></div><div class="ttdeci">TCont m_driveRecords</div><div class="ttdef"><b>Definition</b> <a href="#l00048">DriveRecord.hpp:48</a></div></div>
-<div class="ttc" id="aclass_drive_record_html_ad1cc0bc0e74b6f2c797faa3cc723402b"><div class="ttname"><a href="../../d8/ddb/class_drive_record.html#ad1cc0bc0e74b6f2c797faa3cc723402b">DriveRecord::GetMilage</a></div><div class="ttdeci">size_t GetMilage() const</div><div class="ttdoc">This methode adds up all the distance of all record entries.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d0d/_drive_record_8cpp_source.html#l00027">DriveRecord.cpp:27</a></div></div>
-<div class="ttc" id="aclass_drive_record_html_ade750374eb69d0d5871fcddb79ea74f0"><div class="ttname"><a href="../../d8/ddb/class_drive_record.html#ade750374eb69d0d5871fcddb79ea74f0">DriveRecord::Print</a></div><div class="ttdeci">virtual std::ostream &amp; Print(std::ostream &amp;ost=std::cout) const override</div><div class="ttdoc">Formatted output of all Record Entry on an ostream.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d0d/_drive_record_8cpp_source.html#l00040">DriveRecord.cpp:40</a></div></div>
-<div class="ttc" id="aclass_object_html_afe9eeddd7068a37f62d3276a2fb49864"><div class="ttname"><a href="../../d8/d83/class_object.html#afe9eeddd7068a37f62d3276a2fb49864">Object::Object</a></div><div class="ttdeci">Object()=default</div></div>
+<div class="ttc" id="aclass_drive_record_html_a0a557c1cf38e05cce95201a5231c942a"><div class="ttname"><a href="../../d8/ddb/class_drive_record.html#a0a557c1cf38e05cce95201a5231c942a">DriveRecord::AddRecord</a></div><div class="ttdeci">void AddRecord(const RecordEntry &amp;entry)</div><div class="ttdoc">Methode for adding a record entry to a collection of drive records.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d0d/_drive_record_8cpp_source.html#l00013">DriveRecord.cpp:13</a></div></div>
+<div class="ttc" id="aclass_drive_record_html_a3d7bc6118a3871d511ddc27257730ffb"><div class="ttname"><a href="../../d8/ddb/class_drive_record.html#a3d7bc6118a3871d511ddc27257730ffb">DriveRecord::Print</a></div><div class="ttdeci">virtual std::ostream &amp; Print(std::ostream &amp;ost=std::cout) const</div><div class="ttdoc">Formatted output of all Record Entry on an ostream.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d0d/_drive_record_8cpp_source.html#l00027">DriveRecord.cpp:27</a></div></div>
+<div class="ttc" id="aclass_drive_record_html_acea5d230b1a8692718c79c20aef5f1e2"><div class="ttname"><a href="../../d8/ddb/class_drive_record.html#acea5d230b1a8692718c79c20aef5f1e2">DriveRecord::m_driveRecords</a></div><div class="ttdeci">TCont m_driveRecords</div><div class="ttdef"><b>Definition</b> <a href="#l00050">DriveRecord.hpp:50</a></div></div>
+<div class="ttc" id="aclass_drive_record_html_ad1cc0bc0e74b6f2c797faa3cc723402b"><div class="ttname"><a href="../../d8/ddb/class_drive_record.html#ad1cc0bc0e74b6f2c797faa3cc723402b">DriveRecord::GetMilage</a></div><div class="ttdeci">size_t GetMilage() const</div><div class="ttdoc">This methode adds up all the distance of all record entries.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d0d/_drive_record_8cpp_source.html#l00019">DriveRecord.cpp:19</a></div></div>
+<div class="ttc" id="aclass_object_html_afe9eeddd7068a37f62d3276a2fb49864"><div class="ttname"><a href="../../d8/d83/class_object.html#afe9eeddd7068a37f62d3276a2fb49864">Object::Object</a></div><div class="ttdeci">Object()=default</div><div class="ttdoc">protected CTOR -&gt; abstract.</div></div>
 <div class="ttc" id="aclass_record_entry_html"><div class="ttname"><a href="../../d2/de3/class_record_entry.html">RecordEntry</a></div><div class="ttdef"><b>Definition</b> <a href="../../d7/d3e/_record_entry_8hpp_source.html#l00020">RecordEntry.hpp:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

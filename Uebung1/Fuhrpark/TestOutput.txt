@@ -50,7 +50,7 @@ Test DriveRecord Empty Print
 *******************************************
 
 vehicle plate search
-[Test OK] Result: (Expected: 000001F2945709D0 == Result: 000001F2945709D0)
+[Test OK] Result: (Expected: 00000223107B1010 == Result: 00000223107B1010)
 
 Test garage plate search - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -165,6 +165,12 @@ Test car driveRecord
 Test car driveRecord - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
+Test Car CTOR empty brand
+[Test OK] Result: (Expected: ERROR: Passed in empty string! == Result: ERROR: Passed in empty string!)
+
+Test Car CTOR empty plate
+[Test OK] Result: (Expected: ERROR: Passed in empty string! == Result: ERROR: Passed in empty string!)
+
 
 *******************************************
 
@@ -205,6 +211,12 @@ Test Bike driveRecord
 Test Bike driveRecord - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
+Test Bike CTOR empty brand
+[Test OK] Result: (Expected: ERROR: Passed in empty string! == Result: ERROR: Passed in empty string!)
+
+Test Bike CTOR empty plate
+[Test OK] Result: (Expected: ERROR: Passed in empty string! == Result: ERROR: Passed in empty string!)
+
 
 *******************************************
 
@@ -232,7 +244,7 @@ Test car brand - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test Truck milage
-[Test OK] Result: (Expected: 25 == Result: 25)
+[Test OK] Result: (Expected: 50 == Result: 50)
 
 Test Truck milage - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -244,6 +256,12 @@ Test truck driveRecord
 
 Test truck driveRecord - error buffer
 [Test OK] Result: (Expected: true == Result: true)
+
+Test truck CTOR empty brand
+[Test OK] Result: (Expected: ERROR: Passed in empty string! == Result: ERROR: Passed in empty string!)
+
+Test truck CTOR empty plate
+[Test OK] Result: (Expected: ERROR: Passed in empty string! == Result: ERROR: Passed in empty string!)
 
 
 *******************************************

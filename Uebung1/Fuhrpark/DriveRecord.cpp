@@ -9,21 +9,13 @@
 #include <algorithm>
 #include "DriveRecord.hpp"
 
-/**
-* \brief Methode for adding a record entry to a collection of drive records.
-*
-* \param entry : Record to be added to the colletion
-*/
+
 void DriveRecord::AddRecord(const RecordEntry& entry)
 {
 	m_driveRecords.insert(entry);
 }
 
-/**
-* \brief This methode adds up all the distance of all record entries.
-*
-* \return the sum of all distances in the collection
-*/
+
 size_t DriveRecord::GetMilage() const
 {
 	// use std accumulet + lambda to calc the total Milage
@@ -31,12 +23,7 @@ size_t DriveRecord::GetMilage() const
 		[](const size_t val,const RecordEntry& entry) {return val + entry.GetDistance();});
 }
 
-/**
-* \brief Formatted output of all Record Entry on an ostream.
-*
-* \param ost : Refernce to an ostream where the Entries should be printed at.
-* \return Referenced ostream
-*/
+
 std::ostream& DriveRecord::Print(std::ostream& ost) const
 {
 	if (!ost.good()) throw Object::ERROR_BAD_OSTREAM;

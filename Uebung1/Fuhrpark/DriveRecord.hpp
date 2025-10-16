@@ -40,6 +40,8 @@ public:
 	 *
 	 * \param ost : Refernce to an ostream where the Entries should be printed at.
 	 * \return Referenced ostream
+	 * \throw ERROR_BAD_OSTREAM
+	 * \throw ERROR_WRITE_FAIL
 	 */
 	virtual std::ostream& Print(std::ostream& ost = std::cout) const;
 

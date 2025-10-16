@@ -19,6 +19,7 @@ public:
 	 * \param brand string that identifies the brand.
 	 * \param fuelType Fueltype of the Bike
 	 * \param plate string that identifies the plate.
+	 * \throw ERROR_EMPTY_STRING
 	 */
 	Bike(const std::string& brand, const TFuel& fuelType, const std::string& plate) : Vehicle(brand, fuelType, plate) {}
 
@@ -27,6 +28,8 @@ public:
 	 *
 	 * \param ost where the data should be printed at
 	 * \return referenced ostream
+	 * \throw ERROR_BAD_OSTREAM
+	 * \throw ERROR_WRITE_FAIL
 	 */
 	virtual std::ostream& Print(std::ostream& ost = std::cout) const override;
 

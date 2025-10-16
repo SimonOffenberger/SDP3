@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   Vehicle.hpp
+ * \file   Garage.hpp
  * \brief  This Class implements a polymorph container containing
  * \brief  all derivatives of the 'Vehicle' Class.
  * \author Simon Vogelhuber
@@ -13,13 +13,21 @@
 #include "Object.hpp"
 #include "Vehicle.hpp"
 
+// Using Statement for the used Container to store the Vehicles
 using TGarageCont = std::vector<Vehicle const *>;
 
 class Garage : public Object {
 public:
 
+    /**
+    * Defintions of the Exceptionmessages
+    */
     inline static const std::string ERROR_NULLPTR= "ERROR: Passed in Nullptr!";
 
+    /**
+     * \brief Default CTOR.
+     * 
+     */
     Garage() = default;
 
     /**
@@ -40,7 +48,7 @@ public:
     
     /**
      * \brief Functions searches for vehicle with matching plate.
-     * \param pVehicle : Pointer to a Vehicle.
+     * 
      * \return pointer to the vehicle inside the garage
      */
     Vehicle const * const SearchPlate(const std::string & plate) const;
@@ -49,6 +57,8 @@ public:
      * \brief Formatted of every car and its drive record
      * \param ost : Refernce to an ostream where the Entry should be printed at.
      * \return Referenced ostream
+     * \throw ERROR_BAD_OSTREAM
+	 * \throw ERROR_WRITE_FAIL
      */
 	std::ostream& Print(std::ostream& ost = std::cout) const;
 
@@ -59,9 +69,26 @@ public:
      */
     size_t GetTotalDrivenKilometers() const;
     
+    /**
+     * \brief Copy CTOR of Garage. Is Needed because Garage
+     * \brief owns all the Vehicle Objects that are allocated on the heap.
+     * 
+     * \param garage Garage that should be copied
+     */
     Garage(const Garage& garage);
+
+    /**
+     * \brief Assign Operator for a Object of Garage.
+     * 
+     * \param garage Garage of the right hand side of the assignment.
+     */
     void operator=(Garage garage);
 
+    /**
+     * \brief DTOR of a Garage obj.
+     * \brief Frees all the allocated Memory
+     * 
+     */
     ~Garage();
 
 private:
@@ -69,7 +96,7 @@ private:
 };
 
 /**
- * \brief Override for ostream operator
+ * \brief Override for output operator
  * \return ostream
  */
 std::ostream& operator <<(std::ostream& ost, Garage& garage);

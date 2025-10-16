@@ -26,8 +26,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Fuhrpark
+   <div id="projectname">Fuhrpark<span id="projectnumber">&#160;V1.0</span>
    </div>
+   <div id="projectbrief">This projects implements a Software Architektor for administrationg a vehicle fleet.</div>
   </td>
  </tr>
  </tbody>
@@ -106,7 +107,7 @@ Inheritance diagram for Car:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9cabcd389f9ecdc8239c1099dedbd1e3" id="r_a9cabcd389f9ecdc8239c1099dedbd1e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cabcd389f9ecdc8239c1099dedbd1e3">Car</a> (const std::string &amp;brand, const <a class="el" href="../../d5/d41/_vehicle_8hpp.html#a4ba8f0fe0470c76ce7ee40db1ea59fbe">TFuel</a> &amp;fuelType, const std::string &amp;plate)</td></tr>
+<tr class="memitem:a9cabcd389f9ecdc8239c1099dedbd1e3" id="r_a9cabcd389f9ecdc8239c1099dedbd1e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cabcd389f9ecdc8239c1099dedbd1e3">Car</a> (const std::string &amp;brand, const <a class="el" href="../../d8/d0c/_t_fuel_8hpp.html#a4ba8f0fe0470c76ce7ee40db1ea59fbe">TFuel</a> &amp;fuelType, const std::string &amp;plate)</td></tr>
 <tr class="memdesc:a9cabcd389f9ecdc8239c1099dedbd1e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">CTOR of a CAR -&gt; calles the Base Class vehicle CTOR.  <br /></td></tr>
 <tr class="memitem:a48ee1caeac031af0b06002adbbe4c33b" id="r_a48ee1caeac031af0b06002adbbe4c33b"><td class="memItemLeft" align="right" valign="top">virtual std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48ee1caeac031af0b06002adbbe4c33b">Print</a> (std::ostream &amp;ost=std::cout) const override</td></tr>
 <tr class="memdesc:a48ee1caeac031af0b06002adbbe4c33b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that print all the vehicle specific info with the drive record.  <br /></td></tr>
@@ -117,7 +118,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9e11aa66f6220797b5e53c73bc46f846 inherit pub_methods_class_vehicle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the brand member.  <br /></td></tr>
 <tr class="memitem:afaa9c43fb24e50e447989942eeb1e80e inherit pub_methods_class_vehicle" id="r_afaa9c43fb24e50e447989942eeb1e80e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/df6/class_vehicle.html#afaa9c43fb24e50e447989942eeb1e80e">GetPlate</a> () const</td></tr>
 <tr class="memdesc:afaa9c43fb24e50e447989942eeb1e80e inherit pub_methods_class_vehicle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the plate member.  <br /></td></tr>
-<tr class="memitem:a2434ddb546ed209c418763181cbec658 inherit pub_methods_class_vehicle" id="r_a2434ddb546ed209c418763181cbec658"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d41/_vehicle_8hpp.html#a4ba8f0fe0470c76ce7ee40db1ea59fbe">TFuel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/df6/class_vehicle.html#a2434ddb546ed209c418763181cbec658">GetFuelType</a> () const</td></tr>
+<tr class="memitem:a2434ddb546ed209c418763181cbec658 inherit pub_methods_class_vehicle" id="r_a2434ddb546ed209c418763181cbec658"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d0c/_t_fuel_8hpp.html#a4ba8f0fe0470c76ce7ee40db1ea59fbe">TFuel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/df6/class_vehicle.html#a2434ddb546ed209c418763181cbec658">GetFuelType</a> () const</td></tr>
 <tr class="memdesc:a2434ddb546ed209c418763181cbec658 inherit pub_methods_class_vehicle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the fuel member.  <br /></td></tr>
 <tr class="memitem:a2f5cc8f8ea69fcd45d7a45d798856e7c inherit pub_methods_class_vehicle" id="r_a2f5cc8f8ea69fcd45d7a45d798856e7c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d8/ddb/class_drive_record.html">DriveRecord</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/df6/class_vehicle.html#a2f5cc8f8ea69fcd45d7a45d798856e7c">GetDriveRecord</a> () const</td></tr>
 <tr class="memdesc:a2f5cc8f8ea69fcd45d7a45d798856e7c inherit pub_methods_class_vehicle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the drive record.  <br /></td></tr>
@@ -130,18 +131,21 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_static_attribs_class_vehicle"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_attribs_class_vehicle')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Static Public Attributes inherited from <a class="el" href="../../dd/df6/class_vehicle.html">Vehicle</a></td></tr>
+<tr class="memitem:ac6da9ac5c4a67e2826687e5869d388e6 inherit pub_static_attribs_class_vehicle" id="r_ac6da9ac5c4a67e2826687e5869d388e6"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/df6/class_vehicle.html#ac6da9ac5c4a67e2826687e5869d388e6">ERROR_EMPTY_STRING</a> = &quot;ERROR: Passed in empty string!&quot;</td></tr>
 <tr class="inherit_header pub_static_attribs_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_attribs_class_object')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Static Public Attributes inherited from <a class="el" href="../../d8/d83/class_object.html">Object</a></td></tr>
 <tr class="memitem:a57c0b8c70b9dc9f1d1688b989cd08c04 inherit pub_static_attribs_class_object" id="r_a57c0b8c70b9dc9f1d1688b989cd08c04"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d83/class_object.html#a57c0b8c70b9dc9f1d1688b989cd08c04">ERROR_BAD_OSTREAM</a> = &quot;ERROR: Provided Ostream is bad&quot;</td></tr>
 <tr class="memitem:a2adb788f2ffb1c6d56e8ec8b9789b0ac inherit pub_static_attribs_class_object" id="r_a2adb788f2ffb1c6d56e8ec8b9789b0ac"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d83/class_object.html#a2adb788f2ffb1c6d56e8ec8b9789b0ac">ERROR_FAIL_WRITE</a> = &quot;ERROR: Fail to write on provided Ostream&quot;</td></tr>
 <tr class="inherit_header pro_methods_class_vehicle"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_vehicle')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../dd/df6/class_vehicle.html">Vehicle</a></td></tr>
-<tr class="memitem:a1eff69903d28abcce12da2e460b33ed8 inherit pro_methods_class_vehicle" id="r_a1eff69903d28abcce12da2e460b33ed8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/df6/class_vehicle.html#a1eff69903d28abcce12da2e460b33ed8">Vehicle</a> (const std::string &amp;brand, const <a class="el" href="../../d5/d41/_vehicle_8hpp.html#a4ba8f0fe0470c76ce7ee40db1ea59fbe">TFuel</a> &amp;fuelType, const std::string &amp;plate)</td></tr>
+<tr class="memitem:a1eff69903d28abcce12da2e460b33ed8 inherit pro_methods_class_vehicle" id="r_a1eff69903d28abcce12da2e460b33ed8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/df6/class_vehicle.html#a1eff69903d28abcce12da2e460b33ed8">Vehicle</a> (const std::string &amp;brand, const <a class="el" href="../../d8/d0c/_t_fuel_8hpp.html#a4ba8f0fe0470c76ce7ee40db1ea59fbe">TFuel</a> &amp;fuelType, const std::string &amp;plate)</td></tr>
 <tr class="memdesc:a1eff69903d28abcce12da2e460b33ed8 inherit pro_methods_class_vehicle"><td class="mdescLeft">&#160;</td><td class="mdescRight">protected CTOR of a vehicle.  <br /></td></tr>
 <tr class="inherit_header pro_methods_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_object')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../d8/d83/class_object.html">Object</a></td></tr>
 <tr class="memitem:afe9eeddd7068a37f62d3276a2fb49864 inherit pro_methods_class_object" id="r_afe9eeddd7068a37f62d3276a2fb49864"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d83/class_object.html#afe9eeddd7068a37f62d3276a2fb49864">Object</a> ()=default</td></tr>
+<tr class="memdesc:afe9eeddd7068a37f62d3276a2fb49864 inherit pro_methods_class_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">protected CTOR -&gt; abstract.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../de/de7/_car_8hpp_source.html#l00006">6</a> of file <a class="el" href="../../de/de7/_car_8hpp_source.html">Car.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de7/_car_8hpp_source.html#l00013">13</a> of file <a class="el" href="../../de/de7/_car_8hpp_source.html">Car.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9cabcd389f9ecdc8239c1099dedbd1e3" name="a9cabcd389f9ecdc8239c1099dedbd1e3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9cabcd389f9ecdc8239c1099dedbd1e3">&#9670;&#160;</a></span>Car()</h2>
@@ -160,7 +164,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../d5/d41/_vehicle_8hpp.html#a4ba8f0fe0470c76ce7ee40db1ea59fbe">TFuel</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>fuelType</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="../../d8/d0c/_t_fuel_8hpp.html#a4ba8f0fe0470c76ce7ee40db1ea59fbe">TFuel</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>fuelType</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -184,8 +188,14 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ERROR_EMPTY_STRING</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/de7/_car_8hpp_source.html#l00016">16</a> of file <a class="el" href="../../de/de7/_car_8hpp_source.html">Car.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/de7/_car_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../de/de7/_car_8hpp_source.html">Car.hpp</a>.</p>
 
 </div>
 </div>
@@ -218,7 +228,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/df6/class_vehicle.html#a20e46a56c0765ca79a6f566c96b9bb54">Vehicle</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d46/_car_8cpp_source.html#l00037">37</a> of file <a class="el" href="../../df/d46/_car_8cpp_source.html">Car.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d46/_car_8cpp_source.html#l00028">28</a> of file <a class="el" href="../../df/d46/_car_8cpp_source.html">Car.cpp</a>.</p>
 
 </div>
 </div>
@@ -253,10 +263,17 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>referenced ostream </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ERROR_BAD_OSTREAM</td><td></td></tr>
+    <tr><td class="paramname">ERROR_WRITE_FAIL</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Implements <a class="el" href="../../d8/d83/class_object.html#a0ddfacb1738bd1c6ae7079aa3b7d1584">Object</a>.</p>
+<p>Implements <a class="el" href="../../dd/df6/class_vehicle.html#a5c7e74581e5b0e3fb0de7a41682264ef">Vehicle</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/d46/_car_8cpp_source.html#l00018">18</a> of file <a class="el" href="../../df/d46/_car_8cpp_source.html">Car.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/d46/_car_8cpp_source.html#l00013">13</a> of file <a class="el" href="../../df/d46/_car_8cpp_source.html">Car.cpp</a>.</p>
 
 </div>
 </div>

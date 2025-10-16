@@ -26,8 +26,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Fuhrpark
+   <div id="projectname">Fuhrpark<span id="projectnumber">&#160;V1.0</span>
    </div>
+   <div id="projectbrief">This projects implements a Software Architektor for administrationg a vehicle fleet.</div>
   </td>
  </tr>
  </tbody>
@@ -92,57 +93,26 @@ $(function(){initNavTree('d5/d41/_vehicle_8hpp.html','../../',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>This Class implements a polymorph container containing.  
+<p>This class imlements an abstract vehicle which is used in the.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../db/d78/_object_8hpp_source.html">Object.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dd/dfa/_drive_record_8hpp_source.html">DriveRecord.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d0c/_t_fuel_8hpp_source.html">TFuel.hpp</a>&quot;</code><br />
 </div>
 <p><a href="../../d5/d41/_vehicle_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Vehicle" id="r_Vehicle"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/df6/class_vehicle.html">Vehicle</a></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a4ba8f0fe0470c76ce7ee40db1ea59fbe" id="r_a4ba8f0fe0470c76ce7ee40db1ea59fbe"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ba8f0fe0470c76ce7ee40db1ea59fbe">TFuel</a> { <a class="el" href="#a4ba8f0fe0470c76ce7ee40db1ea59fbeae116eac51cf6ae270db7ce4a977c72a1">Diesel</a> = 0
-, <a class="el" href="#a4ba8f0fe0470c76ce7ee40db1ea59fbeaa3e89b2c1eb296e9ba5a8e1000ce0eea">Benzin</a> = 1
-, <a class="el" href="#a4ba8f0fe0470c76ce7ee40db1ea59fbea42d4d8e97abf46da02fac3ec08898c55">Elektro</a> = 2
- }</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This Class implements a polymorph container containing. </p>
-<p>This class imlements an abstract vehicle which is used in the.</p>
-<p>all derivatives of the '<a class="el" href="../../dd/df6/class_vehicle.html">Vehicle</a>' Class. </p><dl class="section author"><dt>Author</dt><dd>Simon Vogelhuber </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>October 2025</dd></dl>
+<div class="textblock"><p>This class imlements an abstract vehicle which is used in the. </p>
 <p><a class="el" href="../../d2/d91/class_garage.html">Garage</a> class. It implements all the core featues of a vehicle</p>
 <dl class="section author"><dt>Author</dt><dd>Simon Offenberger </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>October 2025 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
-</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
-<a id="a4ba8f0fe0470c76ce7ee40db1ea59fbe" name="a4ba8f0fe0470c76ce7ee40db1ea59fbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ba8f0fe0470c76ce7ee40db1ea59fbe">&#9670;&#160;</a></span>TFuel</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="#a4ba8f0fe0470c76ce7ee40db1ea59fbe">TFuel</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4ba8f0fe0470c76ce7ee40db1ea59fbeae116eac51cf6ae270db7ce4a977c72a1" name="a4ba8f0fe0470c76ce7ee40db1ea59fbeae116eac51cf6ae270db7ce4a977c72a1"></a>Diesel&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4ba8f0fe0470c76ce7ee40db1ea59fbeaa3e89b2c1eb296e9ba5a8e1000ce0eea" name="a4ba8f0fe0470c76ce7ee40db1ea59fbeaa3e89b2c1eb296e9ba5a8e1000ce0eea"></a>Benzin&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a4ba8f0fe0470c76ce7ee40db1ea59fbea42d4d8e97abf46da02fac3ec08898c55" name="a4ba8f0fe0470c76ce7ee40db1ea59fbea42d4d8e97abf46da02fac3ec08898c55"></a>Elektro&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html#l00016">16</a> of file <a class="el" href="../../d5/d41/_vehicle_8hpp_source.html">Vehicle.hpp</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

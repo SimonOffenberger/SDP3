@@ -9,12 +9,7 @@
 
 using namespace std;
 
-/**
-* \brief Function that print all the vehicle specific info with the drive record.
-*
-* \param ost where the data should be printed at
-* \return referenced ostream
-*/
+
 std::ostream& Bike::Print(std::ostream& ost) const
 {
 	if (!ost.good()) throw Object::ERROR_BAD_OSTREAM;
@@ -29,11 +24,7 @@ std::ostream& Bike::Print(std::ostream& ost) const
 	return ost;
 }
 
-/**
-*@brief Creates a clone of the vehicle.
-*
-* \return a excat replicate of a vehicle
-*/
+
 Vehicle const* Bike::Clone() const
 {
 	return new Bike(*this);

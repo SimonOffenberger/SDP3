@@ -67,4 +67,13 @@ size_t Vehicle::GetMilage() const
     return m_record.GetMilage();
 }
 
+Vehicle::Vehicle(const std::string& brand, const TFuel& fuelType, const std::string& plate) : m_fuel{fuelType}
+{
+    if (brand.empty() || plate.empty()) throw ERROR_EMPTY_STRING;
+
+    m_brand = brand;
+    m_plate = plate;
+
+}
+
 

@@ -26,8 +26,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Fuhrpark
+   <div id="projectname">Fuhrpark<span id="projectnumber">&#160;V1.0</span>
    </div>
+   <div id="projectbrief">This projects implements a Software Architektor for administrationg a vehicle fleet.</div>
   </td>
  </tr>
  </tbody>
@@ -88,7 +89,7 @@ $(function(){initNavTree('d8/d83/class_object.html','../../','d6/dfd/class_objec
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Object Class Reference<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">Object Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -112,7 +113,6 @@ Inheritance diagram for Object:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a226f2ae2af766b77d83c09a4d766b725" id="r_a226f2ae2af766b77d83c09a4d766b725"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a226f2ae2af766b77d83c09a4d766b725">~Object</a> ()=default</td></tr>
-<tr class="memitem:a0ddfacb1738bd1c6ae7079aa3b7d1584" id="r_a0ddfacb1738bd1c6ae7079aa3b7d1584"><td class="memItemLeft" align="right" valign="top">virtual std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ddfacb1738bd1c6ae7079aa3b7d1584">Print</a> (std::ostream &amp;ost=std::cout) const =0</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -122,6 +122,7 @@ Static Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:afe9eeddd7068a37f62d3276a2fb49864" id="r_afe9eeddd7068a37f62d3276a2fb49864"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe9eeddd7068a37f62d3276a2fb49864">Object</a> ()=default</td></tr>
+<tr class="memdesc:afe9eeddd7068a37f62d3276a2fb49864"><td class="mdescLeft">&#160;</td><td class="mdescRight">protected CTOR -&gt; abstract.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -176,33 +177,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a0ddfacb1738bd1c6ae7079aa3b7d1584" name="a0ddfacb1738bd1c6ae7079aa3b7d1584"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ddfacb1738bd1c6ae7079aa3b7d1584">&#9670;&#160;</a></span>Print()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual std::ostream &amp; Object::Print </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;</td>          <td class="paramname"><span class="paramname"><em>ost</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::cout</span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="../../d2/d3d/class_bike.html#ae84b70de332d4e2fc5d68bf9aa02fdcc">Bike</a>, <a class="el" href="../../d6/d44/class_car.html#a48ee1caeac031af0b06002adbbe4c33b">Car</a>, <a class="el" href="../../d8/ddb/class_drive_record.html#ade750374eb69d0d5871fcddb79ea74f0">DriveRecord</a>, <a class="el" href="../../d2/d91/class_garage.html#a86071f9ed6cd3ecccbc3c2c3dc56bce9">Garage</a>, <a class="el" href="../../d2/de3/class_record_entry.html#ad6d31b52d34fc83d9212de630bdb5ef3">RecordEntry</a>, and <a class="el" href="../../db/d95/class_truck.html#a8b6f0c959b0f17b089f26878b7ce0eab">Truck</a>.</p>
+<p>protected CTOR -&gt; abstract. </p>
 
 </div>
 </div>
@@ -226,8 +201,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Defintions of the Exceptionmessages </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d78/_object_8hpp_source.html#l00016">16</a> of file <a class="el" href="../../db/d78/_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d78/_object_8hpp_source.html#l00018">18</a> of file <a class="el" href="../../db/d78/_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -251,7 +227,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d78/_object_8hpp_source.html#l00017">17</a> of file <a class="el" href="../../db/d78/_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d78/_object_8hpp_source.html#l00019">19</a> of file <a class="el" href="../../db/d78/_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>

@@ -17,6 +17,11 @@ class Vehicle: public Object {
 public:
 
 	/**
+	* Defintions of the Exceptionmessages
+	*/
+	inline static const std::string ERROR_EMPTY_STRING = "ERROR: Passed in empty string!";
+
+	/**
 	 * \brief Getter for the brand member.
 	 * 
 	 * \return string with the brand name
@@ -71,6 +76,8 @@ public:
 	 * 
 	 * \param ost Reference to an ostream where the Result should be printed at
 	 * \return referenced ostream
+     * \throw ERROR_BAD_OSTREAM
+	 * \throw ERROR_WRITE_FAIL
 	 */
 	virtual std::ostream& Print(std::ostream& ost = std::cout) const = 0;
 
@@ -81,10 +88,11 @@ protected:
 	 * \brief protected CTOR of a vehicle.
 	 * \brief protected because it is a abstract class
 	 * 
+	 * \param plate : string that represents the plate of the vehicle
 	 * \param brand : string that represents the brand of the vehicle
 	 * \param fuelType : Fuel type of the vehicle
 	 */
-	Vehicle(const std::string& brand, const TFuel& fuelType, const std::string& plate) : m_brand{ brand }, m_fuel{ fuelType }, m_plate{plate} {}
+	Vehicle(const std::string& brand, const TFuel& fuelType, const std::string& plate);
 
 private:
 	std::string m_brand;

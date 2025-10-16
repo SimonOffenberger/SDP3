@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['garage_0',['Garage',['../d2/d91/class_garage.html#a9c32438d0bb8f96de432f97dbb07dd80',1,'Garage::Garage()=default'],['../d2/d91/class_garage.html#a3a7f9239d8de7898e339b6d5ebb8d64a',1,'Garage::Garage(const Garage &amp;)']]],
+  ['garage_0',['Garage',['../d2/d91/class_garage.html#a9c32438d0bb8f96de432f97dbb07dd80',1,'Garage::Garage()=default'],['../d2/d91/class_garage.html#a9018ef73a0ae3d3a4eb2d1d38193f7a0',1,'Garage::Garage(const Garage &amp;garage)']]],
   ['getbrand_1',['GetBrand',['../dd/df6/class_vehicle.html#a9e11aa66f6220797b5e53c73bc46f846',1,'Vehicle']]],
   ['getdate_2',['GetDate',['../d2/de3/class_record_entry.html#a38eeb0bb872429e92437af0f919de9cc',1,'RecordEntry']]],
   ['getdistance_3',['GetDistance',['../d2/de3/class_record_entry.html#adf783500915555d2fca10f062c80c984',1,'RecordEntry']]],

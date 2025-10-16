@@ -8,6 +8,7 @@ var class_vehicle =
     [ "GetFuelType", "dd/df6/class_vehicle.html#a2434ddb546ed209c418763181cbec658", null ],
     [ "GetMilage", "dd/df6/class_vehicle.html#ab1298438ed93b8d7f2078e005d7a7aa8", null ],
     [ "GetPlate", "dd/df6/class_vehicle.html#afaa9c43fb24e50e447989942eeb1e80e", null ],
+    [ "Print", "dd/df6/class_vehicle.html#a5c7e74581e5b0e3fb0de7a41682264ef", null ],
     [ "m_brand", "dd/df6/class_vehicle.html#a8d228e16987acc6eb4f1848975aba851", null ],
     [ "m_fuel", "dd/df6/class_vehicle.html#aac5d63b0c4c8a7b30e70a04fc9b58e22", null ],
     [ "m_plate", "dd/df6/class_vehicle.html#ab6378767c820f1c0f918210df41bd91f", null ],

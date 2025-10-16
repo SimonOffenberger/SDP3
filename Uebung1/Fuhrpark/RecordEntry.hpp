@@ -20,6 +20,9 @@ using TDate = std::chrono::year_month_day;
 class RecordEntry : public Object {
 public:
 
+	/**
+	* Defintions of the Exceptionmessages
+	*/
 	inline static const std::string ERROR_DISTANCE_ZERO = "ERROR: Distance cannot be zero!";
 
 	/**
@@ -49,6 +52,8 @@ public:
 	 * 
 	 * \param ost : Refernce to an ostream where the Entry should be printed at.
 	 * \return Referenced ostream
+     * \throw ERROR_BAD_OSTREAM
+	 * \throw ERROR_WRITE_FAIL
 	 */
 	virtual std::ostream& Print(std::ostream& ost = std::cout) const;
 
@@ -67,4 +72,4 @@ private:
 };
 
 
-#endif // !1
+#endif 

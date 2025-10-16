@@ -26,8 +26,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Fuhrpark
+   <div id="projectname">Fuhrpark<span id="projectnumber">&#160;V1.0</span>
    </div>
+   <div id="projectbrief">This projects implements a Software Architektor for administrationg a vehicle fleet.</div>
   </td>
  </tr>
  </tbody>
@@ -111,12 +112,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:adf783500915555d2fca10f062c80c984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter of the distance member of the Record Entry Class.  <br /></td></tr>
 <tr class="memitem:a38eeb0bb872429e92437af0f919de9cc" id="r_a38eeb0bb872429e92437af0f919de9cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d3e/_record_entry_8hpp.html#ad36f53443f4eca8c598157c740a450a7">TDate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38eeb0bb872429e92437af0f919de9cc">GetDate</a> () const</td></tr>
 <tr class="memdesc:a38eeb0bb872429e92437af0f919de9cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter of the data member of the Record Entry Class.  <br /></td></tr>
-<tr class="memitem:ad6d31b52d34fc83d9212de630bdb5ef3" id="r_ad6d31b52d34fc83d9212de630bdb5ef3"><td class="memItemLeft" align="right" valign="top">virtual std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6d31b52d34fc83d9212de630bdb5ef3">Print</a> (std::ostream &amp;ost=std::cout) const override</td></tr>
-<tr class="memdesc:ad6d31b52d34fc83d9212de630bdb5ef3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formatted output of this Record Entry on an ostream.  <br /></td></tr>
+<tr class="memitem:a3a81e7ed1ea4e8831611cf349e783207" id="r_a3a81e7ed1ea4e8831611cf349e783207"><td class="memItemLeft" align="right" valign="top">virtual std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a81e7ed1ea4e8831611cf349e783207">Print</a> (std::ostream &amp;ost=std::cout) const</td></tr>
+<tr class="memdesc:a3a81e7ed1ea4e8831611cf349e783207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formatted output of this Record Entry on an ostream.  <br /></td></tr>
 <tr class="memitem:af1471375678f8a8703fa6997b4f7bfb0" id="r_af1471375678f8a8703fa6997b4f7bfb0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1471375678f8a8703fa6997b4f7bfb0">operator&lt;</a> (const <a class="el" href="../../d2/de3/class_record_entry.html">RecordEntry</a> &amp;rh) const</td></tr>
 <tr class="memdesc:af1471375678f8a8703fa6997b4f7bfb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">less than operater, is used for storing the Entries in a multiset.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_object')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../d8/d83/class_object.html">Object</a></td></tr>
 <tr class="memitem:a226f2ae2af766b77d83c09a4d766b725 inherit pub_methods_class_object" id="r_a226f2ae2af766b77d83c09a4d766b725"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d83/class_object.html#a226f2ae2af766b77d83c09a4d766b725">~Object</a> ()=default</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a78ac5f517d5154f34c6a584df9572adb" id="r_a78ac5f517d5154f34c6a584df9572adb"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78ac5f517d5154f34c6a584df9572adb">ERROR_DISTANCE_ZERO</a> = &quot;ERROR: Distance cannot be zero!&quot;</td></tr>
+<tr class="inherit_header pub_static_attribs_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_attribs_class_object')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Static Public Attributes inherited from <a class="el" href="../../d8/d83/class_object.html">Object</a></td></tr>
+<tr class="memitem:a57c0b8c70b9dc9f1d1688b989cd08c04 inherit pub_static_attribs_class_object" id="r_a57c0b8c70b9dc9f1d1688b989cd08c04"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d83/class_object.html#a57c0b8c70b9dc9f1d1688b989cd08c04">ERROR_BAD_OSTREAM</a> = &quot;ERROR: Provided Ostream is bad&quot;</td></tr>
+<tr class="memitem:a2adb788f2ffb1c6d56e8ec8b9789b0ac inherit pub_static_attribs_class_object" id="r_a2adb788f2ffb1c6d56e8ec8b9789b0ac"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d83/class_object.html#a2adb788f2ffb1c6d56e8ec8b9789b0ac">ERROR_FAIL_WRITE</a> = &quot;ERROR: Fail to write on provided Ostream&quot;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -125,11 +133,9 @@ Private Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_static_attribs_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_attribs_class_object')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Static Public Attributes inherited from <a class="el" href="../../d8/d83/class_object.html">Object</a></td></tr>
-<tr class="memitem:a57c0b8c70b9dc9f1d1688b989cd08c04 inherit pub_static_attribs_class_object" id="r_a57c0b8c70b9dc9f1d1688b989cd08c04"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d83/class_object.html#a57c0b8c70b9dc9f1d1688b989cd08c04">ERROR_BAD_OSTREAM</a> = &quot;ERROR: Provided Ostream is bad&quot;</td></tr>
-<tr class="memitem:a2adb788f2ffb1c6d56e8ec8b9789b0ac inherit pub_static_attribs_class_object" id="r_a2adb788f2ffb1c6d56e8ec8b9789b0ac"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d83/class_object.html#a2adb788f2ffb1c6d56e8ec8b9789b0ac">ERROR_FAIL_WRITE</a> = &quot;ERROR: Fail to write on provided Ostream&quot;</td></tr>
 <tr class="inherit_header pro_methods_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_object')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../d8/d83/class_object.html">Object</a></td></tr>
 <tr class="memitem:afe9eeddd7068a37f62d3276a2fb49864 inherit pro_methods_class_object" id="r_afe9eeddd7068a37f62d3276a2fb49864"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d83/class_object.html#afe9eeddd7068a37f62d3276a2fb49864">Object</a> ()=default</td></tr>
+<tr class="memdesc:afe9eeddd7068a37f62d3276a2fb49864 inherit pro_methods_class_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">protected CTOR -&gt; abstract.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -140,9 +146,6 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">RecordEntry::RecordEntry </td>
@@ -155,11 +158,6 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramtype">const size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>distance</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>CTOR of a drive record. </p>
@@ -171,7 +169,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d3e/_record_entry_8hpp_source.html#l00029">29</a> of file <a class="el" href="../../d7/d3e/_record_entry_8hpp_source.html">RecordEntry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html#l00012">12</a> of file <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html">RecordEntry.cpp</a>.</p>
 
 </div>
 </div>
@@ -194,7 +192,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Getter of the data member of the Record Entry Class. </p>
 <dl class="section return"><dt>Returns</dt><dd>Date of this Record Entry </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html#l00027">27</a> of file <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html">RecordEntry.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html#l00025">25</a> of file <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html">RecordEntry.cpp</a>.</p>
 
 </div>
 </div>
@@ -216,7 +214,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Getter of the distance member of the Record Entry Class. </p>
 <dl class="section return"><dt>Returns</dt><dd>Distance of this Record Entry </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html#l00017">17</a> of file <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html">RecordEntry.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html#l00019">19</a> of file <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html">RecordEntry.cpp</a>.</p>
 
 </div>
 </div>
@@ -246,12 +244,12 @@ Additional Inherited Members</h2></td></tr>
 <dd>
 false: left hand side is greather or equal than the right hand side. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html#l00059">59</a> of file <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html">RecordEntry.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html#l00046">46</a> of file <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html">RecordEntry.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ad6d31b52d34fc83d9212de630bdb5ef3" name="ad6d31b52d34fc83d9212de630bdb5ef3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6d31b52d34fc83d9212de630bdb5ef3">&#9670;&#160;</a></span>Print()</h2>
+<a id="a3a81e7ed1ea4e8831611cf349e783207" name="a3a81e7ed1ea4e8831611cf349e783207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a81e7ed1ea4e8831611cf349e783207">&#9670;&#160;</a></span>Print()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -268,7 +266,7 @@ false: left hand side is greather or equal than the right hand side. </dd></dl>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -281,14 +279,44 @@ false: left hand side is greather or equal than the right hand side. </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Referenced ostream </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ERROR_BAD_OSTREAM</td><td></td></tr>
+    <tr><td class="paramname">ERROR_WRITE_FAIL</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Implements <a class="el" href="../../d8/d83/class_object.html#a0ddfacb1738bd1c6ae7079aa3b7d1584">Object</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html#l00038">38</a> of file <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html">RecordEntry.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html#l00031">31</a> of file <a class="el" href="../../d8/d5d/_record_entry_8cpp_source.html">RecordEntry.cpp</a>.</p>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a78ac5f517d5154f34c6a584df9572adb" name="a78ac5f517d5154f34c6a584df9572adb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78ac5f517d5154f34c6a584df9572adb">&#9670;&#160;</a></span>ERROR_DISTANCE_ZERO</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string RecordEntry::ERROR_DISTANCE_ZERO = &quot;ERROR: Distance cannot be zero!&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Defintions of the Exceptionmessages </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d3e/_record_entry_8hpp_source.html#l00026">26</a> of file <a class="el" href="../../d7/d3e/_record_entry_8hpp_source.html">RecordEntry.hpp</a>.</p>
+
+</div>
+</div>
 <a id="aeb95f7b23126710c18faea64ff4b51f1" name="aeb95f7b23126710c18faea64ff4b51f1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeb95f7b23126710c18faea64ff4b51f1">&#9670;&#160;</a></span>m_date</h2>
 
@@ -309,7 +337,7 @@ false: left hand side is greather or equal than the right hand side. </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d3e/_record_entry_8hpp_source.html#l00063">63</a> of file <a class="el" href="../../d7/d3e/_record_entry_8hpp_source.html">RecordEntry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d3e/_record_entry_8hpp_source.html#l00070">70</a> of file <a class="el" href="../../d7/d3e/_record_entry_8hpp_source.html">RecordEntry.hpp</a>.</p>
 
 </div>
 </div>
@@ -333,7 +361,7 @@ false: left hand side is greather or equal than the right hand side. </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d3e/_record_entry_8hpp_source.html#l00064">64</a> of file <a class="el" href="../../d7/d3e/_record_entry_8hpp_source.html">RecordEntry.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d3e/_record_entry_8hpp_source.html#l00071">71</a> of file <a class="el" href="../../d7/d3e/_record_entry_8hpp_source.html">RecordEntry.hpp</a>.</p>
 
 </div>
 </div>

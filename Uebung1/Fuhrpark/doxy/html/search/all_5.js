@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['garage_0',['Garage',['../d2/d91/class_garage.html',1,'Garage'],['../d2/d91/class_garage.html#a9c32438d0bb8f96de432f97dbb07dd80',1,'Garage::Garage()=default'],['../d2/d91/class_garage.html#a3a7f9239d8de7898e339b6d5ebb8d64a',1,'Garage::Garage(const Garage &amp;)']]],
+  ['garage_0',['Garage',['../d2/d91/class_garage.html',1,'Garage'],['../d2/d91/class_garage.html#a9c32438d0bb8f96de432f97dbb07dd80',1,'Garage::Garage()=default'],['../d2/d91/class_garage.html#a9018ef73a0ae3d3a4eb2d1d38193f7a0',1,'Garage::Garage(const Garage &amp;garage)']]],
   ['garage_2ecpp_1',['Garage.cpp',['../dd/d51/_garage_8cpp.html',1,'']]],
   ['garage_2ehpp_2',['Garage.hpp',['../d9/d02/_garage_8hpp.html',1,'']]],
   ['getbrand_3',['GetBrand',['../dd/df6/class_vehicle.html#a9e11aa66f6220797b5e53c73bc46f846',1,'Vehicle']]],

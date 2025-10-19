@@ -1,4 +1,5 @@
 #include "Company.hpp"
+#include "Employee.hpp"
 #include <iostream>
 
 using namespace std;

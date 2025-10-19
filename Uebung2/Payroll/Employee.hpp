@@ -6,20 +6,35 @@
 #include "Object.hpp"
 #include "TWorker.hpp"
 
-using TDate = std::chrono::year_month_day;
+using TDateBirthday = std::chrono::year_month_day;
+using TDateYear = std::chrono::year;
 
 class Employee : public Object
 {
 public:
 
-    std::string GetID() const;
+    inline static const std::string ERROR_BAD_ID = "ERROR: An employees ID is limited to 3 characters.";
 
+    std::string GetID() const;
+    
+    /**
+     * \brief Constructor needs every
+     * member set to be called.
+     * \return TWorker enum
+     */
+    Employee(
+        std::string     name,
+        std::string     nameID,
+        TDateYear       dateJoined,
+        TDateBirthday   TDateBirthdaydateBirth,
+        std::string     socialSecurityNumber,
+        TWorker         workerType
+    );
 
     /**
-     * \brief HERE
-     *
-     * \param
-     * \param
+     * \brief Gives Information about what kind
+     * of Worker it is.
+     * \return TWorker enum
      */
     virtual TWorker GetWorkerType() const = 0;
 
@@ -31,7 +46,7 @@ public:
      */
      // Implement inside Employee with  0 return
      // implement for non 0 classes
-    virtual size_t GetProducedItems() const;
+    virtual size_t GetProducedItems() const = 0;
 
     /**
      * \brief HERE
@@ -39,7 +54,7 @@ public:
      * \param
      * \param
      */
-    virtual size_t GetSoldItems() const;
+    virtual size_t GetSoldItems() const = 0;
 
     /**
      * \brief HERE
@@ -55,7 +70,7 @@ public:
      * \param
      * \param
      */
-    virtual TDate GetDateBirth() const = 0;
+    virtual TDateBirthday GetDateBirth() const;
 
     /**
      * \brief HERE
@@ -63,7 +78,14 @@ public:
      * \param
      * \param
      */
-     // TODO: look up final functionality
+    virtual TDateYear GetDateJoined() const;
+
+    /**
+     * \brief HERE
+     *
+     * \param
+     * \param
+     */
     std::ostream& PrintDatasheet(std::ostream& ost) const;
 
     /**
@@ -78,12 +100,12 @@ public:
 
 protected:
 
-
     std::string m_name;
     std::string m_nameIdentifier;
-    TDate m_dateJoined;
-    TDate m_dateBirth;
+    TDateYear m_dateJoined;
+    TDateBirthday m_dateBirth;
     std::string m_socialSecurityNumber;
+    TWorker m_workerType;
 };
 
 #endif // EMPLOYEE_H

@@ -21,7 +21,7 @@ std::ostream& HourlyWorker::PrintSpecificData(std::ostream& ost) const
         throw Object::ERROR_BAD_OSTREAM;
         return ost;
     }
-
+    ost << "Role: HourlyWWorker" << std::endl;
     ost << "Hourly rate: " << m_hourlyRate << std::endl;
     ost << "Hours worked: " << m_workedHours << std::endl;
 

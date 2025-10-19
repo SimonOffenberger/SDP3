@@ -6,29 +6,56 @@
 class Boss : public Employee
 {
 public:
-    /**
-     * \brief HERE
-     *
-     * \param
-     * \param
-     */
-    std::ostream& Employee::PrintSpecificData(std::ostream& ost) override;
+
+    Boss() = default;
+
+    Boss(
+        std::string name,
+        std::string nameID,
+        TDate dateJoined,
+        TDate dateBirth,
+        std::string socialSecurityNumber,
+        size_t salary
+    );
 
     /**
-     * \brief HERE
-     *
-     * \param
-     * \param
+     * \brief Prints worker specific information
+     * \param std::ostream& ost
+     * \return std::ostream&
      */
-    size_t GetSalary() override;
-    
+    std::ostream& PrintSpecificData(std::ostream& ost) const override;
+
     /**
-     * \brief HERE
-     *
-     * \param
-     * \param
+     * \brief Just here because of whacky class structure.
+     * Worker does not strictly produce items!
      */
-    TWorker GetWorkerType() override;
+    size_t GetProducedItems() const override { return 0; };
+
+    /**
+     * \brief Just here because of whacky class structure.
+     * Worker Does not sell items!
+     */
+    size_t GetSoldItems() const override { return 0; };
+
+    /**
+    * \brief Returns the total earnings for an
+    * worker in this month.
+    * \return size_t
+    */
+    size_t GetSalary() const override;
+
+    /**
+     * \brief Returns the type of worker.
+     * \return TWorker
+     */
+    TWorker GetWorkerType() const override;
+
+    /**
+     * \brief Creates a clone on the Heap
+     * and returns a pointer.
+     * \return Employee*
+     */
+    Employee* Clone() const override;
 
 private:
     size_t m_salary;

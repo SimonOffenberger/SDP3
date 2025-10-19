@@ -21,6 +21,11 @@ std::ostream& HourlyWorker::PrintSpecificData(std::ostream& ost) const
         throw Object::ERROR_BAD_OSTREAM;
         return ost;
     }
+
+    ost << "Hourly rate: " << m_hourlyRate << std::endl;
+    ost << "Hours worked: " << m_workedHours << std::endl;
+
+    return ost;
 }
 
 size_t HourlyWorker::GetSalary() const

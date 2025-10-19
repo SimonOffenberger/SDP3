@@ -36,64 +36,55 @@ public:
      */
     virtual TWorker GetWorkerType() const = 0;
 
-    /**
-     * \brief HERE
-     *
-     * \param
-     * \param
+    /** Pure Virtual Function
+     * \brief return produced items.
+     * \return size_t
      */
-     // Implement inside Employee with  0 return
-     // implement for non 0 classes
     virtual size_t GetProducedItems() const = 0;
 
-    /**
-     * \brief HERE
-     *
-     * \param
-     * \param
+    /** Pure Virtual Function
+     * \brief returns sold items
+     * \return size_t
      */
     virtual size_t GetSoldItems() const = 0;
 
-    /**
-     * \brief HERE
-     *
-     * \param
-     * \param
+    /** Pure Virtual Function
+     * \brief returns total pay a worker
+     * recieves.
+     * \return size_t
      */
     virtual size_t GetSalary() const = 0;    
     
-    /**
-     * \brief HERE
-     *
-     * \param
-     * \param
+    /** Pure Virtual Function
+     * \brief returns date of birth of a given worker.
+     * \return TDate
      */
     virtual TDate GetDateBirth() const;
 
-    /**
-     * \brief HERE
-     *
-     * \param
-     * \param
+    /** Pure Virtual Function
+     * \brief returns the date a worker.
+     * has started working at the company.
+     * \return TDate
      */
     virtual TDate GetDateJoined() const;
 
     /**
-     * \brief HERE
-     *
-     * \param
-     * \param
+     * \brief Prints information about a worker.
+     * \return std::ostream&
      */
     std::ostream& PrintDatasheet(std::ostream& ost) const;
 
-    /**
-     * \brief HERE
-     *
-     * \param
-     * \param
-     */
+    
+    /** Pure virtual function
+    * \brief Prints specific information for a type of worker.
+    * \return std::ostream&
+    */
     virtual std::ostream& PrintSpecificData(std::ostream& ost) const = 0;
 
+    /** Pure virtual function
+    * \brief creates a copy of the worker and puts it on the heap.
+    * \return Employee*
+    */
     virtual Employee* Clone() const = 0;
 
 protected:

@@ -1,12 +1,31 @@
+#ifndef COMISSION_WORKER_H
+#define COMISSION_WORKER_H
+
+#include "Employee.hpp"
+
 class ComissionWorker : public Employee
 {
 public:
+
+    ComissionWorker() = default;
+
+    ComissionWorker(
+        std::string name,
+        std::string nameID,
+        TDate dateJoined,
+        TDate dateBirth,
+        std::string socialSecurityNumber,
+        size_t baseSalary,
+        size_t commisionPerPiece,
+        size_t piecesSold
+    );
+
     /**
      * \brief Prints worker specific information
      * \param std::ostream& ost
      * \return std::ostream&
      */
-    std::ostream& PrintSpecificData(std::ostream& ost);
+    std::ostream& PrintSpecificData(std::ostream& ost) const override;
 
     /**
      * \brief Just here because of whacky class structure.
@@ -15,10 +34,10 @@ public:
     size_t GetProducedItems() const override { return 0; };
 
     /**
-     * \brief Just here because of whacky class structure.
-     * Worker Does not sell items!
+     * \brief returns how many items the commision worker has sold
+     * \return size_t sold items
      */
-    size_t GetSoldItems() const override { return 0; };
+    size_t GetSoldItems() const override;
 
     /**
     * \brief Returns the total earnings for an
@@ -33,7 +52,17 @@ public:
      */
     TWorker GetWorkerType() const override;
 
+    /**
+     * \brief Creates a clone on the Heap
+     * and returns a pointer.
+     * \return Employee*
+     */
+    Employee* Clone() const override;
+
 private:
-    size_t m_hourlyRate;
-    size_t m_workedHours;
+    size_t m_baseSalary;
+    size_t m_commisionPerPiece;
+    size_t m_piecesSold;
 };
+
+#endif // !COMISSION_WORKER_H

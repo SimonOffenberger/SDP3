@@ -9,7 +9,7 @@ enum TWorker
     E_Boss,
     E_CommisionWorker,
     E_HourlyWorker,
-    E_ieceWorker
+    E_PieceWorker
 };
 
 #endif // !TWORKER_HPP

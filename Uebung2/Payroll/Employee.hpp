@@ -8,7 +8,6 @@
 
 using TDate = std::chrono::year_month_day;
 
-
 class Employee : public Object
 {
 public:

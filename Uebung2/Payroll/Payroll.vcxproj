@@ -137,6 +137,7 @@
     <ClInclude Include="IComp.hpp" />
     <ClInclude Include="Object.hpp" />
     <ClInclude Include="PieceWorker.hpp" />
+    <ClInclude Include="Test.hpp" />
     <ClInclude Include="TWorker.hpp" />
   </ItemGroup>
   <ItemGroup>

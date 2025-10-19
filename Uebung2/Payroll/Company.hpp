@@ -13,7 +13,7 @@ public:
 
 	Company(std::string name) : m_companyName{ name } {}
 
-	void AddEmployee(Employee const* empl);
+	virtual void AddEmployee(Employee const* empl) override;
 
 	Company(const Company & comp);
 

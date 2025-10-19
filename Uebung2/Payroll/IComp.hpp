@@ -24,6 +24,7 @@ public:
 
 	virtual std::ostream& PrintDataSheet(std::ostream& ost) const = 0;
 
+	virtual void AddEmployee(Employee const* empl) = 0;
 	
 };
 

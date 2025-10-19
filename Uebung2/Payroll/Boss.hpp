@@ -12,7 +12,7 @@ public:
      * \param
      * \param
      */
-    std::ostream& PrintSpecificData(std::ostream& ost) override;
+    std::ostream& Employee::PrintSpecificData(std::ostream& ost) override;
 
     /**
      * \brief HERE
@@ -28,7 +28,7 @@ public:
      * \param
      * \param
      */
-    TWorker GetWorkerType();
+    TWorker GetWorkerType() override;
 
 private:
     size_t m_salary;

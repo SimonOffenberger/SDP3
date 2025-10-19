@@ -6,8 +6,7 @@
 #include "Object.hpp"
 #include "TWorker.hpp"
 
-using TDateBirthday = std::chrono::year_month_day;
-using TDateYear = std::chrono::year;
+using TDate = std::chrono::year_month_day;
 
 class Employee : public Object
 {
@@ -25,10 +24,9 @@ public:
     Employee(
         std::string     name,
         std::string     nameID,
-        TDateYear       dateJoined,
-        TDateBirthday   TDateBirthdaydateBirth,
-        std::string     socialSecurityNumber,
-        TWorker         workerType
+        TDate           dateJoined,
+        TDate           TDateBirthdaydateBirth,
+        std::string     socialSecurityNumber
     );
 
     /**
@@ -70,7 +68,7 @@ public:
      * \param
      * \param
      */
-    virtual TDateBirthday GetDateBirth() const;
+    virtual TDate GetDateBirth() const;
 
     /**
      * \brief HERE
@@ -78,7 +76,7 @@ public:
      * \param
      * \param
      */
-    virtual TDateYear GetDateJoined() const;
+    virtual TDate GetDateJoined() const;
 
     /**
      * \brief HERE
@@ -102,10 +100,9 @@ protected:
 
     std::string m_name;
     std::string m_nameIdentifier;
-    TDateYear m_dateJoined;
-    TDateBirthday m_dateBirth;
+    TDate m_dateJoined;
+    TDate m_dateBirth;
     std::string m_socialSecurityNumber;
-    TWorker m_workerType;
 };
 
 #endif // EMPLOYEE_H

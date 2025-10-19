@@ -80,6 +80,8 @@ Employee const * Company::FindWorkerByID(const std::string& id) const
 	return m_Employees.find(id)->second;
 }
 
+// longest serving ist glaub ich auf das Dienstalter und nicht auf den
+// Geburtstag bezogen - TDate Employee::GetDateJoined()
 Employee const * Company::GetLongestServing(void) const
 {
 	return min_element(m_Employees.cbegin(), m_Employees.cend(),

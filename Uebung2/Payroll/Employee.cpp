@@ -3,17 +3,14 @@
 Employee::Employee(
     std::string     name,
     std::string     nameID,
-    TDateYear       dateJoined,
-    TDateBirthday   dateBirth,
-    std::string     socialSecurityNumber,
-    TWorker         workerType
-
+    TDate       dateJoined,
+    TDate   dateBirth,
+    std::string     socialSecurityNumber
 ) : m_name{ name },
 m_nameIdentifier{ nameID },
 m_dateJoined{ dateJoined },
 m_dateBirth{ dateBirth },
-m_socialSecurityNumber{ socialSecurityNumber },
-m_workerType{ workerType }
+m_socialSecurityNumber{ socialSecurityNumber }
 {
     if (nameID.length() != 3)
         throw ERROR_BAD_ID;
@@ -24,12 +21,12 @@ std::string Employee::GetID() const
     return m_nameIdentifier;
 }
 
-TDateBirthday Employee::GetDateBirth() const
+TDate Employee::GetDateBirth() const
 {
     return m_dateBirth;
 }
 
-TDateYear Employee::GetDateJoined() const
+TDate Employee::GetDateJoined() const
 {
     return m_dateJoined;
 }
@@ -47,7 +44,7 @@ std::ostream& Employee::PrintDatasheet(std::ostream& ost) const
     ost << "Kürzel: " << m_nameIdentifier << std::endl;
     ost << "Sozialversicherungsnummer: " << m_socialSecurityNumber << std::endl;
     ost << "Geburtstag: " << m_dateBirth << std::endl;
-    ost << "Einstiegsjahr: " << m_dateJoined << std::endl;
+    ost << "Einstiegsjahr: " << m_dateJoined.year() << std::endl;
 
     PrintSpecificData(ost);
 

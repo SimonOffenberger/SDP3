@@ -16,7 +16,7 @@ public:
 
 	virtual size_t GetProducedItems() const = 0;
 
-	virtual size_t GetCountWorkerBeforData(const TDate & date) const = 0;
+	virtual size_t GetCountWorkerBeforDate(const TDate & date) const = 0;
 
 	virtual Employee const * FindWorkerByID(const std::string & id) const = 0;
 	
@@ -25,6 +25,8 @@ public:
 	virtual std::ostream& PrintDataSheet(std::ostream& ost) const = 0;
 
 	virtual void AddEmployee(Employee const* empl) = 0;
+
+	virtual ~IComp() = default;
 	
 };
 

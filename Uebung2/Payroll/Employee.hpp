@@ -87,6 +87,7 @@ public:
     */
     virtual Employee* Clone() const = 0;
 
+
 protected:
 
     std::string m_name;

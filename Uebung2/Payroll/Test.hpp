@@ -17,33 +17,33 @@
 
 #define ON 1
 #define OFF 0
-#define COLOR_OUTPUT OFF
+#define COLOR_OUTPUT ON
 
 // Definitions of colors in order to change the color of the output stream.
 const std::string colorRed = "\x1B[31m";
 const std::string colorGreen = "\x1B[32m";
 const std::string colorWhite = "\x1B[37m";
 
-std::ostream& RED(std::ostream& ost) {
+inline std::ostream& RED(std::ostream& ost) {
 	if (ost.good()) {
 		ost << colorRed;
 	}
 	return ost;
 }
-std::ostream& GREEN(std::ostream& ost) {
+inline std::ostream& GREEN(std::ostream& ost) {
 	if (ost.good()) {
 		ost << colorGreen;
 	}
 	return ost;
 }
-std::ostream& WHITE(std::ostream& ost) {
+inline std::ostream& WHITE(std::ostream& ost) {
 	if (ost.good()) {
 		ost << colorWhite;
 	}
 	return ost;
 }
 
-std::ostream& TestStart(std::ostream& ost) {
+inline std::ostream& TestStart(std::ostream& ost) {
 	if (ost.good()) {
 		ost << std::endl;
 		ost << "*******************************************" << std::endl;
@@ -54,7 +54,7 @@ std::ostream& TestStart(std::ostream& ost) {
 	return ost;
 }
 
-std::ostream& TestEnd(std::ostream& ost) {
+inline std::ostream& TestEnd(std::ostream& ost) {
 	if (ost.good()) {
 		ost << std::endl;
 		ost << "*******************************************" << std::endl;
@@ -63,7 +63,7 @@ std::ostream& TestEnd(std::ostream& ost) {
 	return ost;
 }
 
-std::ostream& TestCaseOK(std::ostream& ost) {
+inline std::ostream& TestCaseOK(std::ostream& ost) {
 
 #if COLOR_OUTPUT
 	if (ost.good()) {
@@ -78,7 +78,7 @@ std::ostream& TestCaseOK(std::ostream& ost) {
 	return ost;
 }
 
-std::ostream& TestCaseFail(std::ostream& ost) {
+inline std::ostream& TestCaseFail(std::ostream& ost) {
 
 #if COLOR_OUTPUT
 	if (ost.good()) {

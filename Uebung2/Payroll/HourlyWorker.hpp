@@ -1,3 +1,6 @@
+#ifndef HOURLY_WORKER_HPP
+#define HOURLY_WORKER_HPP
+
 #include "Employee.hpp"
 
 class HourlyWorker : public Employee
@@ -59,3 +62,5 @@ private:
     size_t m_hourlyRate;
     size_t m_workedHours;
 };
+
+#endif // !HOURLY_WORKER_HPP

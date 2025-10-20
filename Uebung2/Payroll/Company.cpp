@@ -29,11 +29,14 @@ static ostream & hstar(ostream & ost) {
 
 void Company::AddEmployee(Employee const* empl)
 {
-	m_Employees.emplace( empl->GetID(), empl );
+	m_Employees.insert({empl->GetID(),empl});
 }
 
 Company::Company(const Company& comp)
 {
+	// copy Company name
+	m_companyName = comp.m_companyName;
+
 	// clone all employees from one company to the other
 	for_each(
 		comp.m_Employees.cbegin(), comp.m_Employees.cend(),
@@ -44,6 +47,7 @@ Company::Company(const Company& comp)
 void Company::operator=(Company comp)
 {
 	std::swap(m_Employees, comp.m_Employees);
+	std::swap(m_companyName, comp.m_companyName);
 }
 
 size_t Company::GetCompanySize() const
@@ -69,7 +73,7 @@ size_t Company::GetProducedItems() const
 		[](size_t val, const auto& e) { return val + e.second->GetProducedItems();});
 }
 
-size_t Company::GetCountWorkerBeforData(const TDate& date) const
+size_t Company::GetCountWorkerBeforDate(const TDate& date) const
 {
 	return count_if(m_Employees.cbegin(), m_Employees.cend(),
 		[&](const auto& e) {return e.second->GetDateBirth() < date;});
@@ -85,11 +89,14 @@ Employee const * Company::FindWorkerByID(const std::string& id) const
 Employee const * Company::GetLongestServing(void) const
 {
 	return min_element(m_Employees.cbegin(), m_Employees.cend(),
-		[](const auto& lhs, const auto& rhs) { return lhs.second->GetDateBirth() < rhs.second->GetDateBirth();})->second;
+		[](const auto& lhs, const auto& rhs) { return lhs.second->GetDateJoined() < rhs.second->GetDateJoined();})->second;
 }
 
 std::ostream& Company::PrintDataSheet(std::ostream& ost) const
 {
+	// convert system clock.now to days -> this can be used in CTOR for year month day
+	std::chrono::year_month_day date{ floor<std::chrono::days>(std::chrono::system_clock::now()) };
+
 	if (!ost.good()) throw Object::ERROR_BAD_OSTREAM;
 
 	ost << hstar;
@@ -99,7 +106,7 @@ std::ostream& Company::PrintDataSheet(std::ostream& ost) const
 	for_each(m_Employees.cbegin(), m_Employees.cend(), [&](const auto& e) { e.second->PrintDatasheet(ost);});
 
 	ost << hline;
-	ost << std::chrono::system_clock::now() << endl;
+	ost << date.month() << " " << date.year() << endl;
 	ost << hline;
 
 	if (ost.fail()) throw Object::ERROR_FAIL_WRITE;
@@ -109,7 +116,7 @@ std::ostream& Company::PrintDataSheet(std::ostream& ost) const
 
 Company::~Company()
 {
-	for (auto elem : m_Employees)
+	for (auto & elem : m_Employees)
 	{
 		delete elem.second;
 	}

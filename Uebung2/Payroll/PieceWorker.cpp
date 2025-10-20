@@ -23,7 +23,7 @@ std::ostream& PieceWorker::PrintSpecificData(std::ostream& ost) const
     }
     ost << "Role: PieceWorker" << std::endl;
     ost << "Pieces produced: " << m_numberPieces << std::endl;
-    ost << "Pay per piece: " << m_commisionPerPiece << std::endl;
+    ost << "Pay per piece: " << m_commisionPerPiece << " EUR" << std::endl;
 
     return ost; 
 }

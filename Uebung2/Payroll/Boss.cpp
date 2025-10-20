@@ -19,7 +19,7 @@ std::ostream& Boss::PrintSpecificData(std::ostream& ost) const
         return ost;
     }
     ost << "Role: Boss" << std::endl;
-    ost << "Salary: " << m_salary << std::endl;
+    ost << "Salary: " << m_salary << " EUR" << std::endl;
 
     return ost;
 }

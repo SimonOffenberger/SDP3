@@ -22,8 +22,8 @@ std::ostream& HourlyWorker::PrintSpecificData(std::ostream& ost) const
         return ost;
     }
     ost << "Role: HourlyWWorker" << std::endl;
-    ost << "Hourly rate: " << m_hourlyRate << std::endl;
-    ost << "Hours worked: " << m_workedHours << std::endl;
+    ost << "Hourly rate: " << m_hourlyRate << " EUR" << std::endl;
+    ost << "Hours worked: " << m_workedHours << " EUR" << std::endl;
 
     return ost;
 }

@@ -24,8 +24,8 @@ std::ostream& ComissionWorker::PrintSpecificData(std::ostream & ost) const
         return ost;
     }
     ost << "Role: ComissionWorker" << std::endl;
-    ost << "Base salary: " << m_baseSalary<< std::endl;
-    ost << "Comission per piece: " << m_commisionPerPiece << std::endl;
+    ost << "Base salary: " << m_baseSalary << " EUR" << std::endl;
+    ost << "Comission per piece: " << m_commisionPerPiece << " EUR" << std::endl;
     ost << "Pieces sold: " << m_piecesSold << std::endl;
 
     return ost;

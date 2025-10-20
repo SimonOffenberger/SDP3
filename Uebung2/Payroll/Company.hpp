@@ -6,7 +6,7 @@
 #include "Object.hpp"
 #include "IComp.hpp"
 
-using  TContEmployee = std::map<const std::string,Employee const*>;
+using  TContEmployee = std::map<const std::string,Employee const *>;
 
 class Company : public Object, public IComp{
 public:
@@ -27,7 +27,7 @@ public:
 
 	virtual size_t GetProducedItems() const override;
 
-	virtual size_t GetCountWorkerBeforData(const TDate& date) const override;
+	virtual size_t GetCountWorkerBeforDate(const TDate& date) const override;
 
 	virtual Employee const * FindWorkerByID(const std::string& id) const override;
 

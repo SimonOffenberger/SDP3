@@ -1,12 +1,175 @@
 #include "Client.hpp"
 #include "Test.hpp"
 #include "ComissionWorker.hpp"
+#include "HourlyWorker.hpp"
+#include "Boss.hpp"
+#include "PieceWorker.hpp"
+#include <sstream>
 
-bool Client::TestCompanyGetter(std::ostream& ost, IComp& company) const
+using namespace std;
+using namespace std::chrono;
+
+bool Client::TestCompanyGetter(std::ostream& ost, IComp & company) const
 {
 	if (!ost.good()) throw Client::ERROR_BAD_OSTREAM;
 
+	TestStart(ost);
 
+	bool TestOK = true;
+	string error_msg = "";
+
+
+	try {
+
+		ComissionWorker* cWork = new ComissionWorker{ "Simon 1", "Si1", { 2022y,November,23d }, { 2000y,November,22d }, "4711221100", 2500, 25, 2500 };
+		ComissionWorker* cWork2 = new ComissionWorker{ "Simon 6", "Si6", { 2022y,November,23d }, { 2000y,November,22d }, "4711221100", 2500, 25, 200 };
+		HourlyWorker* hWork = new HourlyWorker{ "Simon 2", "Si2", { 2022y,November,23d }, { 1934y,November,23d },"4712231100",20,25};
+		Boss* boss = new Boss{ "Simon 3", "Si3", { 2000y,November,23d }, { 1950y,November,23d },"4712231100",35000};
+		PieceWorker* pWork= new PieceWorker{ "Simon 4", "Si4", { 2022y,November,23d }, { 2010y,November,23d },"4712231100",2000,25,25};
+		PieceWorker* pWork2= new PieceWorker{ "Simon 5", "Si5", { 2022y,November,23d }, { 2011y,November,23d },"4712231100",2000,25,25};
+
+		company.AddEmployee(cWork);
+		company.AddEmployee(cWork2);
+		company.AddEmployee(hWork);
+		company.AddEmployee(boss);
+		company.AddEmployee(pWork);
+		company.AddEmployee(pWork2);
+
+		TestOK = TestOK && check_dump(ost, "Test Company Get Comission Worker Cnt & Add Empl",  static_cast<size_t>(2), company.GetWorkerCount(TWorker::E_CommisionWorker));
+		TestOK = TestOK && check_dump(ost, "Test Company Get Houerly Worker Cnt & Add Empl",	static_cast<size_t>(1), company.GetWorkerCount(TWorker::E_HourlyWorker));
+		TestOK = TestOK && check_dump(ost, "Test Company Get Boss Cnt & Add Empl",				static_cast<size_t>(1), company.GetWorkerCount(TWorker::E_Boss));
+		TestOK = TestOK && check_dump(ost, "Test Company Get Piece Worker Cnt & Add Empl",		static_cast<size_t>(2), company.GetWorkerCount(TWorker::E_PieceWorker));
+
+		
+		TestOK = TestOK && check_dump(ost, "Test Company FindWorker by ID",			static_cast<const Employee *>(cWork), company.FindWorkerByID("Si1"));
+
+		
+		TestOK = TestOK && check_dump(ost, "Test Company Get Size",					static_cast<size_t>(6), company.GetCompanySize());
+
+		TestOK = TestOK && check_dump(ost, "Test Company Get Count worker bevor 1930 date", static_cast<size_t>(0), company.GetCountWorkerBeforDate({ 1930y,November,23d }));
+		TestOK = TestOK && check_dump(ost, "Test Company Get Count worker bevor 1951 date", static_cast<size_t>(2), company.GetCountWorkerBeforDate({ 1951y,November,23d }));
+
+		TestOK = TestOK && check_dump(ost, "Test Company Get longest serving employee", static_cast<const Employee*>(boss), company.GetLongestServing());
+
+
+		TestOK = TestOK && check_dump(ost, "Test Company Get total pieces produced", static_cast<size_t>(50), company.GetProducedItems());
+
+		TestOK = TestOK && check_dump(ost, "Test Company Get total pieces sold", static_cast<size_t>(2700), company.GetSoldItems());
+
+	}
+	catch (const string& err) {
+		error_msg = err;
+		TestOK = false;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+		TestOK = false;
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+		TestOK = false;
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+		TestOK = false;
+	}
+
+	TestEnd(ost);
 
 	if (ost.fail()) throw Client::ERROR_FAIL_WRITE;
+
+	return TestOK;
+}
+
+bool Client::TestCompanyCopyCTOR(std::ostream& ost, IComp& company, IComp& companyCopy) const
+{
+
+	if (!ost.good()) throw Client::ERROR_BAD_OSTREAM;
+
+	TestStart(ost);
+
+	bool TestOK = true;
+	string error_msg = "";
+
+	try {
+
+		stringstream result;
+		stringstream expected;
+
+		company.PrintDataSheet(expected);
+		companyCopy.PrintDataSheet(result);
+
+		TestOK = TestOK && check_dump(ost, "Test Company Copy Ctor", true ,expected.str() == result.str());
+
+	}
+	catch (const string& err) {
+		error_msg = err;
+		TestOK = false;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+		TestOK = false;
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+		TestOK = false;
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+		TestOK = false;
+	}
+
+	TestEnd(ost);
+
+	if (ost.fail()) throw Client::ERROR_FAIL_WRITE;
+
+	return TestOK;
+
+	return false;
+}
+
+bool Client::TestCompanyAssignOp(std::ostream& ost, IComp& company, IComp& companyAss) const
+{
+	if (!ost.good()) throw Client::ERROR_BAD_OSTREAM;
+
+	TestStart(ost);
+
+	bool TestOK = true;
+	string error_msg = "";
+
+	try {
+
+		stringstream result;
+		stringstream expected;
+
+		company.PrintDataSheet(expected);
+		companyAss.PrintDataSheet(result);
+
+		TestOK = TestOK && check_dump(ost, "Test Company Assign Operator", true, expected.str() == result.str());
+
+	}
+	catch (const string& err) {
+		error_msg = err;
+		TestOK = false;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+		TestOK = false;
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+		TestOK = false;
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+		TestOK = false;
+	}
+
+	TestEnd(ost);
+
+	if (ost.fail()) throw Client::ERROR_FAIL_WRITE;
+
+	return TestOK;
+
+	return false;
 }

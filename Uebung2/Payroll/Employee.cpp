@@ -41,12 +41,15 @@ std::ostream& Employee::PrintDatasheet(std::ostream& ost) const
 
     ost << "Datenblatt\n---------------\n";
     ost << "Name: " << m_name << std::endl;
-    ost << "Kürzel: " << m_nameIdentifier << std::endl;
+    ost << "Kuerzel: " << m_nameIdentifier << std::endl;
     ost << "Sozialversicherungsnummer: " << m_socialSecurityNumber << std::endl;
     ost << "Geburtstag: " << m_dateBirth << std::endl;
     ost << "Einstiegsjahr: " << m_dateJoined.year() << std::endl;
 
     PrintSpecificData(ost);
 
+    ost << std::endl;
+
     return ost;
 }
+

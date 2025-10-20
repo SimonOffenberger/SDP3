@@ -53,7 +53,22 @@ int main(void){
 	 TestOK = TestOK && TestClient.TestEmptyCompanyGetter(cout, emptyComp);
 	 if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestEmptyCompanyGetter(testoutput, emptyComp);
 
-		 
+	 // Test Boss
+	 TestOK = TestOK && TestClient.TestEmployeeBoss(cout);
+	 if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestEmployeeBoss(testoutput);
+
+	 // Test Hourly Worker
+	 TestOK = TestOK && TestClient.TestEmployeeHourlyWorker(cout);
+	 if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestEmployeeHourlyWorker(testoutput);
+
+	 // Test Piece Worker
+	 TestOK = TestOK && TestClient.TestEmployeePieceWorker(cout);
+	 if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestEmployeePieceWorker(testoutput);
+
+	 // Test Comission Worker
+	 TestOK = TestOK && TestClient.TestEmployeeComissionWorker(cout);
+	 if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestEmployeeComissionWorker(testoutput);
+
 	 if (WRITE_OUTPUT){
 		 if (TestOK) TestCaseOK(testoutput);
 		 else TestCaseFail(testoutput);

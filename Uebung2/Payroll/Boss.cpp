@@ -26,7 +26,7 @@ std::ostream& Boss::PrintSpecificData(std::ostream& ost) const
 
 size_t Boss::GetSalary() const
 {
-    return size_t();
+    return m_salary;
 }
 
 TWorker Boss::GetWorkerType() const

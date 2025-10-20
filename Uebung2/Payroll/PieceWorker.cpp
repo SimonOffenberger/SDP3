@@ -6,7 +6,6 @@ PieceWorker::PieceWorker(
     TDate dateJoined, 
     TDate dateBirth, 
     std::string socialSecurityNumber, 
-    size_t baseSalary, 
     size_t m_numberPieces, 
     size_t m_commisionPerPiece
 ) :

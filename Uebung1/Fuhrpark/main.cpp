@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <cassert>
 #include "Test.hpp"
 #include "RecordEntry.hpp"
 #include "DriveRecord.hpp"
@@ -64,6 +65,8 @@ int main(void){
 
 bool Test_RecordEntry(ostream& ost)
 {
+	assert(ost.good());
+
 	bool Test_OK = true;
 	string error_msg;
 
@@ -139,6 +142,8 @@ bool Test_RecordEntry(ostream& ost)
 
 bool Test_DriveRecord(ostream& ost)
 {
+	assert(ost.good());
+
 	bool Test_OK = true;
 	string error_msg;
 
@@ -228,6 +233,8 @@ bool Test_DriveRecord(ostream& ost)
 
 static bool Test_Garage(ostream& ost)
 {
+	assert(ost.good());
+
 	bool Test_OK = true;
 	string error_msg;
 
@@ -549,6 +556,8 @@ static bool Test_Garage(ostream& ost)
 
 
 static bool Test_Car(ostream& ost) {
+	assert(ost.good());
+
 	ost << TestStart;
 	bool Test_OK = true;
 	std::string error_msg;
@@ -743,6 +752,8 @@ static bool Test_Car(ostream& ost) {
 
 
 static bool Test_Bike(ostream& ost) {
+	assert(ost.good());
+
 	ost << TestStart;
 	bool Test_OK = true;
 	std::string error_msg;
@@ -935,6 +946,8 @@ static bool Test_Bike(ostream& ost) {
 }
 
 static bool Test_Truck(ostream& ost){
+	assert(ost.good());
+
 	ost << TestStart;
 	bool Test_OK = true;
 	std::string error_msg;

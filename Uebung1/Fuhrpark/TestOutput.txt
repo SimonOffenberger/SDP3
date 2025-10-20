@@ -50,7 +50,7 @@ Test DriveRecord Empty Print
 *******************************************
 
 vehicle plate search
-[Test OK] Result: (Expected: 00000223107B1010 == Result: 00000223107B1010)
+[Test OK] Result: (Expected: 000001CABA4C2410 == Result: 000001CABA4C2410)
 
 Test garage plate search - error buffer
 [Test OK] Result: (Expected: true == Result: true)

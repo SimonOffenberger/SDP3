@@ -346,6 +346,9 @@ INPUT ..\Bike.hpp
 INPUT .\..\Bike.cpp
 INPUT .\..\Bike.cpp
 INPUT ..\Bike.cpp
+INPUT .\..\main.cpp
+INPUT .\..\main.cpp
+INPUT ..\main.cpp
 INPUT Systemdoku_Uebung01.aux
 INPUT C:\Users\Simon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\Simon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb

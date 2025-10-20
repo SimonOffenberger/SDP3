@@ -11,10 +11,10 @@ public:
 	inline static const std::string ERROR_FAIL_WRITE = "ERROR: Fail to write on provided Ostream";
 
 	bool TestCompanyGetter(std::ostream & ost,IComp& company) const;
-	bool TestCompanyCopyCTOR(std::ostream & ost,IComp& company, IComp& companyCopy) const;
-	bool TestCompanyAssignOp(std::ostream & ost,IComp& company, IComp& companyAss) const;
-
-
+	bool TestEmptyCompanyGetter(std::ostream & ost,IComp& company) const;
+	bool TestCompanyCopyCTOR(std::ostream & ost,const IComp& company,const IComp& companyCopy) const;
+	bool TestCompanyAssignOp(std::ostream & ost,const IComp& company,const IComp& companyAss) const;
+	bool TestCompanyPrint(std::ostream & ost,const IComp& company) const;
 
 };
 

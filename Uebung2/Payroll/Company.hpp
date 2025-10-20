@@ -13,11 +13,11 @@ public:
 
 	Company(std::string name) : m_companyName{ name } {}
 
-	virtual void AddEmployee(Employee const* empl) override;
-
 	Company(const Company & comp);
 
 	void operator=(Company comp);
+
+	virtual void AddEmployee(Employee const* empl) override;
 
 	virtual size_t GetCompanySize() const override;
 
@@ -35,7 +35,7 @@ public:
 
 	virtual std::ostream& PrintDataSheet(std::ostream& ost) const override;
 
-	virtual ~Company();
+	~Company();
 
 private:
 

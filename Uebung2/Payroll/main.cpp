@@ -44,7 +44,15 @@ int main(void){
 	 TestOK = TestOK && TestClient.TestCompanyAssignOp(cout, comp, compAss);
 	 if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestCompanyAssignOp(testoutput, comp, compAss);
 
-	 compAss.PrintDataSheet(cout);
+
+	 TestOK = TestOK && TestClient.TestCompanyPrint(cout, comp);
+	 if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestCompanyPrint(testoutput, comp);
+
+	 Company emptyComp{"empty"};
+
+	 TestOK = TestOK && TestClient.TestEmptyCompanyGetter(cout, emptyComp);
+	 if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestEmptyCompanyGetter(testoutput, emptyComp);
+
 		 
 	 if (WRITE_OUTPUT){
 		 if (TestOK) TestCaseOK(testoutput);

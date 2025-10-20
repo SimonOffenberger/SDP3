@@ -29,7 +29,8 @@ static ostream & hstar(ostream & ost) {
 
 void Company::AddEmployee(Employee const* empl)
 {
-	m_Employees.insert({empl->GetID(),empl});
+	if (empl == nullptr) throw Object::ERROR_NULLPTR;
+	else m_Employees.insert({empl->GetID(),empl});
 }
 
 Company::Company(const Company& comp)
@@ -81,19 +82,28 @@ size_t Company::GetCountWorkerBeforDate(const TDate& date) const
 
 Employee const * Company::FindWorkerByID(const std::string& id) const
 {
-	return m_Employees.find(id)->second;
+	auto empl = m_Employees.find(id);
+
+	if (empl == m_Employees.end()) return nullptr;
+	else return empl->second;
 }
 
 // longest serving ist glaub ich auf das Dienstalter und nicht auf den
 // Geburtstag bezogen - TDate Employee::GetDateJoined()
 Employee const * Company::GetLongestServing(void) const
 {
-	return min_element(m_Employees.cbegin(), m_Employees.cend(),
-		[](const auto& lhs, const auto& rhs) { return lhs.second->GetDateJoined() < rhs.second->GetDateJoined();})->second;
+	auto minElem = min_element(m_Employees.cbegin(), m_Employees.cend(),
+		[](const auto& lhs, const auto& rhs) { return lhs.second->GetDateJoined() < rhs.second->GetDateJoined();});
+
+
+	if (minElem == m_Employees.end()) return nullptr;
+	else return minElem->second;
+
 }
 
 std::ostream& Company::PrintDataSheet(std::ostream& ost) const
 {
+
 	// convert system clock.now to days -> this can be used in CTOR for year month day
 	std::chrono::year_month_day date{ floor<std::chrono::days>(std::chrono::system_clock::now()) };
 

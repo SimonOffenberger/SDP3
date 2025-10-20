@@ -335,6 +335,65 @@ bool Client::TestEmployeeBoss(std::ostream& ost)
 	}
 
 	TestOK = TestOK && check_dump(ost, "Test - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	//clone test
+	try {
+		size_t testSalary = 7800;
+		string svr = "4711221100";
+		TDate dateBorn = { 2000y,November,22d };
+		TDate dateJoined = { 2022y,November,23d };
+		string name = "Max Musterman";
+		string id = "MAX";
+
+		Boss testBoss{ name, id, dateJoined, dateBorn, svr, testSalary };
+		Employee* pEmp = testBoss.Clone();
+		TestOK = TestOK && check_dump(ost, "Test Boss.Clone()", pEmp != nullptr && pEmp != &testBoss, true);
+		delete pEmp;
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Test - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Unavialable ID
+	try {
+		size_t testSalary = 7800;
+		string svr = "4711221100";
+		TDate dateBorn = { 2000y,November,22d };
+		TDate dateJoined = { 2022y,November,23d };
+		string name = "Max Musterman";
+		string id = "MAXL";
+
+		Boss testBoss{ name, id, dateJoined, dateBorn, svr, testSalary };
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Boss Constructor bad ID", error_msg, Employee::ERROR_BAD_ID);
+	error_msg.clear();
+
 	TestEnd(ost);
 	return TestOK;
 }
@@ -380,6 +439,68 @@ bool Client::TestEmployeeHourlyWorker(std::ostream& ost)
 	}
 
 	TestOK = TestOK && check_dump(ost, "Test - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	//clone test
+	try {
+		size_t hourlyRate = 21;
+		size_t workedHours = 160;
+		string svr = "4711221100";
+		TDate dateBorn = { 2000y,November,22d };
+		TDate dateJoined = { 2022y,November,23d };
+		string name = "Max Musterman";
+		string id = "MAX";
+
+		HourlyWorker testHourlyWorker{ name, id, dateJoined, dateBorn, svr, hourlyRate, workedHours };
+
+		Employee* pEmp = testHourlyWorker.Clone();
+		TestOK = TestOK && check_dump(ost, "Test testPieceWorker.Clone()", pEmp != nullptr && pEmp != &testHourlyWorker, true);
+		delete pEmp;
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Test - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Unavialable ID
+	try {
+		size_t hourlyRate = 21;
+		size_t workedHours = 160;
+		string svr = "4711221100";
+		TDate dateBorn = { 2000y,November,22d };
+		TDate dateJoined = { 2022y,November,23d };
+		string name = "Max Musterman";
+		string id = "MAXL";
+
+		HourlyWorker testHourlyWorker{ name, id, dateJoined, dateBorn, svr, hourlyRate, workedHours };
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "HourlyWorker Constructor bad ID", error_msg, Employee::ERROR_BAD_ID);
+	error_msg.clear();
+
 	TestEnd(ost);
 	return TestOK;
 }
@@ -425,6 +546,68 @@ bool Client::TestEmployeePieceWorker(std::ostream& ost)
 	}
 
 	TestOK = TestOK && check_dump(ost, "Test - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	//clone test
+	try {
+		size_t piecesProduced = 950;
+		size_t comissionPerPiece = 2;
+		string svr = "4711221100";
+		TDate dateBorn = { 2000y,November,22d };
+		TDate dateJoined = { 2022y,November,23d };
+		string name = "Max Musterman";
+		string id = "MAX";
+
+		PieceWorker testPieceWorker{ name, id, dateJoined, dateBorn, svr, piecesProduced, comissionPerPiece };
+		Employee* pEmp = testPieceWorker.Clone();
+		TestOK = TestOK && check_dump(ost, "Test testPieceWorker.Clone()", pEmp != nullptr && pEmp != &testPieceWorker, true);
+		delete pEmp;
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Test - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Unavialable ID
+	try {
+		size_t piecesProduced = 950;
+		size_t comissionPerPiece = 2;
+		string svr = "4711221100";
+		TDate dateBorn = { 2000y,November,22d };
+		TDate dateJoined = { 2022y,November,23d };
+		string name = "Max Musterman";
+		string id = "MAXL";
+
+		PieceWorker testPieceWorker{ name, id, dateJoined, dateBorn, svr, piecesProduced, comissionPerPiece };
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "PieceWorker Constructor bad ID", error_msg, Employee::ERROR_BAD_ID);
+	error_msg.clear();
+
+
 	TestEnd(ost);
 	return TestOK;
 }
@@ -471,6 +654,69 @@ bool Client::TestEmployeeComissionWorker(std::ostream& ost)
 	}
 
 	TestOK = TestOK && check_dump(ost, "Test - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	//clone test
+	try {
+		size_t baseSalary = 2300;
+		size_t piecesSold = 300;
+		size_t comissionPerPiece = 2;
+		string svr = "4711221100";
+		TDate dateBorn = { 2000y,November,22d };
+		TDate dateJoined = { 2022y,November,23d };
+		string name = "Max Musterman";
+		string id = "MAX";
+
+		ComissionWorker testComissionWorker{ name, id, dateJoined, dateBorn, svr, baseSalary, comissionPerPiece, piecesSold };
+		Employee* pEmp = testComissionWorker.Clone();
+		TestOK = TestOK && check_dump(ost, "Test testPieceWorker.Clone()", pEmp != nullptr && pEmp != &testComissionWorker, true);
+		delete pEmp;
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Test - error buffer", error_msg.empty(), true);
+	error_msg.clear();
+
+	// Unavialable ID
+	try {
+		size_t baseSalary = 2300;
+		size_t piecesSold = 300;
+		size_t comissionPerPiece = 2;
+		string svr = "4711221100";
+		TDate dateBorn = { 2000y,November,22d };
+		TDate dateJoined = { 2022y,November,23d };
+		string name = "Max Musterman";
+		string id = "MAXL";
+
+		ComissionWorker testComissionWorker{ name, id, dateJoined, dateBorn, svr, baseSalary, comissionPerPiece, piecesSold };
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "ComissionWorker Constructor bad ID", error_msg, Employee::ERROR_BAD_ID);
+	error_msg.clear();
+
 	TestEnd(ost);
 	return TestOK;
 }

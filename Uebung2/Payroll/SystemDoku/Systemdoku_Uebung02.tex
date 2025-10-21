@@ -124,7 +124,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \title {\vspace{1cm}
        \includegraphics[width=8cm]{./Images/FhOOeLogoOkt2009_HSD_Rot_pastell}\\
        \vspace{2cm}
-       {\textbf{Systemdokumentation\\Projekt Fuhrpark}}\\
+       {\textbf{Systemdokumentation\\Projekt Gehaltsberechnung}}\\
        \vspace{5mm}
        {\small{Version 1.0}}\\
        \vspace{5mm}
@@ -154,7 +154,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \subsection{Team}
 \begin{itemize}
 	\item Simon Offenberger, Matr.-Nr.: S2410306027, E-Mail: Simon.Offenberger@fh-hagenberg.at
-	\item Susi Sorglos, Matr.-Nr.: yyyy, E-Mail: Susi.Sorglos@fh-hagenberg.at	
+	\item Simon Vogelhuber, Matr.-Nr.: S2410306014, E-Mail: s2410306014@fhooe.at	
 \end{itemize}
 
 \subsection{Aufteilung der Verantwortlichkeitsbereiche}
@@ -164,10 +164,9 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 			\item Design Klassendiagramm
 			\item Implementierung und Test der Klassen: 
 			\begin{itemize}
-				\item Object,
-				\item RecordEntry, 
-				\item DriveRecord,
-				\item Vehicle,
+				\item Company
+				\item Company Interface
+				\item Client
 			\end{itemize}
 			\item Implementierung des Testtreibers
 			\item Dokumentation
@@ -177,10 +176,11 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 			\item Design Klassendiagramm
 			\item Implementierung und Komponententest der Klassen: 
 			\begin{itemize}
-				\item Garage
-				\item Car, 
-				\item Bike und  
-				\item Truck 
+				\item Employee
+				\item Boss
+				\item ComissionWorker
+				\item PieceWorker
+				\item HourlyWorker
 			\end{itemize}
 			\item Implementierung des Testtreibers
 			\item Dokumentation
@@ -196,65 +196,64 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 
 \clearpage
 \section{Anforderungsdefinition (Systemspezifikation)}
-In diesem System werden Fahrzeuge in einem Fuhrpark verwaltet. 
-Zusätzlich soll auch noch ein Fahrtenbuch zu jedem Fahrzeug gespeichert werden.
+In diesem Projekt geht es darum die Mitarbeiter eines Unternehmens zu verwalten und deren Gehälter zu berechnen.
+Es gibt verschiedene Arten von Mitarbeitern, welche unterschiedliche Gehaltsberechnungen haben. Der Zugriff 
+auf die Mitarbeiter soll über eine gemeinsame Schnittstelle erfolgen.
 \\
 \\
-\textbf{Funktionen des Fahrtenbuches}
+\textbf{Funktionen der Firmenschnittstelle}
 \begin{itemize}
-	\item Berechnen des Kilometerstands der aufgezeichneten Fahrten.
-	\item Speichere Datum und Distanz einer Fahrt.
+	\item Zugriff auf die wichtigsten Mitarbeiter und Firmendaten
 \end{itemize}
 
-\textbf{Funktionen des Fuhrparks}
+\textbf{Funktionen der Firma}
 \begin{itemize}
-	\item Hinzufügen und löschen eines Fahrzeuges
-	\item Ausgabe aller Fahrzeugdaten inklusive der Fahrtenbucheinträge.
-	\item Suchen nach einem Fahrzeug mit dessen Kennzeichen.
-	\item Berechnung der Gesamtkilometer aller Fahrzeuge im Fuhrpark.
+	\item Verwalten von Mitabeitern verschiedener Arten.
+	\item Ausgabe von Firmen und Mitarbeiterinformationen.
+	\item Anlegen und Entfernen von Mitarbeitern.
 \end{itemize}
 
-\textbf{Funktionen der Fahrzeuge}
+\textbf{Funktionen der Mitarbeiter}
 \begin{itemize}
-	\item Bereitstellen einer Print Funktion mit Info über das Fahrzeug und die Fahrtenbucheinträge.
-	\item Hinzufügen von Fahrtenbucheinträgen.
-	\item Ermittlung vom Kilometerstand eines Fahrzeugs.
-	\item Speichern von Hersteller, Treibstoff und Kennzeichen des Fahrzeugs
+	\item Speichern von Mitarbeiterdaten.
+	\item Berechnung des Gehalts.
+	\item Ausgabe von Mitarbeiterinformationen.
 \end{itemize}
 
 \clearpage
 \section{Systementwurf}
 
 \subsection{Klassendiagramm}
-\includegraphics[width=14cm]{./Images/Klassendiagramm.png}
+\includegraphics[width=14cm]{./Images/UML_Diagramm.png}
 \newpage
 
 \subsection{Designentscheidungen}
-Im Klassendiagramm wurde der Polymorphismus angewendet, um unterschiedliche Fahrzeugarten mit der gemeinsamen Schnittstelle 'Vehicle' anzusprechen. Die Klasse 'Garage' speichert einen Container mit der abstrakte Basisklasse 'Vehicle' als Elementtyp und kann somit alle bestehenden und auch neuen Fahrzeugarten verwalten, die sich von der gemeinsamen Basisklasse 'Vehicle' ableiten.
-Für die Aufzeichnung eines Fahrtenbuches wurde die Klasse \textbf{DriveRecord} implementiert. Diese Klasse speichert mehrere Objekte der Klasse \textbf{RecordEntry}.
-Die Record Entries werden im Fahrtenbuch in einem \textbf{Multiset} gespeichert, damit sind die Einträge ins Fahrtenbuch immer nach dem Datum aufsteigend sortiert.
-Aus diesem Grund wurde der \textbf{operator<} für die Record Entries definiert. Dieser vergleicht das Datum der Einträge.
-Dadurch, dass die Einträge ins Fahrtenbuch als eigene Klasse implementiert wurde, lassen sich die einzelnen Einträge schnell und einfach erweitern.\\
+
+Das Interface \textbf{ICompany} wurde erstellt, um dem zugreifenden \textbf{Client} eine Schnittstelle zur Verfügung zu stellen.
+Dadurch kann sich der Client auf die Schnittstelle konzentrieren und muss sich nicht um die Implementierungsdetails der Firma kümmern.
 \\
 \\
-Als Container für die Speicherung der Fahrzeuge in der Klasse \textbf{Garage} wurde der Vektor verwendet. 
-Dieser erlaubt es schnell Fahrzeuge hinzuzufügen, und das Suchen geschieht relativ schnell in O(n).
-Einzig und allein, das Löschen aus der Mitte des Vektors stellt bei größerwerdenden Fuhrparks ein Problem dar.
-Wenn dies in der Verwendung des Fuhrparks öfters passiert sollte der verwendete Container ausgetauscht werden.
+Die Firma ist ein polymorpher Container, der Objekte der abstrakten Klasse \textbf{Employee} verwaltet.
+Bei dem Container wurde eine Map verwendet, da die Mitarbeiter über eine eindeutige ID angesprochen werden können.
 \\
 \\
-Die Klassen \textbf{Car, Truck und Bike} wurden für die Konkretisierung der Printfunktion verwendet.
-Diese Klassen lassen sich schnell und einfach erweitern, und können trotzdem weiter vom Fuhrpark verwaltet werden.\\
+Die Klasse \textbf{Employee} ist abstrakt, da es keine generellen Mitarbeiter geben soll, sondern nur spezielle Arten von Mitarbeitern.
+Die einzelnen Mitarbeiter speichern Daten, die für die Gehaltsberechnung notwendig sind. 
+Die Gehaltsberechnung wird über eine virtuelle Funktion realisiert, die in den abgeleiteten Klassen überschrieben wird.
 \\
+\\
+Das Enum mit dem Mitarbeitertypen \textbf{TWorker} wurde eingebaut, da die Company den Typen des Mitarbeiters kennen muss, um den Mitarbeiter korrekt anzulegen.
+Hierbei wurde aktiv auf RTTI verzichtet, um die Kopplung zwischen Company und Employee zu reduzieren.
 
 \color{black}
 
 \section{Dokumentation der Komponenten (Klassen)}
 Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.html}{./../doxy/html/index.html}
 
+
 \clearpage
 \section{Testprotokollierung}
-\lstinputlisting[style=teststyle]{../TestOutput.txt}
+%\lstinputlisting[style=teststyle]{../TestOutput.txt}
 
 \clearpage
 \section{Quellcode}
@@ -262,47 +261,49 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 \subsection{Object.hpp}
 \lstinputlisting{../Object.hpp}
 
-\subsection{RecordEntry.hpp}
-\lstinputlisting{./../RecordEntry.hpp}
+\subsection{Client.hpp}
+\lstinputlisting{../Client.hpp}
+\subsection{Client.cpp}
+\lstinputlisting{../Client.cpp}
 
-\subsection{RecordEntry.cpp}
-\lstinputlisting{./../RecordEntry.cpp}
+\subsection{IComp.hpp}
+\lstinputlisting{../IComp.hpp}
 
-\subsection{DriveRecord.hpp}
-\lstinputlisting{./../DriveRecord.hpp}
+\subsection{Company.hpp}
+\lstinputlisting{../Company.hpp}
+\subsection{Company.cpp}
+\lstinputlisting{../Company.cpp}
 
-\subsection{DriveRecord.cpp}
-\lstinputlisting{./../DriveRecord.cpp}
+\subsection{TWorker.hpp}
+\lstinputlisting{../TWorker.hpp}
 
-\subsection{Garage.hpp}
-\lstinputlisting{./../Garage.hpp}
+\subsection{Employee.hpp}
+\lstinputlisting{../Employee.hpp}
+\subsection{Employee.cpp}
+\lstinputlisting{../Employee.cpp}
 
-\subsection{Garage.cpp}
-\lstinputlisting{./../Garage.cpp}
+\subsection{Boss.hpp}
+\lstinputlisting{../Boss.hpp}
+\subsection{Boss.cpp}
+\lstinputlisting{../Boss.cpp}
 
-\subsection{Vehicle.hpp}
-\lstinputlisting{./../Vehicle.hpp}
+\subsection{HourlyWorker.hpp}
+\lstinputlisting{../HourlyWorker.hpp}
+\subsection{HourlyWorker.cpp}
+\lstinputlisting{../HourlyWorker.cpp}
 
-\subsection{Vehicle.cpp}
-\lstinputlisting{./../Vehicle.cpp}
+\subsection{PieceWorker.hpp}
+\lstinputlisting{../PieceWorker.hpp}
+\subsection{PieceWorker.cpp}
+\lstinputlisting{../PieceWorker.cpp}
 
-\subsection{Car.hpp}
-\lstinputlisting{./../Car.hpp}
+\subsection{ComissionWorker.hpp}
+\lstinputlisting{../ComissionWorker.hpp}
+\subsection{ComissionWorker.cpp}
+\lstinputlisting{../ComissionWorker.cpp}
 
-\subsection{Car.cpp}
-\lstinputlisting{./../Car.cpp}
-
-\subsection{Truck.hpp}
-\lstinputlisting{./../Truck.hpp}
-
-\subsection{Truck.cpp}
-\lstinputlisting{./../Truck.cpp}
-
-\subsection{Bike.hpp}
-\lstinputlisting{./../Bike.hpp}
-
-\subsection{Bike.cpp}
-\lstinputlisting{./../Bike.cpp}
+\subsection{main.cpp}
+\lstinputlisting{../main.cpp}
 
 % Literaturverzeichnis
 % --------------------

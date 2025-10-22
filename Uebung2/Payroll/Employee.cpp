@@ -12,7 +12,6 @@ Employee::Employee(
 m_nameIdentifier{ nameID },
 m_dateJoined{ dateJoined },
 m_dateBirth{ dateBirth }
-//m_socialSecurityNumber{ socialSecurityNumber }
 {
     if (nameID.length() != 3) throw ERROR_BAD_ID;
 

@@ -76,11 +76,6 @@ public:
     std::ostream& PrintDatasheet(std::ostream& ost) const;
 
     
-    /** Pure virtual function
-    * \brief Prints specific information for a type of worker.
-    * \return std::ostream&
-    */
-    virtual std::ostream& PrintSpecificData(std::ostream& ost) const = 0;
 
     /** Pure virtual function
     * \brief creates a copy of the worker and puts it on the heap.
@@ -90,6 +85,12 @@ public:
 
 
 protected:
+
+    /** Pure virtual function
+    * \brief Prints specific information for a type of worker.
+    * \return std::ostream&
+    */
+    virtual std::ostream& PrintSpecificData(std::ostream& ost) const = 0;
 
     std::string m_name;
     std::string m_nameIdentifier;

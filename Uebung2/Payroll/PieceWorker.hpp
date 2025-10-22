@@ -7,7 +7,6 @@ class PieceWorker : public Employee
 {
 public:
 
-    PieceWorker() = default;
 
     PieceWorker(
         std::string name,
@@ -19,12 +18,6 @@ public:
         size_t m_commisionPerPiece
     );
 
-    /**
-     * \brief Prints worker specific information
-     * \param std::ostream& ost
-     * \return std::ostream&
-     */
-    std::ostream& PrintSpecificData(std::ostream& ost) const override;
 
     /**
      * \brief Returns the number of pieces the
@@ -57,6 +50,14 @@ public:
      * \return Employee*
      */
     Employee* Clone() const override;
+
+protected:
+    /**
+     * \brief Prints worker specific information
+     * \param std::ostream& ost
+     * \return std::ostream&
+     */
+    std::ostream& PrintSpecificData(std::ostream& ost) const override;
 
 private:
     size_t m_numberPieces;

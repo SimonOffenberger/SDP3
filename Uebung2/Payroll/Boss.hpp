@@ -16,12 +16,6 @@ public:
         size_t salary
     );
 
-    /**
-     * \brief Prints worker specific information
-     * \param std::ostream& ost
-     * \return std::ostream&
-     */
-    std::ostream& PrintSpecificData(std::ostream& ost) const override;
 
     /**
      * \brief Just here because of whacky class structure.
@@ -54,6 +48,14 @@ public:
      * \return Employee*
      */
     Employee* Clone() const override;
+
+protected:
+    /**
+     * \brief Prints worker specific information
+     * \param std::ostream& ost
+     * \return std::ostream&
+     */
+    std::ostream& PrintSpecificData(std::ostream& ost) const override;
 
 private:
     size_t m_salary;

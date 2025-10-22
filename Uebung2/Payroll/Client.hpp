@@ -16,11 +16,6 @@ public:
 	bool TestCompanyAssignOp(std::ostream & ost,const IComp& company,const IComp& companyAss) const;
 	bool TestCompanyPrint(std::ostream & ost,const IComp& company) const;
 
-	bool TestEmployeeBoss(std::ostream& ost);
-	bool TestEmployeeHourlyWorker(std::ostream& ost);
-	bool TestEmployeePieceWorker(std::ostream& ost);
-	bool TestEmployeeComissionWorker(std::ostream& ost);
-
 };
 
 #endif // !CLIENT_HPP

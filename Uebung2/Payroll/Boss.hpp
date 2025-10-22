@@ -7,8 +7,6 @@ class Boss : public Employee
 {
 public:
 
-    Boss() = default;
-
     Boss(
         std::string name,
         std::string nameID,

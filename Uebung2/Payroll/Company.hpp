@@ -11,6 +11,8 @@ using  TContEmployee = std::map<const std::string,Employee const *>;
 class Company : public Object, public IComp{
 public:
 
+	inline static const std::string ERROR_DUPLICATE_EMPL = "ERROR: Duplicate Employee!";
+
 	Company(std::string name) : m_companyName{ name } {}
 
 	Company(const Company & comp);

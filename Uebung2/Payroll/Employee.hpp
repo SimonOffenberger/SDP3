@@ -13,6 +13,7 @@ class Employee : public Object
 public:
 
     inline static const std::string ERROR_BAD_ID = "ERROR: An employees ID is limited to 3 characters.";
+    inline static const std::string ERROR_BAD_SOZIAL_SEC_NUM = "ERROR: Invalid Sozial Security Number";
 
     std::string GetID() const;
     
@@ -95,6 +96,9 @@ protected:
     TDate m_dateJoined;
     TDate m_dateBirth;
     std::string m_socialSecurityNumber;
+
+private:
+    const size_t SozialSecNumLen = 4;
 };
 
 #endif // EMPLOYEE_H

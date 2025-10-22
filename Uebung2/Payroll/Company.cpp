@@ -30,7 +30,8 @@ static ostream & hstar(ostream & ost) {
 void Company::AddEmployee(Employee const* empl)
 {
 	if (empl == nullptr) throw Object::ERROR_NULLPTR;
-	else m_Employees.insert({empl->GetID(),empl});
+	// insert returns a pair. First = Iterator, Second bool -> bool indicates if the insertion was succsessful.
+	if (!m_Employees.insert({ empl->GetID(),empl }).second) throw Company::ERROR_DUPLICATE_EMPL;
 }
 
 Company::Company(const Company& comp)
@@ -94,7 +95,6 @@ Employee const * Company::GetLongestServing(void) const
 {
 	auto minElem = min_element(m_Employees.cbegin(), m_Employees.cend(),
 		[](const auto& lhs, const auto& rhs) { return lhs.second->GetDateJoined() < rhs.second->GetDateJoined();});
-
 
 	if (minElem == m_Employees.end()) return nullptr;
 	else return minElem->second;

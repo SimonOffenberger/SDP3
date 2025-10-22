@@ -1,0 +1,312 @@
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Company Get Comission Worker Cnt & Add Empl
+[Test OK] Result: (Expected: 2 == Result: 2)
+
+Test Company Get Houerly Worker Cnt & Add Empl
+[Test OK] Result: (Expected: 1 == Result: 1)
+
+Test Company Get Boss Cnt & Add Empl
+[Test OK] Result: (Expected: 1 == Result: 1)
+
+Test Company Get Piece Worker Cnt & Add Empl
+[Test OK] Result: (Expected: 2 == Result: 2)
+
+Test Company FindWorker by ID
+[Test OK] Result: (Expected: Si1 == Result: Si1)
+
+Test Company FindWorker by empty ID
+[Test OK] Result: (Expected: 0000000000000000 == Result: 0000000000000000)
+
+Test Company Get Size
+[Test OK] Result: (Expected: 6 == Result: 6)
+
+Test Company Get Count worker bevor 1930 date
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test Company Get Count worker bevor 1951 date
+[Test OK] Result: (Expected: 2 == Result: 2)
+
+Test Company Get longest serving employee
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test Company Get total pieces produced
+[Test OK] Result: (Expected: 50 == Result: 50)
+
+Test Company Get total pieces sold
+[Test OK] Result: (Expected: 2700 == Result: 2700)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Company Copy Ctor
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Company Assign Operator
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Company Print Exception
+[Test OK] Result: (Expected: ERROR: Provided Ostream is bad == Result: ERROR: Provided Ostream is bad)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Empty Company Get Comission Worker Cnt & Add Empl
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test Empty Company Get Houerly Worker Cnt & Add Empl
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test Empty Company Get Boss Cnt & Add Empl
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test Empty Company Get Piece Worker Cnt & Add Empl
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test Empty Company FindWorker by ID
+[Test OK] Result: (Expected: 0000000000000000 == Result: 0000000000000000)
+
+Test Empty Company FindWorker by ID empty ID
+[Test OK] Result: (Expected: 0000000000000000 == Result: 0000000000000000)
+
+Test Empty Company Get Size
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test Empty Company Get Count worker bevor 1930 date
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test Empty Company Get Count worker bevor 1951 date
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test Empty Company Get longest serving employee
+[Test OK] Result: (Expected: 0000000000000000 == Result: 0000000000000000)
+
+Test Empty Company Get total pieces produced
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test Empty Company Get total pieces sold
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test Company Add nullptr
+[Test OK] Result: (Expected: ERROR: Passed in Nullptr! == Result: ERROR: Passed in Nullptr!)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test - Boss.GetSalary()
+[Test OK] Result: (Expected: 7800 == Result: 7800)
+
+Test - Boss.GetSoldItems()
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test - Boss.GetProducedItems()
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test - Boss.GetWorkerType()
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test - Boss.GetDateBirth()
+[Test OK] Result: (Expected: 2000-11-22 == Result: 2000-11-22)
+
+Test - Boss.GetDateJoined()
+[Test OK] Result: (Expected: 2022-11-23 == Result: 2022-11-23)
+
+Test - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Boss.Clone()
+[Test OK] Result: (Expected: true == Result: true)
+
+Test - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Boss Constructor bad ID
+[Test OK] Result: (Expected: ERROR: An employees ID is limited to 3 characters. == Result: ERROR: An employees ID is limited to 3 characters.)
+
+Boss Constructor bad SV - invalid character
+[Test OK] Result: (Expected: ERROR: Invalid Sozial Security Number == Result: ERROR: Invalid Sozial Security Number)
+
+Boss Constructor bad SV - too many nums
+[Test OK] Result: (Expected: ERROR: Invalid Sozial Security Number == Result: ERROR: Invalid Sozial Security Number)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test - HourlyWorker.GetSalary()
+[Test OK] Result: (Expected: 3360 == Result: 3360)
+
+Test - HourlyWorker.GetSoldItems()
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test - HourlyWorker.GetProducedItems()
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test - HourlyWorker.GetWorkerType()
+[Test OK] Result: (Expected: 2 == Result: 2)
+
+Test - HourlyWorker.GetDateBirth()
+[Test OK] Result: (Expected: 2000-11-22 == Result: 2000-11-22)
+
+Test - HourlyWorker.GetDateJoined()
+[Test OK] Result: (Expected: 2022-11-23 == Result: 2022-11-23)
+
+Test - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test testPieceWorker.Clone()
+[Test OK] Result: (Expected: true == Result: true)
+
+Test - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+HourlyWorker Constructor bad ID
+[Test OK] Result: (Expected: ERROR: An employees ID is limited to 3 characters. == Result: ERROR: An employees ID is limited to 3 characters.)
+
+HourlyWorker Constructor bad SV - invalid character
+[Test OK] Result: (Expected: ERROR: Invalid Sozial Security Number == Result: ERROR: Invalid Sozial Security Number)
+
+HourlyWorker Constructor bad SV - too many nums
+[Test OK] Result: (Expected: ERROR: Invalid Sozial Security Number == Result: ERROR: Invalid Sozial Security Number)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test - PieceWorker.GetSalary()
+[Test OK] Result: (Expected: 1900 == Result: 1900)
+
+Test - PieceWorker.GetSoldItems()
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test - PieceWorker.GetProducedItems()
+[Test OK] Result: (Expected: 950 == Result: 950)
+
+Test - PieceWorker.GetWorkerType()
+[Test OK] Result: (Expected: 3 == Result: 3)
+
+Test - PieceWorker.GetDateBirth()
+[Test OK] Result: (Expected: 2000-11-22 == Result: 2000-11-22)
+
+Test - PieceWorker.GetDateJoined()
+[Test OK] Result: (Expected: 2022-11-23 == Result: 2022-11-23)
+
+Test - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test testPieceWorker.Clone()
+[Test OK] Result: (Expected: true == Result: true)
+
+Test - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+PieceWorker Constructor bad ID
+[Test OK] Result: (Expected: ERROR: An employees ID is limited to 3 characters. == Result: ERROR: An employees ID is limited to 3 characters.)
+
+PieceWorker Constructor bad SV - invalid character
+[Test OK] Result: (Expected: ERROR: Invalid Sozial Security Number == Result: ERROR: Invalid Sozial Security Number)
+
+PieceWorker Constructor bad SV - too many nums
+[Test OK] Result: (Expected: ERROR: Invalid Sozial Security Number == Result: ERROR: Invalid Sozial Security Number)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test - ComissionWorker.GetSalary()
+[Test OK] Result: (Expected: 2900 == Result: 2900)
+
+Test - ComissionWorker.GetSoldItems()
+[Test OK] Result: (Expected: 300 == Result: 300)
+
+Test - ComissionWorker.GetProducedItems()
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test - ComissionWorker.GetWorkerType()
+[Test OK] Result: (Expected: 1 == Result: 1)
+
+Test - ComissionWorker.GetDateBirth()
+[Test OK] Result: (Expected: 2000-11-22 == Result: 2000-11-22)
+
+Test - ComissionWorker.GetDateJoined()
+[Test OK] Result: (Expected: 2022-11-23 == Result: 2022-11-23)
+
+Test - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test testPieceWorker.Clone()
+[Test OK] Result: (Expected: true == Result: true)
+
+Test - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+ComissionWorker Constructor bad ID 
+[Test OK] Result: (Expected: ERROR: An employees ID is limited to 3 characters. == Result: ERROR: An employees ID is limited to 3 characters.)
+
+ComissionWorker Constructor bad SV - invalid character
+[Test OK] Result: (Expected: ERROR: Invalid Sozial Security Number == Result: ERROR: Invalid Sozial Security Number)
+
+ComissionWorker Constructor bad SV - too many nums
+[Test OK] Result: (Expected: ERROR: Invalid Sozial Security Number == Result: ERROR: Invalid Sozial Security Number)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Exception in Company Add Duplicate
+[Test OK] Result: (Expected: ERROR: Duplicate Employee! == Result: ERROR: Duplicate Employee!)
+
+
+*******************************************
+
+TEST OK!!

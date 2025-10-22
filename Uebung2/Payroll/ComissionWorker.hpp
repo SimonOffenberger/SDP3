@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   ComissionWorker.hpp
+ * \brief  
+ * 
+ * \author Simon
+ * \date   October 2025
+ *********************************************************************/
 #ifndef COMISSION_WORKER_H
 #define COMISSION_WORKER_H
 

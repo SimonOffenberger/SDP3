@@ -1,3 +1,11 @@
+/*****************************************************************//**
+ * \file   Client.hpp
+ * \brief  Client Class that uses the Class Company via the Interface IComp
+ *
+ * \author Simon Offenberger
+ * \date   October 2025
+ *********************************************************************/
+
 #include "Client.hpp"
 #include "Test.hpp"
 #include "ComissionWorker.hpp"

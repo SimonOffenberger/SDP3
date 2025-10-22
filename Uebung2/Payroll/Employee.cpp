@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   Employee.hpp
+ * \brief
+ *
+ * \author Simon
+ * \date   October 2025
+ *********************************************************************/
 #include "Employee.hpp"
 #include <cctype>
 #include <algorithm>

@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   ComissionWorker.hpp
+ * \brief
+ *
+ * \author Simon
+ * \date   October 2025
+ *********************************************************************/
 #include "ComissionWorker.hpp"
 
 ComissionWorker::ComissionWorker(

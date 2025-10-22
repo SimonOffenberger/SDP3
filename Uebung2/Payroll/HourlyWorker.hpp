@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   HourlyWorker.hpp
+ * \brief  
+ * 
+ * \author Simon
+ * \date   October 2025
+ *********************************************************************/
 #ifndef HOURLY_WORKER_HPP
 #define HOURLY_WORKER_HPP
 

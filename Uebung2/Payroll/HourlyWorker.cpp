@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   HourlyWorker.hpp
+ * \brief
+ *
+ * \author Simon
+ * \date   October 2025
+ *********************************************************************/
 #include "HourlyWorker.hpp"
 
 HourlyWorker::HourlyWorker(

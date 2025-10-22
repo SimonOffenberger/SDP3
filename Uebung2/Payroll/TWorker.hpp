@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   TWorker.hpp
+ * \brief  Enum for indicating the worker Type
+ * 
+ * \author Simon
+ * \date   October 2025
+ *********************************************************************/
 #ifndef TWORKER_HPP
 #define TWORKER_HPP
 

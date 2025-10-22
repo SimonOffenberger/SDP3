@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   main.cpp
+ * \brief  Testdriver for the Company
+ * 
+ * \author Simon
+ * \date   October 2025
+ *********************************************************************/
 #include "Company.hpp"
 #include "Employee.hpp"
 #include "HourlyWorker.hpp"
@@ -21,14 +28,14 @@ static bool TestEmployeePieceWorker(std::ostream& ost);
 static bool TestEmployeeComissionWorker(std::ostream& ost);
 static bool TestCompanyAdd(std::ostream& ost);
 
-#define WRITE_OUTPUT false
+#define WRITE_OUTPUT true
 
 int main(void){
 	bool TestOK = true;
 	ofstream testoutput;
 
 	if (WRITE_OUTPUT == true) {
-		testoutput.open("output.txt");
+		testoutput.open("TestOutput.txt");
 	}
 
 	 Company comp{"Offenberger Devices"};	

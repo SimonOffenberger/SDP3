@@ -21,7 +21,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{a4wide}
 \usepackage{times}      % Times Schriften (zusammen mit fontencoding, s.o.)
-
+\usepackage{pdflscape}
 \usepackage{babel}
 \usepackage{graphicx}	  % fÃ¼r das Einbinden von Grafiken
 \usepackage{color}      % fÃ¼r fÃ¤rbigen Text
@@ -29,6 +29,7 @@
 \usepackage{fancyhdr}   % fÃ¼r Kopf- und Fusszeilen
 \usepackage{listings}   % fÃ¼r den Sourcecode
 \usepackage{pdfpages}
+\usepackage{geometry}
 
 \pagestyle{fancy}       % Kopf- / Fusszeile aktivieren
 
@@ -59,16 +60,17 @@
              {Fail}{{\textcolor{failred}{Fail}}}4,
 }
 
-\lstset{
-	language={C++},
-	basicstyle=\tiny\ttfamily,
-	keywordstyle=\color{blue},%\bfseries,
-	commentstyle=\color{green},
-	frame=single,
-	linewidth=16cm,
-	breaklines=false,
-	tabsize=3,
-	numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt
+\lstdefinestyle{cppstyle}{
+  language=C++,
+  basicstyle=\ttfamily\tiny,
+  keywordstyle=\color{blue},
+  commentstyle=\textcolor{okgreen},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  breaklines=true,
+  frame=single
 }
 
 
@@ -116,6 +118,8 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 % Beginn des Dokumentes
 % ---------------------
 \begin{document}
+
+\includepdf[pages = 1-2]{Uebung02_Deckblatt.pdf}
 
 \selectlanguage{naustrian}   % oder "american" fÃ¼r engl. Texte
 
@@ -190,15 +194,15 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \subsection{Aufwand}
 	
 	\begin{itemize}
-		\item Simon Offenberger: geschätzt 10 Ph / tatsächlich x Ph
-		\item Simon Vogelhuber:  geschätzt x Ph / tatsächlich x Ph
+		\item Simon Offenberger: geschätzt 10 Ph / tatsächlich 7 Ph
+		\item Simon Vogelhuber:  geschätzt 10 Ph / tatsächlich 8 Ph
 	\end{itemize}
 
 \clearpage
 \section{Anforderungsdefinition (Systemspezifikation)}
 In diesem Projekt geht es darum die Mitarbeiter eines Unternehmens zu verwalten und deren Gehälter zu berechnen.
-Es gibt verschiedene Arten von Mitarbeitern, welche unterschiedliche Gehaltsberechnungen haben. Der Zugriff 
-auf die Mitarbeiter soll über eine gemeinsame Schnittstelle erfolgen.
+Es gibt verschiedene Arten von Mitarbeitern, welche unterschiedliche Gehaltsberechnungen haben. 
+Der Zugriff auf die Mitarbeiter soll über eine gemeinsame Schnittstelle erfolgen.
 \\
 \\
 \textbf{Funktionen der Firmenschnittstelle}
@@ -208,16 +212,29 @@ auf die Mitarbeiter soll über eine gemeinsame Schnittstelle erfolgen.
 
 \textbf{Funktionen der Firma}
 \begin{itemize}
-	\item Verwalten von Mitabeitern verschiedener Arten.
-	\item Ausgabe von Firmen und Mitarbeiterinformationen.
-	\item Anlegen und Entfernen von Mitarbeitern.
+ \item Abfage nach der Anzahl der Mitarbeiter.
+ \item Abfage nach der Anzahl eines Mitarbeitertyps in der Firma
+ \item Wie viele Stück wurden im Monat erzeugt?
+ \item Wie viele Stück wurden im Monat verkauft?
+ \item Wie viele Mitarbeiter sind vor einem bestimmten Datum geboren?
+ \item Wie hoch ist das Monatsgehalt eines Mitarbeiters?
+ \item Gibt es einen Mitarbeiter zu einem gegebenen Namenskürzel?
+ \item Welche(r) Mitarbeiter ist/sind am längsten in der Firma?
+ \item Ausgabe aller Datenblätter der Mitarbeiter
 \end{itemize}
 
 \textbf{Funktionen der Mitarbeiter}
 \begin{itemize}
 	\item Speichern von Mitarbeiterdaten.
-	\item Berechnung des Gehalts.
-	\item Ausgabe von Mitarbeiterinformationen.
+	\begin{itemize}
+		\item Name
+		\item Namenskürzel
+		\item Sozialversicherungsnummer
+		\item Einstiegsjahr
+		\item Geburtsjahr
+	\end{itemize}
+	\item Berechnung des Gehalts je nach Mitarbeiterklasse.
+	\item Ausgabe von Mitarbeiterinformationen in form eines Datenblatts.
 \end{itemize}
 
 \clearpage
@@ -233,17 +250,19 @@ Das Interface \textbf{ICompany} wurde erstellt, um dem zugreifenden \textbf{Clie
 Dadurch kann sich der Client auf die Schnittstelle konzentrieren und muss sich nicht um die Implementierungsdetails der Firma kümmern.
 \\
 \\
-Die Firma ist ein polymorpher Container, der Objekte der abstrakten Klasse \textbf{Employee} verwaltet.
+Die Firma speichert einen polymorphen Container, der Objekte der abstrakten Klasse \textbf{Employee} verwaltet.
 Bei dem Container wurde eine Map verwendet, da die Mitarbeiter über eine eindeutige ID angesprochen werden können.
+Somit ist auch das Suchen nach einem Mitarbeiter sehr performant gelöst.
 \\
 \\
 Die Klasse \textbf{Employee} ist abstrakt, da es keine generellen Mitarbeiter geben soll, sondern nur spezielle Arten von Mitarbeitern.
 Die einzelnen Mitarbeiter speichern Daten, die für die Gehaltsberechnung notwendig sind. 
 Die Gehaltsberechnung wird über eine virtuelle Funktion realisiert, die in den abgeleiteten Klassen überschrieben wird.
+Hier wurde das \textbf{Template Methode Pattern} angewandt!
 \\
 \\
-Das Enum mit dem Mitarbeitertypen \textbf{TWorker} wurde eingebaut, da die Company den Typen des Mitarbeiters kennen muss, um den Mitarbeiter korrekt anzulegen.
-Hierbei wurde aktiv auf RTTI verzichtet, um die Kopplung zwischen Company und Employee zu reduzieren.
+Das Enum mit dem Mitarbeitertypen \textbf{TWorker} wurde eingebaut, da die Company den Typen des Mitarbeiters kennen muss, um den Mitarbeiter korrekt zu verwalten.
+Hierbei wurde aktiv auf RTTI verzichtet, um die Kopplung zwischen Company und den konkreten Klassen die von Employee ableiten zu reduzieren.
 
 \color{black}
 
@@ -253,66 +272,89 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 
 \clearpage
 \section{Testprotokollierung}
-%\lstinputlisting[style=teststyle]{../TestOutput.txt}
+\lstinputlisting[style=teststyle]{../TestOutput.txt}
 
 \clearpage
-\section{Quellcode}
+\newgeometry{left=1cm,right=1cm,top=2cm,bottom=2cm}
+\begin{landscape}
 
-\subsection{Object.hpp}
-\lstinputlisting{../Object.hpp}
-
-\subsection{Client.hpp}
-\lstinputlisting{../Client.hpp}
-\subsection{Client.cpp}
-\lstinputlisting{../Client.cpp}
-
-\subsection{IComp.hpp}
-\lstinputlisting{../IComp.hpp}
-
-\subsection{Company.hpp}
-\lstinputlisting{../Company.hpp}
-\subsection{Company.cpp}
-\lstinputlisting{../Company.cpp}
-
-\subsection{TWorker.hpp}
-\lstinputlisting{../TWorker.hpp}
-
-\subsection{Employee.hpp}
-\lstinputlisting{../Employee.hpp}
-\subsection{Employee.cpp}
-\lstinputlisting{../Employee.cpp}
-
-\subsection{Boss.hpp}
-\lstinputlisting{../Boss.hpp}
-\subsection{Boss.cpp}
-\lstinputlisting{../Boss.cpp}
-
-\subsection{HourlyWorker.hpp}
-\lstinputlisting{../HourlyWorker.hpp}
-\subsection{HourlyWorker.cpp}
-\lstinputlisting{../HourlyWorker.cpp}
-
-\subsection{PieceWorker.hpp}
-\lstinputlisting{../PieceWorker.hpp}
-\subsection{PieceWorker.cpp}
-\lstinputlisting{../PieceWorker.cpp}
-
-\subsection{ComissionWorker.hpp}
-\lstinputlisting{../ComissionWorker.hpp}
-\subsection{ComissionWorker.cpp}
-\lstinputlisting{../ComissionWorker.cpp}
-
-\subsection{main.cpp}
-\lstinputlisting{../main.cpp}
-
-% Literaturverzeichnis
-% --------------------
-%\begin{thebibliography}{99}
-%\bibitem{Pomberger} Pomberger G., Blaschek G. : \textit{Software Engineering: Prototyping und objektorientert Software-Entwicklung}. Hanser, 1996
-%
-%\end{thebibliography}
-
-
-% Ende des Dokuments
-% ------------------
+	\section{Quellcode}
+	
+	\subsection{Object.hpp}
+	\lstinputlisting[style = cppstyle]{../Object.hpp}
+	\clearpage
+	\subsection{Client.hpp}
+	\lstinputlisting[style = cppstyle]{../Client.hpp}
+	\clearpage
+	\subsection{Client.cpp}
+	\lstinputlisting[style = cppstyle]{../Client.cpp}
+	
+	\clearpage
+	\subsection{IComp.hpp}
+	\lstinputlisting[style = cppstyle]{../IComp.hpp}
+	
+	\clearpage
+	\subsection{Company.hpp}
+	\lstinputlisting[style = cppstyle]{../Company.hpp}
+	\clearpage
+	\subsection{Company.cpp}
+	\lstinputlisting[style = cppstyle]{../Company.cpp}
+	
+	\clearpage
+	\subsection{TWorker.hpp}
+	\lstinputlisting[style = cppstyle]{../TWorker.hpp}
+	
+	\clearpage
+	\subsection{Employee.hpp}
+	\lstinputlisting[style = cppstyle]{../Employee.hpp}
+	\clearpage
+	\subsection{Employee.cpp}
+	\lstinputlisting[style = cppstyle]{../Employee.cpp}
+	
+	\clearpage
+	\subsection{Boss.hpp}
+	\lstinputlisting[style = cppstyle]{../Boss.hpp}
+	\clearpage
+	\subsection{Boss.cpp}
+	\lstinputlisting[style = cppstyle]{../Boss.cpp}
+	
+	\clearpage
+	\subsection{HourlyWorker.hpp}
+	\lstinputlisting[style = cppstyle]{../HourlyWorker.hpp}
+	\clearpage
+	\subsection{HourlyWorker.cpp}
+	\lstinputlisting[style = cppstyle]{../HourlyWorker.cpp}
+	
+	\clearpage
+	\subsection{PieceWorker.hpp}
+	\lstinputlisting[style = cppstyle]{../PieceWorker.hpp}
+	\clearpage
+	\subsection{PieceWorker.cpp}
+	\lstinputlisting[style = cppstyle]{../PieceWorker.cpp}
+	
+	\clearpage
+	\subsection{ComissionWorker.hpp}
+	\lstinputlisting[style = cppstyle]{../ComissionWorker.hpp}
+	\clearpage
+	\subsection{ComissionWorker.cpp}
+	\lstinputlisting[style = cppstyle]{../ComissionWorker.cpp}
+	
+	\clearpage
+	\subsection{main.cpp}
+	\lstinputlisting[style = cppstyle]{../main.cpp}
+	\clearpage
+	\subsection{Test.hpp}
+	\lstinputlisting[style = cppstyle]{../Test.hpp}
+\end{landscape}
+\restoregeometry
+	% Literaturverzeichnis
+	% --------------------
+	%\begin{thebibliography}{99}
+	%\bibitem{Pomberger} Pomberger G., Blaschek G. : \textit{Software Engineering: Prototyping und objektorientert Software-Entwicklung}. Hanser, 1996
+	%
+	%\end{thebibliography}
+	
+	
+	% Ende des Dokuments
+	% ------------------
 \end{document}

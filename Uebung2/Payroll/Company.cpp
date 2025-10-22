@@ -1,3 +1,11 @@
+/*****************************************************************//**
+ * \file   Company.hpp
+ * \brief  Company that holds Employees and provides information about the
+ * \brief  Employees of the company.
+ *
+ * \author Simon Offenberger
+ * \date   October 2025
+ *********************************************************************/
 #include <algorithm>
 #include <numeric>
 #include <iostream>
@@ -59,6 +67,7 @@ size_t Company::GetCompanySize() const
 
 size_t Company::GetWorkerCount(const TWorker& workerType) const
 {
+	// Count all Employees where workerType is equal
 	return count_if(m_Employees.cbegin(), m_Employees.cend(),
 					[&](auto& e) {return e.second->GetWorkerType() == workerType;});
 }
@@ -89,8 +98,6 @@ Employee const * Company::FindWorkerByID(const std::string& id) const
 	else return empl->second;
 }
 
-// longest serving ist glaub ich auf das Dienstalter und nicht auf den
-// Geburtstag bezogen - TDate Employee::GetDateJoined()
 Employee const * Company::GetLongestServing(void) const
 {
 	auto minElem = min_element(m_Employees.cbegin(), m_Employees.cend(),

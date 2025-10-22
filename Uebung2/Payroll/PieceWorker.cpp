@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   PieceWorker.hpp
+ * \brief
+ *
+ * \author Simon
+ * \date   October 2025
+ *********************************************************************/
 #include "PieceWorker.hpp"
 
 PieceWorker::PieceWorker(

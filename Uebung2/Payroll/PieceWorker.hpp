@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   PieceWorker.hpp
+ * \brief  
+ * 
+ * \author Simon
+ * \date   October 2025
+ *********************************************************************/
 #ifndef PIECE_WORKER_H
 #define PIECE_WORKER_H
 

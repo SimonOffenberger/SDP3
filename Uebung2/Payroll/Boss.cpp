@@ -1,8 +1,7 @@
 /*****************************************************************//**
- * \file   Boss.hpp
- * \brief
- *
- * \author Simon
+ * \file   Boss.cpp
+ * \brief  Boss Class - inherits from Employee
+ * \author Simon Vogelhuber
  * \date   October 2025
  *********************************************************************/
 #include "Boss.hpp"

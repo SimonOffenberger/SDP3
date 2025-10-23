@@ -1,8 +1,7 @@
 /*****************************************************************//**
- * \file   Employee.hpp
- * \brief
- *
- * \author Simon
+ * \file   Employee.cpp
+ * \brief  Abstract Class for constructing Employees of all types
+ * \author Simon Vogelhuber
  * \date   October 2025
  *********************************************************************/
 #include "Employee.hpp"

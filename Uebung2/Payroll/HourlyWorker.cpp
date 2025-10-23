@@ -1,10 +1,10 @@
 /*****************************************************************//**
  * \file   HourlyWorker.hpp
- * \brief
- *
+ * \brief  HourlyWorker Class - Inherits from Employee
  * \author Simon
  * \date   October 2025
  *********************************************************************/
+
 #include "HourlyWorker.hpp"
 
 HourlyWorker::HourlyWorker(

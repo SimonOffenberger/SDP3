@@ -1,8 +1,7 @@
 /*****************************************************************//**
- * \file   PieceWorker.hpp
- * \brief
- *
- * \author Simon
+ * \file   PieceWorker.cpp
+ * \brief  PieceWorker Class - inherits from Employee
+ * \author Simon Vogelhuber
  * \date   October 2025
  *********************************************************************/
 #include "PieceWorker.hpp"

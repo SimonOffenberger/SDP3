@@ -1,8 +1,7 @@
 /*****************************************************************//**
  * \file   ComissionWorker.hpp
- * \brief  
- * 
- * \author Simon
+ * \brief  ComissionWorker Class - inherits from Employee
+ * \author Simon Vogelhuber
  * \date   October 2025
  *********************************************************************/
 #ifndef COMISSION_WORKER_H

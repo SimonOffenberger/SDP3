@@ -1,8 +1,7 @@
 /*****************************************************************//**
  * \file   PieceWorker.hpp
- * \brief  
- * 
- * \author Simon
+ * \brief  PieceWorker Class - inherits from Employee
+ * \author Simon Vogelhuber
  * \date   October 2025
  *********************************************************************/
 #ifndef PIECE_WORKER_H
@@ -24,7 +23,6 @@ public:
         size_t m_numberPieces,
         size_t m_commisionPerPiece
     );
-
 
     /**
      * \brief Returns the number of pieces the

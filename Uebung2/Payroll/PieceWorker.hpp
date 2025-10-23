@@ -13,15 +13,14 @@ class PieceWorker : public Employee
 {
 public:
 
-
     PieceWorker(
-        std::string name,
-        std::string nameID,
-        TDate dateJoined,
-        TDate dateBirth,
-        std::string socialSecurityNumber,
-        size_t m_numberPieces,
-        size_t m_commisionPerPiece
+        const std::string & name,
+        const std::string & nameID,
+        const TDate & dateJoined,
+        const TDate & dateBirth,
+        const std::string & socialSecurityNumber,
+        const size_t & m_numberPieces,
+        const size_t & m_commisionPerPiece
     );
 
     /**
@@ -56,15 +55,14 @@ public:
      */
     Employee* Clone() const override;
 
-protected:
+private:
     /**
      * \brief Prints worker specific information
      * \param std::ostream& ost
      * \return std::ostream&
      */
-    std::ostream& PrintSpecificData(std::ostream& ost) const override;
+    std::ostream& DoPrintSpecificData(std::ostream& ost) const override;
 
-private:
     size_t m_numberPieces;
     size_t m_commisionPerPiece;
 };

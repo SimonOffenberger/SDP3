@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "Fuhrpark", "index.html", [
+  [ "Payroll", "index.html", [
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

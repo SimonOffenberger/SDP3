@@ -7,14 +7,14 @@
 #include "ComissionWorker.hpp"
 
 ComissionWorker::ComissionWorker(
-    std::string name,
-    std::string nameID,
-    TDate dateJoined,
-    TDate dateBirth,
-    std::string socialSecurityNumber,
-    size_t baseSalary,
-    size_t commisionPerPiece,
-    size_t piecesSold
+    const std::string & name,
+    const std::string & nameID,
+    const TDate & dateJoined,
+    const TDate & dateBirth,
+    const std::string & socialSecurityNumber,
+    const size_t & baseSalary,
+    const size_t & commisionPerPiece,
+    const size_t & piecesSold
 ) :
     Employee(name, nameID, dateJoined, dateBirth, socialSecurityNumber),
     m_baseSalary{ baseSalary },
@@ -22,7 +22,7 @@ ComissionWorker::ComissionWorker(
     m_piecesSold { piecesSold }
 {}
 
-std::ostream& ComissionWorker::PrintSpecificData(std::ostream & ost) const
+std::ostream& ComissionWorker::DoPrintSpecificData(std::ostream & ost) const
 {
     if (ost.bad())
     {

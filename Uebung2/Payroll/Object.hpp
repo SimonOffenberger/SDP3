@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   Object.hpp
+ * \brief  Root of all Objects
+ * 
+ * \author Simon
+ * \date   October 2025
+ *********************************************************************/
 #ifndef OBJECT_HPP
 #define OBJECT_HPP
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['garage_0',['Garage',['../d2/d91/class_garage.html',1,'']]]
+  ['hourlyworker_0',['HourlyWorker',['../dc/d24/class_hourly_worker.html',1,'']]]
 ];

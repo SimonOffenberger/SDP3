@@ -33,82 +33,97 @@ static bool TestCompanyAdd(std::ostream& ost);
 int main(void){
 	bool TestOK = true;
 	ofstream testoutput;
+	try {
 
-	if (WRITE_OUTPUT == true) {
-		testoutput.open("TestOutput.txt");
+		if (WRITE_OUTPUT == true) {
+			testoutput.open("TestOutput.txt");
+		}
+
+		Company comp{ "Offenberger Devices" };
+		Client TestClient;
+		ComissionWorker* cWork = new ComissionWorker{ "Simon 1", "Si1", { 2022y,November,23d }, { 2000y,November,22d }, "4711", 2500, 25, 2500 };
+		ComissionWorker* cWork2 = new ComissionWorker{ "Simon 6", "Si6", { 2022y,November,23d }, { 2000y,November,22d }, "4711", 2500, 25, 200 };
+		HourlyWorker* hWork = new HourlyWorker{ "Simon 2", "Si2", { 2022y,November,23d }, { 1934y,November,23d },"4712",20,25 };
+		Boss* boss = new Boss{ "Simon 3", "Si3", { 2000y,November,23d }, { 1950y,November,23d },"4712",35000 };
+		PieceWorker* pWork = new PieceWorker{ "Simon 4", "Si4", { 2022y,November,23d }, { 2010y,November,23d },"4712",25,25 };
+		PieceWorker* pWork2 = new PieceWorker{ "Simon 5", "Si5", { 2022y,November,23d }, { 2011y,November,23d },"4712",25,25 };
+
+		comp.AddEmployee(cWork);
+		comp.AddEmployee(cWork2);
+		comp.AddEmployee(hWork);
+		comp.AddEmployee(boss);
+		comp.AddEmployee(pWork);
+		comp.AddEmployee(pWork2);
+
+		TestOK = TestOK && TestClient.TestCompanyGetter(cout, comp);
+		if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestCompanyGetter(testoutput, comp);
+
+		// Copy Ctor Call !
+		Company compCopy = comp;
+
+		TestOK = TestOK && TestClient.TestCompanyCopyCTOR(cout, comp, compCopy);
+		if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestCompanyCopyCTOR(testoutput, comp, compCopy);
+
+		// Test Assign Operator
+		Company compAss{ "Assign Company" };
+		compAss = comp;
+
+		TestOK = TestOK && TestClient.TestCompanyAssignOp(cout, comp, compAss);
+		if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestCompanyAssignOp(testoutput, comp, compAss);
+
+
+		TestOK = TestOK && TestClient.TestCompanyPrint(cout, comp);
+		if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestCompanyPrint(testoutput, comp);
+
+		Company emptyComp{ "empty" };
+
+		TestOK = TestOK && TestClient.TestEmptyCompanyGetter(cout, emptyComp);
+		if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestEmptyCompanyGetter(testoutput, emptyComp);
+
+		// Test Boss
+		TestOK = TestOK && TestEmployeeBoss(cout);
+		if (WRITE_OUTPUT) TestOK = TestOK && TestEmployeeBoss(testoutput);
+
+		// Test Hourly Worker
+		TestOK = TestOK && TestEmployeeHourlyWorker(cout);
+		if (WRITE_OUTPUT) TestOK = TestOK && TestEmployeeHourlyWorker(testoutput);
+
+		// Test Piece Worker
+		TestOK = TestOK && TestEmployeePieceWorker(cout);
+		if (WRITE_OUTPUT) TestOK = TestOK && TestEmployeePieceWorker(testoutput);
+
+		// Test Comission Worker
+		TestOK = TestOK && TestEmployeeComissionWorker(cout);
+		if (WRITE_OUTPUT) TestOK = TestOK && TestEmployeeComissionWorker(testoutput);
+
+		// Test Company Add
+		TestOK = TestOK && TestCompanyAdd(cout);
+		if (WRITE_OUTPUT) TestOK = TestOK && TestCompanyAdd(testoutput);
+
+		if (WRITE_OUTPUT) {
+			if (TestOK) TestCaseOK(testoutput);
+			else TestCaseFail(testoutput);
+
+			testoutput.close();
+		}
+
+		if (TestOK) TestCaseOK(cout);
+		else TestCaseFail(cout);
+	}
+	catch (const string& err) {
+		cout << err;
+	}
+	catch (bad_alloc const& error) {
+		cout << error.what();
+	}
+	catch (const exception& err) {
+		cout  << err.what();
+	}
+	catch (...) {
+		cout << "Unhandelt Exception";
 	}
 
-	 Company comp{"Offenberger Devices"};	
-	 Client TestClient;
 
-	 ComissionWorker* cWork = new ComissionWorker{ "Simon 1", "Si1", { 2022y,November,23d }, { 2000y,November,22d }, "4711", 2500, 25, 2500 };
-	 ComissionWorker* cWork2 = new ComissionWorker{ "Simon 6", "Si6", { 2022y,November,23d }, { 2000y,November,22d }, "4711", 2500, 25, 200 };
-	 HourlyWorker* hWork = new HourlyWorker{ "Simon 2", "Si2", { 2022y,November,23d }, { 1934y,November,23d },"4712",20,25 };
-	 Boss* boss = new Boss{ "Simon 3", "Si3", { 2000y,November,23d }, { 1950y,November,23d },"4712",35000 };
-	 PieceWorker* pWork = new PieceWorker{ "Simon 4", "Si4", { 2022y,November,23d }, { 2010y,November,23d },"4712",25,25 };
-	 PieceWorker* pWork2 = new PieceWorker{ "Simon 5", "Si5", { 2022y,November,23d }, { 2011y,November,23d },"4712",25,25 };
-
-	 comp.AddEmployee(cWork);
-	 comp.AddEmployee(cWork2);
-	 comp.AddEmployee(hWork);
-	 comp.AddEmployee(boss);
-	 comp.AddEmployee(pWork);
-	 comp.AddEmployee(pWork2);
-
-	 TestOK = TestOK && TestClient.TestCompanyGetter(cout, comp);
-	 if(WRITE_OUTPUT) TestOK = TestOK && TestClient.TestCompanyGetter(testoutput, comp);
-
-	 // Copy Ctor Call !
-	 Company compCopy = comp; 
-
-	 TestOK = TestOK && TestClient.TestCompanyCopyCTOR(cout, comp, compCopy);
-	 if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestCompanyCopyCTOR(testoutput, comp, compCopy);	 
-	 
-	 // Test Assign Operator
-	 Company compAss{"Assign Company"};
-	 compAss = comp;
-
-	 TestOK = TestOK && TestClient.TestCompanyAssignOp(cout, comp, compAss);
-	 if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestCompanyAssignOp(testoutput, comp, compAss);
-
-
-	 TestOK = TestOK && TestClient.TestCompanyPrint(cout, comp);
-	 if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestCompanyPrint(testoutput, comp);
-
-	 Company emptyComp{"empty"};
-
-	 TestOK = TestOK && TestClient.TestEmptyCompanyGetter(cout, emptyComp);
-	 if (WRITE_OUTPUT) TestOK = TestOK && TestClient.TestEmptyCompanyGetter(testoutput, emptyComp);
-
-	 // Test Boss
-	 TestOK = TestOK && TestEmployeeBoss(cout);
-	 if (WRITE_OUTPUT) TestOK = TestOK && TestEmployeeBoss(testoutput);
-
-	 // Test Hourly Worker
-	 TestOK = TestOK && TestEmployeeHourlyWorker(cout);
-	 if (WRITE_OUTPUT) TestOK = TestOK && TestEmployeeHourlyWorker(testoutput);
-
-	 // Test Piece Worker
-	 TestOK = TestOK && TestEmployeePieceWorker(cout);
-	 if (WRITE_OUTPUT) TestOK = TestOK && TestEmployeePieceWorker(testoutput);
-
-	 // Test Comission Worker
-	 TestOK = TestOK && TestEmployeeComissionWorker(cout);
-	 if (WRITE_OUTPUT) TestOK = TestOK && TestEmployeeComissionWorker(testoutput);	 
-	 
-	 // Test Company Add
-	 TestOK = TestOK && TestCompanyAdd(cout);
-	 if (WRITE_OUTPUT) TestOK = TestOK && TestCompanyAdd(testoutput);
-
-	 if (WRITE_OUTPUT){
-		 if (TestOK) TestCaseOK(testoutput);
-		 else TestCaseFail(testoutput);
-
-		 testoutput.close();
-	 }
-
-	 if (TestOK) TestCaseOK(cout);
-	 else TestCaseFail(cout);
 
 }
 

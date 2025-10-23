@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   Company.hpp
+ * \file   Company.cpp
  * \brief  Company that holds Employees and provides information about the
  * \brief  Employees of the company.
  *
@@ -56,6 +56,7 @@ Company::Company(const Company& comp)
 
 void Company::operator=(Company comp)
 {
+	// copy and swap
 	std::swap(m_Employees, comp.m_Employees);
 	std::swap(m_companyName, comp.m_companyName);
 }
@@ -94,7 +95,7 @@ Employee const * Company::FindWorkerByID(const std::string& id) const
 {
 	auto empl = m_Employees.find(id);
 
-	if (empl == m_Employees.end()) return nullptr;
+	if (empl == m_Employees.cend()) return nullptr;
 	else return empl->second;
 }
 

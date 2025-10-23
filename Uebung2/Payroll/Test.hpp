@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   Test.hpp
- * \brief  
+ * \brief  File that provides a Test Function with a formated output
  * 
  * \author Simon
  * \date   April 2025

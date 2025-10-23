@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   HourlyWorker.hpp
+ * \file   HourlyWorker.cpp
  * \brief  HourlyWorker Class - Inherits from Employee
  * \author Simon
  * \date   October 2025
@@ -8,20 +8,20 @@
 #include "HourlyWorker.hpp"
 
 HourlyWorker::HourlyWorker(
-    std::string name,
-    std::string nameID,
-    TDate dateJoined,
-    TDate dateBirth,
-    std::string socialSecurityNumber,
-    size_t hourlyRate,
-    size_t workedHours
+    const std::string & name,
+    const std::string & nameID,
+    const TDate & dateJoined,
+    const TDate & dateBirth,
+    const std::string & socialSecurityNumber,
+    const size_t & hourlyRate,
+    const size_t & workedHours
 ) : 
     Employee(name, nameID, dateJoined, dateBirth, socialSecurityNumber), 
     m_hourlyRate{ hourlyRate },
     m_workedHours{ workedHours }
 {}
 
-std::ostream& HourlyWorker::PrintSpecificData(std::ostream& ost) const
+std::ostream& HourlyWorker::DoPrintSpecificData(std::ostream& ost) const
 {
     if (ost.bad())
     {

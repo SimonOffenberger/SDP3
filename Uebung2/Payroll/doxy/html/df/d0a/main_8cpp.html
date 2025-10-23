@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Fuhrpark: main.cpp File Reference</title>
+<title>Payroll: main.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Fuhrpark
+   <div id="projectname">Payroll
    </div>
   </td>
  </tr>
@@ -92,45 +92,46 @@ $(function(){initNavTree('df/d0a/main_8cpp.html','../../',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Testdriver.  
+<p>Testdriver for the <a class="el" href="../../d8/d41/class_company.html">Company</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
-<code>#include &lt;sstream&gt;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/dfc/_test_8hpp_source.html">Test.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d7/d3e/_record_entry_8hpp_source.html">RecordEntry.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/dfa/_drive_record_8hpp_source.html">DriveRecord.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/de7/_car_8hpp_source.html">Car.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/dcd/_bike_8hpp_source.html">Bike.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../df/dc1/_truck_8hpp_source.html">Truck.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/d02/_garage_8hpp_source.html">Garage.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../da/dab/_company_8hpp_source.html">Company.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/dba/_employee_8hpp_source.html">Employee.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d52/_hourly_worker_8hpp_source.html">HourlyWorker.hpp</a>&quot;</code><br />
 <code>#include &quot;vld.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dbb/_client_8hpp_source.html">Client.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dfc/_test_8hpp_source.html">Test.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/da4/_comission_worker_8hpp_source.html">ComissionWorker.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d90/_boss_8hpp_source.html">Boss.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d26/_piece_worker_8hpp_source.html">PieceWorker.hpp</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
 </div>
 <p><a href="../../df/d0a/main_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a7043cdb5be7c3bde77cabccaedaf1565" id="r_a7043cdb5be7c3bde77cabccaedaf1565"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7043cdb5be7c3bde77cabccaedaf1565">WriteOutputFile</a>&#160;&#160;&#160;true</td></tr>
+<tr class="memitem:a772780e05250fd171733d9172a9b2a0c" id="r_a772780e05250fd171733d9172a9b2a0c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a772780e05250fd171733d9172a9b2a0c">WRITE_OUTPUT</a>&#160;&#160;&#160;true</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe" id="r_a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Testdriver. </p>
-<dl class="section author"><dt>Author</dt><dd>Simon / Simon </dd></dl>
+<div class="textblock"><p>Testdriver for the <a class="el" href="../../d8/d41/class_company.html">Company</a>. </p>
+<dl class="section author"><dt>Author</dt><dd>Simon </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>October 2025 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="../../df/d0a/main_8cpp_source.html">main.cpp</a>.</p>
 </div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
-<a id="a7043cdb5be7c3bde77cabccaedaf1565" name="a7043cdb5be7c3bde77cabccaedaf1565"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7043cdb5be7c3bde77cabccaedaf1565">&#9670;&#160;</a></span>WriteOutputFile</h2>
+<a id="a772780e05250fd171733d9172a9b2a0c" name="a772780e05250fd171733d9172a9b2a0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a772780e05250fd171733d9172a9b2a0c">&#9670;&#160;</a></span>WRITE_OUTPUT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define WriteOutputFile&#160;&#160;&#160;true</td>
+          <td class="memname">#define WRITE_OUTPUT&#160;&#160;&#160;true</td>
         </tr>
       </table>
 </div><div class="memdoc">

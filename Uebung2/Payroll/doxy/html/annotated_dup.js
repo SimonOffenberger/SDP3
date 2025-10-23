@@ -1,11 +1,12 @@
 var annotated_dup =
 [
-    [ "Bike", "d2/d3d/class_bike.html", "d2/d3d/class_bike" ],
-    [ "Car", "d6/d44/class_car.html", "d6/d44/class_car" ],
-    [ "DriveRecord", "d8/ddb/class_drive_record.html", "d8/ddb/class_drive_record" ],
-    [ "Garage", "d2/d91/class_garage.html", "d2/d91/class_garage" ],
+    [ "Boss", "d3/d5e/class_boss.html", "d3/d5e/class_boss" ],
+    [ "Client", "d3/d7a/class_client.html", "d3/d7a/class_client" ],
+    [ "ComissionWorker", "da/d06/class_comission_worker.html", "da/d06/class_comission_worker" ],
+    [ "Company", "d8/d41/class_company.html", "d8/d41/class_company" ],
+    [ "Employee", "dc/d5c/class_employee.html", "dc/d5c/class_employee" ],
+    [ "HourlyWorker", "dc/d24/class_hourly_worker.html", "dc/d24/class_hourly_worker" ],
+    [ "IComp", "dc/dfc/class_i_comp.html", "dc/dfc/class_i_comp" ],
     [ "Object", "d8/d83/class_object.html", "d8/d83/class_object" ],
-    [ "RecordEntry", "d2/de3/class_record_entry.html", "d2/de3/class_record_entry" ],
-    [ "Truck", "db/d95/class_truck.html", "db/d95/class_truck" ],
-    [ "Vehicle", "dd/df6/class_vehicle.html", "dd/df6/class_vehicle" ]
+    [ "PieceWorker", "da/d76/class_piece_worker.html", "da/d76/class_piece_worker" ]
 ];

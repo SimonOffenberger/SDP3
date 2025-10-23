@@ -18,7 +18,7 @@
 using namespace std;
 using namespace std::chrono;
 
-bool Client::TestCompanyGetter(std::ostream& ost, IComp & company) const
+bool Client::TestCompanyGetter(std::ostream& ost,const IComp & company) const
 {
 	if (!ost.good()) throw Client::ERROR_BAD_OSTREAM;
 
@@ -75,7 +75,7 @@ bool Client::TestCompanyGetter(std::ostream& ost, IComp & company) const
 	return TestOK;
 }
 
-bool Client::TestEmptyCompanyGetter(std::ostream& ost, IComp& company) const
+bool Client::TestEmptyCompanyGetter(std::ostream& ost,IComp& company) const
 {
 	if (!ost.good()) throw Client::ERROR_BAD_OSTREAM;
 
@@ -278,6 +278,8 @@ bool Client::TestCompanyPrint(std::ostream& ost, const IComp& company) const
 	}
 
 	TestOK = TestOK && check_dump(ost, "Test Company Print Exception", Client::ERROR_BAD_OSTREAM, error_msg);
+
+	badstream.close();
 
 	TestEnd(ost);
 

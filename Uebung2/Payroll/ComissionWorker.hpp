@@ -14,14 +14,14 @@ class ComissionWorker : public Employee
 public:
 
     ComissionWorker(
-        std::string name,
-        std::string nameID,
-        TDate dateJoined,
-        TDate dateBirth,
-        std::string socialSecurityNumber,
-        size_t baseSalary,
-        size_t commisionPerPiece,
-        size_t piecesSold
+        const std::string & name,
+        const std::string & nameID,
+        const TDate & dateJoined,
+        const TDate & dateBirth,
+        const std::string & socialSecurityNumber,
+        const size_t & baseSalary,
+        const size_t & commisionPerPiece,
+        const size_t & piecesSold
     );
 
     /**
@@ -56,15 +56,14 @@ public:
      */
     Employee* Clone() const override;
 
-protected:
+private:
     /**
      * \brief Prints worker specific information
      * \param std::ostream& ost
      * \return std::ostream&
      */
-    std::ostream& PrintSpecificData(std::ostream& ost) const override;
+    std::ostream& DoPrintSpecificData(std::ostream& ost) const override;
 
-private:
     size_t m_baseSalary;
     size_t m_commisionPerPiece;
     size_t m_piecesSold;

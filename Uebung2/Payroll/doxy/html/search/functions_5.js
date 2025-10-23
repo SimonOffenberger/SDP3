@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../df/d0a/main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.cpp']]]
+  ['findworkerbyid_0',['FindWorkerByID',['../d8/d41/class_company.html#ae87a8b534f18c066ba594a32b5037c53',1,'Company::FindWorkerByID()'],['../dc/dfc/class_i_comp.html#a2740bb82218c82d8a501ba7cc881aa08',1,'IComp::FindWorkerByID()']]]
 ];

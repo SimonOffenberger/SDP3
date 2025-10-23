@@ -7,19 +7,19 @@
 #include "PieceWorker.hpp"
 
 PieceWorker::PieceWorker(
-    std::string name, 
-    std::string nameID, 
-    TDate dateJoined, 
-    TDate dateBirth, 
-    std::string socialSecurityNumber, 
-    size_t m_numberPieces, 
-    size_t m_commisionPerPiece
+    const std::string & name,
+    const std::string & nameID,
+    const TDate & dateJoined,
+    const TDate & dateBirth,
+    const std::string & socialSecurityNumber,
+    const size_t & m_numberPieces,
+    const size_t & m_commisionPerPiece
 ) :
     Employee(name, nameID, dateJoined, dateBirth, socialSecurityNumber),
     m_numberPieces{ m_numberPieces },
     m_commisionPerPiece{ m_commisionPerPiece }{}
 
-std::ostream& PieceWorker::PrintSpecificData(std::ostream& ost) const
+std::ostream& PieceWorker::DoPrintSpecificData(std::ostream& ost) const
 {
     if (ost.bad())
     {

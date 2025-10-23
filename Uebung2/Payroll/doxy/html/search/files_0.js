@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['bike_2ecpp_0',['Bike.cpp',['../db/d93/_bike_8cpp.html',1,'']]],
-  ['bike_2ehpp_1',['Bike.hpp',['../d9/dcd/_bike_8hpp.html',1,'']]]
+  ['boss_2ecpp_0',['Boss.cpp',['../df/d75/_boss_8cpp.html',1,'']]],
+  ['boss_2ehpp_1',['Boss.hpp',['../dd/d90/_boss_8hpp.html',1,'']]]
 ];

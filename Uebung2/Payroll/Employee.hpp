@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   Employee.cpp
+ * \file   Employee.hpp
  * \brief  Abstract Class for constructing Employees of all types
  * \author Simon Vogelhuber
  * \date   October 2025
@@ -21,6 +21,11 @@ public:
     inline static const std::string ERROR_BAD_ID = "ERROR: An employees ID is limited to 3 characters.";
     inline static const std::string ERROR_BAD_SOZIAL_SEC_NUM = "ERROR: Invalid Sozial Security Number";
 
+    /**
+     * \brief Returns the ID of an Employee.
+     * 
+     * \return String indication the ID
+     */
     std::string GetID() const;
     
     /**
@@ -29,11 +34,11 @@ public:
      * \return TWorker enum
      */
     Employee(
-        std::string     name,
-        std::string     nameID,
-        TDate           dateJoined,
-        TDate           TDateBirthdaydateBirth,
-        std::string     socialSecurityNumber
+        const std::string &    name,
+        const std::string &    nameID,
+        const TDate       &    dateJoined,
+        const TDate       &    TDateBirthdaydateBirth,
+        const std::string &    socialSecurityNumber
     );
 
     /**
@@ -62,18 +67,18 @@ public:
      */
     virtual size_t GetSalary() const = 0;    
     
-    /** Pure Virtual Function
+    /** 
      * \brief returns date of birth of a given worker.
      * \return TDate
      */
-    virtual TDate GetDateBirth() const;
+    TDate GetDateBirth() const;
 
-    /** Pure Virtual Function
+    /** 
      * \brief returns the date a worker.
      * has started working at the company.
      * \return TDate
      */
-    virtual TDate GetDateJoined() const;
+    TDate GetDateJoined() const;
 
     /**
      * \brief Prints information about a worker.
@@ -89,14 +94,14 @@ public:
     */
     virtual Employee* Clone() const = 0;
 
-
-protected:
+private:
 
     /** Pure virtual function
     * \brief Prints specific information for a type of worker.
     * \return std::ostream&
     */
-    virtual std::ostream& PrintSpecificData(std::ostream& ost) const = 0;
+    virtual std::ostream& DoPrintSpecificData(std::ostream& ost) const = 0;
+
 
     std::string m_name;
     std::string m_nameIdentifier;
@@ -104,7 +109,6 @@ protected:
     TDate m_dateBirth;
     std::string m_socialSecurityNumber;
 
-private:
     const size_t SozialSecNumLen = 4;
 };
 

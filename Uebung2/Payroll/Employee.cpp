@@ -9,11 +9,11 @@
 #include <algorithm>
 
 Employee::Employee(
-    std::string     name,
-    std::string     nameID,
-    TDate       dateJoined,
-    TDate   dateBirth,
-    std::string     socialSecurityNumber
+    const std::string &    name,
+    const std::string &    nameID,
+    const TDate &      dateJoined,
+    const TDate &  dateBirth,
+    const std::string  &   socialSecurityNumber
 ) : m_name{ name },
 m_nameIdentifier{ nameID },
 m_dateJoined{ dateJoined },
@@ -59,7 +59,7 @@ std::ostream& Employee::PrintDatasheet(std::ostream& ost) const
     ost << "Geburtstag: " << m_dateBirth << std::endl;
     ost << "Einstiegsjahr: " << m_dateJoined.year() << std::endl;
 
-    PrintSpecificData(ost);
+    DoPrintSpecificData(ost);
 
     ost << std::endl;
 

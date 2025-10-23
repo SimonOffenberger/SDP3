@@ -31,7 +31,7 @@ public:
 	 * 
 	 * \param name Name of the Company
 	 */
-	Company(std::string name) : m_companyName{ name } {}
+	Company(const std::string & name) : m_companyName{ name } {}
 
 	/**
 	 * \brief Copy Ctor of the Company.

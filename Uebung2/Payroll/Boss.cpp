@@ -7,17 +7,17 @@
 #include "Boss.hpp"
 
 Boss::Boss(
-    std::string name, 
-    std::string nameID, 
-    TDate dateJoined, 
-    TDate dateBirth, 
-    std::string socialSecurityNumber, 
-    size_t salary
+    const std::string & name, 
+    const std::string & nameID, 
+    const TDate & dateJoined,
+    const TDate & dateBirth,
+    const std::string & socialSecurityNumber,
+    const size_t & salary
 ) :
     Employee(name, nameID, dateJoined, dateBirth, socialSecurityNumber),
     m_salary{ salary } {}
 
-std::ostream& Boss::PrintSpecificData(std::ostream& ost) const
+std::ostream& Boss::DoPrintSpecificData(std::ostream& ost) const
 {
     if (ost.bad())
     {

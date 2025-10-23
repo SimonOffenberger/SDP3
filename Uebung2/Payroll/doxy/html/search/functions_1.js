@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bike_0',['Bike',['../d2/d3d/class_bike.html#abdbaae5311d407f5aa2d885cc3e6ea2e',1,'Bike']]]
+  ['boss_0',['Boss',['../d3/d5e/class_boss.html#af6ed7879358dc1af58a41bc3147e4ef2',1,'Boss']]]
 ];

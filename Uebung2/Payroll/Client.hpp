@@ -31,7 +31,7 @@ public:
 	 * \return true -> Test OK
 	 * \return false -> Test NOK
 	 */
-	bool TestCompanyGetter(std::ostream & ost,IComp& company) const;
+	bool TestCompanyGetter(std::ostream & ost,const IComp& company) const;
 
 	/**
 	 * \brief Test Methode for the Getter Methodes of an Empty Company via the Interface.
@@ -41,7 +41,7 @@ public:
 	 * \return true -> Test OK
 	 * \return false -> Test NOK
 	 */
-	bool TestEmptyCompanyGetter(std::ostream & ost,IComp& company) const;
+	bool TestEmptyCompanyGetter(std::ostream & ost, IComp& company) const;
 	
 	/**
 	 * \brief Test Methode for testing the Copy Ctor of the Company

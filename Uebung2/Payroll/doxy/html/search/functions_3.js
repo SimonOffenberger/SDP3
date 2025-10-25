@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['doprintspecificdata_0',['DoPrintSpecificData',['../d3/d5e/class_boss.html#a7138b3d6b8c7633e140feedb792eec6c',1,'Boss::DoPrintSpecificData()'],['../da/d06/class_comission_worker.html#a487990c96fe2547a901a467c96dbfb8f',1,'ComissionWorker::DoPrintSpecificData()'],['../dc/d5c/class_employee.html#afb0d0f3c1665fd9c7774ca2eddd65eda',1,'Employee::DoPrintSpecificData()'],['../dc/d24/class_hourly_worker.html#a5cba788787c24e0e54f635392988dda0',1,'HourlyWorker::DoPrintSpecificData()'],['../da/d76/class_piece_worker.html#a11d39cf54b9327201387190593a337a8',1,'PieceWorker::DoPrintSpecificData()']]]
+  ['findworkerbyid_0',['FindWorkerByID',['../class_company.html#ae87a8b534f18c066ba594a32b5037c53',1,'Company::FindWorkerByID()'],['../class_i_comp.html#a2740bb82218c82d8a501ba7cc881aa08',1,'IComp::FindWorkerByID()']]]
 ];

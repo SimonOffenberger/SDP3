@@ -1,0 +1,20 @@
+digraph "C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung2/Payroll/IComp.hpp"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="C:/Users/vogel/Desktop\l/SDP3/Übung/SDP3/Uebung2\l/Payroll/IComp.hpp",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Interface which is implemented by the company and used by the client."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="string",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="TWorker.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_t_worker_8hpp.html",tooltip="Enum for indicating the worker Type."];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="Employee.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_employee_8hpp.html",tooltip="Abstract Class for constructing Employees of all types."];
+  Node4 -> Node2 [id="edge4_Node000004_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node4 -> Node5 [id="edge5_Node000004_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="chrono",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node4 -> Node6 [id="edge6_Node000004_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="Object.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_object_8hpp.html",tooltip="Root of all Objects."];
+  Node4 -> Node3 [id="edge7_Node000004_Node000003",color="steelblue1",style="solid",tooltip=" "];
+}

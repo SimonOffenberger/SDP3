@@ -163,6 +163,9 @@ Boss Constructor bad SV - invalid character
 Boss Constructor bad SV - too many nums
 [Test OK] Result: (Expected: ERROR: Invalid Sozial Security Number == Result: ERROR: Invalid Sozial Security Number)
 
+Boss bad ostream
+[Test OK] Result: (Expected: ERROR: Provided Ostream is bad == Result: ERROR: Provided Ostream is bad)
+
 
 *******************************************
 
@@ -206,6 +209,9 @@ HourlyWorker Constructor bad SV - invalid character
 
 HourlyWorker Constructor bad SV - too many nums
 [Test OK] Result: (Expected: ERROR: Invalid Sozial Security Number == Result: ERROR: Invalid Sozial Security Number)
+
+HourlyWorker bad ostream
+[Test OK] Result: (Expected: ERROR: Provided Ostream is bad == Result: ERROR: Provided Ostream is bad)
 
 
 *******************************************
@@ -251,6 +257,9 @@ PieceWorker Constructor bad SV - invalid character
 PieceWorker Constructor bad SV - too many nums
 [Test OK] Result: (Expected: ERROR: Invalid Sozial Security Number == Result: ERROR: Invalid Sozial Security Number)
 
+PieceWorker bad ostream
+[Test OK] Result: (Expected: ERROR: Provided Ostream is bad == Result: ERROR: Provided Ostream is bad)
+
 
 *******************************************
 
@@ -294,6 +303,9 @@ ComissionWorker Constructor bad SV - invalid character
 
 ComissionWorker Constructor bad SV - too many nums
 [Test OK] Result: (Expected: ERROR: Invalid Sozial Security Number == Result: ERROR: Invalid Sozial Security Number)
+
+ComissionWorker bad ostream
+[Test OK] Result: (Expected: ERROR: Provided Ostream is bad == Result: ERROR: Provided Ostream is bad)
 
 
 *******************************************

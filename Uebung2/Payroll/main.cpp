@@ -285,6 +285,36 @@ static bool TestEmployeeBoss(std::ostream& ost)
 	TestOK = TestOK && check_dump(ost, "Boss Constructor bad SV - too many nums", Employee::ERROR_BAD_SOZIAL_SEC_NUM, error_msg);
 	error_msg.clear();
 
+	// Bad ostream
+	try {
+		size_t testSalary = 7800;
+		string svr = "4711";
+		TDate dateBorn = { 2000y,November,22d };
+		TDate dateJoined = { 2022y,November,23d };
+		string name = "Max Musterman";
+		string id = "MAX";
+
+		Boss testBoss{ name, id, dateJoined, dateBorn, svr, testSalary };
+		std::stringstream out_stream;
+		out_stream.setstate(ios::badbit);
+		testBoss.PrintDatasheet(out_stream);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Boss bad ostream", error_msg, Object::ERROR_BAD_OSTREAM);
+	error_msg.clear();
+
 	TestEnd(ost);
 	return TestOK;
 }
@@ -447,6 +477,37 @@ static bool TestEmployeeHourlyWorker(std::ostream& ost)
 	}
 
 	TestOK = TestOK && check_dump(ost, "HourlyWorker Constructor bad SV - too many nums", Employee::ERROR_BAD_SOZIAL_SEC_NUM, error_msg);
+	error_msg.clear();
+
+	// Bad ostream
+	try {
+		size_t hourlyRate = 21;
+		size_t workedHours = 160;
+		string svr = "4711";
+		TDate dateBorn = { 2000y,November,22d };
+		TDate dateJoined = { 2022y,November,23d };
+		string name = "Max Musterman";
+		string id = "MAX";
+
+		HourlyWorker testHourlyWorker{ name, id, dateJoined, dateBorn, svr, hourlyRate, workedHours };
+		std::stringstream out_stream;
+		out_stream.setstate(ios::badbit);
+		testHourlyWorker.PrintDatasheet(out_stream);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "HourlyWorker bad ostream", error_msg, Object::ERROR_BAD_OSTREAM);
 	error_msg.clear();
 
 	TestEnd(ost);
@@ -612,6 +673,36 @@ static bool TestEmployeePieceWorker(std::ostream& ost)
 	TestOK = TestOK && check_dump(ost, "PieceWorker Constructor bad SV - too many nums", Employee::ERROR_BAD_SOZIAL_SEC_NUM, error_msg);
 	error_msg.clear();
 
+	// Bad ostream
+	try {
+		size_t piecesProduced = 950;
+		size_t comissionPerPiece = 2;
+		string svr = "4711";
+		TDate dateBorn = { 2000y,November,22d };
+		TDate dateJoined = { 2022y,November,23d };
+		string name = "Max Musterman";
+		string id = "MAX";
+
+		PieceWorker testPieceWorker{ name, id, dateJoined, dateBorn, svr, piecesProduced, comissionPerPiece };
+		std::stringstream out_stream;
+		out_stream.setstate(ios::badbit);
+		testPieceWorker.PrintDatasheet(out_stream);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "PieceWorker bad ostream", error_msg, Object::ERROR_BAD_OSTREAM);
+	error_msg.clear();
 
 	TestEnd(ost);
 	return TestOK;
@@ -779,7 +870,38 @@ static bool TestEmployeeComissionWorker(std::ostream& ost)
 	}
 
 	TestOK = TestOK && check_dump(ost, "ComissionWorker Constructor bad SV - too many nums", Employee::ERROR_BAD_SOZIAL_SEC_NUM, error_msg);
+	error_msg.clear();
 
+	// Bad ostream
+	try {
+		size_t baseSalary = 2300;
+		size_t piecesSold = 300;
+		size_t comissionPerPiece = 2;
+		string svr = "4711";
+		TDate dateBorn = { 2000y,November,22d };
+		TDate dateJoined = { 2022y,November,23d };
+		string name = "Max Musterman";
+		string id = "MAX";
+
+		ComissionWorker testComissionWorker{ name, id, dateJoined, dateBorn, svr, baseSalary, comissionPerPiece, piecesSold };
+		std::stringstream out_stream;
+		out_stream.setstate(ios::badbit);
+		testComissionWorker.PrintDatasheet(out_stream);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "ComissionWorker bad ostream", error_msg, Object::ERROR_BAD_OSTREAM);
 	error_msg.clear();
 
 	TestEnd(ost);

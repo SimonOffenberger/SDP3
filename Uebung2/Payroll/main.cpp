@@ -12,7 +12,6 @@
 #include "Client.hpp"
 #include "Test.hpp"
 #include "ComissionWorker.hpp"
-#include "HourlyWorker.hpp"
 #include "Boss.hpp"
 #include "PieceWorker.hpp"
 #include <iostream>

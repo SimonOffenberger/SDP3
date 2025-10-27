@@ -1,3 +1,6 @@
+#ifndef SONG_HPP
+#define SONG_HPP
+
 /*****************************************************************//**
  * \file   Song.hpp
  * \brief  Atomic Class for saving information about a song
@@ -25,3 +28,5 @@ private:
     std::string m_name;
     size_t m_duration;
 };
+
+#endif // !SONG_HPP

@@ -1,3 +1,7 @@
+#ifndef MUSIC_PLAYER_HPP
+#define MUSIC_PLAYER_HPP
+
+
 /*****************************************************************//**
  * \file   MusicPlayer.hpp
  * \brief  MusicPlayer - A player for music!
@@ -66,3 +70,6 @@ public:
 private:
     std::vector<Song> m_songs;
 };
+
+
+#endif // !MUSIC_PLAYER_HPP

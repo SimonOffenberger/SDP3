@@ -1,3 +1,6 @@
+#ifndef IPLAYER_HPP
+#define IPLAYER_HPP
+
 /*****************************************************************//**
  * \file   IPlayer.hpp
  * \brief  Interface to interact with various Player (music, video)
@@ -37,4 +40,10 @@ public:
      * \brief Skip to previous song
      */
     virtual void Prev() = 0;
+
+    virtual ~IPlayer() = default;
+
 };
+
+
+#endif // !IPLAYER_HPP

@@ -1,3 +1,6 @@
+#ifndef MUSIC_PLAYER_ADAPTER_HPP
+#define MUSIC_PLAYER_ADAPTER_HPP
+
 #include "IPlayer.hpp";
 #include "MusicPlayer.hpp"
 
@@ -37,3 +40,5 @@ public:
 private:
     MusicPlayer m_player;
 };
+
+#endif // !MUSIC_PLAYER_ADAPTER_HPP

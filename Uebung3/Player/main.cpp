@@ -1,5 +1,6 @@
 #include "Video.hpp"
 #include "VideoPlayer.hpp"
+#include "VideoPlayerAdapter.hpp"
 #include "AVI.hpp"
 #include "MKV.hpp"
 #include "WMV.hpp"
@@ -8,13 +9,16 @@
 int main(void){
 
 	VideoPlayer Player;
+	
+	Player.Add("Harry Potter1", 160, new AVI);
+	Player.Add("Harry Potter2", 160, new AVI);
+	Player.Add("Harry Potter3", 160, new AVI);
+	Player.Add("Harry Potter4", 160, new AVI);
 
+	VideoPlayerAdapter VidAdapter{ Player };
 
-	Player.Add("Hello World", 350,new AVI{});
+	VidAdapter.Play();
 
-	Player.First();
-	Player.Play(std::cout);
-	Player.SetVolume(500,std::cout);
 
 	return 0;
 }

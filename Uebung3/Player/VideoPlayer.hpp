@@ -18,10 +18,10 @@ public:
 
 	VideoPlayer(size_t default_vol = 8) : m_volume{ default_vol }{}
 
-	void Play(std::ostream & ost) const; 
+	void Play(std::ostream & ost = std::cout) const; 
 
-	void Stop(std::ostream& ost) const;
-
+	void Stop(std::ostream& ost = std::cout) const;
+	
 	bool First();
 
 	bool Next();
@@ -30,7 +30,7 @@ public:
 
 	std::string CurVideo() const;
 
-	void SetVolume(const size_t & vol,std::ostream& ost);
+	void SetVolume(const size_t & vol,std::ostream& ost = std::cout);
 
 	size_t GetVolume() const;
 

@@ -17,7 +17,7 @@ void VideoPlayer::Stop(std::ostream& ost) const {
 	if (m_CurrVid == m_Videos.cend()) throw VideoPlayer::ERROR_NO_SONG_IN_COLLECTION;
 
 	ost << "stop: video: " << (*m_CurrVid)->GetTitle();
-	ost << " (" << (*m_CurrVid)->GetDurration() << ")" << std::endl;
+	ost << " [" << (*m_CurrVid)->GetDurration() << "min]" << std::endl;
 
 	if (ost.fail()) throw VideoPlayer::ERROR_FAIL_WRITE;
 }
@@ -70,5 +70,6 @@ size_t VideoPlayer::GetVolume() const
 void VideoPlayer::Add(std::string const& name, size_t const dur, IVideoformat const * format)
 {
 	m_Videos.push_back(std::make_unique<Video>(Video{name,dur,format}));
+	if (m_Videos.size() == 1) m_CurrVid = m_Videos.begin();
 }
 

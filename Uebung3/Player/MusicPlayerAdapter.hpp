@@ -4,28 +4,28 @@
 #include "IPlayer.hpp";
 #include "MusicPlayer.hpp"
 
-class VideoPlayerAdapter : public IPlayer
+class MusicPlayerAdapter : public IPlayer
 {
 public:
     /**
      * \brief Play selected song
      */
-    virtual void Play() override;
+    virtual void Play(std::ostream& ost = std::cout) override;
 
     /**
      * \brief increase volume by 1 (out of 100)
      */
-    virtual void VollInc() override;
+    virtual void VollInc(std::ostream& ost = std::cout) override;
 
     /**
      * \brief decrease volume by 1 (out of 100)
      */
-    virtual void VollDec() override;
+    virtual void VollDec(std::ostream& ost = std::cout) override;
 
     /**
      * \brief Stop playing Song
      */
-    virtual void Stop() override;
+    virtual void Stop(std::ostream& ost = std::cout) override;
 
     /**
      * \Skip to next song

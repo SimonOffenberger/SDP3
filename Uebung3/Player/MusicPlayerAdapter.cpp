@@ -1,25 +1,25 @@
 #include "MusicPlayerAdapter.hpp"
 
-void VideoPlayerAdapter::Play()
+void MusicPlayerAdapter::Play(std::ostream& ost)
 {
 }
 
-void VideoPlayerAdapter::VollInc()
+void MusicPlayerAdapter::VollInc(std::ostream& ost)
 {
 }
 
-void VideoPlayerAdapter::VollDec()
+void MusicPlayerAdapter::VollDec(std::ostream& ost)
 {
 }
 
-void VideoPlayerAdapter::Stop()
+void MusicPlayerAdapter::Stop(std::ostream& ost)
 {
 }
 
-void VideoPlayerAdapter::Next()
+void MusicPlayerAdapter::Next()
 {
 }
 
-void VideoPlayerAdapter::Prev()
+void MusicPlayerAdapter::Prev()
 {
 }

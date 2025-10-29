@@ -7,16 +7,17 @@
 #include <memory>
 #include <iostream>
 
-using TContVids = std::vector<std::unique_ptr<Video>>;
+using TContVids = std::vector<Video>;
 
 class VideoPlayer : public Object {
 public:
 	
 	inline static const std::string ERROR_NO_SONG_IN_COLLECTION = "ERROR: No song in Player!";
+	inline static const std::string ERROR_NO_VALID_SONG = "ERROR: No valid selected Song!";
 	inline static const std::size_t MAX_VOLUME = 50;
 	inline static const std::size_t MIN_VOLUME = 0;
 
-	VideoPlayer(size_t default_vol = 8) : m_volume{ default_vol }{}
+	VideoPlayer(const size_t & default_vol = 8) : m_volume( default_vol ){}
 
 	void Play(std::ostream & ost = std::cout) const; 
 
@@ -34,12 +35,12 @@ public:
 
 	size_t GetVolume() const;
 
-	void Add(std::string const & name, size_t const dur,IVideoformat const * format);
+	void Add(std::string const & name, size_t const dur,EVideoFormat const & format);
 
 private:
 	size_t m_volume;
 	TContVids m_Videos;
-	TContVids::const_iterator m_CurrVid;
+	size_t m_curIndex = 0;
 };
 
 #endif // !VIDEO_PLAYER_HPP

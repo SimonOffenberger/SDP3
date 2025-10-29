@@ -2,17 +2,17 @@
 #define VIDEO_HPP
 
 #include "Object.hpp"
-#include "IVideoFormat.hpp"
+#include "EVideoFormat.hpp"
 #include <memory>
 
 
 class Video : public Object
 {
 public:
+	using Uptr = std::unique_ptr<Video>;
+	using Sptr = std::shared_ptr<Video>;
 
-	Video(const std::string & title,const size_t & duration,IVideoformat const * format) : m_format(std::move(format)) , m_title(title), m_duration(duration) {}
-
-	using UPtr = std::unique_ptr<const IVideoformat>;
+	Video(const std::string & title,const size_t & duration,const EVideoFormat & format) : m_format(format) , m_title(title), m_duration(duration) {}
 
 	std::string GetTitle() const;
 	
@@ -23,7 +23,7 @@ public:
 private:
 	std::string m_title;
 	size_t m_duration;
-	UPtr m_format;
+	EVideoFormat m_format;
 };
 
 

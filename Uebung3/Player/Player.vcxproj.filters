@@ -15,19 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AVI.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Client.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IPlayer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IVideoFormat.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MKV.hpp">
+    <ClInclude Include="EVideoFormat.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MusicPlayer.hpp">
@@ -51,21 +45,15 @@
     <ClInclude Include="VideoPlayerAdapter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WMV.hpp">
+    <ClInclude Include="Test.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AVI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MKV.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MusicPlayer.cpp">
@@ -84,9 +72,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="VideoPlayerAdapter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WMV.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

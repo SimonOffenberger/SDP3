@@ -128,32 +128,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AVI.hpp" />
     <ClInclude Include="Client.hpp" />
     <ClInclude Include="IPlayer.hpp" />
-    <ClInclude Include="IVideoFormat.hpp" />
-    <ClInclude Include="MKV.hpp" />
+    <ClInclude Include="EVideoFormat.hpp" />
     <ClInclude Include="MusicPlayer.hpp" />
     <ClInclude Include="MusicPlayerAdapter.hpp" />
     <ClInclude Include="Object.hpp" />
     <ClInclude Include="Song.hpp" />
+    <ClInclude Include="Test.hpp" />
     <ClInclude Include="Video.hpp" />
     <ClInclude Include="VideoPlayer.hpp" />
     <ClInclude Include="VideoPlayerAdapter.hpp" />
-    <ClInclude Include="WMV.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AVI.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MKV.cpp" />
     <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="MusicPlayerAdapter.cpp" />
     <ClCompile Include="Song.cpp" />
     <ClCompile Include="Video.cpp" />
     <ClCompile Include="VideoPlayer.cpp" />
     <ClCompile Include="VideoPlayerAdapter.cpp" />
-    <ClCompile Include="WMV.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

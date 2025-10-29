@@ -1,18 +1,32 @@
 #include <iostream>
 #include "MusicPlayer.hpp"
 
+static const unsigned MAX_VOLUME = 100;
+static const unsigned MIN_VOLUME = 0;
 
 void MusicPlayer::Start(std::ostream & ost = std::cout)
 {
-    std::cout   
+    if (ost.bad())
+        throw Object::ERROR_BAD_OSTREAM;
+
+    if (m_songs.empty())
+    {
+        ost << "no songs in playlist!" << std::endl;
+        return;
+    }
+
+    ost
         << "playing song number " << m_currentSongIdx << ": "
         << m_songs[m_currentSongIdx].GetTitle()
         << " (" << m_songs[m_currentSongIdx].GetDuration() << ")\n";
 }
 
-void MusicPlayer::Stop()
+void MusicPlayer::Stop(std::ostream& ost = std::cout)
 {
-    std::cout 
+    if (ost.bad())
+        throw Object::ERROR_BAD_OSTREAM;
+
+    ost
         << "stop song number " << m_currentSongIdx << ": "
         << m_songs[m_currentSongIdx].GetTitle()
         << " (" << m_songs[m_currentSongIdx].GetDuration() << ")\n";
@@ -31,7 +45,7 @@ size_t MusicPlayer::GetCurIndex()
 
 bool MusicPlayer::Find(std::string const& name)
 {
-    for (auto song : m_songs)
+    for (auto const& song : m_songs)
     {
         if (song.GetTitle() == name)
             return true;
@@ -41,17 +55,35 @@ bool MusicPlayer::Find(std::string const& name)
 
 size_t MusicPlayer::GetCount()
 {
-    return size_t();
+    return m_songs.size();
 }
 
-void MusicPlayer::IncreaseVol(size_t vol)
+void MusicPlayer::IncreaseVol(size_t vol, std::ostream& ost = std::cout)
 {
+    if (ost.bad())
+        throw Object::ERROR_BAD_OSTREAM;
+
+    m_volume += vol;
+    if (m_volume > MAX_VOLUME)
+        m_volume = MAX_VOLUME;
+
+    ost << "volume is now -> " << m_volume << std::endl;
 }
 
-void MusicPlayer::DecreaseVol(size_t vol)
+void MusicPlayer::DecreaseVol(size_t vol, std::ostream& ost = std::cout)
 {
+    if (ost.bad())
+        throw Object::ERROR_BAD_OSTREAM;
+
+    if (vol > m_volume)
+        m_volume = MIN_VOLUME;
+    else
+        m_volume -= vol;
+
+    ost << "volume is now -> " << m_volume << std::endl;
 }
 
-void MusicPlayer::Add(std::string name, size_t dur)
+void MusicPlayer::Add(std::string const& name, size_t const dur)
 {
+    m_songs.emplace_back(name, dur);
 }

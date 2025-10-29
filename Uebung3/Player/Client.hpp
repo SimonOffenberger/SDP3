@@ -8,8 +8,8 @@
 class Client : public Object
 {
 public:
-	bool Test_IPlayerVolumeCTRL(std::ostream& ost, IPlayer& player) const;
-	bool Test_IPlayerPlay(std::ostream& ost, IPlayer& player) const;
+	bool Test_IPlayerVideoVolumeCTRL(std::ostream& ost, IPlayer& player) const;
+	bool Test_IPlayerVideoPlay(std::ostream& ost, IPlayer& player) const;
 };
 
 #endif // !CLIENT_HPP

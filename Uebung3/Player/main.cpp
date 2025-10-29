@@ -22,8 +22,8 @@ int main(void){
 	
 	Client client;
 
-	client.Test_IPlayerVolumeCTRL(cout,VidAdapter);
-	client.Test_IPlayerPlay(cout,VidAdapter);
+	client.Test_IPlayerVideoVolumeCTRL(cout,VidAdapter);
+	client.Test_IPlayerVideoPlay(cout,VidAdapter);
 
 
 	return 0;

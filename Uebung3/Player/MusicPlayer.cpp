@@ -4,29 +4,29 @@
 static const unsigned MAX_VOLUME = 100;
 static const unsigned MIN_VOLUME = 0;
 
-void MusicPlayer::Start(std::ostream & ost)
+void MusicPlayer::Start()
 {
-    if (ost.bad())
+    if (std::cout.bad())
         throw Object::ERROR_BAD_OSTREAM;
 
     if (m_songs.empty())
     {
-        ost << "no songs in playlist!" << std::endl;
+        std::cout << "no songs in playlist!" << std::endl;
         return;
     }
 
-    ost
+    std::cout
         << "playing song number " << m_currentSongIdx << ": "
         << m_songs[m_currentSongIdx].GetTitle()
         << " (" << m_songs[m_currentSongIdx].GetDuration() << ")\n";
 }
 
-void MusicPlayer::Stop(std::ostream& ost)
+void MusicPlayer::Stop()
 {
-    if (ost.bad())
+    if (std::cout.bad())
         throw Object::ERROR_BAD_OSTREAM;
 
-    ost
+    std::cout
         << "stop song number " << m_currentSongIdx << ": "
         << m_songs[m_currentSongIdx].GetTitle()
         << " (" << m_songs[m_currentSongIdx].GetDuration() << ")\n";
@@ -58,21 +58,21 @@ size_t MusicPlayer::GetCount()
     return m_songs.size();
 }
 
-void MusicPlayer::IncreaseVol(size_t vol, std::ostream& ost)
+void MusicPlayer::IncreaseVol(size_t vol)
 {
-    if (ost.bad())
+    if (std::cout.bad())
         throw Object::ERROR_BAD_OSTREAM;
 
     m_volume += vol;
     if (m_volume > MAX_VOLUME)
         m_volume = MAX_VOLUME;
 
-    ost << "volume is now -> " << m_volume << std::endl;
+    std::cout << "volume is now -> " << m_volume << std::endl;
 }
 
-void MusicPlayer::DecreaseVol(size_t vol, std::ostream& ost)
+void MusicPlayer::DecreaseVol(size_t vol)
 {
-    if (ost.bad())
+    if (std::cout.bad())
         throw Object::ERROR_BAD_OSTREAM;
 
     if (vol > m_volume)
@@ -80,7 +80,7 @@ void MusicPlayer::DecreaseVol(size_t vol, std::ostream& ost)
     else
         m_volume -= vol;
 
-    ost << "volume is now -> " << m_volume << std::endl;
+    std::cout << "volume is now -> " << m_volume << std::endl;
 }
 
 void MusicPlayer::Add(std::string const& name, size_t const dur)

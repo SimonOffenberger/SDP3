@@ -1,24 +1,24 @@
 #include "VideoPlayerAdapter.hpp"
 
-void VideoPlayerAdapter::Play(std::ostream & ost){
-	m_player.Play(ost);
+void VideoPlayerAdapter::Play(){
+	m_player.Play();
 }
 
-void VideoPlayerAdapter::VollInc(std::ostream& ost)
+void VideoPlayerAdapter::VollInc()
 {
-	m_player.SetVolume(m_player.GetVolume() + 1, ost);
+	m_player.SetVolume(m_player.GetVolume() + 1);
 }
 
-void VideoPlayerAdapter::VollDec(std::ostream& ost)
+void VideoPlayerAdapter::VollDec()
 {
 	if (m_player.GetVolume() != 0) {
-		m_player.SetVolume(m_player.GetVolume() - 1, ost);
+		m_player.SetVolume(m_player.GetVolume() - 1);
 	}
 }
 
-void VideoPlayerAdapter::Stop(std::ostream& ost)
+void VideoPlayerAdapter::Stop()
 {
-	m_player.Stop(ost);
+	m_player.Stop();
 }
 
 void VideoPlayerAdapter::Next()
@@ -35,6 +35,18 @@ void VideoPlayerAdapter::Prev()
 	m_player.First();
 
 	while (m_player.CurIndex() < (currIndex-1)) m_player.Next();
+}
+
+void VideoPlayerAdapter::Select(std::string const& name)
+{
+	size_t prev_index = m_player.CurIndex();
+
+	m_player.First();
+
+	while (m_player.CurVideo() != name && m_player.Next());
+	
+	if (m_player.CurVideo() != name) std::cout << "video: " << name << " not found!" << std::endl;
+	
 }
 
 

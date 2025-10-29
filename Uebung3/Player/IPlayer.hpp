@@ -15,22 +15,22 @@ public:
     /**
      * \brief Play selected song 
      */
-    virtual void Play(std::ostream& ost = std::cout) = 0;
+    virtual void Play() = 0;
     
     /**
      * \brief increase volume by 1 (out of 100)
      */
-    virtual void VollInc(std::ostream& ost = std::cout) = 0;
+    virtual void VollInc() = 0;
     
     /**
      * \brief decrease volume by 1 (out of 100)
      */
-    virtual void VollDec(std::ostream& ost = std::cout) = 0;
+    virtual void VollDec() = 0;
     
     /**
      * \brief Stop playing Song
      */
-    virtual void Stop(std::ostream& ost = std::cout) = 0;
+    virtual void Stop() = 0;
     
     /**
      * \brief Skip to next song
@@ -41,6 +41,8 @@ public:
      * \brief Skip to previous song
      */
     virtual void Prev() = 0;
+
+    virtual void Select(std::string const& name) = 0;
 
     virtual ~IPlayer() = default;
 

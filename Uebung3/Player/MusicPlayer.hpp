@@ -22,12 +22,12 @@ public:
     /**
      * \brief Play selected song
      */
-    void Start(std::ostream& ost = std::cout);
+    void Start();
 
     /**
      * \brief Stop playing Song
      */
-    void Stop(std::ostream& ost = std::cout);
+    void Stop();
 
     /**
      * \brief Skip to next song
@@ -56,13 +56,13 @@ public:
      * \brief Increase volume by 'vol' amount
      * \param size_t vol (volume)
      */
-    void IncreaseVol(size_t vol, std::ostream& ost = std::cout);
+    void IncreaseVol(size_t vol);
 
     /**
      * \brief Decrease volume by 'vol' amount
      * \param size_t vol (volume)
      */
-    void DecreaseVol(size_t vol, std::ostream& ost = std::cout);
+    void DecreaseVol(size_t vol);
 
     /**
      * \brief Add song to player

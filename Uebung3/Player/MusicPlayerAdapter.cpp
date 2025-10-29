@@ -1,23 +1,23 @@
 #include "MusicPlayerAdapter.hpp"
 
-void MusicPlayerAdapter::Play(std::ostream& ost)
+void MusicPlayerAdapter::Play()
 {
-    m_player.Start(ost);
+    m_player.Start();
 }
 
-void MusicPlayerAdapter::VollInc(std::ostream& ost)
+void MusicPlayerAdapter::VollInc()
 {
-    m_player.IncreaseVol(1, ost);
+    m_player.IncreaseVol(1);
 }
 
-void MusicPlayerAdapter::VollDec(std::ostream& ost)
+void MusicPlayerAdapter::VollDec()
 {
-    m_player.DecreaseVol(1, ost);
+    m_player.DecreaseVol(1);
 }
 
-void MusicPlayerAdapter::Stop(std::ostream& ost)
+void MusicPlayerAdapter::Stop()
 {
-    m_player.Start(ost);
+    m_player.Start();
 }
 
 void MusicPlayerAdapter::Next()
@@ -34,4 +34,8 @@ void MusicPlayerAdapter::Prev()
     
     for (int i = 0; i < skipSongs; i++)
         m_player.SwitchNext();
+}
+
+void MusicPlayerAdapter::Select(std::string const& name)
+{
 }

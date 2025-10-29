@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool Client::Test_IPlayerVolumeCTRL(std::ostream& ost, IPlayer& player) const
+bool Client::Test_IPlayerVideoVolumeCTRL(std::ostream& ost, IPlayer& player) const
 {
 	if (!ost.good()) throw Client::ERROR_BAD_OSTREAM;
 
@@ -18,31 +18,69 @@ bool Client::Test_IPlayerVolumeCTRL(std::ostream& ost, IPlayer& player) const
 
 		stringstream result;
 
-		player.VollInc(result);
+		std::streambuf* coutbuf = std::cout.rdbuf();
+
+		// cout redirect to stringstream
+		std::cout.rdbuf(result.rdbuf());
+
+		player.VollInc();
+
+		std::cout.rdbuf(coutbuf);
 
 		check_dump(ost, "Test Volume Inc", true, result.str().find("9")!=std::string::npos);
 
 		result.clear();
+		result.str("");
 
-		player.VollDec(result);
+		// cout redirect to stringstream
+		std::cout.rdbuf(result.rdbuf());
+
+		player.VollDec();
+
+		std::cout.rdbuf(coutbuf);
 
 		check_dump(ost, "Test Volume Dec", true, result.str().find("8")!=std::string::npos);
 
-		for (int i = 0;i < 200; i++) player.VollDec(result);
+		// cout redirect to stringstream
+		std::cout.rdbuf(result.rdbuf());
+
+		for (int i = 0;i < 200; i++) player.VollDec();
+
+		player.VollInc();
+
+		std::cout.rdbuf(coutbuf);
 
 		result.clear();
+		result.str("");
 
-		player.VollDec(result);
+
+		// cout redirect to stringstream
+		std::cout.rdbuf(result.rdbuf());
+
+		player.VollDec();
+
+		std::cout.rdbuf(coutbuf);
 
 		check_dump(ost, "Test Lower Bound Volume 0", true, result.str().find("0") != std::string::npos);
 
-		for (int i = 0;i < 200; i++) player.VollInc(result);
+		// cout redirect to stringstream
+		std::cout.rdbuf(result.rdbuf());
+
+		for (int i = 0;i < 200; i++) player.VollInc();
+
+		std::cout.rdbuf(coutbuf);
 
 		result.clear();
+		result.str("");
 
-		player.VollInc(result);
+		// cout redirect to stringstream
+		std::cout.rdbuf(result.rdbuf());
 
-		check_dump(ost, "Test Upper Bound Volume 100", true, result.str().find("100") != std::string::npos);
+		player.VollInc();
+
+		std::cout.rdbuf(coutbuf);
+
+		check_dump(ost, "Test Upper Bound Volume 50", true, result.str().find("50") != std::string::npos);
 	}
 	catch (const string& err) {
 		error_msg = err;
@@ -70,7 +108,7 @@ bool Client::Test_IPlayerVolumeCTRL(std::ostream& ost, IPlayer& player) const
 	return TestOK;
 }
 
-bool Client::Test_IPlayerPlay(std::ostream& ost, IPlayer& player) const
+bool Client::Test_IPlayerVideoPlay(std::ostream& ost, IPlayer& player) const
 {
 	if (!ost.good()) throw Client::ERROR_BAD_OSTREAM;
 
@@ -82,10 +120,68 @@ bool Client::Test_IPlayerPlay(std::ostream& ost, IPlayer& player) const
 	try {
 
 		stringstream result;
+		std::streambuf* coutbuf = std::cout.rdbuf();
 
-		player.Play(result);
+		// cout redirect to stringstream
+		std::cout.rdbuf(result.rdbuf());
+
+		player.Play();
+
+		std::cout.rdbuf(coutbuf);
 
 		check_dump(ost, "Test Play Contains Name", true, result.str().find("Harry Potter1") != std::string::npos);
+
+		player.Next();
+
+		result.str("");
+		result.clear();
+
+		std::cout.rdbuf(result.rdbuf());
+
+		player.Play();
+
+		std::cout.rdbuf(coutbuf);
+
+		check_dump(ost, "Test Next ", true, result.str().find("Harry Potter2") != std::string::npos);
+
+		for (int i = 0; i < 4; i++) {
+
+			player.Next();
+
+			result.str("");
+			result.clear();
+
+			std::cout.rdbuf(result.rdbuf());
+
+			player.Play();
+
+			std::cout.rdbuf(coutbuf);
+
+			check_dump(ost, "Test Next ", true, result.str().find("Harry Potter" + 2 + i) != std::string::npos);
+
+		}
+
+
+		player.Next();
+		player.Next();
+
+		result.str("");
+		result.clear();
+
+		std::cout.rdbuf(result.rdbuf());
+
+		player.Play();
+
+		std::cout.rdbuf(coutbuf);
+
+		check_dump(ost, "Test Next on upper Bound ", true, result.str().find("Harry Potter6") != std::string::npos);
+
+
+		player.Select("Harry Potter3");
+		player.Play();
+
+		player.Select("Harry Potter14");
+		player.Play();
 
 	}
 	catch (const string& err) {
@@ -105,7 +201,7 @@ bool Client::Test_IPlayerPlay(std::ostream& ost, IPlayer& player) const
 		TestOK = false;
 	}
 
-	check_dump(ost, "Test for Exceotion in Test Case", true, error_msg.empty());
+	check_dump(ost, "Test for Exception in Test Case", true, error_msg.empty());
 
 	TestEnd(ost);
 

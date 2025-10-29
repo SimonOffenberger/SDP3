@@ -25,8 +25,8 @@ public:
      */
     size_t const GetDuration() const;
 private:
-    std::string m_name;
-    size_t m_duration;
+    std::string const m_name;
+    size_t const m_duration;
 };
 
 #endif // !SONG_HPP

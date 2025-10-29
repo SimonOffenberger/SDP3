@@ -13,6 +13,8 @@
 #include "Song.hpp"
 #include <vector>
 
+using  SongCollection = std::vector<Song>;
+
 class MusicPlayer : public Object
 {
 public:
@@ -41,7 +43,7 @@ public:
      * \brief Find song by name
      * \return true if song by that name exists
      */
-    bool Find(std::string name);
+    bool Find(std::string const& name);
 
     /**
      * \brief Get No. Songs inside the player
@@ -68,7 +70,9 @@ public:
      */
     void Add(std::string name, size_t dur);
 private:
-    std::vector<Song> m_songs;
+    SongCollection m_songs;
+    size_t m_currentSongIdx;
+    size_t m_volume;
 };
 
 

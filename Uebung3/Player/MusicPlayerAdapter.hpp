@@ -1,7 +1,7 @@
 #ifndef MUSIC_PLAYER_ADAPTER_HPP
 #define MUSIC_PLAYER_ADAPTER_HPP
 
-#include "IPlayer.hpp";
+#include "IPlayer.hpp"
 #include "MusicPlayer.hpp"
 
 class MusicPlayerAdapter : public IPlayer

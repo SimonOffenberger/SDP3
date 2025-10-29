@@ -13,6 +13,8 @@
 class Song : public Object
 {
 public: 
+
+    Song(const std::string& name, const size_t& dur) : m_name{ name }, m_duration{ dur } {}
     /**
      * \brief Get title of song
      * \return string - title of song

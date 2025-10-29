@@ -4,7 +4,7 @@
 static const unsigned MAX_VOLUME = 100;
 static const unsigned MIN_VOLUME = 0;
 
-void MusicPlayer::Start(std::ostream & ost = std::cout)
+void MusicPlayer::Start(std::ostream & ost)
 {
     if (ost.bad())
         throw Object::ERROR_BAD_OSTREAM;
@@ -21,7 +21,7 @@ void MusicPlayer::Start(std::ostream & ost = std::cout)
         << " (" << m_songs[m_currentSongIdx].GetDuration() << ")\n";
 }
 
-void MusicPlayer::Stop(std::ostream& ost = std::cout)
+void MusicPlayer::Stop(std::ostream& ost)
 {
     if (ost.bad())
         throw Object::ERROR_BAD_OSTREAM;
@@ -58,7 +58,7 @@ size_t MusicPlayer::GetCount()
     return m_songs.size();
 }
 
-void MusicPlayer::IncreaseVol(size_t vol, std::ostream& ost = std::cout)
+void MusicPlayer::IncreaseVol(size_t vol, std::ostream& ost)
 {
     if (ost.bad())
         throw Object::ERROR_BAD_OSTREAM;
@@ -70,7 +70,7 @@ void MusicPlayer::IncreaseVol(size_t vol, std::ostream& ost = std::cout)
     ost << "volume is now -> " << m_volume << std::endl;
 }
 
-void MusicPlayer::DecreaseVol(size_t vol, std::ostream& ost = std::cout)
+void MusicPlayer::DecreaseVol(size_t vol, std::ostream& ost)
 {
     if (ost.bad())
         throw Object::ERROR_BAD_OSTREAM;

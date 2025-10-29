@@ -12,6 +12,7 @@
 #include "Object.hpp"
 #include "Song.hpp"
 #include <vector>
+#include <iostream>
 
 using  SongCollection = std::vector<Song>;
 

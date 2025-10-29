@@ -1,6 +1,5 @@
 #ifndef IPLAYER_HPP
 #define IPLAYER_HPP
-
 /*****************************************************************//**
  * \file   IPlayer.hpp
  * \brief  Interface to interact with various Player (music, video)
@@ -8,28 +7,30 @@
  * \date   October 2025
  *********************************************************************/
 
+#include <iostream>
+
 class IPlayer
 {
 public:
     /**
      * \brief Play selected song 
      */
-    virtual void Play() = 0;
+    virtual void Play(std::ostream& ost = std::cout) = 0;
     
     /**
      * \brief increase volume by 1 (out of 100)
      */
-    virtual void VollInc() = 0;
+    virtual void VollInc(std::ostream& ost = std::cout) = 0;
     
     /**
      * \brief decrease volume by 1 (out of 100)
      */
-    virtual void VollDec() = 0;
+    virtual void VollDec(std::ostream& ost = std::cout) = 0;
     
     /**
      * \brief Stop playing Song
      */
-    virtual void Stop() = 0;
+    virtual void Stop(std::ostream& ost = std::cout) = 0;
     
     /**
      * \brief Skip to next song

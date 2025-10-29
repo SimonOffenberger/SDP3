@@ -13,9 +13,11 @@ size_t Video::GetDurration() const
 
 std::string Video::GetFormatID() const
 {
-    std::stringstream str;
-
-    m_format->Print(str);
-
-    return str.str();
+    switch (m_format) {
+    case (EVideoFormat::AVI): return "AVI-Format";
+    case (EVideoFormat::MKV): return "MKV-Format";
+    case (EVideoFormat::WMV): return "WMV-Format";
+    default: return "unkown Format";
+    }
 }
+

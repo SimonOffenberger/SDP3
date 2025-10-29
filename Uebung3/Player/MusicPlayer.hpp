@@ -22,12 +22,12 @@ public:
     /**
      * \brief Play selected song
      */
-    void Start();
+    void Start(std::ostream& ost = std::cout);
 
     /**
      * \brief Stop playing Song
      */
-    void Stop();
+    void Stop(std::ostream& ost = std::cout);
 
     /**
      * \brief Skip to next song
@@ -56,24 +56,24 @@ public:
      * \brief Increase volume by 'vol' amount
      * \param size_t vol (volume)
      */
-    void IncreaseVol(size_t vol);
+    void IncreaseVol(size_t vol, std::ostream& ost = std::cout);
 
     /**
      * \brief Decrease volume by 'vol' amount
      * \param size_t vol (volume)
      */
-    void DecreaseVol(size_t vol);
+    void DecreaseVol(size_t vol, std::ostream& ost = std::cout);
 
     /**
      * \brief Add song to player
      * \param string name
      * \param size_t dur (duration)
      */
-    void Add(std::string name, size_t dur);
+    void Add(std::string const& name, size_t const dur);
 private:
     SongCollection m_songs;
-    size_t m_currentSongIdx;
-    size_t m_volume;
+    size_t m_currentSongIdx = 0;
+    size_t m_volume = 50;
 };
 
 

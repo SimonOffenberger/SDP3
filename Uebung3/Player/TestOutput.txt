@@ -177,4 +177,33 @@ Check for Exception in Testcase
 
 *******************************************
 
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Videplayer Initial Index
+[32m[Test OK] [37mResult: (Expected: 0 == Result: 0)
+
+Test Videplayer Index after First
+[32m[Test OK] [37mResult: (Expected: 0 == Result: 0)
+
+Test Videplayer Index after Next
+[32m[Test OK] [37mResult: (Expected: 1 == Result: 1)
+
+Test Videplayer Index Upper Bound
+[32m[Test OK] [37mResult: (Expected: 4 == Result: 4)
+
+Test Videplayer Index after First
+[32m[Test OK] [37mResult: (Expected: 0 == Result: 0)
+
+Test Default Volume
+[32m[Test OK] [37mResult: (Expected: 8 == Result: 8)
+
+Check for Exception in Testcase
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+
+*******************************************
+
 [32mTEST OK!![37m

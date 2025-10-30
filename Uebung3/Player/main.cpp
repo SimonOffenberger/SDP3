@@ -1,3 +1,4 @@
+#include "vld.h"
 #include "Video.hpp"
 #include "VideoPlayer.hpp"
 #include "VideoPlayerAdapter.hpp"
@@ -15,6 +16,8 @@ using namespace std;
 
 static bool TestSong(ostream& ost);
 static bool TestVideo(ostream& ost);
+static bool TestVideoPlayer(ostream& ost);
+static bool TestMusicPlayer(ostream& ost);
 
 int main(void){
 
@@ -83,6 +86,9 @@ int main(void){
 
 		TestOK = TestOK && TestVideo(cout);
 		if (WRITE_OUTPUT) TestOK = TestOK && TestVideo(testoutput);
+
+		TestOK = TestOK && TestVideoPlayer(cout);
+		if (WRITE_OUTPUT) TestOK = TestOK && TestVideoPlayer(testoutput);
 
 		if (WRITE_OUTPUT) {
 			if (TestOK) TestCaseOK(testoutput);
@@ -169,6 +175,68 @@ bool TestVideo(ostream& ost)
 		TestOK = TestOK && check_dump(ost,"Test Song Getter Name",static_cast<string>( "Hello World"), HelloWorld.GetTitle());
 
 		TestOK = TestOK && check_dump(ost,"Test Song Getter Format", static_cast<string>("AVI-Format"), HelloWorld.GetFormatID());
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Check for Exception in Testcase", true, error_msg.empty());
+	error_msg.clear();
+
+	TestEnd(ost);
+	return TestOK;
+}
+
+bool TestVideoPlayer(ostream& ost)
+{
+	assert(ost.good());
+
+	TestStart(ost);
+
+	bool TestOK = true;
+	string error_msg = "";
+
+	try {
+
+		Video HelloWorld("Hello World", 123, EVideoFormat::AVI);
+		
+		VideoPlayer VPlayer;
+
+		VPlayer.Add("Hello World1",123,EVideoFormat::AVI);
+		VPlayer.Add("Hello World2",124,EVideoFormat::MKV);
+		VPlayer.Add("Hello World3",125,EVideoFormat::WMV);
+		VPlayer.Add("Hello World4",126,EVideoFormat::AVI);
+		VPlayer.Add("Hello World5",127,EVideoFormat::MKV);
+
+		TestOK = TestOK && check_dump(ost, "Test Videplayer Initial Index", static_cast<size_t>(0), VPlayer.CurIndex());
+
+		VPlayer.First();
+
+		TestOK = TestOK && check_dump(ost, "Test Videplayer Index after First", static_cast<size_t>(0), VPlayer.CurIndex());
+
+		VPlayer.Next();
+
+		TestOK = TestOK && check_dump(ost, "Test Videplayer Index after Next", static_cast<size_t>(1), VPlayer.CurIndex());
+
+		for (int i = 0; i < 100;i++) VPlayer.Next();
+
+		TestOK = TestOK && check_dump(ost, "Test Videplayer Index Upper Bound", static_cast<size_t>(4), VPlayer.CurIndex());
+
+		VPlayer.First();
+
+		TestOK = TestOK && check_dump(ost, "Test Videplayer Index after First", static_cast<size_t>(0), VPlayer.CurIndex());
+
+		TestOK = TestOK && check_dump(ost, "Test Default Volume", static_cast<size_t>(8), VPlayer.GetVolume());
+
 	}
 	catch (const string& err) {
 		error_msg = err;

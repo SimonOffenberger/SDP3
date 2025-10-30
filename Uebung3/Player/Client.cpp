@@ -20,7 +20,6 @@ bool Client::Test_IPlayerVolumeCTRL(std::ostream& ost, IPlayer& player, const si
 
 		std::streambuf* coutbuf = std::cout.rdbuf();
 
-
 		result << DefaultVol+1;
 		string DVol;
 

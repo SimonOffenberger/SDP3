@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <cassert>
+#include <sstream>
 #include "Test.hpp"
 
 using namespace std;
@@ -237,6 +238,59 @@ bool TestVideoPlayer(ostream& ost)
 
 		TestOK = TestOK && check_dump(ost, "Test Default Volume", static_cast<size_t>(8), VPlayer.GetVolume());
 
+		std::streambuf* coutbuf = std::cout.rdbuf();
+
+		stringstream result;
+
+		// cout redirect to stringstream
+		std::cout.rdbuf(result.rdbuf());
+
+		VPlayer.SetVolume(25);
+
+		std::cout.rdbuf(coutbuf);
+
+		TestOK = TestOK && check_dump(ost, "Test Set Volume", static_cast<size_t>(25), VPlayer.GetVolume());
+		
+		// cout redirect to stringstream
+		std::cout.rdbuf(result.rdbuf());
+
+		VPlayer.SetVolume(300);
+
+		std::cout.rdbuf(coutbuf);
+		
+		TestOK = TestOK && check_dump(ost, "Test Set Volume Max Volume", static_cast<size_t>(VideoPlayer::MAX_VOLUME), VPlayer.GetVolume());
+		
+		// cout redirect to stringstream
+		std::cout.rdbuf(result.rdbuf());
+
+		VPlayer.SetVolume(0);
+
+		std::cout.rdbuf(coutbuf);
+		
+		TestOK = TestOK && check_dump(ost, "Test Set Volume Min Volume", static_cast<size_t>(VideoPlayer::MIN_VOLUME), VPlayer.GetVolume());
+
+
+		result.str("");
+		result.clear();
+		// cout redirect to stringstream
+		std::cout.rdbuf(result.rdbuf());
+
+		VPlayer.Play();
+
+		std::cout.rdbuf(coutbuf);
+
+		TestOK = TestOK && check_dump(ost, "Test Video Player Play", true, result.str().find(VPlayer.CurVideo()) != string::npos);
+		
+		result.str("");
+		result.clear();
+		// cout redirect to stringstream
+		std::cout.rdbuf(result.rdbuf());
+
+		VPlayer.Stop();
+
+		std::cout.rdbuf(coutbuf);
+
+		TestOK = TestOK && check_dump(ost, "Test Video Player Stop", true, result.str().find("stop") != string::npos);
 	}
 	catch (const string& err) {
 		error_msg = err;
@@ -253,6 +307,49 @@ bool TestVideoPlayer(ostream& ost)
 
 	TestOK = TestOK && check_dump(ost, "Check for Exception in Testcase", true, error_msg.empty());
 	error_msg.clear();
+
+	try{
+		VideoPlayer VidPlayer;
+		VidPlayer.Add("", 123, EVideoFormat::AVI);
+
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Test Exception in Add with empty string", error_msg, VideoPlayer::ERROR_EMPTY_NAME);
+	error_msg.clear();
+	
+	try{
+		VideoPlayer VidPlayer;
+		VidPlayer.Add("234", 0, EVideoFormat::AVI);
+
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Test Exception in Add with empty string", error_msg, VideoPlayer::ERROR_DURATION_NULL);
+	error_msg.clear();
+
 
 	TestEnd(ost);
 	return TestOK;

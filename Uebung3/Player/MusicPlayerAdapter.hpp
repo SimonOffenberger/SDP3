@@ -7,6 +7,9 @@
 class MusicPlayerAdapter : public IPlayer
 {
 public:
+
+    MusicPlayerAdapter(MusicPlayer & player) : m_player{ player } {}
+
     /**
      * \brief Play selected song
      */
@@ -40,7 +43,7 @@ public:
     virtual void Select(std::string const& name) override;
     
 private:
-    MusicPlayer m_player;
+    MusicPlayer & m_player;
 };
 
 #endif // !MUSIC_PLAYER_ADAPTER_HPP

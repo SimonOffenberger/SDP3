@@ -1,9 +1,6 @@
 #include <iostream>
 #include "MusicPlayer.hpp"
 
-static const unsigned MAX_VOLUME = 100;
-static const unsigned MIN_VOLUME = 0;
-
 void MusicPlayer::Start()
 {
     if (std::cout.bad())
@@ -38,17 +35,19 @@ void MusicPlayer::SwitchNext()
     m_currentSongIdx = (m_currentSongIdx + 1) % m_songs.size();
 }
 
-size_t MusicPlayer::GetCurIndex()
+size_t MusicPlayer::GetCurIndex() const
 {
     return m_currentSongIdx;
 }
 
 bool MusicPlayer::Find(std::string const& name)
 {
-    for (auto const& song : m_songs)
+    for (int i =0; i<m_songs.size(); i++)
     {
-        if (song.GetTitle() == name)
+        if (m_songs.at(i).GetTitle() == name) {
+            m_currentSongIdx = i;
             return true;
+        }
     }
     return false;
 }

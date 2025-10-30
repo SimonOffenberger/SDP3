@@ -19,6 +19,13 @@ using  SongCollection = std::vector<Song>;
 class MusicPlayer : public Object
 {
 public:
+
+	inline static const std::size_t MAX_VOLUME = 100;
+	inline static const std::size_t MIN_VOLUME = 0;
+    inline static const std::size_t DEFAULT_VOLUME = 50;
+
+
+
     /**
      * \brief Play selected song
      */
@@ -38,8 +45,7 @@ public:
      * \brief Get index of current song
      * \return size_t of current's song index
      */
-    size_t GetCurIndex();
-
+    size_t GetCurIndex()const;
     /**
      * \brief Find song by name
      * \return true if song by that name exists
@@ -73,7 +79,7 @@ public:
 private:
     SongCollection m_songs;
     size_t m_currentSongIdx = 0;
-    size_t m_volume = 50;
+    size_t m_volume = DEFAULT_VOLUME;
 };
 
 

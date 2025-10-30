@@ -23,7 +23,10 @@ void VideoPlayerAdapter::Stop()
 
 void VideoPlayerAdapter::Next()
 {
-	m_player.Next();
+	// wrap around if at the end
+	if (!m_player.Next()) {
+		m_player.First();
+	}
 }
 
 void VideoPlayerAdapter::Prev()
@@ -45,7 +48,12 @@ void VideoPlayerAdapter::Select(std::string const& name)
 
 	while (m_player.CurVideo() != name && m_player.Next());
 	
-	if (m_player.CurVideo() != name) std::cout << "video: " << name << " not found!" << std::endl;
+	if (m_player.CurVideo() != name) {
+		std::cout << "video: " << name << " not found!" << std::endl;
+		// switch back to the previous Video
+		m_player.First();
+		while (prev_index != m_player.CurIndex())m_player.Next();
+	}
 	
 }
 

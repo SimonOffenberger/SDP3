@@ -3,18 +3,18 @@
 
 void VideoPlayer::Play() const {
 	if (!std::cout.good()) throw VideoPlayer::ERROR_BAD_OSTREAM;
-	if (m_Videos.empty()) throw VideoPlayer::ERROR_NO_SONG_IN_COLLECTION;
+	if (m_Videos.empty()) throw VideoPlayer::ERROR_NO_VIDEO_IN_COLLECTION;
 
 	std::cout << "playing video number" << CurIndex();
 	std::cout << ": " << CurVideo();
-	std::cout << " (" << m_Videos.at(m_curIndex).GetDurration() << ")" << std::endl;
+	std::cout << " [" << m_Videos.at(m_curIndex).GetDurration() << "min]" << std::endl;
 
 	if (std::cout.fail()) throw VideoPlayer::ERROR_FAIL_WRITE;
 }
 
 void VideoPlayer::Stop() const {
 	if (!std::cout.good()) throw VideoPlayer::ERROR_BAD_OSTREAM;
-	if (m_Videos.empty()) throw VideoPlayer::ERROR_NO_SONG_IN_COLLECTION;
+	if (m_Videos.empty()) throw VideoPlayer::ERROR_NO_VIDEO_IN_COLLECTION;
 
 	std::cout << "stop: video: " << CurVideo();
 	std::cout << " [" << m_Videos.at(m_curIndex).GetDurration() << "min]" << std::endl;
@@ -51,8 +51,8 @@ size_t VideoPlayer::CurIndex() const
 
 std::string VideoPlayer::CurVideo() const
 {
-	if (m_Videos.size()==0)				throw VideoPlayer::ERROR_NO_SONG_IN_COLLECTION;
-	if (m_curIndex >= m_Videos.size())  throw VideoPlayer::ERROR_NO_SONG_IN_COLLECTION;
+	if (m_Videos.size()==0)				throw VideoPlayer::ERROR_NO_VIDEO_IN_COLLECTION;
+	if (m_curIndex >= m_Videos.size())  throw VideoPlayer::ERROR_NO_VIDEO_IN_COLLECTION;
 
 	return m_Videos.at(m_curIndex).GetTitle();
 }

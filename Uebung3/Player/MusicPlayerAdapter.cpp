@@ -17,7 +17,7 @@ void MusicPlayerAdapter::VollDec()
 
 void MusicPlayerAdapter::Stop()
 {
-    m_player.Start();
+    m_player.Stop();
 }
 
 void MusicPlayerAdapter::Next()
@@ -38,4 +38,5 @@ void MusicPlayerAdapter::Prev()
 
 void MusicPlayerAdapter::Select(std::string const& name)
 {
+    if (!m_player.Find(name)) std::cout << "song: " << name << " not found!" << std::endl;
 }

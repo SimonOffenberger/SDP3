@@ -17,7 +17,7 @@
 
 #define ON 1
 #define OFF 0
-#define COLOR_OUTPUT OFF
+#define COLOR_OUTPUT ON
 
 // Definitions of colors in order to change the color of the output stream.
 const std::string colorRed = "\x1B[31m";

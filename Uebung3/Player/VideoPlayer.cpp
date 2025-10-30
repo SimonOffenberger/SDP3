@@ -76,6 +76,9 @@ size_t VideoPlayer::GetVolume() const
 
 void VideoPlayer::Add(std::string const& name, size_t const dur, EVideoFormat const & format)
 {
+	if (name.empty()) throw VideoPlayer::ERROR_EMPTY_NAME;
+	if (dur == 0) throw VideoPlayer::ERROR_DURATION_NULL;
+
 	m_Videos.emplace_back(name,dur,format);
 }
 

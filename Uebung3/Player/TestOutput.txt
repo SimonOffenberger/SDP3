@@ -200,8 +200,29 @@ Test Videplayer Index after First
 Test Default Volume
 [32m[Test OK] [37mResult: (Expected: 8 == Result: 8)
 
+Test Set Volume
+[32m[Test OK] [37mResult: (Expected: 25 == Result: 25)
+
+Test Set Volume Max Volume
+[32m[Test OK] [37mResult: (Expected: 50 == Result: 50)
+
+Test Set Volume Min Volume
+[32m[Test OK] [37mResult: (Expected: 0 == Result: 0)
+
+Test Video Player Play
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test Video Player Stop
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
 Check for Exception in Testcase
 [32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test Exception in Add with empty string
+[32m[Test OK] [37mResult: (Expected: ERROR: Video with empty Name! == Result: ERROR: Video with empty Name!)
+
+Test Exception in Add with empty string
+[32m[Test OK] [37mResult: (Expected: ERROR: Video with duration 0! == Result: ERROR: Video with duration 0!)
 
 
 *******************************************

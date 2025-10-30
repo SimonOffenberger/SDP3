@@ -19,15 +19,22 @@ using  SongCollection = std::vector<Song>;
 class MusicPlayer : public Object
 {
 public:
+
+	inline static const std::size_t MAX_VOLUME = 100;
+	inline static const std::size_t MIN_VOLUME = 0;
+    inline static const std::size_t DEFAULT_VOLUME = 50;
+
+
+
     /**
      * \brief Play selected song
      */
-    void Start(std::ostream& ost = std::cout);
+    void Start();
 
     /**
      * \brief Stop playing Song
      */
-    void Stop(std::ostream& ost = std::cout);
+    void Stop();
 
     /**
      * \brief Skip to next song
@@ -38,8 +45,7 @@ public:
      * \brief Get index of current song
      * \return size_t of current's song index
      */
-    size_t GetCurIndex();
-
+    size_t GetCurIndex()const;
     /**
      * \brief Find song by name
      * \return true if song by that name exists
@@ -56,13 +62,13 @@ public:
      * \brief Increase volume by 'vol' amount
      * \param size_t vol (volume)
      */
-    void IncreaseVol(size_t vol, std::ostream& ost = std::cout);
+    void IncreaseVol(size_t vol);
 
     /**
      * \brief Decrease volume by 'vol' amount
      * \param size_t vol (volume)
      */
-    void DecreaseVol(size_t vol, std::ostream& ost = std::cout);
+    void DecreaseVol(size_t vol);
 
     /**
      * \brief Add song to player
@@ -73,7 +79,7 @@ public:
 private:
     SongCollection m_songs;
     size_t m_currentSongIdx = 0;
-    size_t m_volume = 50;
+    size_t m_volume = DEFAULT_VOLUME;
 };
 
 

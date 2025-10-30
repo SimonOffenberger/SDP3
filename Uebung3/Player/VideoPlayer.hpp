@@ -12,16 +12,16 @@ using TContVids = std::vector<Video>;
 class VideoPlayer : public Object {
 public:
 	
-	inline static const std::string ERROR_NO_SONG_IN_COLLECTION = "ERROR: No song in Player!";
-	inline static const std::string ERROR_NO_VALID_SONG = "ERROR: No valid selected Song!";
+	inline static const std::string ERROR_NO_VIDEO_IN_COLLECTION = "ERROR: No video in Player!";
 	inline static const std::size_t MAX_VOLUME = 50;
 	inline static const std::size_t MIN_VOLUME = 0;
+	inline static const std::size_t DEFAULT_VOLUME = 8;
 
-	VideoPlayer(const size_t & default_vol = 8) : m_volume( default_vol ){}
+	VideoPlayer(const size_t & default_vol = DEFAULT_VOLUME) : m_volume( default_vol ){}
 
-	void Play(std::ostream & ost = std::cout) const; 
+	void Play() const; 
 
-	void Stop(std::ostream& ost = std::cout) const;
+	void Stop() const;
 	
 	bool First();
 
@@ -31,7 +31,7 @@ public:
 
 	std::string CurVideo() const;
 
-	void SetVolume(const size_t & vol,std::ostream& ost = std::cout);
+	void SetVolume(const size_t & vol);
 
 	size_t GetVolume() const;
 

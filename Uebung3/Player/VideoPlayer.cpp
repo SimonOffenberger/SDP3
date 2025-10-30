@@ -1,25 +1,25 @@
 #include "VideoPlayer.hpp"
 #include <iterator>
 
-void VideoPlayer::Play(std::ostream& ost) const {
-	if (!ost.good()) throw VideoPlayer::ERROR_BAD_OSTREAM;
-	if (m_Videos.empty()) throw VideoPlayer::ERROR_NO_SONG_IN_COLLECTION;
+void VideoPlayer::Play() const {
+	if (!std::cout.good()) throw VideoPlayer::ERROR_BAD_OSTREAM;
+	if (m_Videos.empty()) throw VideoPlayer::ERROR_NO_VIDEO_IN_COLLECTION;
 
-	ost << "playing video number" << CurIndex();
-	ost << ": " << CurVideo();
-	ost << " (" << m_Videos.at(m_curIndex).GetDurration() << ")" << std::endl;
+	std::cout << "playing video number" << CurIndex();
+	std::cout << ": " << CurVideo();
+	std::cout << " [" << m_Videos.at(m_curIndex).GetDurration() << "min]" << std::endl;
 
-	if (ost.fail()) throw VideoPlayer::ERROR_FAIL_WRITE;
+	if (std::cout.fail()) throw VideoPlayer::ERROR_FAIL_WRITE;
 }
 
-void VideoPlayer::Stop(std::ostream& ost) const {
-	if (!ost.good()) throw VideoPlayer::ERROR_BAD_OSTREAM;
-	if (m_Videos.empty()) throw VideoPlayer::ERROR_NO_SONG_IN_COLLECTION;
+void VideoPlayer::Stop() const {
+	if (!std::cout.good()) throw VideoPlayer::ERROR_BAD_OSTREAM;
+	if (m_Videos.empty()) throw VideoPlayer::ERROR_NO_VIDEO_IN_COLLECTION;
 
-	ost << "stop: video: " << CurVideo();
-	ost << " [" << m_Videos.at(m_curIndex).GetDurration() << "min]" << std::endl;
+	std::cout << "stop: video: " << CurVideo();
+	std::cout << " [" << m_Videos.at(m_curIndex).GetDurration() << "min]" << std::endl;
 
-	if (ost.fail()) throw VideoPlayer::ERROR_FAIL_WRITE;
+	if (std::cout.fail()) throw VideoPlayer::ERROR_FAIL_WRITE;
 }
 
 bool VideoPlayer::First()
@@ -51,22 +51,22 @@ size_t VideoPlayer::CurIndex() const
 
 std::string VideoPlayer::CurVideo() const
 {
-	if (m_Videos.size()==0)				throw VideoPlayer::ERROR_NO_SONG_IN_COLLECTION;
-	if (m_curIndex >= m_Videos.size())  throw VideoPlayer::ERROR_NO_SONG_IN_COLLECTION;
+	if (m_Videos.size()==0)				throw VideoPlayer::ERROR_NO_VIDEO_IN_COLLECTION;
+	if (m_curIndex >= m_Videos.size())  throw VideoPlayer::ERROR_NO_VIDEO_IN_COLLECTION;
 
 	return m_Videos.at(m_curIndex).GetTitle();
 }
 
-void VideoPlayer::SetVolume(const size_t& vol, std::ostream& ost)
+void VideoPlayer::SetVolume(const size_t& vol)
 {
-	if (!ost.good()) throw VideoPlayer::ERROR_BAD_OSTREAM;
+	if (!std::cout.good()) throw VideoPlayer::ERROR_BAD_OSTREAM;
 	
 	if (vol > MAX_VOLUME) m_volume = MAX_VOLUME;
 	else				  m_volume = vol;
 
-	ost << "volume is now -> " << m_volume;
+	std::cout << "volume is now -> " << m_volume;
 
-	if (ost.fail()) throw VideoPlayer::ERROR_FAIL_WRITE;
+	if (std::cout.fail()) throw VideoPlayer::ERROR_FAIL_WRITE;
 }
 
 size_t VideoPlayer::GetVolume() const

@@ -477,21 +477,41 @@ bool TestMusicPlayer(ostream& ost)
 		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - .GetIndex() initial", music.GetCurIndex(), static_cast<size_t>(0));
 		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - .Find() unknown song", music.Find("not a real song"), false);
 		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - .Find() song that exists", music.Find(song1), true);
-		
-		music.Start();
-		music.SwitchNext();
 
-		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - .GetIndex() after switching", music.GetCurIndex(), static_cast<size_t>(1));
-		
+		// for checking cout
+		std::streambuf* coutbuf = std::cout.rdbuf();
+		stringstream result;
+
+		// cout redirect to stringstream
+		std::cout.rdbuf(result.rdbuf());
+		music.Start();
+		std::cout.rdbuf(coutbuf);
+
+		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - Song name after initial .Start()", true, result.str().find(song1) != string::npos);
+		result.str("");
+		result.clear();
+
+		music.SwitchNext();
+		std::cout.rdbuf(result.rdbuf());
+		music.Start();
+		std::cout.rdbuf(coutbuf);
+
+		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - .GetIndex() after switching", static_cast<size_t>(1), music.GetCurIndex());
+		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - Song name switching", true, result.str().find(song2) != string::npos);
+		result.str("");
+		result.clear();
+
 		// wrap around
 		for (int i = 0; i < music.GetCount(); i++)
 		{
 			music.SwitchNext();
 		}
 
+		std::cout.rdbuf(result.rdbuf());
 		music.Stop();
+		std::cout.rdbuf(coutbuf);
 
-		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - .GetIndex() wrap around", music.GetCurIndex(), static_cast<size_t>(1));
+		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - .GetIndex() wrap around", static_cast<size_t>(1), music.GetCurIndex());
 	}
 	catch (const string& err) {
 		error_msg = err;
@@ -506,7 +526,7 @@ bool TestMusicPlayer(ostream& ost)
 		error_msg = "Unhandelt Exception";
 	}
 
-	TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - Error Buffer", error_msg.empty(), true);
+	TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - Error Buffer", true, error_msg.empty());
 	error_msg.clear();
 
 	// Add empty song

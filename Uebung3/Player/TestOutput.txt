@@ -272,8 +272,14 @@ MusicPlayer - Basic Functionality - .Find() unknown song
 MusicPlayer - Basic Functionality - .Find() song that exists
 [32m[Test OK] [37mResult: (Expected: true == Result: true)
 
+MusicPlayer - Basic Functionality - Song name after initial .Start()
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
 MusicPlayer - Basic Functionality - .GetIndex() after switching
 [32m[Test OK] [37mResult: (Expected: 1 == Result: 1)
+
+MusicPlayer - Basic Functionality - Song name switching
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
 
 MusicPlayer - Basic Functionality - .GetIndex() wrap around
 [32m[Test OK] [37mResult: (Expected: 1 == Result: 1)

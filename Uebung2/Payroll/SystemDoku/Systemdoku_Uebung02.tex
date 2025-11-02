@@ -263,7 +263,10 @@ Weiters soll die Ausgabe eines Datenblatts zu jedem Mitarbeiter möglich sein di
 \\
 Das Enum mit dem Mitarbeitertypen \textbf{TWorker} wurde eingebaut, da die Company den Typen des Mitarbeiters kennen muss, um den Mitarbeiter korrekt zu verwalten.
 Hierbei wurde aktiv auf RTTI verzichtet, um die Kopplung zwischen Company und den konkreten Klassen die von Employee ableiten zu reduzieren.
-
+Weiters wurden die konkreten Mitarbeiterklassen so gestaltet, dass sie ohne großen Aufwand zu testen sind.
+Aus diesem Grund werden alle Daten im Konstruktor übergeben und es gibt keine Setter-Methoden.
+Würde dieses Design in der Praxis verwendet werden, müsste man noch Setter Methoden hinzufügen.
+Da dies hier nicht im Fokus steht, wurde dies nicht umgesetzt.\\
 \color{black}
 
 \section{Dokumentation der Komponenten (Klassen)}

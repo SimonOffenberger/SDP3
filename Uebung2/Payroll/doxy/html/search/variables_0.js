@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['error_5fbad_5fostream_0',['ERROR_BAD_OSTREAM',['../class_client.html#a7f7c3ca53f46f1fe6f3dc7611fbb4c4b',1,'Client::ERROR_BAD_OSTREAM'],['../class_object.html#a57c0b8c70b9dc9f1d1688b989cd08c04',1,'Object::ERROR_BAD_OSTREAM']]],
-  ['error_5fduplicate_5fempl_1',['ERROR_DUPLICATE_EMPL',['../class_company.html#aae509d450d928dbb260550143e8ee4cd',1,'Company']]],
-  ['error_5ffail_5fwrite_2',['ERROR_FAIL_WRITE',['../class_client.html#a91e442c938e2546b7617db06a925658c',1,'Client::ERROR_FAIL_WRITE'],['../class_object.html#a2adb788f2ffb1c6d56e8ec8b9789b0ac',1,'Object::ERROR_FAIL_WRITE']]],
-  ['error_5fnullptr_3',['ERROR_NULLPTR',['../class_object.html#af34301090d8c55aa72e5cb22d8b4e9f5',1,'Object']]]
+  ['colorgreen_0',['colorGreen',['../d9/dfc/_test_8hpp.html#a5f0f7daca6a8111c41aeabd3f2837034',1,'Test.hpp']]],
+  ['colorred_1',['colorRed',['../d9/dfc/_test_8hpp.html#abf422bf41e9f44c75cda63cb6dcf625a',1,'Test.hpp']]],
+  ['colorwhite_2',['colorWhite',['../d9/dfc/_test_8hpp.html#aeac2f3508f937e9da2d5ffc78d22df34',1,'Test.hpp']]]
 ];

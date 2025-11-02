@@ -110,19 +110,19 @@ int main(void){
 		else TestCaseFail(cout);
 	}
 	catch (const string& err) {
-		cout << err;
+		cerr << err;
 	}
 	catch (bad_alloc const& error) {
-		cout << error.what();
+		cerr << error.what();
 	}
 	catch (const exception& err) {
-		cout  << err.what();
+		cerr << err.what();
 	}
 	catch (...) {
-		cout << "Unhandelt Exception";
+		cerr << "Unhandelt Exception";
 	}
 
-
+	if (testoutput.is_open()) testoutput.close();
 
 }
 

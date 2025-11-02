@@ -98,6 +98,9 @@ int main(void){
 		TestOK = TestOK && TestVideoPlayer(cout);
 		if (WRITE_OUTPUT) TestOK = TestOK && TestVideoPlayer(testoutput);
 
+		TestOK = TestOK && TestMusicPlayer(cout);
+		if (WRITE_OUTPUT) TestOK = TestOK && TestMusicPlayer(testoutput);
+
 		if (WRITE_OUTPUT) {
 			if (TestOK) TestCaseOK(testoutput);
 			else TestCaseFail(testoutput);
@@ -441,5 +444,157 @@ bool TestVideoPlayer(ostream& ost)
 
 
 	TestEnd(ost);
+	return TestOK;
+}
+
+bool TestMusicPlayer(ostream& ost)
+{
+	assert(ost.good());
+
+	TestStart(ost);
+
+	bool TestOK = true;
+	string error_msg = "";
+
+	// test basic functionality
+	try {
+		MusicPlayer music;
+		std::string const song1 = "How much is the Fish - Scooter";
+		std::string const song2 = "Die Blume aus dem Gemeindebau - Wolfgang Ambros";
+		std::string const song3 = "Red Sun in the Sky - MaoZe";
+		std::string const song4 = "Ski-Twist - Hansi Hinterseer";
+		size_t const dur1 = 300;
+		size_t const dur2 = 240;
+		size_t const dur3 = 180;
+		size_t const dur4 = 110;
+		size_t const songCount = 4;
+		music.Add(song1, dur1);
+		music.Add(song2, dur2);
+		music.Add(song3, dur3);
+		music.Add(song4, dur4);
+		
+		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - .GetCount()", music.GetCount(), songCount);
+		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - .GetIndex() initial", music.GetCurIndex(), static_cast<size_t>(0));
+		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - .Find() unknown song", music.Find("not a real song"), false);
+		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - .Find() song that exists", music.Find(song1), true);
+
+		// for checking cout
+		std::streambuf* coutbuf = std::cout.rdbuf();
+		stringstream result;
+
+		// cout redirect to stringstream
+		std::cout.rdbuf(result.rdbuf());
+		music.Start();
+		std::cout.rdbuf(coutbuf);
+
+		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - Song name after initial .Start()", true, result.str().find(song1) != string::npos);
+		result.str("");
+		result.clear();
+
+		music.SwitchNext();
+		std::cout.rdbuf(result.rdbuf());
+		music.Start();
+		std::cout.rdbuf(coutbuf);
+
+		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - .GetIndex() after switching", static_cast<size_t>(1), music.GetCurIndex());
+		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - Song name switching", true, result.str().find(song2) != string::npos);
+		result.str("");
+		result.clear();
+
+		// wrap around
+		for (int i = 0; i < music.GetCount(); i++)
+		{
+			music.SwitchNext();
+		}
+
+		std::cout.rdbuf(result.rdbuf());
+		music.Stop();
+		std::cout.rdbuf(coutbuf);
+
+		TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - .GetIndex() wrap around", static_cast<size_t>(1), music.GetCurIndex());
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "MusicPlayer - Basic Functionality - Error Buffer", true, error_msg.empty());
+	error_msg.clear();
+
+	// Add empty song
+	try {
+		MusicPlayer music;
+		std::string const song = "";
+		size_t const dur = 1;
+		music.Add(song, dur);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "MusicPlayer - Add Song without title", MusicPlayer::ERROR_EMPTY_NAME, error_msg);
+	error_msg.clear();
+
+	// Add song with 0 duration
+	try {
+		MusicPlayer music;
+		std::string const song = "This is a legit song";
+		size_t const dur = 0;
+		music.Add(song, dur);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "MusicPlayer - Add Song without title", MusicPlayer::ERROR_DURATION_NULL, error_msg);
+	error_msg.clear();
+
+	// find empty name
+	try {
+		MusicPlayer music;
+		music.Find("");
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "MusicPlayer - Add Song without title", MusicPlayer::ERROR_EMPTY_NAME, error_msg);
+	error_msg.clear();
+
 	return TestOK;
 }

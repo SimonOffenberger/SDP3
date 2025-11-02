@@ -81,7 +81,7 @@
 % Kopfzeile
 % ---------
 \lhead{{\footnotesize{s. Offenberger, S. Vogelhuber}}}   %  (links)
-\chead{{\footnotesize{Systemdokumentation - Fuhrpark}}} %  (mitte)
+\chead{{\footnotesize{Systemdokumentation - Music VideoPlayer Adapter}}} %  (mitte)
 \rhead{{\footnotesize{Seite \thepage}}}      %  (rechts)
 
 % Fusszeile
@@ -119,6 +119,9 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 
 \selectlanguage{naustrian}   % oder "american" fÃ¼r engl. Texte
 
+\includepdf[pages = 1-3]{Deckblatt_Uebung03.pdf}
+
+
 % Titelblatt
 % ----------
 \title {\vspace{1cm}
@@ -154,7 +157,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \subsection{Team}
 \begin{itemize}
 	\item Simon Offenberger, Matr.-Nr.: S2410306027, E-Mail: Simon.Offenberger@fh-hagenberg.at
-	\item Susi Sorglos, Matr.-Nr.: yyyy, E-Mail: Susi.Sorglos@fh-hagenberg.at	
+	\item Simon Vogelhuber, Matr.-Nr.: S2410306014, E-Mail: s2410306014@fhooe.at	
 \end{itemize}
 
 \subsection{Aufteilung der Verantwortlichkeitsbereiche}
@@ -164,10 +167,11 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 			\item Design Klassendiagramm
 			\item Implementierung und Test der Klassen: 
 			\begin{itemize}
-				\item Object,
-				\item RecordEntry, 
-				\item DriveRecord,
-				\item Vehicle,
+				\item Client,
+				\item VideoPlayerAdapter, 
+				\item VideoPlayer,
+				\item Video,
+				\item EVideoFormat,
 			\end{itemize}
 			\item Implementierung des Testtreibers
 			\item Dokumentation
@@ -177,10 +181,10 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 			\item Design Klassendiagramm
 			\item Implementierung und Komponententest der Klassen: 
 			\begin{itemize}
-				\item Garage
-				\item Car, 
-				\item Bike und  
-				\item Truck 
+				\item IPlayer
+				\item MusicPlayerAdapter, 
+				\item MusicPlayer, 
+				\item Song 
 			\end{itemize}
 			\item Implementierung des Testtreibers
 			\item Dokumentation
@@ -190,62 +194,23 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \subsection{Aufwand}
 	
 	\begin{itemize}
-		\item Simon Offenberger: geschätzt 10 Ph / tatsächlich x Ph
-		\item Simon Vogelhuber:  geschätzt x Ph / tatsächlich x Ph
+		\item Simon Offenberger: geschätzt 12 Ph / tatsächlich 11 Ph
+		\item Simon Vogelhuber:  geschätzt 9 Ph / tatsächlich 9 Ph
 	\end{itemize}
 
 \clearpage
 \section{Anforderungsdefinition (Systemspezifikation)}
-In diesem System werden Fahrzeuge in einem Fuhrpark verwaltet. 
-Zusätzlich soll auch noch ein Fahrtenbuch zu jedem Fahrzeug gespeichert werden.
-\\
-\\
-\textbf{Funktionen des Fahrtenbuches}
-\begin{itemize}
-	\item Berechnen des Kilometerstands der aufgezeichneten Fahrten.
-	\item Speichere Datum und Distanz einer Fahrt.
-\end{itemize}
 
-\textbf{Funktionen des Fuhrparks}
-\begin{itemize}
-	\item Hinzufügen und löschen eines Fahrzeuges
-	\item Ausgabe aller Fahrzeugdaten inklusive der Fahrtenbucheinträge.
-	\item Suchen nach einem Fahrzeug mit dessen Kennzeichen.
-	\item Berechnung der Gesamtkilometer aller Fahrzeuge im Fuhrpark.
-\end{itemize}
-
-\textbf{Funktionen der Fahrzeuge}
-\begin{itemize}
-	\item Bereitstellen einer Print Funktion mit Info über das Fahrzeug und die Fahrtenbucheinträge.
-	\item Hinzufügen von Fahrtenbucheinträgen.
-	\item Ermittlung vom Kilometerstand eines Fahrzeugs.
-	\item Speichern von Hersteller, Treibstoff und Kennzeichen des Fahrzeugs
-\end{itemize}
 
 \clearpage
 \section{Systementwurf}
 
 \subsection{Klassendiagramm}
-\includegraphics[width=14cm]{./Images/Klassendiagramm.png}
+\includegraphics[width=14cm]{./Player.jpg}
 \newpage
 
 \subsection{Designentscheidungen}
-Im Klassendiagramm wurde der Polymorphismus angewendet, um unterschiedliche Fahrzeugarten mit der gemeinsamen Schnittstelle 'Vehicle' anzusprechen. Die Klasse 'Garage' speichert einen Container mit der abstrakte Basisklasse 'Vehicle' als Elementtyp und kann somit alle bestehenden und auch neuen Fahrzeugarten verwalten, die sich von der gemeinsamen Basisklasse 'Vehicle' ableiten.
-Für die Aufzeichnung eines Fahrtenbuches wurde die Klasse \textbf{DriveRecord} implementiert. Diese Klasse speichert mehrere Objekte der Klasse \textbf{RecordEntry}.
-Die Record Entries werden im Fahrtenbuch in einem \textbf{Multiset} gespeichert, damit sind die Einträge ins Fahrtenbuch immer nach dem Datum aufsteigend sortiert.
-Aus diesem Grund wurde der \textbf{operator<} für die Record Entries definiert. Dieser vergleicht das Datum der Einträge.
-Dadurch, dass die Einträge ins Fahrtenbuch als eigene Klasse implementiert wurde, lassen sich die einzelnen Einträge schnell und einfach erweitern.\\
-\\
-\\
-Als Container für die Speicherung der Fahrzeuge in der Klasse \textbf{Garage} wurde der Vektor verwendet. 
-Dieser erlaubt es schnell Fahrzeuge hinzuzufügen, und das Suchen geschieht relativ schnell in O(n).
-Einzig und allein, das Löschen aus der Mitte des Vektors stellt bei größerwerdenden Fuhrparks ein Problem dar.
-Wenn dies in der Verwendung des Fuhrparks öfters passiert sollte der verwendete Container ausgetauscht werden.
-\\
-\\
-Die Klassen \textbf{Car, Truck und Bike} wurden für die Konkretisierung der Printfunktion verwendet.
-Diese Klassen lassen sich schnell und einfach erweitern, und können trotzdem weiter vom Fuhrpark verwaltet werden.\\
-\\
+
 
 \color{black}
 
@@ -262,47 +227,53 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 \subsection{Object.hpp}
 \lstinputlisting{../Object.hpp}
 
-\subsection{RecordEntry.hpp}
-\lstinputlisting{./../RecordEntry.hpp}
+\subsection{Client.hpp}
+\lstinputlisting{./../Client.hpp}
 
-\subsection{RecordEntry.cpp}
-\lstinputlisting{./../RecordEntry.cpp}
+\subsection{Client.cpp}
+\lstinputlisting{./../Client.cpp}
 
-\subsection{DriveRecord.hpp}
-\lstinputlisting{./../DriveRecord.hpp}
+\subsection{IPlayer.hpp}
+\lstinputlisting{./../IPlayer.hpp}
 
-\subsection{DriveRecord.cpp}
-\lstinputlisting{./../DriveRecord.cpp}
+\subsection{MusicPlayerAdapter.hpp}
+\lstinputlisting{./../MusicPlayerAdapter.hpp}
 
-\subsection{Garage.hpp}
-\lstinputlisting{./../Garage.hpp}
+\subsection{MusicPlayerAdapter.cpp}
+\lstinputlisting{./../MusicPlayerAdapter.cpp}
 
-\subsection{Garage.cpp}
-\lstinputlisting{./../Garage.cpp}
+\subsection{MusicPlayer.hpp}
+\lstinputlisting{./../MusicPlayer.hpp}
 
-\subsection{Vehicle.hpp}
-\lstinputlisting{./../Vehicle.hpp}
+\subsection{MusicPlayer.cpp}
+\lstinputlisting{./../MusicPlayer.cpp}
 
-\subsection{Vehicle.cpp}
-\lstinputlisting{./../Vehicle.cpp}
+\subsection{Song.hpp}
+\lstinputlisting{./../Song.hpp}
 
-\subsection{Car.hpp}
-\lstinputlisting{./../Car.hpp}
+\subsection{Song.cpp}
+\lstinputlisting{./../Song.cpp}
 
-\subsection{Car.cpp}
-\lstinputlisting{./../Car.cpp}
+\subsection{VideoPlayerAdapter.hpp}
+\lstinputlisting{./../VideoPlayerAdapter.hpp}
 
-\subsection{Truck.hpp}
-\lstinputlisting{./../Truck.hpp}
+\subsection{VideoPlayerAdapter.cpp}
+\lstinputlisting{./../VideoPlayerAdapter.cpp}
 
-\subsection{Truck.cpp}
-\lstinputlisting{./../Truck.cpp}
+\subsection{VideoPlayer.hpp}
+\lstinputlisting{./../VideoPlayer.hpp}
 
-\subsection{Bike.hpp}
-\lstinputlisting{./../Bike.hpp}
+\subsection{VideoPlayer.cpp}
+\lstinputlisting{./../VideoPlayer.cpp}
 
-\subsection{Bike.cpp}
-\lstinputlisting{./../Bike.cpp}
+\subsection{Video.hpp}
+\lstinputlisting{./../Video.hpp}
+
+\subsection{Video.cpp}
+\lstinputlisting{./../Video.cpp}
+
+\subsection{EVideoFormat.hpp}
+\lstinputlisting{./../EVideoFormat.hpp}
 
 % Literaturverzeichnis
 % --------------------

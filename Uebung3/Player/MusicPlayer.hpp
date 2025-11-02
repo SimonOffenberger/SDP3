@@ -1,13 +1,11 @@
-#ifndef MUSIC_PLAYER_HPP
-#define MUSIC_PLAYER_HPP
-
-
 /*****************************************************************//**
  * \file   MusicPlayer.hpp
  * \brief  MusicPlayer - A player for music!
  * \author Simon Vogelhuber
  * \date   October 2025
  *********************************************************************/
+#ifndef MUSIC_PLAYER_HPP
+#define MUSIC_PLAYER_HPP
 
 #include "Object.hpp"
 #include "Song.hpp"
@@ -19,15 +17,15 @@ using  SongCollection = std::vector<Song>;
 class MusicPlayer : public Object
 {
 public:
+    inline static const std::string ERROR_DURATION_NULL = "ERROR: Song with duration 0!";
+    inline static const std::string ERROR_EMPTY_NAME = "ERROR: Song with empty Name!";
 
 	inline static const std::size_t MAX_VOLUME = 100;
 	inline static const std::size_t MIN_VOLUME = 0;
     inline static const std::size_t DEFAULT_VOLUME = 50;
 
-
-
     /**
-     * \brief Play selected song
+     * \brief Plays selected song
      */
     void Start();
 
@@ -45,9 +43,9 @@ public:
      * \brief Get index of current song
      * \return size_t of current's song index
      */
-    size_t GetCurIndex()const;
+    size_t const GetCurIndex() const;
     /**
-     * \brief Find song by name
+     * \brief Find song by name and selcet it
      * \return true if song by that name exists
      */
     bool Find(std::string const& name);
@@ -56,19 +54,19 @@ public:
      * \brief Get No. Songs inside the player
      * \return size_t count of songs inside player
      */
-    size_t GetCount();
+    size_t const GetCount() const;
 
     /**
      * \brief Increase volume by 'vol' amount
      * \param size_t vol (volume)
      */
-    void IncreaseVol(size_t vol);
+    void IncreaseVol(size_t const vol);
 
     /**
      * \brief Decrease volume by 'vol' amount
      * \param size_t vol (volume)
      */
-    void DecreaseVol(size_t vol);
+    void DecreaseVol(size_t const vol);
 
     /**
      * \brief Add song to player

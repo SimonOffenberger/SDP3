@@ -275,10 +275,20 @@ bool Client::Test_IPlayerEmptyPlay(std::ostream& ost, IPlayer& player) const
 	string error_msg = "";
 
 	try {
+		stringstream result;
 
+		result.str("");
+		result.clear();
+
+		std::streambuf* coutbuf = std::cout.rdbuf();
+
+		std::cout.rdbuf(result.rdbuf());
 
 		player.Play();
 
+		std::cout.rdbuf(coutbuf);
+
+		TestOK == TestOK && check_dump(ost, "Test for Message in Empty Player", true, result.str().find("no")!=string::npos);
 
 	}
 	catch (const string& err) {
@@ -294,8 +304,7 @@ bool Client::Test_IPlayerEmptyPlay(std::ostream& ost, IPlayer& player) const
 		error_msg = "Unhandelt Exception";
 	}
 
-	ost << "Exception Message :" <<  error_msg << endl;
-	TestOK == TestOK && check_dump(ost, "Test Exception Empty Video Collection",false , error_msg.empty());
+	TestOK == TestOK && check_dump(ost, "Test for Exception in Testcase",true , error_msg.empty());
 
 	TestEnd(ost);
 

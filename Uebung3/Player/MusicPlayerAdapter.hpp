@@ -1,10 +1,17 @@
+/*****************************************************************//**
+ * \file   MusicPlayerAdapter.hpp
+ * \brief  
+ * 
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
 #ifndef MUSIC_PLAYER_ADAPTER_HPP
 #define MUSIC_PLAYER_ADAPTER_HPP
 
 #include "IPlayer.hpp"
 #include "MusicPlayer.hpp"
 
-class MusicPlayerAdapter : public IPlayer
+class MusicPlayerAdapter :public Object, public IPlayer
 {
 public:
 
@@ -40,6 +47,11 @@ public:
      */
     virtual void Prev() override;
 
+    /**
+     * \brief Selects a Video by Name.
+     *
+     * \param name
+     */
     virtual void Select(std::string const& name) override;
     
 private:

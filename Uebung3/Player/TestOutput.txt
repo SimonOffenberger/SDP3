@@ -68,9 +68,11 @@ Test for Exception in Test Case
              TESTCASE START                
 *******************************************
 
-Exception Message :ERROR: No video in Player!
-Test Exception Empty Video Collection
-[32m[Test OK] [37mResult: (Expected: false == Result: false)
+Test for Message in Empty Player
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test for Exception in Testcase
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
 
 
 *******************************************
@@ -145,6 +147,20 @@ Test for Exception in Test Case
              TESTCASE START                
 *******************************************
 
+Test for Message in Empty Player
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test for Exception in Testcase
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
 Test Song Getter Duration
 [32m[Test OK] [37mResult: (Expected: 123 == Result: 123)
 
@@ -153,6 +169,12 @@ Test Song Getter Name
 
 Check for Exception in Testcase
 [32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test Exception in Song CTOR with duration 0
+[32m[Test OK] [37mResult: (Expected: ERROR: Song with duration 0! == Result: ERROR: Song with duration 0!)
+
+Test Exception in Song CTOR with empty string
+[32m[Test OK] [37mResult: (Expected: ERROR: Song with empty Name! == Result: ERROR: Song with empty Name!)
 
 
 *******************************************
@@ -173,6 +195,12 @@ Test Song Getter Format
 
 Check for Exception in Testcase
 [32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test Exception in Video CTOR with duration 0
+[32m[Test OK] [37mResult: (Expected: ERROR: Video with duration 0! == Result: ERROR: Video with duration 0!)
+
+Test Exception in Video CTOR with empty string
+[32m[Test OK] [37mResult: (Expected: ERROR: Video with empty Name! == Result: ERROR: Video with empty Name!)
 
 
 *******************************************

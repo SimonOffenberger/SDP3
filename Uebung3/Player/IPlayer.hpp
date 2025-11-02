@@ -42,8 +42,17 @@ public:
      */
     virtual void Prev() = 0;
 
+    /**
+     * \brief Selects a Video by Name.
+     *
+     * \param name
+     */
     virtual void Select(std::string const& name) = 0;
 
+    /**
+     * \brief virtual Destructor for Interface.
+     * 
+     */
     virtual ~IPlayer() = default;
 
 };

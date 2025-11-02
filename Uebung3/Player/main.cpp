@@ -53,15 +53,15 @@ int main(void){
 			TestOK = TestOK && client.Test_IPlayerVolumeCTRL(testoutput, VidAdapter, VideoPlayer::MAX_VOLUME, VideoPlayer::DEFAULT_VOLUME);
 			TestOK = TestOK && client.Test_IPlayerPlay(testoutput, VidAdapter);
 		}
+
 		VideoPlayer EmptyPlayer;
 		VideoPlayerAdapter EmptyAdapter { EmptyPlayer };
 
 		TestOK = TestOK && client.Test_IPlayerEmptyPlay(cout, EmptyAdapter);
-
 		if (WRITE_OUTPUT) TestOK = TestOK && client.Test_IPlayerEmptyPlay(testoutput, EmptyAdapter);
 
-		MusicPlayer MPlayer;
 
+		MusicPlayer MPlayer;
 
 		MPlayer.Add("Harry Potter1", 160);
 		MPlayer.Add("Harry Potter2", 160);
@@ -81,6 +81,13 @@ int main(void){
 			TestOK = TestOK && client.Test_IPlayerVolumeCTRL(testoutput, MusAdapter, MusicPlayer::MAX_VOLUME, MusicPlayer::DEFAULT_VOLUME);
 			TestOK = TestOK && client.Test_IPlayerPlay(testoutput, MusAdapter);
 		}
+
+		MusicPlayer EmptyMPlayer;
+		MusicPlayerAdapter EmptyMAdapter{ EmptyMPlayer };
+
+		TestOK = TestOK && client.Test_IPlayerEmptyPlay(cout, EmptyMAdapter);
+		if (WRITE_OUTPUT) TestOK = TestOK && client.Test_IPlayerEmptyPlay(testoutput, EmptyMAdapter);
+
 
 		TestOK = TestOK && TestSong(cout);
 		if (WRITE_OUTPUT) TestOK = TestOK && TestSong(testoutput);
@@ -154,6 +161,47 @@ bool TestSong(ostream& ost)
 	TestOK = TestOK && check_dump(ost, "Check for Exception in Testcase", true, error_msg.empty());
 	error_msg.clear();
 
+	try {
+		Song song{ "Hello World",0};
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Test Exception in Song CTOR with duration 0", error_msg, Song::ERROR_DURATION_NULL);
+	error_msg.clear();
+
+	try {
+
+		Song song{ "",12};
+
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Test Exception in Song CTOR with empty string", error_msg, Song::ERROR_EMPTY_NAME);
+	error_msg.clear();
+
+
 	TestEnd(ost);
 	return TestOK;
 }
@@ -171,7 +219,7 @@ bool TestVideo(ostream& ost)
 
 		Video HelloWorld("Hello World", 123,EVideoFormat::AVI);
 
-		TestOK = TestOK && check_dump(ost,"Test Song Getter Duration", static_cast<size_t>(123), HelloWorld.GetDurration());
+		TestOK = TestOK && check_dump(ost,"Test Song Getter Duration", static_cast<size_t>(123), HelloWorld.GetDuration());
 
 		TestOK = TestOK && check_dump(ost,"Test Song Getter Name",static_cast<string>( "Hello World"), HelloWorld.GetTitle());
 
@@ -192,6 +240,47 @@ bool TestVideo(ostream& ost)
 
 	TestOK = TestOK && check_dump(ost, "Check for Exception in Testcase", true, error_msg.empty());
 	error_msg.clear();
+
+	try {
+		Video vid{ "Hello World",0, EVideoFormat::AVI };
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Test Exception in Video CTOR with duration 0", error_msg, Video::ERROR_DURATION_NULL);
+	error_msg.clear();
+
+	try {
+		
+		Video vid{ "",12,EVideoFormat::MKV };
+
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Test Exception in Video CTOR with empty string", error_msg, Video::ERROR_EMPTY_NAME);
+	error_msg.clear();
+
 
 	TestEnd(ost);
 	return TestOK;

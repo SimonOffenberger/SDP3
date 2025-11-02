@@ -1,10 +1,14 @@
-#include <iostream>
+/*****************************************************************//**
+ * \file   MusicPlayer.hpp
+ * \brief  MusicPlayer - A player for music!
+ * \author Simon Vogelhuber
+ * \date   October 2025
+ *********************************************************************/
 #include "MusicPlayer.hpp"
 
 void MusicPlayer::Start()
 {
-    if (std::cout.bad())
-        throw Object::ERROR_BAD_OSTREAM;
+    if (std::cout.bad())  throw Object::ERROR_BAD_OSTREAM;
 
     if (m_songs.empty())
     {
@@ -14,8 +18,8 @@ void MusicPlayer::Start()
 
     std::cout
         << "playing song number " << m_currentSongIdx << ": "
-        << m_songs[m_currentSongIdx].GetTitle()
-        << " (" << m_songs[m_currentSongIdx].GetDuration() << ")\n";
+        << m_songs.at(m_currentSongIdx).GetTitle()
+        << " (" << m_songs.at(m_currentSongIdx).GetDuration() << ")\n";
 }
 
 void MusicPlayer::Stop()
@@ -25,8 +29,8 @@ void MusicPlayer::Stop()
 
     std::cout
         << "stop song number " << m_currentSongIdx << ": "
-        << m_songs[m_currentSongIdx].GetTitle()
-        << " (" << m_songs[m_currentSongIdx].GetDuration() << ")\n";
+        << m_songs.at(m_currentSongIdx).GetTitle()
+        << " (" << m_songs.at(m_currentSongIdx).GetDuration() << ")\n";
 }
 
 void MusicPlayer::SwitchNext()
@@ -35,13 +39,15 @@ void MusicPlayer::SwitchNext()
     m_currentSongIdx = (m_currentSongIdx + 1) % m_songs.size();
 }
 
-size_t MusicPlayer::GetCurIndex() const
+size_t const MusicPlayer::GetCurIndex() const
 {
     return m_currentSongIdx;
 }
 
 bool MusicPlayer::Find(std::string const& name)
 {
+    if (name.empty()) throw MusicPlayer::ERROR_EMPTY_NAME;
+
     for (int i =0; i<m_songs.size(); i++)
     {
         if (m_songs.at(i).GetTitle() == name) {
@@ -52,12 +58,12 @@ bool MusicPlayer::Find(std::string const& name)
     return false;
 }
 
-size_t MusicPlayer::GetCount()
+size_t const MusicPlayer::GetCount() const
 {
     return m_songs.size();
 }
 
-void MusicPlayer::IncreaseVol(size_t vol)
+void MusicPlayer::IncreaseVol(size_t const vol)
 {
     if (std::cout.bad())
         throw Object::ERROR_BAD_OSTREAM;
@@ -69,7 +75,7 @@ void MusicPlayer::IncreaseVol(size_t vol)
     std::cout << "volume is now -> " << m_volume << std::endl;
 }
 
-void MusicPlayer::DecreaseVol(size_t vol)
+void MusicPlayer::DecreaseVol(size_t const vol)
 {
     if (std::cout.bad())
         throw Object::ERROR_BAD_OSTREAM;
@@ -84,5 +90,8 @@ void MusicPlayer::DecreaseVol(size_t vol)
 
 void MusicPlayer::Add(std::string const& name, size_t const dur)
 {
+    if (name.empty()) throw MusicPlayer::ERROR_EMPTY_NAME;
+    if (dur == 0)     throw MusicPlayer::ERROR_DURATION_NULL;
+
     m_songs.emplace_back(name, dur);
 }

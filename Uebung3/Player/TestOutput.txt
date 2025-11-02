@@ -255,4 +255,39 @@ Test Exception in Add with empty string
 
 *******************************************
 
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+MusicPlayer - Basic Functionality - .GetCount()
+[32m[Test OK] [37mResult: (Expected: 4 == Result: 4)
+
+MusicPlayer - Basic Functionality - .GetIndex() initial
+[32m[Test OK] [37mResult: (Expected: 0 == Result: 0)
+
+MusicPlayer - Basic Functionality - .Find() unknown song
+[32m[Test OK] [37mResult: (Expected: false == Result: false)
+
+MusicPlayer - Basic Functionality - .Find() song that exists
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+MusicPlayer - Basic Functionality - .GetIndex() after switching
+[32m[Test OK] [37mResult: (Expected: 1 == Result: 1)
+
+MusicPlayer - Basic Functionality - .GetIndex() wrap around
+[32m[Test OK] [37mResult: (Expected: 1 == Result: 1)
+
+MusicPlayer - Basic Functionality - Error Buffer
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+MusicPlayer - Add Song without title
+[32m[Test OK] [37mResult: (Expected: ERROR: Song with empty Name! == Result: ERROR: Song with empty Name!)
+
+MusicPlayer - Add Song without title
+[32m[Test OK] [37mResult: (Expected: ERROR: Song with duration 0! == Result: ERROR: Song with duration 0!)
+
+MusicPlayer - Add Song without title
+[32m[Test OK] [37mResult: (Expected: ERROR: Song with empty Name! == Result: ERROR: Song with empty Name!)
+
 [32mTEST OK!![37m

@@ -5,19 +5,19 @@ Test VideoPlayer Adapter in Client
 *******************************************
 
 Test Volume Inc
-[31m[Test FAILED] [37mResult: (Expected: true != Result: false)
+[Test FAILED] Result: (Expected: true != Result: false)
 
 Test Volume Dec
-[31m[Test FAILED] [37mResult: (Expected: true != Result: false)
+[Test FAILED] Result: (Expected: true != Result: false)
 
 Test Lower Bound Volume 0
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Upper Bound Volume
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test for Exceotion in Test Case
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 
 *******************************************
@@ -28,37 +28,37 @@ Test for Exceotion in Test Case
 *******************************************
 
 Test Play Contains Name
-[31m[Test FAILED] [37mResult: (Expected: true != Result: false)
+[Test FAILED] Result: (Expected: true != Result: false)
 
 Test Next 
-[31m[Test FAILED] [37mResult: (Expected: true != Result: false)
+[Test FAILED] Result: (Expected: true != Result: false)
 
 Test Next 
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Next 
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Next 
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Next 
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Next Wrap around
-[31m[Test FAILED] [37mResult: (Expected: true != Result: false)
+[Test FAILED] Result: (Expected: true != Result: false)
 
 Test Select Video by name 
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Select Video by name not found
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Stop Player
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test for Exception in Test Case
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 
 *******************************************
@@ -69,10 +69,10 @@ Test for Exception in Test Case
 *******************************************
 
 Test for Message in Empty Player
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test for Exception in Testcase
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 
 *******************************************
@@ -84,19 +84,19 @@ Test MusicPlayer Adapter in Client
 *******************************************
 
 Test Volume Inc
-[31m[Test FAILED] [37mResult: (Expected: true != Result: false)
+[Test FAILED] Result: (Expected: true != Result: false)
 
 Test Volume Dec
-[31m[Test FAILED] [37mResult: (Expected: true != Result: false)
+[Test FAILED] Result: (Expected: true != Result: false)
 
 Test Lower Bound Volume 0
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Upper Bound Volume
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test for Exceotion in Test Case
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 
 *******************************************
@@ -107,37 +107,37 @@ Test for Exceotion in Test Case
 *******************************************
 
 Test Play Contains Name
-[31m[Test FAILED] [37mResult: (Expected: true != Result: false)
+[Test FAILED] Result: (Expected: true != Result: false)
 
 Test Next 
-[31m[Test FAILED] [37mResult: (Expected: true != Result: false)
+[Test FAILED] Result: (Expected: true != Result: false)
 
 Test Next 
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Next 
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Next 
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Next 
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Next Wrap around
-[31m[Test FAILED] [37mResult: (Expected: true != Result: false)
+[Test FAILED] Result: (Expected: true != Result: false)
 
 Test Select Video by name 
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Select Video by name not found
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Stop Player
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test for Exception in Test Case
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 
 *******************************************
@@ -148,10 +148,10 @@ Test for Exception in Test Case
 *******************************************
 
 Test for Message in Empty Player
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test for Exception in Testcase
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 
 *******************************************
@@ -162,19 +162,19 @@ Test for Exception in Testcase
 *******************************************
 
 Test Song Getter Duration
-[32m[Test OK] [37mResult: (Expected: 123 == Result: 123)
+[Test OK] Result: (Expected: 123 == Result: 123)
 
 Test Song Getter Name
-[32m[Test OK] [37mResult: (Expected: Hello World == Result: Hello World)
+[Test OK] Result: (Expected: Hello World == Result: Hello World)
 
 Check for Exception in Testcase
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Exception in Song CTOR with duration 0
-[32m[Test OK] [37mResult: (Expected: ERROR: Song with duration 0! == Result: ERROR: Song with duration 0!)
+[Test OK] Result: (Expected: ERROR: Song with duration 0! == Result: ERROR: Song with duration 0!)
 
 Test Exception in Song CTOR with empty string
-[32m[Test OK] [37mResult: (Expected: ERROR: Song with empty Name! == Result: ERROR: Song with empty Name!)
+[Test OK] Result: (Expected: ERROR: Song with empty Name! == Result: ERROR: Song with empty Name!)
 
 
 *******************************************
@@ -185,22 +185,22 @@ Test Exception in Song CTOR with empty string
 *******************************************
 
 Test Song Getter Duration
-[32m[Test OK] [37mResult: (Expected: 123 == Result: 123)
+[Test OK] Result: (Expected: 123 == Result: 123)
 
 Test Song Getter Name
-[32m[Test OK] [37mResult: (Expected: Hello World == Result: Hello World)
+[Test OK] Result: (Expected: Hello World == Result: Hello World)
 
 Test Song Getter Format
-[32m[Test OK] [37mResult: (Expected: AVI-Format == Result: AVI-Format)
+[Test OK] Result: (Expected: AVI-Format == Result: AVI-Format)
 
 Check for Exception in Testcase
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Exception in Video CTOR with duration 0
-[32m[Test OK] [37mResult: (Expected: ERROR: Video with duration 0! == Result: ERROR: Video with duration 0!)
+[Test OK] Result: (Expected: ERROR: Video with duration 0! == Result: ERROR: Video with duration 0!)
 
 Test Exception in Video CTOR with empty string
-[32m[Test OK] [37mResult: (Expected: ERROR: Video with empty Name! == Result: ERROR: Video with empty Name!)
+[Test OK] Result: (Expected: ERROR: Video with empty Name! == Result: ERROR: Video with empty Name!)
 
 
 *******************************************
@@ -211,46 +211,46 @@ Test Exception in Video CTOR with empty string
 *******************************************
 
 Test Videplayer Initial Index
-[32m[Test OK] [37mResult: (Expected: 0 == Result: 0)
+[Test OK] Result: (Expected: 0 == Result: 0)
 
 Test Videplayer Index after First
-[32m[Test OK] [37mResult: (Expected: 0 == Result: 0)
+[Test OK] Result: (Expected: 0 == Result: 0)
 
 Test Videplayer Index after Next
-[32m[Test OK] [37mResult: (Expected: 1 == Result: 1)
+[Test OK] Result: (Expected: 1 == Result: 1)
 
 Test Videplayer Index Upper Bound
-[32m[Test OK] [37mResult: (Expected: 4 == Result: 4)
+[Test OK] Result: (Expected: 4 == Result: 4)
 
 Test Videplayer Index after First
-[32m[Test OK] [37mResult: (Expected: 0 == Result: 0)
+[Test OK] Result: (Expected: 0 == Result: 0)
 
 Test Default Volume
-[32m[Test OK] [37mResult: (Expected: 8 == Result: 8)
+[Test OK] Result: (Expected: 8 == Result: 8)
 
 Test Set Volume
-[32m[Test OK] [37mResult: (Expected: 25 == Result: 25)
+[Test OK] Result: (Expected: 25 == Result: 25)
 
 Test Set Volume Max Volume
-[32m[Test OK] [37mResult: (Expected: 50 == Result: 50)
+[Test OK] Result: (Expected: 50 == Result: 50)
 
 Test Set Volume Min Volume
-[32m[Test OK] [37mResult: (Expected: 0 == Result: 0)
+[Test OK] Result: (Expected: 0 == Result: 0)
 
 Test Video Player Play
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Video Player Stop
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Check for Exception in Testcase
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Exception in Add with empty string
-[32m[Test OK] [37mResult: (Expected: ERROR: Video with empty Name! == Result: ERROR: Video with empty Name!)
+[Test OK] Result: (Expected: ERROR: Video with empty Name! == Result: ERROR: Video with empty Name!)
 
 Test Exception in Add with empty string
-[32m[Test OK] [37mResult: (Expected: ERROR: Video with duration 0! == Result: ERROR: Video with duration 0!)
+[Test OK] Result: (Expected: ERROR: Video with duration 0! == Result: ERROR: Video with duration 0!)
 
 
 *******************************************
@@ -261,39 +261,39 @@ Test Exception in Add with empty string
 *******************************************
 
 MusicPlayer - Basic Functionality - .GetCount()
-[32m[Test OK] [37mResult: (Expected: 4 == Result: 4)
+[Test OK] Result: (Expected: 4 == Result: 4)
 
 MusicPlayer - Basic Functionality - .GetIndex() initial
-[32m[Test OK] [37mResult: (Expected: 0 == Result: 0)
+[Test OK] Result: (Expected: 0 == Result: 0)
 
 MusicPlayer - Basic Functionality - .Find() unknown song
-[32m[Test OK] [37mResult: (Expected: false == Result: false)
+[Test OK] Result: (Expected: false == Result: false)
 
 MusicPlayer - Basic Functionality - .Find() song that exists
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 MusicPlayer - Basic Functionality - Song name after initial .Start()
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 MusicPlayer - Basic Functionality - .GetIndex() after switching
-[32m[Test OK] [37mResult: (Expected: 1 == Result: 1)
+[Test OK] Result: (Expected: 1 == Result: 1)
 
 MusicPlayer - Basic Functionality - Song name switching
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 MusicPlayer - Basic Functionality - .GetIndex() wrap around
-[32m[Test OK] [37mResult: (Expected: 1 == Result: 1)
+[Test OK] Result: (Expected: 1 == Result: 1)
 
 MusicPlayer - Basic Functionality - Error Buffer
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 MusicPlayer - Add Song without title
-[32m[Test OK] [37mResult: (Expected: ERROR: Song with empty Name! == Result: ERROR: Song with empty Name!)
+[Test OK] Result: (Expected: ERROR: Song with empty Name! == Result: ERROR: Song with empty Name!)
 
 MusicPlayer - Add Song without title
-[32m[Test OK] [37mResult: (Expected: ERROR: Song with duration 0! == Result: ERROR: Song with duration 0!)
+[Test OK] Result: (Expected: ERROR: Song with duration 0! == Result: ERROR: Song with duration 0!)
 
 MusicPlayer - Add Song without title
-[32m[Test OK] [37mResult: (Expected: ERROR: Song with empty Name! == Result: ERROR: Song with empty Name!)
+[Test OK] Result: (Expected: ERROR: Song with empty Name! == Result: ERROR: Song with empty Name!)
 
-[32mTEST OK!![37m
+TEST OK!!

@@ -24,6 +24,8 @@ public:
 	inline static const std::size_t MIN_VOLUME = 0;
     inline static const std::size_t DEFAULT_VOLUME = 50;
 
+    MusicPlayer() = default;
+
     /**
      * \brief Plays selected song
      */
@@ -74,6 +76,11 @@ public:
      * \param size_t dur (duration)
      */
     void Add(std::string const& name, size_t const dur);
+
+    // delete Copy Ctor and Assign Operator to prohibit untestet behaviour
+    MusicPlayer(MusicPlayer& Music) = delete;
+    void operator=(MusicPlayer Music) = delete;
+
 private:
     SongCollection m_songs;
     size_t m_currentSongIdx = 0;

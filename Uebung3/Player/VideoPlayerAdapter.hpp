@@ -59,6 +59,10 @@ public:
      */
     virtual void Select(std::string const& name) override;
 
+    // delete Copy Ctor and Assign Operator to prohibit untestet behaviour
+    VideoPlayerAdapter(VideoPlayerAdapter& vid) = delete;
+    void operator=(VideoPlayer vid) = delete;
+
 private:
     VideoPlayer & m_player;
 };

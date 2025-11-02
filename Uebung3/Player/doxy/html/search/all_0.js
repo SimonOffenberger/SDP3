@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['addrecord_0',['AddRecord',['../d8/ddb/class_drive_record.html#a0a557c1cf38e05cce95201a5231c942a',1,'DriveRecord::AddRecord()'],['../dd/df6/class_vehicle.html#a563fc693b1226af46b4b27b3399e9dea',1,'Vehicle::AddRecord()']]],
-  ['addvehicle_1',['AddVehicle',['../d2/d91/class_garage.html#a0099b296564271908b0f9ba661e309b4',1,'Garage']]]
+  ['add_0',['Add',['../dd/de1/class_music_player.html#aed8cdbc7bd8f9bc25d15cb3f36a5a43f',1,'MusicPlayer::Add()'],['../d3/d7a/class_video_player.html#a6be211f44478f220415dd408408bcf8a',1,'VideoPlayer::Add()']]],
+  ['avi_1',['AVI',['../df/d67/_e_video_format_8hpp.html#a3fb3c293ba62f1c3bfa639d83dad5ca7ae482f6dc6f01159c423a0685730501fb',1,'EVideoFormat.hpp']]]
 ];

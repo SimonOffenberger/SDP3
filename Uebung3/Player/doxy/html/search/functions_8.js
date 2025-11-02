@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['recordentry_0',['RecordEntry',['../d2/de3/class_record_entry.html#a6621d88ec82b641c2ba097f026f8b6fd',1,'RecordEntry']]],
-  ['red_1',['RED',['../d9/dfc/_test_8hpp.html#a5f0567db0c77643181763813d5fa4b8b',1,'Test.hpp']]]
+  ['object_0',['Object',['../d8/d83/class_object.html#afe9eeddd7068a37f62d3276a2fb49864',1,'Object']]],
+  ['operator_3c_3c_1',['operator&lt;&lt;',['../d9/dfc/_test_8hpp.html#a37ed8236c89c404abe5a038bd2afd31b',1,'operator&lt;&lt;(std::ostream &amp;ost, const std::pair&lt; T1, T2 &gt; &amp;p):&#160;Test.hpp'],['../d9/dfc/_test_8hpp.html#aac129d5a32d4b578086409444184a967',1,'operator&lt;&lt;(std::ostream &amp;ost, const std::vector&lt; T &gt; &amp;cont):&#160;Test.hpp'],['../d9/dfc/_test_8hpp.html#a47fbada1bdd2599a24ac89879bf9bd62',1,'operator&lt;&lt;(std::ostream &amp;ost, const std::list&lt; T &gt; &amp;cont):&#160;Test.hpp'],['../d9/dfc/_test_8hpp.html#a0d6b7a2c4f2404b188e105e5d9cb69e5',1,'operator&lt;&lt;(std::ostream &amp;ost, const std::deque&lt; T &gt; &amp;cont):&#160;Test.hpp'],['../d9/dfc/_test_8hpp.html#af89aa81cf64227489d2829e9d3196dfc',1,'operator&lt;&lt;(std::ostream &amp;ost, const std::forward_list&lt; T &gt; &amp;cont):&#160;Test.hpp']]],
+  ['operator_3d_2',['operator=',['../dd/de1/class_music_player.html#af75b338bf7495c7e347b5a4130398e5d',1,'MusicPlayer::operator=()'],['../d1/dc7/class_music_player_adapter.html#a9842c582694b11df1b634d432706e20f',1,'MusicPlayerAdapter::operator=()'],['../d3/d7a/class_video_player.html#ab551049534379927373c8188bee3d3fa',1,'VideoPlayer::operator=()'],['../d6/dfa/class_video_player_adapter.html#ab16526f551a9d1b00756240341930365',1,'VideoPlayerAdapter::operator=()']]]
 ];

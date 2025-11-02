@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Fuhrpark: Object Class Reference</title>
+<title>Player: Object Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Fuhrpark
+   <div id="projectname">Player
    </div>
   </td>
  </tr>
@@ -88,7 +88,7 @@ $(function(){initNavTree('d8/d83/class_object.html','../../','d6/dfd/class_objec
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Object Class Reference<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">Object Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -99,60 +99,31 @@ Inheritance diagram for Object:</div>
  <div class="center">
   <img src="../../d8/d83/class_object.png" usemap="#Object_map" alt=""/>
   <map id="Object_map" name="Object_map">
-<area href="../../d8/ddb/class_drive_record.html" alt="DriveRecord" shape="rect" coords="0,56,84,80"/>
-<area href="../../d2/d91/class_garage.html" alt="Garage" shape="rect" coords="94,56,178,80"/>
-<area href="../../d2/de3/class_record_entry.html" alt="RecordEntry" shape="rect" coords="188,56,272,80"/>
-<area href="../../dd/df6/class_vehicle.html" alt="Vehicle" shape="rect" coords="282,56,366,80"/>
-<area href="../../d2/d3d/class_bike.html" alt="Bike" shape="rect" coords="188,112,272,136"/>
-<area href="../../d6/d44/class_car.html" alt="Car" shape="rect" coords="282,112,366,136"/>
-<area href="../../db/d95/class_truck.html" alt="Truck" shape="rect" coords="376,112,460,136"/>
+<area href="../../d3/d7a/class_client.html" alt="Client" shape="rect" coords="0,56,128,80"/>
+<area href="../../dd/de1/class_music_player.html" alt="MusicPlayer" shape="rect" coords="138,56,266,80"/>
+<area href="../../d1/dc7/class_music_player_adapter.html" alt="MusicPlayerAdapter" shape="rect" coords="276,56,404,80"/>
+<area href="../../da/dc3/class_song.html" alt="Song" shape="rect" coords="414,56,542,80"/>
+<area href="../../d2/d47/class_video.html" alt="Video" shape="rect" coords="552,56,680,80"/>
+<area href="../../d3/d7a/class_video_player.html" alt="VideoPlayer" shape="rect" coords="690,56,818,80"/>
+<area href="../../d6/dfa/class_video_player_adapter.html" alt="VideoPlayerAdapter" shape="rect" coords="828,56,956,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a226f2ae2af766b77d83c09a4d766b725" id="r_a226f2ae2af766b77d83c09a4d766b725"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a226f2ae2af766b77d83c09a4d766b725">~Object</a> ()=default</td></tr>
-<tr class="memitem:a0ddfacb1738bd1c6ae7079aa3b7d1584" id="r_a0ddfacb1738bd1c6ae7079aa3b7d1584"><td class="memItemLeft" align="right" valign="top">virtual std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ddfacb1738bd1c6ae7079aa3b7d1584">Print</a> (std::ostream &amp;ost=std::cout) const =0</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a57c0b8c70b9dc9f1d1688b989cd08c04" id="r_a57c0b8c70b9dc9f1d1688b989cd08c04"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57c0b8c70b9dc9f1d1688b989cd08c04">ERROR_BAD_OSTREAM</a> = &quot;ERROR: Provided Ostream is bad&quot;</td></tr>
 <tr class="memitem:a2adb788f2ffb1c6d56e8ec8b9789b0ac" id="r_a2adb788f2ffb1c6d56e8ec8b9789b0ac"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2adb788f2ffb1c6d56e8ec8b9789b0ac">ERROR_FAIL_WRITE</a> = &quot;ERROR: Fail to write on provided Ostream&quot;</td></tr>
+<tr class="memitem:af34301090d8c55aa72e5cb22d8b4e9f5" id="r_af34301090d8c55aa72e5cb22d8b4e9f5"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af34301090d8c55aa72e5cb22d8b4e9f5">ERROR_NULLPTR</a> = &quot;ERROR: Passed in Nullptr!&quot;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:afe9eeddd7068a37f62d3276a2fb49864" id="r_afe9eeddd7068a37f62d3276a2fb49864"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe9eeddd7068a37f62d3276a2fb49864">Object</a> ()=default</td></tr>
+<tr class="memitem:a226f2ae2af766b77d83c09a4d766b725" id="r_a226f2ae2af766b77d83c09a4d766b725"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a226f2ae2af766b77d83c09a4d766b725">~Object</a> ()=default</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../db/d78/_object_8hpp_source.html#l00013">13</a> of file <a class="el" href="../../db/d78/_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d78/_object_8hpp_source.html#l00006">6</a> of file <a class="el" href="../../db/d78/_object_8hpp_source.html">Object.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a226f2ae2af766b77d83c09a4d766b725" name="a226f2ae2af766b77d83c09a4d766b725"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a226f2ae2af766b77d83c09a4d766b725">&#9670;&#160;</a></span>~Object()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual Object::~Object </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Virtual DTOR, once virtual always virtual. </p>
-
-</div>
-</div>
 <a id="afe9eeddd7068a37f62d3276a2fb49864" name="afe9eeddd7068a37f62d3276a2fb49864"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afe9eeddd7068a37f62d3276a2fb49864">&#9670;&#160;</a></span>Object()</h2>
 
@@ -178,9 +149,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a0ddfacb1738bd1c6ae7079aa3b7d1584" name="a0ddfacb1738bd1c6ae7079aa3b7d1584"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ddfacb1738bd1c6ae7079aa3b7d1584">&#9670;&#160;</a></span>Print()</h2>
+<a id="a226f2ae2af766b77d83c09a4d766b725" name="a226f2ae2af766b77d83c09a4d766b725"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a226f2ae2af766b77d83c09a4d766b725">&#9670;&#160;</a></span>~Object()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,20 +159,18 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::ostream &amp; Object::Print </td>
+          <td class="memname">virtual Object::~Object </td>
           <td>(</td>
-          <td class="paramtype">std::ostream &amp;</td>          <td class="paramname"><span class="paramname"><em>ost</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::cout</span></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="../../d2/d3d/class_bike.html#ae84b70de332d4e2fc5d68bf9aa02fdcc">Bike</a>, <a class="el" href="../../d6/d44/class_car.html#a48ee1caeac031af0b06002adbbe4c33b">Car</a>, <a class="el" href="../../d8/ddb/class_drive_record.html#ade750374eb69d0d5871fcddb79ea74f0">DriveRecord</a>, <a class="el" href="../../d2/d91/class_garage.html#a86071f9ed6cd3ecccbc3c2c3dc56bce9">Garage</a>, <a class="el" href="../../d2/de3/class_record_entry.html#ad6d31b52d34fc83d9212de630bdb5ef3">RecordEntry</a>, and <a class="el" href="../../db/d95/class_truck.html#a8b6f0c959b0f17b089f26878b7ce0eab">Truck</a>.</p>
 
 </div>
 </div>
@@ -227,7 +195,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d78/_object_8hpp_source.html#l00016">16</a> of file <a class="el" href="../../db/d78/_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d78/_object_8hpp_source.html#l00009">9</a> of file <a class="el" href="../../db/d78/_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>
@@ -251,7 +219,31 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d78/_object_8hpp_source.html#l00017">17</a> of file <a class="el" href="../../db/d78/_object_8hpp_source.html">Object.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d78/_object_8hpp_source.html#l00010">10</a> of file <a class="el" href="../../db/d78/_object_8hpp_source.html">Object.hpp</a>.</p>
+
+</div>
+</div>
+<a id="af34301090d8c55aa72e5cb22d8b4e9f5" name="af34301090d8c55aa72e5cb22d8b4e9f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af34301090d8c55aa72e5cb22d8b4e9f5">&#9670;&#160;</a></span>ERROR_NULLPTR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string Object::ERROR_NULLPTR = &quot;ERROR: Passed in Nullptr!&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../db/d78/_object_8hpp_source.html#l00011">11</a> of file <a class="el" href="../../db/d78/_object_8hpp_source.html">Object.hpp</a>.</p>
 
 </div>
 </div>

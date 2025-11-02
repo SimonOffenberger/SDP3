@@ -53,6 +53,10 @@ public:
      * \param name
      */
     virtual void Select(std::string const& name) override;
+
+    // delete Copy Ctor and Assign Operator to prohibit untestet behaviour
+    MusicPlayerAdapter(MusicPlayerAdapter& Music) = delete;
+    void operator=(MusicPlayerAdapter Music) = delete;
     
 private:
     MusicPlayer & m_player;

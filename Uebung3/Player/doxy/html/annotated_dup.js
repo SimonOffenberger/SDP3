@@ -1,11 +1,12 @@
 var annotated_dup =
 [
-    [ "Bike", "d2/d3d/class_bike.html", "d2/d3d/class_bike" ],
-    [ "Car", "d6/d44/class_car.html", "d6/d44/class_car" ],
-    [ "DriveRecord", "d8/ddb/class_drive_record.html", "d8/ddb/class_drive_record" ],
-    [ "Garage", "d2/d91/class_garage.html", "d2/d91/class_garage" ],
+    [ "Client", "d3/d7a/class_client.html", "d3/d7a/class_client" ],
+    [ "IPlayer", "d5/d7a/class_i_player.html", "d5/d7a/class_i_player" ],
+    [ "MusicPlayer", "dd/de1/class_music_player.html", "dd/de1/class_music_player" ],
+    [ "MusicPlayerAdapter", "d1/dc7/class_music_player_adapter.html", "d1/dc7/class_music_player_adapter" ],
     [ "Object", "d8/d83/class_object.html", "d8/d83/class_object" ],
-    [ "RecordEntry", "d2/de3/class_record_entry.html", "d2/de3/class_record_entry" ],
-    [ "Truck", "db/d95/class_truck.html", "db/d95/class_truck" ],
-    [ "Vehicle", "dd/df6/class_vehicle.html", "dd/df6/class_vehicle" ]
+    [ "Song", "da/dc3/class_song.html", "da/dc3/class_song" ],
+    [ "Video", "d2/d47/class_video.html", "d2/d47/class_video" ],
+    [ "VideoPlayer", "d3/d7a/class_video_player.html", "d3/d7a/class_video_player" ],
+    [ "VideoPlayerAdapter", "d6/dfa/class_video_player_adapter.html", "d6/dfa/class_video_player_adapter" ]
 ];

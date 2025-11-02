@@ -28,6 +28,8 @@ public:
 	inline static const std::size_t MIN_VOLUME = 0;
 	inline static const std::size_t DEFAULT_VOLUME = 8;
 
+	VideoPlayer() = default;
+
 	/**
 	 * \brief Starts playing the selected Video.
 	 * \throw ERROR_BAD_OSTREAM
@@ -100,6 +102,10 @@ public:
 	 * \throw ERROR_DURATION_NULL
 	 */
 	void Add(std::string const & name, size_t const dur,EVideoFormat const & format);
+
+	// delete Copy Ctor and Assign Operator to prohibit untestet behaviour
+	VideoPlayer(VideoPlayer& vid) = delete;
+	void operator=(VideoPlayer vid) = delete;
 
 private:
 	size_t m_volume = DEFAULT_VOLUME;

@@ -1,13 +1,10 @@
 var searchData=
 [
-  ['garage_0',['Garage',['../d2/d91/class_garage.html#a9c32438d0bb8f96de432f97dbb07dd80',1,'Garage::Garage()=default'],['../d2/d91/class_garage.html#a3a7f9239d8de7898e339b6d5ebb8d64a',1,'Garage::Garage(const Garage &amp;)']]],
-  ['getbrand_1',['GetBrand',['../dd/df6/class_vehicle.html#a9e11aa66f6220797b5e53c73bc46f846',1,'Vehicle']]],
-  ['getdate_2',['GetDate',['../d2/de3/class_record_entry.html#a38eeb0bb872429e92437af0f919de9cc',1,'RecordEntry']]],
-  ['getdistance_3',['GetDistance',['../d2/de3/class_record_entry.html#adf783500915555d2fca10f062c80c984',1,'RecordEntry']]],
-  ['getdriverecord_4',['GetDriveRecord',['../dd/df6/class_vehicle.html#a2f5cc8f8ea69fcd45d7a45d798856e7c',1,'Vehicle']]],
-  ['getfueltype_5',['GetFuelType',['../dd/df6/class_vehicle.html#a2434ddb546ed209c418763181cbec658',1,'Vehicle']]],
-  ['getmilage_6',['GetMilage',['../d8/ddb/class_drive_record.html#ad1cc0bc0e74b6f2c797faa3cc723402b',1,'DriveRecord::GetMilage()'],['../dd/df6/class_vehicle.html#ab1298438ed93b8d7f2078e005d7a7aa8',1,'Vehicle::GetMilage() const']]],
-  ['getplate_7',['GetPlate',['../dd/df6/class_vehicle.html#afaa9c43fb24e50e447989942eeb1e80e',1,'Vehicle']]],
-  ['gettotaldrivenkilometers_8',['GetTotalDrivenKilometers',['../d2/d91/class_garage.html#aac65d9e50e4aaa9e4560bc11838394ff',1,'Garage']]],
-  ['green_9',['GREEN',['../d9/dfc/_test_8hpp.html#a1ff42ed6b858b13bc65917fbc2454590',1,'Test.hpp']]]
+  ['getcount_0',['GetCount',['../dd/de1/class_music_player.html#a9f1af67041e460e9f05da283d7df9202',1,'MusicPlayer']]],
+  ['getcurindex_1',['GetCurIndex',['../dd/de1/class_music_player.html#acb8265daab8ee1669b2d36d01a67a65a',1,'MusicPlayer']]],
+  ['getduration_2',['GetDuration',['../da/dc3/class_song.html#a3d2f3efe741486ba9dd7f0ed24f491dc',1,'Song::GetDuration()'],['../d2/d47/class_video.html#ac5563431085d7c878a0dbfbe5fbd5a16',1,'Video::GetDuration() const']]],
+  ['getformatid_3',['GetFormatID',['../d2/d47/class_video.html#a7981631383a9992712b06a53ea35138a',1,'Video']]],
+  ['gettitle_4',['GetTitle',['../da/dc3/class_song.html#a34107250368de916d4037988b097658a',1,'Song::GetTitle()'],['../d2/d47/class_video.html#a60310a47620392cab167a685648865b5',1,'Video::GetTitle()']]],
+  ['getvolume_5',['GetVolume',['../d3/d7a/class_video_player.html#af7a343871ec258028abf906f4c9a994d',1,'VideoPlayer']]],
+  ['green_6',['GREEN',['../d9/dfc/_test_8hpp.html#a1ff42ed6b858b13bc65917fbc2454590',1,'Test.hpp']]]
 ];

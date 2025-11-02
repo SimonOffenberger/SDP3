@@ -75,13 +75,13 @@
 % Seitenspiegel
 % -------------
 
-\typearea{8}	% Festlegung des Seitenspiegels gem. Koma. 4..groÃŸ, 9..klein
+\typearea{10}	% Festlegung des Seitenspiegels gem. Koma. 4..groÃŸ, 9..klein
 
 
 % Kopfzeile
 % ---------
 \lhead{{\footnotesize{s. Offenberger, S. Vogelhuber}}}   %  (links)
-\chead{{\footnotesize{Systemdokumentation - Music VideoPlayer Adapter}}} %  (mitte)
+\chead{{\footnotesize{Systemdokumentation - Music/VideoPlayer Adapter}}} %  (mitte)
 \rhead{{\footnotesize{Seite \thepage}}}      %  (rechts)
 
 % Fusszeile
@@ -127,7 +127,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \title {\vspace{1cm}
        \includegraphics[width=8cm]{./Images/FhOOeLogoOkt2009_HSD_Rot_pastell}\\
        \vspace{2cm}
-       {\textbf{Systemdokumentation\\Projekt Fuhrpark}}\\
+       {\textbf{Systemdokumentation\\Projekt Music/VideoPlayer Adapter}}\\
        \vspace{5mm}
        {\small{Version 1.0}}\\
        \vspace{5mm}
@@ -156,7 +156,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 
 \subsection{Team}
 \begin{itemize}
-	\item Simon Offenberger, Matr.-Nr.: S2410306027, E-Mail: Simon.Offenberger@fh-hagenberg.at
+	\item Simon Offenberger, Matr.-Nr.: S2410306027, E-Mail: S2410306027@fhooe.at
 	\item Simon Vogelhuber, Matr.-Nr.: S2410306014, E-Mail: s2410306014@fhooe.at	
 \end{itemize}
 
@@ -200,16 +200,149 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 
 \clearpage
 \section{Anforderungsdefinition (Systemspezifikation)}
-
-
+Für die Implementierung wurden die Header von MusicPlayer, VideoPlayer und IPlayer Interface vorgegeben.
+Die Anforderung bestand darin einen Client eine gemeinsame Schnittstelle zum Ansprechen von
+MusicPlayer sowie VideoPlayer zu bieten.  
+Die Schnittstelle soll folgende Funktionen bereitstellen.
+\subsection{IPlayer Interface Anforderung}
+\begin{itemize}
+	\item Play
+	\begin{itemize}
+		\item Spielt das Video bzw. den Song des entsprechenden Players \-\> ausgabe auf COUT
+	\end{itemize}
+	\item VolInc
+	\begin{itemize}
+		\item Diese Methode soll die Lautstärke des Players um 1 erhöhen.
+	\end{itemize}
+	\item VolDec
+	\begin{itemize}
+		\item Diese Methode soll die Lautstärke des Players um 1 verringern.
+	\end{itemize}
+	\item Stop
+	\begin{itemize}
+		\item Stoppt die Wiedergabe
+	\end{itemize}
+	\item Next
+	\begin{itemize}
+		\item Wechselt den aktuellen Titel auf den nächsten in der Liste
+	\end{itemize}
+	\item Next
+	\begin{itemize}
+		\item Wechselt den aktuellen Titel auf den vorherigen in der Liste
+	\end{itemize}
+	\item Select
+	\begin{itemize}
+		\item Wählt einen Titel über den Namen aus
+	\end{itemize}
+\end{itemize}
 \clearpage
+\subsection{VideoPlayer Anforderung}
+Folgende Anforderungen müssen die Methoden des VideoPlayers bereitstellen:
+\begin{itemize}
+	\item Play
+	\begin{itemize}
+		\item Spielt das Video ab \-\> Ausgabe auf COUT
+	\end{itemize}
+	\item Stop
+	\begin{itemize}
+		\item Stopt das Video \-\> Ausgabe auf COUT
+	\end{itemize}
+	\item First
+	\begin{itemize}
+		\item Wechsel auf den ersten Titel in der Playlist
+		\item gibt true zurück wenn dies erfogreich ist
+		\item gibt false wenn kein Titel in der Playlist ist
+	\end{itemize}
+	\item Next
+	\begin{itemize}
+		\item Wechsel auf den nächsten Titel in der Playlist
+		\item gibt true zurück wenn dies erfogreich ist
+		\item gibt false wenn kein weiterer Titel in der Playlist ist
+	\end{itemize}
+	\item CurIndex
+	\begin{itemize}
+		\item Liefert den aktuellen Index der Playlist
+	\end{itemize}
+	\item CurVideo
+	\begin{itemize}
+		\item Liefert den aktuellen Title als string
+	\end{itemize}
+	\item SetVolume
+	\begin{itemize}
+		\item Setzt die Lautstärke des Titles max 50 min 0
+	\end{itemize}
+	\item GetVolume
+	\begin{itemize}
+		\item Liefert die aktuelle Lautstärke
+	\end{itemize}
+	\item Add
+	\begin{itemize}
+		\item Fügt und erzeugt ein Video an die Playlist hinten an
+	\end{itemize}
+\end{itemize}
+\clearpage
+\subsection{VideoPlayer Anforderung}
+Folgende Anforderungen müssen die Methoden des MusicPlayers bereitstellen:
+\begin{itemize}
+	\item Start
+	\begin{itemize}
+		\item Spielt den Song ab \-\> Ausgabe auf COUT
+	\end{itemize}
+	\item Stop
+	\begin{itemize}
+		\item Stopt den Song \-\> Ausgabe auf COUT
+	\end{itemize}
+	\item SwitchNext
+	\begin{itemize}
+		\item Wechsel auf den nächsten Titel in der Playlist am Ende wird mit den ersten fortgesetzt
+	\end{itemize}
+	\item GetCurIndex
+	\begin{itemize}
+		\item Liefert den aktuellen Index der Playlist
+	\end{itemize}
+	\item Find
+	\begin{itemize}
+		\item Sucht nach einem Titel und wählt ihn aus
+		\item gibt true wenn Titel gefunden wurde
+		\item gibt false wenn Titel nicht gefunden wurde
+	\end{itemize}
+	\item GetCount
+	\begin{itemize}
+		\item Gibt die Anzahl der Lieder in der Playlist zurück
+	\end{itemize}
+	\item IncreaseVol
+	\begin{itemize}
+		\item erhöht die Lautstärke um einen bestimmten Wert (max 100)
+	\end{itemize}
+	\item DecreaseVol
+	\begin{itemize}
+		\item reduziert die Lautstärke um einen bestimmten Wert (min 0)
+	\end{itemize}
+	\item Add
+	\begin{itemize}
+		\item Fügt und erzeugt ein Video an die Playlist hinten an
+	\end{itemize}
+\end{itemize}
 \section{Systementwurf}
-
 \subsection{Klassendiagramm}
-\includegraphics[width=14cm]{./Player.jpg}
+\includegraphics[height=22cm]{./Player.jpg}
 \newpage
 
 \subsection{Designentscheidungen}
+Die Klassen Video und Song wurden so umgesetzt, dass diese für die Speicherung der spezifischen Daten eingesetzt werden.
+Hier wird in den Playerklassen ein Container von Videos bzw. Songs gespeichert.
+Für die Bereitstellung eines gemeinsamen Interfaces für den Client wurden Adapter für den Music- bzw. Video Player implementiert.
+Dieses Adapter speichern intern nur eine Referenz auf den tatsächlichen Players. 
+Dies ermöglicht es den Player selbst als auch den Adapter simultan zu verwenden.
+Im Adapter müssten die Funktion der Player so angewandt und kombiniert werden, dass für beide Player über das Interface diesselbe 
+Funktionalität zur Verfügung steht.
+
+Die Gemeinsamen funktionen des Interfaces wurde im Client getestet.
+Alle anderen Klassen wurden im main getestet.
+
+In der Übung wurde nachgefragt ob die starre Ausgabe auf cout, über einen Parameter in der Methode
+ausgetauscht werden kann, aber nach Absprache mit Herrn Wiesinger dürfen keine Veränderungen vorgenommen werden.
+Somit musste im Testtreiber cout umgeleitet werden um einen sinnvollen Testtreiber zu schreiben.
 
 
 \color{black}

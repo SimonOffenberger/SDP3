@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['print_0',['Print',['../d2/d3d/class_bike.html#ae84b70de332d4e2fc5d68bf9aa02fdcc',1,'Bike::Print()'],['../d6/d44/class_car.html#a48ee1caeac031af0b06002adbbe4c33b',1,'Car::Print()'],['../d8/ddb/class_drive_record.html#ade750374eb69d0d5871fcddb79ea74f0',1,'DriveRecord::Print()'],['../d2/d91/class_garage.html#a86071f9ed6cd3ecccbc3c2c3dc56bce9',1,'Garage::Print()'],['../d8/d83/class_object.html#a0ddfacb1738bd1c6ae7079aa3b7d1584',1,'Object::Print()'],['../d2/de3/class_record_entry.html#ad6d31b52d34fc83d9212de630bdb5ef3',1,'RecordEntry::Print()'],['../db/d95/class_truck.html#a8b6f0c959b0f17b089f26878b7ce0eab',1,'Truck::Print()']]]
+  ['next_0',['Next',['../d5/d7a/class_i_player.html#adc9447549aeee72d1bc6177492589788',1,'IPlayer::Next()'],['../d1/dc7/class_music_player_adapter.html#aa77334be7092d04025838f213ccaff6d',1,'MusicPlayerAdapter::Next()'],['../d3/d7a/class_video_player.html#af27c8ff39bbb0214293ce3ecef13f29d',1,'VideoPlayer::Next()'],['../d6/dfa/class_video_player_adapter.html#aa112f664c556e309397e77e9d107683c',1,'VideoPlayerAdapter::Next()']]]
 ];

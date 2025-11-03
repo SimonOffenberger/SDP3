@@ -59,17 +59,19 @@
              {Fail}{{\textcolor{failred}{Fail}}}4,
 }
 
-\lstset{
-	language={C++},
-	basicstyle=\tiny\ttfamily,
-	keywordstyle=\color{blue},%\bfseries,
-	commentstyle=\color{green},
-	frame=single,
-	linewidth=16cm,
-	breaklines=false,
-	tabsize=3,
-	numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt
+\lstdefinestyle{cppstyle}{
+  language=C++,
+  basicstyle=\ttfamily\tiny,
+  keywordstyle=\color{blue},
+  commentstyle=\textcolor{okgreen},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  breaklines=true,
+  frame=single
 }
+
 
 
 % Seitenspiegel
@@ -208,7 +210,7 @@ Die Schnittstelle soll folgende Funktionen bereitstellen.
 \begin{itemize}
 	\item Play
 	\begin{itemize}
-		\item Spielt das Video bzw. den Song des entsprechenden Players \-\> ausgabe auf COUT
+		\item Spielt das Video bzw. den Song des entsprechenden Players -> Ausgabe auf COUT
 	\end{itemize}
 	\item VolInc
 	\begin{itemize}
@@ -241,11 +243,11 @@ Folgende Anforderungen müssen die Methoden des VideoPlayers bereitstellen:
 \begin{itemize}
 	\item Play
 	\begin{itemize}
-		\item Spielt das Video ab \-\> Ausgabe auf COUT
+		\item Spielt das Video ab -> Ausgabe auf COUT
 	\end{itemize}
 	\item Stop
 	\begin{itemize}
-		\item Stopt das Video \-\> Ausgabe auf COUT
+		\item Stopt das Video -> Ausgabe auf COUT
 	\end{itemize}
 	\item First
 	\begin{itemize}
@@ -286,11 +288,11 @@ Folgende Anforderungen müssen die Methoden des MusicPlayers bereitstellen:
 \begin{itemize}
 	\item Start
 	\begin{itemize}
-		\item Spielt den Song ab \-\> Ausgabe auf COUT
+		\item Spielt den Song ab -> Ausgabe auf COUT
 	\end{itemize}
 	\item Stop
 	\begin{itemize}
-		\item Stopt den Song \-\> Ausgabe auf COUT
+		\item Stopt den Song -> Ausgabe auf COUT
 	\end{itemize}
 	\item SwitchNext
 	\begin{itemize}
@@ -332,7 +334,7 @@ Folgende Anforderungen müssen die Methoden des MusicPlayers bereitstellen:
 Die Klassen Video und Song wurden so umgesetzt, dass diese für die Speicherung der spezifischen Daten eingesetzt werden.
 Hier wird in den Playerklassen ein Container von Videos bzw. Songs gespeichert.
 Für die Bereitstellung eines gemeinsamen Interfaces für den Client wurden Adapter für den Music- bzw. Video Player implementiert.
-Dieses Adapter speichern intern nur eine Referenz auf den tatsächlichen Players. 
+Dieser Adapter speichern intern nur eine Referenz auf den tatsächlichen Players. 
 Dies ermöglicht es den Player selbst als auch den Adapter simultan zu verwenden.
 Im Adapter müssten die Funktion der Player so angewandt und kombiniert werden, dass für beide Player über das Interface diesselbe 
 Funktionalität zur Verfügung steht.
@@ -358,55 +360,76 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 \section{Quellcode}
 
 \subsection{Object.hpp}
-\lstinputlisting{../Object.hpp}
-
+\lstinputlisting[style = cppstyle]{../Object.hpp}
+\clearpage
 \subsection{Client.hpp}
-\lstinputlisting{./../Client.hpp}
+\lstinputlisting[style = cppstyle]{./../Client.hpp}
+\clearpage
 
 \subsection{Client.cpp}
-\lstinputlisting{./../Client.cpp}
+\lstinputlisting[style = cppstyle]{./../Client.cpp}
+\clearpage
 
 \subsection{IPlayer.hpp}
-\lstinputlisting{./../IPlayer.hpp}
+\lstinputlisting[style = cppstyle]{./../IPlayer.hpp}
+\clearpage
 
 \subsection{MusicPlayerAdapter.hpp}
-\lstinputlisting{./../MusicPlayerAdapter.hpp}
+\lstinputlisting[style = cppstyle]{./../MusicPlayerAdapter.hpp}
+\clearpage
 
 \subsection{MusicPlayerAdapter.cpp}
-\lstinputlisting{./../MusicPlayerAdapter.cpp}
+\lstinputlisting[style = cppstyle]{./../MusicPlayerAdapter.cpp}
+\clearpage
 
 \subsection{MusicPlayer.hpp}
-\lstinputlisting{./../MusicPlayer.hpp}
+\lstinputlisting[style = cppstyle]{./../MusicPlayer.hpp}
+\clearpage
 
 \subsection{MusicPlayer.cpp}
-\lstinputlisting{./../MusicPlayer.cpp}
+\lstinputlisting[style = cppstyle]{./../MusicPlayer.cpp}
+\clearpage
 
 \subsection{Song.hpp}
-\lstinputlisting{./../Song.hpp}
+\lstinputlisting[style = cppstyle]{./../Song.hpp}
+\clearpage
 
 \subsection{Song.cpp}
-\lstinputlisting{./../Song.cpp}
+\lstinputlisting[style = cppstyle]{./../Song.cpp}
+\clearpage
 
 \subsection{VideoPlayerAdapter.hpp}
-\lstinputlisting{./../VideoPlayerAdapter.hpp}
+\lstinputlisting[style = cppstyle]{./../VideoPlayerAdapter.hpp}
+\clearpage
 
 \subsection{VideoPlayerAdapter.cpp}
-\lstinputlisting{./../VideoPlayerAdapter.cpp}
+\lstinputlisting[style = cppstyle]{./../VideoPlayerAdapter.cpp}
+\clearpage
 
 \subsection{VideoPlayer.hpp}
-\lstinputlisting{./../VideoPlayer.hpp}
+\lstinputlisting[style = cppstyle]{./../VideoPlayer.hpp}
+\clearpage
 
 \subsection{VideoPlayer.cpp}
-\lstinputlisting{./../VideoPlayer.cpp}
+\lstinputlisting[style = cppstyle]{./../VideoPlayer.cpp}
+\clearpage
 
 \subsection{Video.hpp}
-\lstinputlisting{./../Video.hpp}
+\lstinputlisting[style = cppstyle]{./../Video.hpp}
+\clearpage
 
 \subsection{Video.cpp}
-\lstinputlisting{./../Video.cpp}
+\lstinputlisting[style = cppstyle]{./../Video.cpp}
+\clearpage
 
 \subsection{EVideoFormat.hpp}
-\lstinputlisting{./../EVideoFormat.hpp}
+\lstinputlisting[style = cppstyle]{./../EVideoFormat.hpp}
+\clearpage
+\subsection{main.cpp}
+\lstinputlisting[style = cppstyle]{./../main.cpp}
+\clearpage
+\subsection{Test.hpp}
+\lstinputlisting[style = cppstyle]{./../Test.hpp}
 
 % Literaturverzeichnis
 % --------------------

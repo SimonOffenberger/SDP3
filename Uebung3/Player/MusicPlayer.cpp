@@ -5,6 +5,7 @@
  * \date   October 2025
  *********************************************************************/
 #include "MusicPlayer.hpp"
+#include <iostream>
 
 void MusicPlayer::Start()
 {

@@ -10,7 +10,6 @@
 #include "Object.hpp"
 #include "Song.hpp"
 #include <vector>
-#include <iostream>
 
 using  SongCollection = std::vector<Song>;
 
@@ -48,6 +47,7 @@ public:
     size_t const GetCurIndex() const;
     /**
      * \brief Find song by name and selcet it
+     * \param string name name of the Song
      * \return true if song by that name exists
      */
     bool Find(std::string const& name);

@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   Object.hpp
+ * \brief  common ancestor for all objects
+ * 
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
 #ifndef OBJECT_HPP
 #define OBJECT_HPP
 
@@ -10,11 +17,12 @@ public:
 	inline static const std::string ERROR_FAIL_WRITE = "ERROR: Fail to write on provided Ostream";
 	inline static const std::string ERROR_NULLPTR = "ERROR: Passed in Nullptr!";
 
-protected:
-	Object() = default;
-
+	// once virtual always virtual
 	virtual ~Object() = default;
 
+
+protected:
+	Object() = default;
 };
 
 #endif // !OBJECT_HPP

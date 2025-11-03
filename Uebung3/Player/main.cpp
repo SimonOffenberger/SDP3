@@ -204,10 +204,10 @@ bool TestSong(ostream& ost)
 	TestOK = TestOK && check_dump(ost, "Test Exception in Song CTOR with empty string", error_msg, Song::ERROR_EMPTY_NAME);
 	error_msg.clear();
 
-
 	TestEnd(ost);
 	return TestOK;
 }
+
 
 bool TestVideo(ostream& ost)
 {

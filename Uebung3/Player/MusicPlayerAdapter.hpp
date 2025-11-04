@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   MusicPlayerAdapter.hpp
- * \brief  
+ * \brief  Adapter for a Musicplayer to comply with Interface IPlayer
  * 
  * \author Simon
  * \date   November 2025
@@ -15,6 +15,11 @@ class MusicPlayerAdapter :public Object, public IPlayer
 {
 public:
 
+    /**
+     * \brief Ctor for Adapter.
+     * 
+     * \param player Reference to a MusicPlayer
+     */
     MusicPlayerAdapter(MusicPlayer & player) : m_player{ player } {}
 
     /**

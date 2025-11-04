@@ -1,3 +1,11 @@
+/*****************************************************************//**
+ * \file   Client.cpp
+ * \brief  Client Class that uses a IPlayer Interface inorder to control
+ * \brief  a Musicplayer or a Videoplayer via their adapter
+ *
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
 #include "Client.hpp"
 #include "Test.hpp"
 #include <sstream>

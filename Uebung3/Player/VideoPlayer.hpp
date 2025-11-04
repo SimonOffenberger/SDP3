@@ -11,8 +11,6 @@
 #include "Object.hpp"
 #include "Video.hpp"
 #include <vector>
-#include <memory>
-#include <iostream>
 
 // Using definition of the container
 using TContVids = std::vector<Video>;

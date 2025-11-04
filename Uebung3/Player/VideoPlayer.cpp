@@ -6,6 +6,7 @@
  * \date   November 2025
  *********************************************************************/
 #include "VideoPlayer.hpp"
+#include <iostream>
 
 void VideoPlayer::Play() const {
 	if (!std::cout.good()) throw VideoPlayer::ERROR_BAD_OSTREAM;

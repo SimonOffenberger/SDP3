@@ -5,10 +5,10 @@ Test VideoPlayer Adapter in Client
 *******************************************
 
 Test Volume Inc
-[Test FAILED] Result: (Expected: true != Result: false)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Volume Dec
-[Test FAILED] Result: (Expected: true != Result: false)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Lower Bound Volume 0
 [Test OK] Result: (Expected: true == Result: true)
@@ -28,10 +28,10 @@ Test for Exceotion in Test Case
 *******************************************
 
 Test Play Contains Name
-[Test FAILED] Result: (Expected: true != Result: false)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Next 
-[Test FAILED] Result: (Expected: true != Result: false)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Next 
 [Test OK] Result: (Expected: true == Result: true)
@@ -46,7 +46,7 @@ Test Next
 [Test OK] Result: (Expected: true == Result: true)
 
 Test Next Wrap around
-[Test FAILED] Result: (Expected: true != Result: false)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Select Video by name 
 [Test OK] Result: (Expected: true == Result: true)
@@ -84,10 +84,10 @@ Test MusicPlayer Adapter in Client
 *******************************************
 
 Test Volume Inc
-[Test FAILED] Result: (Expected: true != Result: false)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Volume Dec
-[Test FAILED] Result: (Expected: true != Result: false)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Lower Bound Volume 0
 [Test OK] Result: (Expected: true == Result: true)
@@ -107,10 +107,10 @@ Test for Exceotion in Test Case
 *******************************************
 
 Test Play Contains Name
-[Test FAILED] Result: (Expected: true != Result: false)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Next 
-[Test FAILED] Result: (Expected: true != Result: false)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Next 
 [Test OK] Result: (Expected: true == Result: true)
@@ -125,7 +125,7 @@ Test Next
 [Test OK] Result: (Expected: true == Result: true)
 
 Test Next Wrap around
-[Test FAILED] Result: (Expected: true != Result: false)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Select Video by name 
 [Test OK] Result: (Expected: true == Result: true)

@@ -16,6 +16,7 @@ using  SongCollection = std::vector<Song>;
 class MusicPlayer : public Object
 {
 public:
+    // Exception constants
     inline static const std::string ERROR_DURATION_NULL = "ERROR: Song with duration 0!";
     inline static const std::string ERROR_EMPTY_NAME = "ERROR: Song with empty Name!";
 
@@ -23,6 +24,10 @@ public:
 	inline static const std::size_t MIN_VOLUME = 0;
     inline static const std::size_t DEFAULT_VOLUME = 50;
 
+    /**
+     * Default CTOR.
+     * 
+     */
     MusicPlayer() = default;
 
     /**

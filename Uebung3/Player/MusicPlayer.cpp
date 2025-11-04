@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   MusicPlayer.hpp
+ * \file   MusicPlayer.cpp
  * \brief  MusicPlayer - A player for music!
  * \author Simon Vogelhuber
  * \date   October 2025

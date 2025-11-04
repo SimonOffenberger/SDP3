@@ -1,13 +1,13 @@
-#ifndef IPLAYER_HPP
-#define IPLAYER_HPP
 /*****************************************************************//**
  * \file   IPlayer.hpp
  * \brief  Interface to interact with various Player (music, video)
  * \author Simon Vogelhuber
  * \date   October 2025
  *********************************************************************/
+#ifndef IPLAYER_HPP
+#define IPLAYER_HPP
 
-#include <iostream>
+#include <string>
 
 class IPlayer
 {

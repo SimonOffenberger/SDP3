@@ -1,4 +1,14 @@
+/*****************************************************************//**
+ * \file   MusicPlayerAdapter.cpp
+ * \brief  Adapter for a Musicplayer to comply with Interface IPlayer
+ * 
+ * 
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
+
 #include "MusicPlayerAdapter.hpp"
+#include <iostream>
 
 void MusicPlayerAdapter::Play()
 {

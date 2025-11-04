@@ -1,11 +1,12 @@
 /*****************************************************************//**
- * \file   VideoPlayerAdapter.hpp
+ * \file   VideoPlayerAdapter.cpp
  * \brief  Adapter for the Video Player in order to Implement IPlayer Interface
  *
  * \author Simon
  * \date   November 2025
  *********************************************************************/
 #include "VideoPlayerAdapter.hpp"
+#include <iostream>
 
 void VideoPlayerAdapter::Play(){
 	m_player.Play();

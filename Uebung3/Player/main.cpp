@@ -48,10 +48,21 @@ int main(void){
 		TestOK = TestOK && client.Test_IPlayerVolumeCTRL(cout,VidAdapter,VideoPlayer::MAX_VOLUME,VideoPlayer::DEFAULT_VOLUME);
 		TestOK = TestOK && client.Test_IPlayerPlay(cout,VidAdapter);
 		
+		VideoPlayer VPlayer2;
+
+		VPlayer2.Add("Harry Potter1", 160, EVideoFormat::AVI);
+		VPlayer2.Add("Harry Potter2", 160, EVideoFormat::AVI);
+		VPlayer2.Add("Harry Potter3", 160, EVideoFormat::AVI);
+		VPlayer2.Add("Harry Potter4", 160, EVideoFormat::AVI);
+		VPlayer2.Add("Harry Potter5", 160, EVideoFormat::AVI);
+		VPlayer2.Add("Harry Potter6", 160, EVideoFormat::AVI);
+
+		VideoPlayerAdapter VidAdapter2{ VPlayer2 };
+
 		if (WRITE_OUTPUT) {
 			testoutput << "Test VideoPlayer Adapter in Client" << endl;
-			TestOK = TestOK && client.Test_IPlayerVolumeCTRL(testoutput, VidAdapter, VideoPlayer::MAX_VOLUME, VideoPlayer::DEFAULT_VOLUME);
-			TestOK = TestOK && client.Test_IPlayerPlay(testoutput, VidAdapter);
+			TestOK = TestOK && client.Test_IPlayerVolumeCTRL(testoutput, VidAdapter2, VideoPlayer::MAX_VOLUME, VideoPlayer::DEFAULT_VOLUME);
+			TestOK = TestOK && client.Test_IPlayerPlay(testoutput, VidAdapter2);
 		}
 
 		VideoPlayer EmptyPlayer;
@@ -76,10 +87,23 @@ int main(void){
 		TestOK = TestOK && client.Test_IPlayerVolumeCTRL(cout, MusAdapter,MusicPlayer::MAX_VOLUME,MusicPlayer::DEFAULT_VOLUME);
 		TestOK = TestOK && client.Test_IPlayerPlay(cout, MusAdapter);
 		
+
+		MusicPlayer MPlayer2;
+
+		MPlayer2.Add("Harry Potter1", 160);
+		MPlayer2.Add("Harry Potter2", 160);
+		MPlayer2.Add("Harry Potter3", 160);
+		MPlayer2.Add("Harry Potter4", 160);
+		MPlayer2.Add("Harry Potter5", 160);
+		MPlayer2.Add("Harry Potter6", 160);
+
+		MusicPlayerAdapter MusAdapter2{ MPlayer2 };
+
+
 		if (WRITE_OUTPUT) {
 			testoutput << "Test MusicPlayer Adapter in Client" << endl;
-			TestOK = TestOK && client.Test_IPlayerVolumeCTRL(testoutput, MusAdapter, MusicPlayer::MAX_VOLUME, MusicPlayer::DEFAULT_VOLUME);
-			TestOK = TestOK && client.Test_IPlayerPlay(testoutput, MusAdapter);
+			TestOK = TestOK && client.Test_IPlayerVolumeCTRL(testoutput, MusAdapter2, MusicPlayer::MAX_VOLUME, MusicPlayer::DEFAULT_VOLUME);
+			TestOK = TestOK && client.Test_IPlayerPlay(testoutput, MusAdapter2);
 		}
 
 		MusicPlayer EmptyMPlayer;
@@ -100,6 +124,7 @@ int main(void){
 
 		TestOK = TestOK && TestMusicPlayer(cout);
 		if (WRITE_OUTPUT) TestOK = TestOK && TestMusicPlayer(testoutput);
+
 
 		if (WRITE_OUTPUT) {
 			if (TestOK) TestCaseOK(testoutput);

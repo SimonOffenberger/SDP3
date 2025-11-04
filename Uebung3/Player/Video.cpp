@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   Video.hpp
+ * \file   Video.cpp
  * \brief  Implementation of a Video
  *
  * \author Simon

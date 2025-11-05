@@ -6,4 +6,10 @@
  *********************************************************************/
 #ifndef SYMBOL_FACTORY_HPP
 #define SYMBOL_FACTORY_HPP
+class SymbolFactory
+{
+public:
+protected:
+private:
+};
 #endif

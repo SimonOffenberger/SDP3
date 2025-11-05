@@ -6,4 +6,12 @@
  *********************************************************************/
 #ifndef IEC_TYPE_HPP
 #define IEC_TYPE_HPP
+#include "Object.h"
+
+class IECType: public Object
+{
+public:
+protected:
+private:
+};
 #endif

@@ -1,14 +1,13 @@
 /*****************************************************************//**
- * \file   JavaSymbolFactory.hpp
- * \brief  
+ * \file   IType.hpp
+ * \brief
  * \author Simon Vogelhuber
  * \date   Dezember 2025
  *********************************************************************/
-#ifndef JAVA_SYMBOL_FACTORY_HPP
-#define JAVA_SYMBOL_FACTORY_HPP
-#include "Object.h"
+#ifndef ITYPE_HPP
+#define ITYPE_HPP
 
-class JavaSymbolFactory : public Object
+class IVariable
 {
 public:
 protected:

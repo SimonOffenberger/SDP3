@@ -6,4 +6,12 @@
  *********************************************************************/
 #ifndef IEC_VARIABLE_HPP
 #define IEC_VARIABLE_HPP
+#include "Object.h"
+
+class IECVariable : public Object
+{
+public:
+protected:
+private:
+};
 #endif

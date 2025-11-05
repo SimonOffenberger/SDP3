@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   JavaSymbolFactory.cpp
+ * \file   IECSymbolFactory.cpp
  * \brief  
  * \author Simon Vogelhuber
  * \date   Dezember 2025

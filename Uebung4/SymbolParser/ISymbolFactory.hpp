@@ -1,12 +1,12 @@
 /*****************************************************************//**
- * \file   SymbolFactory.hpp
+ * \file   ISymbolFactory.hpp
  * \brief  
  * \author Simon Vogelhuber
  * \date   Dezember 2025
  *********************************************************************/
-#ifndef SYMBOL_FACTORY_HPP
-#define SYMBOL_FACTORY_HPP
-class SymbolFactory
+#ifndef ISYMBOL_FACTORY_HPP
+#define ISYMBOL_FACTORY_HPP
+class ISymbolFactory
 {
 public:
 protected:

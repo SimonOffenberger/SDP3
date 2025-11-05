@@ -11,6 +11,8 @@
 class Variable: public Object
 {
 public:
+	using Uptr = std::unique_ptr<Variable>;
+
 protected:
 private:
 };

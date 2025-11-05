@@ -7,9 +7,13 @@
 #ifndef ITYPE_HPP
 #define ITYPE_HPP
 #include "Object.h"
-class Variable
+#include <memory>
+class Type : public Object
 {
-public:
+public: 
+	using Uptr = std::unique_ptr<Type>;
+
+
 protected:
 private:
 };

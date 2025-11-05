@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IECSymbolFactory .hpp">
+    <ClInclude Include="IECSymbolFactory.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IECType.hpp">
@@ -33,7 +33,7 @@
     <ClInclude Include="JavaVariable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SymbolFactory.hpp">
+    <ClInclude Include="ISymbolFactory.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SymbolParser.hpp">
@@ -43,6 +43,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Variable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Type.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SingetonBase.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,10 +77,13 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SymbolFactory.cpp">
+    <ClCompile Include="SymbolParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SymbolParser.cpp">
+    <ClCompile Include="Type.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Variable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

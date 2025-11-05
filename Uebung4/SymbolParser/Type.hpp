@@ -4,12 +4,15 @@
  * \author Simon Vogelhuber
  * \date   Dezember 2025
  *********************************************************************/
-#ifndef ITYPE_HPP
-#define ITYPE_HPP
+#ifndef TYPE_HPP
+#define TYPE_HPP
+#include <memory>
 #include "Object.h"
-class Variable
+
+class Type
 {
 public:
+    using Uptr = std::unique_ptr<Type>;
 protected:
 private:
 };

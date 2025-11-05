@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp23</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,14 +128,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="IECSymbolFactory .hpp" />
+    <ClInclude Include="IECSymbolFactory.hpp" />
     <ClInclude Include="IECType.hpp" />
     <ClInclude Include="IECVariable.hpp" />
+    <ClInclude Include="SingetonBase.hpp" />
+    <ClInclude Include="Type.hpp" />
+    <ClInclude Include="Variable.hpp" />
     <ClInclude Include="JavaSymbolFactory.hpp" />
     <ClInclude Include="JavaType.hpp" />
     <ClInclude Include="JavaVariable.hpp" />
     <ClInclude Include="Object.h" />
-    <ClInclude Include="SymbolFactory.hpp" />
+    <ClInclude Include="ISymbolFactory.hpp" />
     <ClInclude Include="SymbolParser.hpp" />
     <ClInclude Include="Test.hpp" />
   </ItemGroup>
@@ -147,8 +150,9 @@
     <ClCompile Include="JavaType.cpp" />
     <ClCompile Include="JavaVariable.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="SymbolFactory.cpp" />
     <ClCompile Include="SymbolParser.cpp" />
+    <ClCompile Include="Type.cpp" />
+    <ClCompile Include="Variable.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

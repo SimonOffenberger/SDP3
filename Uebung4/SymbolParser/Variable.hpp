@@ -21,6 +21,7 @@ public:
     //returns string of type - SymbolParser has to check type for validity
     virtual std::string const& Load(std::string const& fileLine) = 0;
 
+
 protected:
 private:
     std::string name;

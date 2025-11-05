@@ -9,10 +9,12 @@
 #include <memory>
 #include "Object.h"
 
-class Type
+#include <memory>
+class Type : public Object
 {
-public:
-    using Uptr = std::unique_ptr<Type>;
+public: 
+	using Uptr = std::unique_ptr<Type>;
+
 protected:
 private:
 };

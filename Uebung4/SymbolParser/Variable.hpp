@@ -1,13 +1,14 @@
 /*****************************************************************//**
- * \file   IType.hpp
+ * \file   Variable.hpp
  * \brief
  * \author Simon Vogelhuber
  * \date   Dezember 2025
  *********************************************************************/
-#ifndef ITYPE_HPP
-#define ITYPE_HPP
+#ifndef VARIABLE_HPP
+#define VARIABLE_HPP
+#include "Object.h"
 
-class IVariable
+class Variable: public Object
 {
 public:
 protected:

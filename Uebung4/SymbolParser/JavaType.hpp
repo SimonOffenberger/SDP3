@@ -8,7 +8,7 @@
 #define JAVA_TYPE_HPP
 #include "Object.h"
 
-class JavaType: public Object
+class JavaType: public Type
 {
 public:
 protected:

@@ -21,7 +21,7 @@ public:
     using TVariableCont = std::vector<Variable::Uptr>;
     using TTypeCont = std::vector<Type::Uptr>;
     
-    void SetFactory(ISymbolFactory Factory);
+    void SetFactory(ISymbolFactory& Factory);
     void AddType(std::string const& name);
     void AddVariable(std::string const& name, std::string const& type);
 protected:

@@ -8,7 +8,7 @@
 #define IEC_TYPE_HPP
 #include "Object.h"
 
-class IECType: public Object
+class IECType: public Type
 {
 public:
 protected:

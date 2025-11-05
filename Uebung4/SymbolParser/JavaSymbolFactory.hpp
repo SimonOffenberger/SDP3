@@ -23,7 +23,7 @@ public:
 
 protected:
 private:
-	const std::string m_TypeFileName = "IEC_Type.txt";
-	const std::string m_VariableFileName = "IEC_Variable.txt";
+	const std::string m_TypeFileName = "IECTypes.sym";
+	const std::string m_VariableFileName = "IECVars.sym";
 };
 #endif

@@ -56,9 +56,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="IECSymbolFactory .cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="IECType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -84,6 +81,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Variable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IECSymbolFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

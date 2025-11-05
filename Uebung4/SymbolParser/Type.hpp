@@ -14,6 +14,7 @@ class Type : public Object
 {
 public: 
 	using Uptr = std::unique_ptr<Type>;
+	using Sptr = std::shared_ptr<Type>;
 
 protected:
 private:

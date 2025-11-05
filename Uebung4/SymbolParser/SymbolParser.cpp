@@ -6,7 +6,7 @@
  * \date   Dezember 2025
  *********************************************************************/
 
-void SymbolParser::SetFactory(ISymbolFactory Factory)
+void SymbolParser::SetFactory(ISymbolFactory& Factory)
 {
 }
 

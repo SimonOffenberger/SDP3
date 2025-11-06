@@ -17,6 +17,7 @@ public:
     //returns string of type - SymbolParser has to check type for validity
     virtual std::string const& Load(std::string const& fileLine) override;
 
+
     JavaVariable(const std::string& name) : Variable{ name } {}
 
 protected:

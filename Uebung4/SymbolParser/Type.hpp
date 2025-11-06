@@ -9,14 +9,16 @@
 #include <memory>
 #include "Object.h"
 
-#include <memory>
 class Type : public Object
 {
 public: 
 	using Uptr = std::unique_ptr<Type>;
 	using Sptr = std::shared_ptr<Type>;
 
+	const std::string& GetType() const;
+
 protected:
+	std::string m_name;
 private:
 };
 #endif

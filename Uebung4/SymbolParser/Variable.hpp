@@ -24,11 +24,15 @@ public:
     virtual std::string const& Load(std::string const& fileLine) = 0;
 
     void SetType(Type::Sptr type) { m_type = std::move(type); }
+    
+    const std::string & GetName() const;
+
+    const std::string & GetType() const;
 
 protected:
     Variable(const std::string& name);
-private:
     std::string m_name;
     Type::Sptr m_type;
+private:
 };
 #endif

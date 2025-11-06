@@ -1,14 +1,21 @@
-#include "JavaVariable.hpp"
 /*****************************************************************//**
  * \file   JavaVariable.cpp
  * \brief  
  * \author Simon Vogelhuber
  * \date   Dezember 2025
  *********************************************************************/
+#include "JavaVariable.hpp"
+#include <sstream>
+#include <string>
+
+using namespace std;
 
 std::string const& JavaVariable::Save()
 {
-	// TODO: insert return statement here
+	stringstream line;
+
+	line << ""
+
 	return "";
 }
 

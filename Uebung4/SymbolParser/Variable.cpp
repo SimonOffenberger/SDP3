@@ -1,10 +1,18 @@
 #include "Variable.hpp"
 #include <cassert>
 
-std::string const& Variable::Save()
+
+using namespace std;
+
+
+const std::string& Variable::GetName() const
 {
-    // TODO: insert return statement here
-    return "";
+    return m_name;
+}
+
+const std::string& Variable::GetType() const
+{
+    return m_type->GetType();
 }
 
 Variable::Variable(const std::string& name)

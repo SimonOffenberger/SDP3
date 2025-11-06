@@ -10,7 +10,7 @@
 #include "ISymbolFactory.hpp"
 #include "SingetonBase.hpp"
 
-class IECSymbolFactory:public ISymbolFactory , public SingletonBase<IECSymbolFactory> , public Object
+class IECSymbolFactory:public ISymbolFactory , public SingletonBase<IECSymbolFactory>
 {
 public:
 

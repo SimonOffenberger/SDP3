@@ -8,8 +8,9 @@
 #define JAVA_SYMBOL_FACTORY_HPP
 #include "Object.h"
 #include "ISymbolFactory.hpp"
+#include "SingetonBase.hpp"
 
-class JavaSymbolFactory :public ISymbolFactory , public Object
+class JavaSymbolFactory :public ISymbolFactory, public SingletonBase<JavaSymbolFactory>
 {
 public:
 

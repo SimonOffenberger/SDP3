@@ -7,7 +7,10 @@
 #include "IECVariable.hpp"
 #include <sstream>
 #include <string>
+#include <iostream>
+#include "scanner.h"
 
+using namespace pfc;
 using namespace std;
 
 std::string const& IECVariable::Save()
@@ -19,7 +22,56 @@ std::string const& IECVariable::Save()
 	return line.str();
 }
 
-std::string const& IECVariable::Load(std::string const& fileLine)
+std::string ScanTypeName(scanner & scan) {
+	string TypeName;
+
+	if (scan.get_identifier() == "VAR") {
+		scan.next_symbol();
+		TypeName = scan.get_identifier();
+		scan.next_symbol();
+		return TypeName;
+	}
+}
+
+std::string ScanVarName(scanner & scan) {
+	string VarName;
+
+	if (scan.is(':')) {
+		scan.next_symbol();
+		VarName = scan.get_identifier();
+		scan.next_symbol();
+		if (!scan.is(';')) {
+			VarName = "";
+		}
+	}
+
+	return VarName;
+}
+
+
+std::string IECVariable::LoadTypeName(std::string const& fileLine)
 {
-	return "Hello World";
+	stringstream converter;
+	converter << fileLine;
+	scanner Scan;
+
+	Scan.set_istream(converter);
+
+	return ScanTypeName(Scan);
+}
+
+std::string IECVariable::LoadVarName(std::string const& fileLine)
+{
+	stringstream converter;
+	converter << fileLine;
+	scanner Scan;
+
+	Scan.set_istream(converter);
+
+	string Typename = ScanTypeName(Scan);
+	string VarName = ScanVarName(Scan);
+
+	if (Typename.empty()) VarName = "";
+
+	return VarName;
 }

@@ -131,6 +131,7 @@
     <ClInclude Include="IECSymbolFactory.hpp" />
     <ClInclude Include="IECType.hpp" />
     <ClInclude Include="IECVariable.hpp" />
+    <ClInclude Include="scanner.h" />
     <ClInclude Include="SingetonBase.hpp" />
     <ClInclude Include="Type.hpp" />
     <ClInclude Include="Variable.hpp" />

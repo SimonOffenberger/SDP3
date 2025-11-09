@@ -15,10 +15,12 @@ public:
     virtual std::string const& Save() override;
 
     //returns string of type - SymbolParser has to check type for validity
-    virtual std::string const& Load(std::string const& fileLine) override;
-
+    virtual std::string LoadTypeName(std::string const& fileLine) override;
+    virtual std::string LoadVarName(std::string const& fileLine) override;
 
     JavaVariable(const std::string& name) : Variable{ name } {}
+
+    JavaVariable() = default;
 
 protected:
 private:

@@ -14,12 +14,18 @@ std::string const& JavaVariable::Save()
 {
 	stringstream line;
 
-	line << ""
+	line << "";
 
 	return "";
 }
 
-std::string const& JavaVariable::Load(std::string const& fileLine)
+std::string JavaVariable::LoadVarName(std::string const& fileLine)
+{
+	// TODO: insert return statement here
+	return "";
+}
+
+std::string JavaVariable::LoadTypeName(std::string const& fileLine)
 {
 	// TODO: insert return statement here
 	return "";

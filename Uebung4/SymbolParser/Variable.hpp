@@ -21,7 +21,8 @@ public:
     virtual std::string const& Save() = 0;
     
     //returns string of type - SymbolParser has to check type for validity
-    virtual std::string const& Load(std::string const& fileLine) = 0;
+    virtual std::string LoadTypeName(std::string const& fileLine) = 0;
+    virtual std::string LoadVarName(std::string const& fileLine) = 0;
 
     void SetType(Type::Sptr type) { m_type = std::move(type); }
     
@@ -31,6 +32,7 @@ public:
 
 protected:
     Variable(const std::string& name);
+    Variable() = default;
     std::string m_name;
     Type::Sptr m_type;
 private:

@@ -28,6 +28,6 @@ protected:
 private:
     TTypeCont m_typeCont;
     TVariableCont m_variableCont;
-    ISymbolFactory &Factory;
+    ISymbolFactory &m_Factory;
 };
 #endif

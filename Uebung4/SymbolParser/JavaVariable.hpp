@@ -18,9 +18,9 @@ public:
     virtual std::string LoadTypeName(std::string const& fileLine) override;
     virtual std::string LoadVarName(std::string const& fileLine) override;
 
-    JavaVariable(const std::string& name) : Variable{ name } {}
-
     JavaVariable() = default;
+
+    JavaVariable(const std::string& name) : Variable{ name } {}
 
 protected:
 private:

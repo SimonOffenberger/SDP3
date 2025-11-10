@@ -17,7 +17,7 @@ Variable::Uptr JavaSymbolFactory::CreateVariable(const std::string& name)
 
 Type::Uptr JavaSymbolFactory::CreateType(const std::string& name)
 {
-    return std::make_unique<JavaType>(JavaType{/*name*/});
+    return std::make_unique<JavaType>(JavaType{name});
 }
 
 const std::string& JavaSymbolFactory::GetTypeFileName()

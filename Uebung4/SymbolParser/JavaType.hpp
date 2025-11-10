@@ -6,11 +6,21 @@
  *********************************************************************/
 #ifndef JAVA_TYPE_HPP
 #define JAVA_TYPE_HPP
-#include "Object.h"
+#include "Type.hpp"
+#include <string>
 
-class JavaType: public Type
+class JavaType : public Type
 {
 public:
+
+	virtual std::string LoadTypeName(const std::string& fileLine) override;
+
+	virtual std::string GetSaveLine() override;
+
+	JavaType(const std::string name) : Type{ name } {}
+
+	JavaType() = default;
+
 protected:
 private:
 };

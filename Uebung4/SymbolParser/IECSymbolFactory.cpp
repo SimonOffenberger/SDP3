@@ -16,7 +16,7 @@ Variable::Uptr IECSymbolFactory::CreateVariable(const std::string& name)
 
 Type::Uptr IECSymbolFactory::CreateType(const std::string& name)
 {
-    return std::make_unique<IECType>(IECType{/*name*/ });
+    return std::make_unique<IECType>(IECType{name});
 }
 
 const std::string& IECSymbolFactory::GetTypeFileName()

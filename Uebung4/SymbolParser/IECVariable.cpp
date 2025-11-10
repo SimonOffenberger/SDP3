@@ -13,7 +13,7 @@
 using namespace pfc;
 using namespace std;
 
-std::string IECVariable::Save()
+std::string IECVariable::GetSaveLine()
 {
 	stringstream line;
 
@@ -22,7 +22,7 @@ std::string IECVariable::Save()
 	return line.str();
 }
 
-std::string ScanTypeName(scanner & scan) {
+static std::string ScanTypeName(scanner & scan) {
 	string TypeName;
 
 	if (scan.get_identifier() == "VAR") {
@@ -35,7 +35,7 @@ std::string ScanTypeName(scanner & scan) {
 	return "";
 }
 
-std::string ScanVarName(scanner & scan) {
+static std::string ScanVarName(scanner & scan) {
 	string VarName;
 
 	if (scan.is(':')) {

@@ -5,19 +5,20 @@
 using namespace std;
 
 
-const std::string& Variable::GetName() const
+std::string Variable::GetName() const
 {
     return m_name;
 }
 
-const std::string& Variable::GetType() const
+std::string Variable::GetType() const
 {
     return m_type->GetType();
 }
 
-Variable::Variable(const std::string& name)
+void Variable::SetName(const std::string& name)
 {
-    assert(!name.empty());
+    if (name.empty()) throw Variable::ERROR_EMPTY_STRING;
 
     m_name = name;
 }
+

@@ -16,13 +16,13 @@
 using namespace pfc;
 using namespace std;
 
-std::string ScanTypeName(scanner& scan)
+static std::string ScanTypeName(scanner& scan)
 {
 	string typeName = scan.get_identifier();
 	scan.next_symbol();
 	return typeName;
 }
-std::string ScanVarName(scanner& scan)
+static std::string ScanVarName(scanner& scan)
 {
 	string varName;
 	varName = scan.get_identifier();
@@ -39,7 +39,7 @@ std::string ScanVarName(scanner& scan)
 	return varName;
 }
 
-std::string JavaVariable::Save()
+std::string JavaVariable::GetSaveLine()
 {
 	stringstream line;
 

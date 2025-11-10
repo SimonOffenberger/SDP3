@@ -12,7 +12,7 @@
 class JavaVariable :public Variable
 {
 public:
-    virtual std::string Save() override;
+    virtual std::string GetSaveLine() override;
 
     //returns string of type - SymbolParser has to check type for validity
     virtual std::string LoadTypeName(std::string const& fileLine) override;

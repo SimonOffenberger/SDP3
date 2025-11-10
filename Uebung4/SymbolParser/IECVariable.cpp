@@ -13,7 +13,7 @@
 using namespace pfc;
 using namespace std;
 
-std::string const& IECVariable::Save()
+std::string IECVariable::Save()
 {
 	stringstream line;
 
@@ -31,6 +31,8 @@ std::string ScanTypeName(scanner & scan) {
 		scan.next_symbol();
 		return TypeName;
 	}
+
+	return "";
 }
 
 std::string ScanVarName(scanner & scan) {

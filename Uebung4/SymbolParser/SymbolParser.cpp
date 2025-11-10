@@ -19,7 +19,7 @@ void SymbolParser::SetFactory(ISymbolFactory& Factory)
 void SymbolParser::AddType(std::string const& name)
 {
     Type::Uptr pName = m_Factory.CreateType(name);
-    m_typeCont.push_back(pName);
+    m_typeCont.emplace_back(pName);
 }
 
 void SymbolParser::AddVariable(std::string const& name, std::string const& type)
@@ -30,7 +30,7 @@ void SymbolParser::AddVariable(std::string const& name, std::string const& type)
     {
         if (pVar->GetType() == type->GetType())
         {
-            m_variableCont.push_back(pVar);
+            m_variableCont.emplace_back(pVar);
         }
     }
 }

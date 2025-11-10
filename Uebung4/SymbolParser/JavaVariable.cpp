@@ -39,7 +39,7 @@ std::string ScanVarName(scanner& scan)
 	return varName;
 }
 
-std::string const& JavaVariable::Save()
+std::string JavaVariable::Save()
 {
 	stringstream line;
 

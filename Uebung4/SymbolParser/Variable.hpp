@@ -18,7 +18,7 @@ class Variable: public Object
 public:
     using Uptr = std::unique_ptr<Variable>;
 
-    virtual std::string const& Save() = 0;
+    virtual std::string Save() = 0;
     
     //returns string of type - SymbolParser has to check type for validity
     virtual std::string LoadTypeName(std::string const& fileLine) = 0;

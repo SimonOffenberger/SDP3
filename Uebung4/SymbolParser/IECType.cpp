@@ -27,7 +27,7 @@ static std::string ScanTypeName(scanner& scan) {
 }
 
 
-std::string IECType::LoadTypeName(const std::string& fileLine)
+std::string IECType::LoadTypeName(const std::string& fileLine) const
 {
 	stringstream sstream;
 
@@ -40,7 +40,7 @@ std::string IECType::LoadTypeName(const std::string& fileLine)
 	return ScanTypeName(scan);
 }
 
-std::string IECType::GetSaveLine()
+std::string IECType::GetSaveLine() const
 {
 	return "TYPE" + m_name + "\n";
 }

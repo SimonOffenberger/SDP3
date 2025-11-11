@@ -5,6 +5,13 @@
 using namespace std;
 
 
+void Variable::SetType(Type::Sptr type)
+{
+    if (type == nullptr) throw Type::ERROR_NULLPTR;
+
+    m_type = std::move(type); 
+}
+
 std::string Variable::GetName() const
 {
     return m_name;

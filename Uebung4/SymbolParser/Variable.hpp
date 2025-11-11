@@ -20,13 +20,13 @@ public:
 
     inline static const std::string ERROR_EMPTY_STRING = "ERROR: Empty String";
 
-    virtual std::string GetSaveLine() = 0;
+    virtual std::string GetSaveLine() const = 0;
     
     //returns string of type - SymbolParser has to check type for validity
-    virtual std::string LoadTypeName(std::string const& fileLine) = 0;
-    virtual std::string LoadVarName(std::string const& fileLine) = 0;
+    virtual std::string LoadTypeName(std::string const& fileLine) const  = 0;
+    virtual std::string LoadVarName(std::string const& fileLine) const = 0;
 
-    void SetType(Type::Sptr type) { m_type = std::move(type); }
+    void SetType(Type::Sptr type);
     
     std::string GetName() const;
 

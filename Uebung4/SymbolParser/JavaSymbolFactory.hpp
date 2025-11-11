@@ -14,6 +14,8 @@ class JavaSymbolFactory :public ISymbolFactory, public SingletonBase<JavaSymbolF
 {
 public:
 
+	friend class SingletonBase<JavaSymbolFactory>;
+
 	virtual Variable::Uptr CreateVariable(const std::string& name) override;
 
 	virtual Type::Uptr CreateType(const std::string& name) override;
@@ -24,6 +26,7 @@ public:
 
 protected:
 private:
+	JavaSymbolFactory() = default;
 	const std::string m_TypeFileName = "IECTypes.sym";
 	const std::string m_VariableFileName = "IECVars.sym";
 };

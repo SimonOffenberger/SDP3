@@ -23,9 +23,9 @@ public:
 
 	void SetType(const std::string& name);
 
-	virtual std::string LoadTypeName(const std::string& fileLine) = 0;
+	virtual std::string LoadTypeName(const std::string& fileLine) const = 0;
 	
-	virtual std::string GetSaveLine()=0;
+	virtual std::string GetSaveLine() const =0;
 
 	Type(const std::string& name) : m_name{ name } {}
 	Type() = default;

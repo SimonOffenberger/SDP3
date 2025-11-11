@@ -28,6 +28,11 @@ public:
 
 protected:
 private:
+
+    void SaveState(const std::string& type_file, const std::string& var_file);
+
+    void LoadNewState(const std::string& type_file, const std::string& var_file);
+
     TTypeCont m_typeCont;
     TVariableCont m_variableCont;
     ISymbolFactory & m_Factory;

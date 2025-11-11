@@ -22,33 +22,27 @@ static std::string ScanTypeName(scanner& scan)
 	scan.next_symbol();
 	return typeName;
 }
+
 static std::string ScanVarName(scanner& scan)
 {
 	string varName;
 	varName = scan.get_identifier();
-	
-	if (!varName.empty())
-	{
-		scan.next_symbol();
-		if (!scan.is(';'))
-		{
-			varName = "";
-		}
-	}
 
 	return varName;
 }
 
-std::string JavaVariable::GetSaveLine()
+std::string JavaVariable::GetSaveLine() const
 {
 	stringstream line;
 
-	line << m_type << " " << m_name << ";";
+	if (m_type != nullptr) {
+		line << m_type->GetType() << " " << m_name;
+	}
 
 	return line.str();
 }
 
-std::string JavaVariable::LoadVarName(std::string const& fileLine)
+std::string JavaVariable::LoadTypeName(std::string const& fileLine) const
 {
 	stringstream lineStream;
 	lineStream << fileLine;
@@ -57,7 +51,7 @@ std::string JavaVariable::LoadVarName(std::string const& fileLine)
 	return ScanTypeName(scan);
 }
 
-std::string JavaVariable::LoadTypeName(std::string const& fileLine)
+std::string JavaVariable::LoadVarName(std::string const& fileLine) const
 {
 	stringstream lineStream;
 	lineStream << fileLine;

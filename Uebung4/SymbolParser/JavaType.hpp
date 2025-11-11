@@ -13,9 +13,9 @@ class JavaType : public Type
 {
 public:
 
-	virtual std::string LoadTypeName(const std::string& fileLine) override;
+	virtual std::string LoadTypeName(const std::string& fileLine) const override;
 
-	virtual std::string GetSaveLine() override;
+	virtual std::string GetSaveLine() const override;
 
 	JavaType(const std::string name) : Type{ name } {}
 

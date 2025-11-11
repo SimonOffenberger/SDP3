@@ -12,11 +12,11 @@
 class IECVariable : public Variable
 {
 public:
-    virtual std::string GetSaveLine() override;
+    virtual std::string GetSaveLine() const override;
 
     //returns string of type - SymbolParser has to check type for validity
-    virtual std::string LoadTypeName(std::string const& fileLine) override;
-    virtual std::string LoadVarName(std::string const& fileLine) override;
+    virtual std::string LoadTypeName(std::string const& fileLine) const override;
+    virtual std::string LoadVarName(std::string const& fileLine) const override;
 
     IECVariable() = default;
 

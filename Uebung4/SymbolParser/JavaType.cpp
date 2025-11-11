@@ -27,7 +27,7 @@ static std::string ScanTypeName(scanner& scan) {
 }
 
 
-std::string JavaType::LoadTypeName(const std::string& fileLine)
+std::string JavaType::LoadTypeName(const std::string& fileLine) const
 {
 	stringstream sstream;
 
@@ -40,7 +40,7 @@ std::string JavaType::LoadTypeName(const std::string& fileLine)
 	return ScanTypeName(scan);
 }
 
-std::string JavaType::GetSaveLine()
+std::string JavaType::GetSaveLine() const
 {
 	stringstream sstream;
 

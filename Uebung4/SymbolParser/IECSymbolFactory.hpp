@@ -14,6 +14,8 @@ class IECSymbolFactory:public ISymbolFactory , public SingletonBase<IECSymbolFac
 {
 public:
 
+	friend class SingletonBase<IECSymbolFactory>;
+
 	virtual Variable::Uptr CreateVariable(const std::string& name) override;
 
 	virtual Type::Uptr CreateType(const std::string& name) override;

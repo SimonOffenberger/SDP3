@@ -13,11 +13,13 @@
 using namespace pfc;
 using namespace std;
 
-std::string IECVariable::GetSaveLine()
+std::string IECVariable::GetSaveLine() const
 {
 	stringstream line;
 
-	line << "VAR " << m_type->GetType() << " : " << m_name << ";";
+	if (m_type != nullptr) {
+		line << "VAR " << m_type->GetType() << " : " << m_name << ";";
+	}
 
 	return line.str();
 }
@@ -51,7 +53,7 @@ static std::string ScanVarName(scanner & scan) {
 }
 
 
-std::string IECVariable::LoadTypeName(std::string const& fileLine)
+std::string IECVariable::LoadTypeName(std::string const& fileLine) const
 {
 	stringstream converter;
 	converter << fileLine;
@@ -62,7 +64,7 @@ std::string IECVariable::LoadTypeName(std::string const& fileLine)
 	return ScanTypeName(Scan);
 }
 
-std::string IECVariable::LoadVarName(std::string const& fileLine)
+std::string IECVariable::LoadVarName(std::string const& fileLine) const
 {
 	stringstream converter;
 	converter << fileLine;

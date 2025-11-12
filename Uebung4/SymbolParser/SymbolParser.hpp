@@ -18,6 +18,9 @@
 class SymbolParser : public Object
 {
 public:
+    inline static const std::string ERROR_EMPTY_STRING = "ERROR: Provided string is empty.";
+    inline static const std::string ERROR_NONEXISTING_TYPE = "ERROR: Provided type does not exist.";
+
     /**
      * \brief Polymorphic conatiner for saving variables
      */

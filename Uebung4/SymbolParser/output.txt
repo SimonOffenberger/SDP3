@@ -297,4 +297,27 @@ Test Save LineFormat Java Type
 
 *******************************************
 
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Normal Operating Parser
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+.AddType() - add empty type to factory
+[32m[Test OK] [37mResult: (Expected: ERROR: Provided string is empty. == Result: ERROR: Provided string is empty.)
+
+.AddVariable() - add empty type to factory
+[32m[Test OK] [37mResult: (Expected: ERROR: Provided string is empty. == Result: ERROR: Provided string is empty.)
+
+.AddVariable() - add empty var to factory
+[32m[Test OK] [37mResult: (Expected: ERROR: Provided string is empty. == Result: ERROR: Provided string is empty.)
+
+.AddVariable() - add variable with nonexisting type
+[32m[Test OK] [37mResult: (Expected: ERROR: Provided type does not exist. == Result: ERROR: Provided type does not exist.)
+
+
+*******************************************
+
 [32mTEST OK!![37m

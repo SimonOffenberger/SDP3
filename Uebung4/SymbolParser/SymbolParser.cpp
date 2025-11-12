@@ -102,12 +102,21 @@ void SymbolParser::SetFactory(ISymbolFactory& Factory)
 
 void SymbolParser::AddType(std::string const& name)
 {
+    if (name.empty())
+        throw SymbolParser::ERROR_EMPTY_STRING;
+
     Type::Uptr pType = m_Factory.CreateType(name);
     m_typeCont.push_back(move(pType));
 }
 
 void SymbolParser::AddVariable(std::string const& name, std::string const& type)
 {
+    if (name.empty())
+        throw SymbolParser::ERROR_EMPTY_STRING;
+    
+    if (type.empty())
+        throw SymbolParser::ERROR_EMPTY_STRING;
+
     // look up if type even exists if yes add to type container
     for (const auto& m_type : m_typeCont)
     {
@@ -119,9 +128,11 @@ void SymbolParser::AddVariable(std::string const& name, std::string const& type)
             // Move ownership into container
             m_variableCont.push_back(std::move(pVar));
 
-            // If each variable should only match one type, break early
-            break;
+            // If each variable should only match one type, return early
+            return;
         }
     }
+
+    throw ERROR_NONEXISTING_TYPE;
 }
 

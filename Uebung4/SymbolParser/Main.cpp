@@ -28,6 +28,7 @@ static bool TestIECVar(ostream& ost = cout);
 static bool TestJavaVar(ostream& ost = cout);
 static bool TestIECType(ostream& ost = cout);
 static bool TestJavaType(ostream& ost = cout);
+static bool TestSymbolParser(ostream& ost = cout);
 
 
 int main()
@@ -95,6 +96,7 @@ int main()
 
     TestOK = TestOK && TestJavaType();
 
+    TestOK = TestOK && TestSymbolParser();
 
     if (WriteOutputFile) {
         ofstream output{ "output.txt" };
@@ -130,6 +132,8 @@ int main()
         TestOK = TestOK && TestIECType(output);
 
         TestOK = TestOK && TestJavaType(output);
+
+        TestOK = TestOK && TestSymbolParser(output);
 
         if (TestOK) {
             output << TestCaseOK;
@@ -504,5 +508,125 @@ bool TestJavaType(ostream& ost)
 
     ost << TestEnd;
 
+    return TestOK;
+}
+
+
+bool TestSymbolParser(ostream& ost)
+{
+    bool TestOK = true;
+    string error_msg;
+    ost << TestStart;
+
+    // normal operating mode - no exception should be thrown
+    try {
+        SymbolParser parser{ JavaSymbolFactory::GetInstance() };
+        parser.AddType("Button");
+        parser.AddVariable("mButton", "Button");
+        parser.SetFactory(IECSymbolFactory::GetInstance());
+        parser.AddType("TYPE");
+        parser.AddVariable("VARIABLE", "TYPE");
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Normal Operating Parser", true, error_msg.empty());
+    error_msg.clear();
+
+    // addtype - adding empty type - throws error
+    try {
+        SymbolParser parser{ JavaSymbolFactory::GetInstance() };
+        parser.AddType("");
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, ".AddType() - add empty type to factory", SymbolParser::ERROR_EMPTY_STRING, error_msg);
+    error_msg.clear();
+
+    // addVariable add empty type - throws error
+    try {
+        SymbolParser parser{ JavaSymbolFactory::GetInstance() };
+        parser.AddVariable("VarName", "");
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, ".AddVariable() - add empty type to factory", SymbolParser::ERROR_EMPTY_STRING, error_msg);
+    error_msg.clear();
+
+    // addVariable add empty var - throws error
+    try {
+        SymbolParser parser{ JavaSymbolFactory::GetInstance() };
+        parser.AddVariable("", "Type");
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, ".AddVariable() - add empty var to factory", SymbolParser::ERROR_EMPTY_STRING, error_msg);
+    error_msg.clear();
+
+    // addVariable add variable for non existing type
+    try {
+        SymbolParser parser{ JavaSymbolFactory::GetInstance() };
+        parser.AddVariable("Var", "Type");
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, ".AddVariable() - add variable with nonexisting type", SymbolParser::ERROR_NONEXISTING_TYPE, error_msg);
+    error_msg.clear();
+
+    ost << TestEnd;
     return TestOK;
 }

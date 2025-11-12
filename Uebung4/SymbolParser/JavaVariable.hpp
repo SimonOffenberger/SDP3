@@ -1,7 +1,7 @@
 /*****************************************************************//**
  * \file   JavaVariable.hpp
- * \brief  
- * \author Simon Vogelhuber
+ * \brief  A Class for parsing java variables
+ * \author Simon
  * \date   Dezember 2025
  *********************************************************************/
 #ifndef JAVA_VARIABLE_HPP
@@ -12,10 +12,27 @@
 class JavaVariable :public Variable
 {
 public:
+    /**
+     * \brief Returns formatted line of a variables declaration
+     *
+     * \return string of variable
+     */
     virtual std::string GetSaveLine() const override;
 
-    //returns string of type - SymbolParser has to check type for validity
+    /**
+     * \brief Loads the name of a variables type
+     *
+     * \param string fileLine
+     * \return string of type - SymbolParser has to check type for validity
+     */
     virtual std::string LoadTypeName(std::string const& fileLine) const override;
+
+    /**
+     * \brief Loads name of a variable
+     *
+     * \param string fileLine
+     * \return string of variables name
+     */
     virtual std::string LoadVarName(std::string const& fileLine) const override;
 
     JavaVariable() = default;

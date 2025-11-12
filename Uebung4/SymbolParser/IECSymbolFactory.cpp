@@ -1,9 +1,10 @@
 /*****************************************************************//**
  * \file   IECSymbolFactory.cpp
- * \brief  
- * \author Simon Vogelhuber
+ * \brief  A factory for parsing IEC variables and types
+ * \author Simon 
  * \date   Dezember 2025
  *********************************************************************/
+
 #include "IECSymbolFactory.hpp"
 #include "IECType.hpp"
 #include "IECVariable.hpp"

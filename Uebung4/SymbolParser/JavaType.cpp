@@ -1,9 +1,10 @@
 /*****************************************************************//**
  * \file   JavaType.cpp
- * \brief  
- * \author Simon Vogelhuber
+ * \brief  A Class for parsing java types
+ * \author Simon
  * \date   Dezember 2025
  *********************************************************************/
+
 #include "JavaType.hpp"
 #include <sstream>
 #include <string>

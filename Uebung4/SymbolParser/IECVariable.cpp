@@ -1,9 +1,10 @@
 /*****************************************************************//**
  * \file   IECVariable.cpp
- * \brief  
+ * \brief  A Class for parsing IEC variables
  * \author Simon Vogelhuber
  * \date   Dezember 2025
  *********************************************************************/
+
 #include "IECVariable.hpp"
 #include <sstream>
 #include <string>

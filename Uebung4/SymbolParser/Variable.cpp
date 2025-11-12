@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   Variable.cpp
+ * \brief  Abstract class for parsing types
+ * \author Simon Vogelhuber
+ * \date   Dezember 2025
+ *********************************************************************/
+
 #include "Variable.hpp"
 #include <cassert>
 

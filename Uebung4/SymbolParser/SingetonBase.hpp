@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   SingetonBase.hpp
- * \brief  
+ * \brief  Base Class for creating singletons
  * 
  * \author Simon
  * \date   November 2025

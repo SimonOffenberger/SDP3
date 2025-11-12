@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   Main.cpp
+ * \brief  Testdriver for Symbol Parser and all connected Classes
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
+
 #include "IECVariable.hpp"
 #include "JavaVariable.hpp"
 #include "IECType.hpp"

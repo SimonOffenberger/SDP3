@@ -1,9 +1,10 @@
 /*****************************************************************//**
  * \file   IECType.cpp
- * \brief  
- * \author Simon Vogelhuber
+ * \brief  A Class for parsing IEC types
+ * \author Simon
  * \date   Dezember 2025
  *********************************************************************/
+
 #include "IECType.hpp"
 #include <sstream>
 #include <string>

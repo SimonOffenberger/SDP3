@@ -1,9 +1,10 @@
 /*****************************************************************//**
- * \file   SymbolFactory.cpp
- * \brief  
- * \author Simon Vogelhuber
+ * \file   SymbolParser.cpp
+ * \brief  A multi language parser for types and variables
+ * \author Simon
  * \date   Dezember 2025
  *********************************************************************/
+
 
 #include <algorithm>
 #include <fstream>

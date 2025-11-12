@@ -1,9 +1,10 @@
 /*****************************************************************//**
  * \file   JavaSymbolFactory.cpp
- * \brief  
- * \author Simon Vogelhuber
+ * \brief  A factory for parsing java variables and types
+ * \author Simon 
  * \date   Dezember 2025
  *********************************************************************/
+
 
 #include "JavaSymbolFactory.hpp"
 #include "JavaType.hpp"

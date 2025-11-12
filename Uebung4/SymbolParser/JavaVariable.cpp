@@ -1,13 +1,10 @@
 /*****************************************************************//**
  * \file   JavaVariable.cpp
- * \brief  
- * \author Simon Vogelhuber
+ * \brief  A Class for parsing java variables
+ * \author Simon
  * \date   Dezember 2025
  *********************************************************************/
 
-//
-//	INCLDUES
-// 
 #include "JavaVariable.hpp"
 #include <sstream>
 #include <string>

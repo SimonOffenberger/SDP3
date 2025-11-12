@@ -124,7 +124,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \title {\vspace{1cm}
        \includegraphics[width=8cm]{./Images/FhOOeLogoOkt2009_HSD_Rot_pastell}\\
        \vspace{2cm}
-       {\textbf{Systemdokumentation\\Projekt Fuhrpark}}\\
+       {\textbf{Systemdokumentation\\Projekt Symbolparser}}\\
        \vspace{5mm}
        {\small{Version 1.0}}\\
        \vspace{5mm}
@@ -133,10 +133,6 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \author{\small{S. Offenberger, S. Vogelhuber}}
 \date  {\small{Hagenberg, \today}}
 \maketitle
-
-%\begin{abstract}
-%Dieses Dokument zeigt den prinzipiellen Aufbau einer Systemdokumentation fÃ¼r Software-Projekte. Die einzelnen Kapitel sind mit Kommentaren versehen, welche die Struktur und den Inhalt erlÃ¤utern. 
-%\end{abstract}
 
 \clearpage
 
@@ -163,27 +159,42 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 		\begin{itemize}
 			\item Design Klassendiagramm
 			\item Implementierung und Test der Klassen: 
-			\begin{itemize}
-				\item Object,
-				\item RecordEntry, 
-				\item DriveRecord,
-				\item Vehicle,
-			\end{itemize}
 			\item Implementierung des Testtreibers
 			\item Dokumentation
+			\begin{itemize}
+				\item Object
+				\item Symbolparser
+				\item ISymbolFactory
+				\item Variable
+				\item Type
+				\item JavaVariable
+				\item JavaType
+				\item JavaSymbolFactory
+				\item IECVariable
+				\item IECType
+				\item IECSymbolFactory
+			\end{itemize}
 		\end{itemize}
+
 	\item Simon Vogelhuber
 		\begin{itemize}
 			\item Design Klassendiagramm
-			\item Implementierung und Komponententest der Klassen: 
-			\begin{itemize}
-				\item Garage
-				\item Car, 
-				\item Bike und  
-				\item Truck 
-			\end{itemize}
 			\item Implementierung des Testtreibers
 			\item Dokumentation
+			\item Implementierung und Komponententest der Klassen: 
+			\begin{itemize}
+				\item Object
+				\item Symbolparser
+				\item ISymbolFactory
+				\item Variable
+				\item Type
+				\item JavaVariable
+				\item JavaType
+				\item JavaSymbolFactory
+				\item IECVariable
+				\item IECType
+				\item IECSymbolFactory
+			\end{itemize}
 		\end{itemize}	
 \end{itemize}
 
@@ -196,56 +207,71 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 
 \clearpage
 \section{Anforderungsdefinition (Systemspezifikation)}
-In diesem System werden Fahrzeuge in einem Fuhrpark verwaltet. 
-Zusätzlich soll auch noch ein Fahrtenbuch zu jedem Fahrzeug gespeichert werden.
-\\
-\\
-\textbf{Funktionen des Fahrtenbuches}
+Das Ziel ist es einen Symbolparser zu implementieren, der verschiedene Programmiersprachen unterstützt. 
+Der Parser soll in der Lage sein Typen und Variablen zu erkennen und zu verarbeiten.
+Dazu wird eine Factory benötigt, die die entsprechenden Objekte für die verschiedenen Sprachen erzeugt.
+
+\textbf{Funktionen des Symbolparsers:}
 \begin{itemize}
-	\item Berechnen des Kilometerstands der aufgezeichneten Fahrten.
-	\item Speichere Datum und Distanz einer Fahrt.
+	\item Auswählen der Programmiersprachen (auswählen der SymbolFactory)
+	\item Speichern der erzeugten Objekte in einem Container.
+	\item Erzeugen von Variablen und Typen über die SymbolFactory
+	\item Überprüfung ob Typen und Variablen gültig sind.
+	\item Beim Wechsel der SymbolFactory, werden alle Objekte der alten Faktory in ein File gespeichert. 
+	Und die Objekte der neuen Factory werden aus dem File geladen.
 \end{itemize}
 
-\textbf{Funktionen des Fuhrparks}
+\textbf{Funktionen der SymbolFactory:}
+
 \begin{itemize}
-	\item Hinzufügen und löschen eines Fahrzeuges
-	\item Ausgabe aller Fahrzeugdaten inklusive der Fahrtenbucheinträge.
-	\item Suchen nach einem Fahrzeug mit dessen Kennzeichen.
-	\item Berechnung der Gesamtkilometer aller Fahrzeuge im Fuhrpark.
+	\item Erzeugen von Variablen und Typen der jeweiligen Programmiersprache.
 \end{itemize}
 
-\textbf{Funktionen der Fahrzeuge}
+\textbf{Funktionen der Variable:}
 \begin{itemize}
-	\item Bereitstellen einer Print Funktion mit Info über das Fahrzeug und die Fahrtenbucheinträge.
-	\item Hinzufügen von Fahrtenbucheinträgen.
-	\item Ermittlung vom Kilometerstand eines Fahrzeugs.
-	\item Speichern von Hersteller, Treibstoff und Kennzeichen des Fahrzeugs
+	\item Speichern des Variablennamens
+	\item Speichern des Variablentyps
+	\item Auswerten der Variablendeklaration (Syntaxprüfung)
+	\item Zurückgeben des Variablennamens
+	\item Zurückgeben des Variablentyps
+\end{itemize}
+
+\textbf{Funktionen des Type:}
+\begin{itemize}
+	\item Auswerten der Typdeklaration (Syntaxprüfung)
+	\item Speichern des Typnamens
+	\item Zurückgeben des Typnamens
 \end{itemize}
 
 \clearpage
 \section{Systementwurf}
 
 \subsection{Klassendiagramm}
-\includegraphics[width=14cm]{./Images/Klassendiagramm.png}
+\includegraphics[height=20cm]{./Klassendiagramm.png}
 \newpage
 
 \subsection{Designentscheidungen}
-Im Klassendiagramm wurde der Polymorphismus angewendet, um unterschiedliche Fahrzeugarten mit der gemeinsamen Schnittstelle 'Vehicle' anzusprechen. Die Klasse 'Garage' speichert einen Container mit der abstrakte Basisklasse 'Vehicle' als Elementtyp und kann somit alle bestehenden und auch neuen Fahrzeugarten verwalten, die sich von der gemeinsamen Basisklasse 'Vehicle' ableiten.
-Für die Aufzeichnung eines Fahrtenbuches wurde die Klasse \textbf{DriveRecord} implementiert. Diese Klasse speichert mehrere Objekte der Klasse \textbf{RecordEntry}.
-Die Record Entries werden im Fahrtenbuch in einem \textbf{Multiset} gespeichert, damit sind die Einträge ins Fahrtenbuch immer nach dem Datum aufsteigend sortiert.
-Aus diesem Grund wurde der \textbf{operator<} für die Record Entries definiert. Dieser vergleicht das Datum der Einträge.
-Dadurch, dass die Einträge ins Fahrtenbuch als eigene Klasse implementiert wurde, lassen sich die einzelnen Einträge schnell und einfach erweitern.\\
-\\
-\\
-Als Container für die Speicherung der Fahrzeuge in der Klasse \textbf{Garage} wurde der Vektor verwendet. 
-Dieser erlaubt es schnell Fahrzeuge hinzuzufügen, und das Suchen geschieht relativ schnell in O(n).
-Einzig und allein, das Löschen aus der Mitte des Vektors stellt bei größerwerdenden Fuhrparks ein Problem dar.
-Wenn dies in der Verwendung des Fuhrparks öfters passiert sollte der verwendete Container ausgetauscht werden.
-\\
-\\
-Die Klassen \textbf{Car, Truck und Bike} wurden für die Konkretisierung der Printfunktion verwendet.
-Diese Klassen lassen sich schnell und einfach erweitern, und können trotzdem weiter vom Fuhrpark verwaltet werden.\\
-\\
+\textbf{Verwendung des Factory-Patterns:} \\
+Das Factory-Pattern wurde verwendet, um die Erstellung von Objekten der verschiedenen Programmiersprachen zu kapseln. 
+Das ermöglicht eine einfache Erweiterung des Systems um weitere Sprachen, ohne dass der Symbolparser angepasst werden muss.
+Der Parser Speichert hierführ eine Referenz auf die aktuelle SymbolFactory, die zur Laufzeit gewechselt werden kann.
+\par
+\textbf{Verwendung des Singleton-Patterns:} \\
+Das Singleton- Pattern wurde für die SymbolFactory implementiert, um sicherzustellen, dass nur eine Instanz der Factory existiert.
+\par
+\textbf{Verwendung von Vererbung und Polymorphie:} \\
+Die Klassen Variable und Type sind Basisklassen, von denen spezifische Implementierungen für jede Programmiersprache abgeleitet sind.
+Dadurch kann der Symbolparser generisch mit den Basisklassen arbeiten, ohne die spezifischen Implementierungen zu kennen.
+\par
+\textbf{Container für Objekte:} \\
+Der Symbolparser verwendet einen Container (std::vector), um die erzeugten Objekte zu speichern.
+Dies ermöglicht eine einfache Verwaltung und Iteration über die Objekte. Für die Variablen werden unique- Pointer gespeichert, die Types
+werden jedoch als shared-Pointer gespeichert, da mehrere Variablen denselben Type referenzieren können.
+\par
+\textbf{SymbolParser:}\\
+Der SymbolParser ist die zentrale Klasse, die die Interaktion mit dem Benutzer und die Verwaltung der Objekte übernimmt.
+Er bietet Methoden zum Setzen der aktuellen SymbolFactory, zum Erzeugen von Variablen und Typen sowie zum Speichern und Laden der Objekte.
+Der Parser überprüft ob eine eingegebene Variable oder ein Type gültig ist, indem er die entsprechenden Methoden der Objekte aufruft.
 
 \color{black}
 
@@ -254,55 +280,64 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 
 \clearpage
 \section{Testprotokollierung}
-\lstinputlisting[style=teststyle]{../TestOutput.txt}
+\lstinputlisting[style=teststyle]{../output.txt}
 
 \clearpage
 \section{Quellcode}
-
 \subsection{Object.hpp}
-\lstinputlisting{../Object.hpp}
+\lstinputlisting{../Object.h}
+\clearpage
+\subsection{Symbolparser.hpp}
+\lstinputlisting{../Symbolparser.hpp}
+\clearpage
+\subsection{Symbolparser.cpp}
+\lstinputlisting{../Symbolparser.cpp}
+\clearpage
+\subsection{ISymbolFactory.hpp}
+\lstinputlisting{../ISymbolFactory.hpp}
+\clearpage
+\subsection{Variable.hpp}
+\lstinputlisting{../Variable.hpp}
+\clearpage
+\subsection{Variable.cpp}
+\lstinputlisting{../Variable.cpp}
+\clearpage
+\subsection{Type.hpp}
+\lstinputlisting{../Type.hpp}
+\clearpage
+\subsection{Type.cpp}
+\lstinputlisting{../Type.cpp}
+\clearpage
+\subsection{Test.hpp}
+\lstinputlisting{../Test.hpp}
+\clearpage
+\subsection{SingetonBase.hpp}
+\lstinputlisting{../SingetonBase.hpp}
+\clearpage
+\subsection{JavaVariable.hpp}
+\lstinputlisting{../JavaVariable.hpp}
+\clearpage
+\subsection{JavaVariable.cpp}
+\lstinputlisting{../JavaVariable.cpp}
+\clearpage
+\subsection{JavaSymbolFactory.hpp}
+\lstinputlisting{../JavaSymbolFactory.hpp}
+\clearpage
+\subsection{JavaSymbolFactory.cpp}
+\lstinputlisting{../JavaSymbolFactory.cpp}
+\clearpage
+\subsection{IECVariable.hpp}
+\lstinputlisting{../IECVariable.hpp}
+\clearpage
+\subsection{IECVariable.cpp}
+\lstinputlisting{../IECVariable.cpp}
+\clearpage
+\subsection{IECSymbolFactory.hpp}
+\lstinputlisting{../IECSymbolFactory.hpp}
+\clearpage
+\subsection{IECSymbolFactory.cpp}
+\lstinputlisting{../IECSymbolFactory.cpp}
 
-\subsection{RecordEntry.hpp}
-\lstinputlisting{./../RecordEntry.hpp}
-
-\subsection{RecordEntry.cpp}
-\lstinputlisting{./../RecordEntry.cpp}
-
-\subsection{DriveRecord.hpp}
-\lstinputlisting{./../DriveRecord.hpp}
-
-\subsection{DriveRecord.cpp}
-\lstinputlisting{./../DriveRecord.cpp}
-
-\subsection{Garage.hpp}
-\lstinputlisting{./../Garage.hpp}
-
-\subsection{Garage.cpp}
-\lstinputlisting{./../Garage.cpp}
-
-\subsection{Vehicle.hpp}
-\lstinputlisting{./../Vehicle.hpp}
-
-\subsection{Vehicle.cpp}
-\lstinputlisting{./../Vehicle.cpp}
-
-\subsection{Car.hpp}
-\lstinputlisting{./../Car.hpp}
-
-\subsection{Car.cpp}
-\lstinputlisting{./../Car.cpp}
-
-\subsection{Truck.hpp}
-\lstinputlisting{./../Truck.hpp}
-
-\subsection{Truck.cpp}
-\lstinputlisting{./../Truck.cpp}
-
-\subsection{Bike.hpp}
-\lstinputlisting{./../Bike.hpp}
-
-\subsection{Bike.cpp}
-\lstinputlisting{./../Bike.cpp}
 
 % Literaturverzeichnis
 % --------------------

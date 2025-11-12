@@ -124,12 +124,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Car.hpp" />
+    <ClInclude Include="IDisplay.hpp" />
+    <ClInclude Include="Meter.hpp" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="Odometer.hpp" />
+    <ClInclude Include="Tachometer.hpp" />
     <ClInclude Include="Test.hpp" />
+    <ClInclude Include="Vehicle.hpp" />
+    <ClInclude Include="RPM_Sensor.hpp" />
     <ClInclude Include="WindowsDisplay.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Car.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Odometer.cpp" />
+    <ClCompile Include="Tachometer.cpp" />
+    <ClCompile Include="Vehicle.cpp" />
+    <ClCompile Include="RPM_Sensor.cpp" />
     <ClCompile Include="WindowsDisplay.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

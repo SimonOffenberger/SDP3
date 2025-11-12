@@ -22,52 +22,52 @@ using namespace std;
 
 #define WriteOutputFile ON
 
-static bool TestVariableGetter(Variable* var, const string & name, Type::Sptr typ, ostream & ost = cout);
+static bool TestVariable(Variable* var, const string & name, Type::Sptr typ, ostream & ost = cout);
+static bool TestType(Type::Sptr typ, ostream & ost = cout);
 static bool TestIECVar(ostream& ost = cout);
 static bool TestJavaVar(ostream& ost = cout);
+static bool TestIECType(ostream& ost = cout);
+static bool TestJavaType(ostream& ost = cout);
 
 
 int main()
 {
-    IECVariable Var;
+    //IECVariable Var;
 
-    cout << "Typename : " << Var.LoadTypeName("VAR mCont : A21234;") << endl;
-    cout << "Varname : " << Var.LoadVarName("VAR mCont : A21234;") << endl;
+    //cout << "Typename : " << Var.LoadTypeName("VAR mCont : A21234;") << endl;
+    //cout << "Varname : " << Var.LoadVarName("VAR mCont : A21234;") << endl;
 
-    JavaVariable javaVar;
-    cout << "Typename : " << javaVar.LoadTypeName("container mCont;") << endl;
-    cout << "Varname : " << javaVar.LoadVarName("container mCont;") << endl;
+    //JavaVariable javaVar;
+    //cout << "Typename : " << javaVar.LoadTypeName("container mCont;") << endl;
+    //cout << "Varname : " << javaVar.LoadVarName("container mCont;") << endl;
 
-    JavaType javaType;
-    cout << "Typename : " << javaType.LoadTypeName("class Button") << endl;
+    //JavaType javaType;
+    //cout << "Typename : " << javaType.LoadTypeName("class Button") << endl;
 
-    IECType iecType;
-    cout << "Typename : " << iecType.LoadTypeName("TYPE SpeedController") << endl;
+    //IECType iecType;
+    //cout << "Typename : " << iecType.LoadTypeName("TYPE SpeedController") << endl;
 
-    SymbolParser parser{JavaSymbolFactory::GetInstance()};
+    //SymbolParser parser{JavaSymbolFactory::GetInstance()};
 
-    parser.AddType("Button");
-    parser.AddType("Hugo");
-    parser.AddType("Window");
-    parser.AddVariable("mBut", "Button");
+    //parser.AddType("Button");
+    //parser.AddType("Hugo");
+    //parser.AddType("Window");
+    //parser.AddVariable("mBut", "Button");
 
-    parser.SetFactory(IECSymbolFactory::GetInstance());
+    //parser.SetFactory(IECSymbolFactory::GetInstance());
 
-    parser.AddType("Button1");
-    parser.AddType("Hugo1");
-    parser.AddType("Window2");
-    parser.AddVariable("mBut1", "Button1");
+    //parser.AddType("Button1");
+    //parser.AddType("Hugo1");
+    //parser.AddType("Window2");
+    //parser.AddVariable("mBut1", "Button1");
 
-    parser.SetFactory(JavaSymbolFactory::GetInstance());
+    //parser.SetFactory(JavaSymbolFactory::GetInstance());
 
     bool TestOK = true;
-
-    cout << TestStart;
 
     Type::Sptr Itype{make_shared<IECType>( IECType{ "int" } )};
 
     Type::Sptr Jtyp{make_shared<JavaType>(JavaType{ "int" } )};
-
 
     IECVariable IECVar{ "asdf" };
     IECVar.SetType(Itype);
@@ -76,36 +76,82 @@ int main()
     JavaVar.SetType(Jtyp);
 
     cout << "\n \n**** Test IEC Var Getter ****\n \n ";
-    TestOK = TestOK && TestVariableGetter(&IECVar, "asdf", Itype);
+    TestOK = TestOK && TestVariable(&IECVar, "asdf", Itype);
 
     cout << "\n \n**** Test Java Var Getter ****\n \n ";
-    TestOK = TestOK && TestVariableGetter(&JavaVar, "jklm",Jtyp);
+    TestOK = TestOK && TestVariable(&JavaVar, "jklm",Jtyp);
+
+    cout << "\n \n**** Test IEC Type Getter ****\n \n ";
+    TestOK = TestOK && TestType(Itype);
+
+    cout << "\n \n**** Test Java Type Getter ****\n \n ";
+    TestOK = TestOK && TestType(Jtyp);
 
     TestOK = TestOK && TestIECVar();
 
     TestOK = TestOK && TestJavaVar();
 
+    TestOK = TestOK && TestIECType();
+
+    TestOK = TestOK && TestJavaType();
+
 
     if (WriteOutputFile) {
         ofstream output{ "output.txt" };
 
+        Type::Sptr Itype1{ make_shared<IECType>(IECType{ "int" }) };
+
+        Type::Sptr Jtyp1{ make_shared<JavaType>(JavaType{ "int" }) };
+
+        IECVariable IECVar1{ "asdf" };
+        IECVar1.SetType(Itype1);
+
+        JavaVariable JavaVar1{ "jklm" };
+        JavaVar1.SetType(Jtyp1);
+
         output << TestStart;
 
         output << "\n \n**** Test IEC Var Getter ****\n \n ";
-        TestOK = TestOK && TestVariableGetter(&IECVar, "asdf", Itype,output);
+        TestOK = TestOK && TestVariable(&IECVar1, "asdf", Itype1,output);
 
         output << "\n \n**** Test Java Var Getter ****\n \n ";
-        TestOK = TestOK && TestVariableGetter(&JavaVar, "jklm", Jtyp, output);
+        TestOK = TestOK && TestVariable(&JavaVar1, "jklm", Jtyp1, output);
+
+        output << "\n \n**** Test IEC Type Getter ****\n \n ";
+        TestOK = TestOK && TestType(Itype1, output);
+
+        output << "\n \n**** Test Java Type Getter ****\n \n ";
+        TestOK = TestOK && TestType(Jtyp1, output);
 
         TestOK = TestOK && TestIECVar(output);
 
         TestOK = TestOK && TestJavaVar(output);
+
+        TestOK = TestOK && TestIECType(output);
+
+        TestOK = TestOK && TestJavaType(output);
+
+        if (TestOK) {
+            output << TestCaseOK;
+        }
+        else {
+            output << TestCaseFail;
+        }
+
+        output.close();
+    }
+
+    if (TestOK) {
+        cout << TestCaseOK;
+    }
+    else {
+        cout << TestCaseFail;
     }
 
     return 0;
 }
 
-bool TestVariableGetter(Variable* var, const string& name, Type::Sptr typ, ostream& ost)
+bool TestVariable(Variable* var, const string& name, Type::Sptr typ, ostream& ost)
 {
     assert(ost.good());
     assert(var != nullptr);
@@ -208,6 +254,62 @@ bool TestVariableGetter(Variable* var, const string& name, Type::Sptr typ, ostre
     }
 
     TestOK = TestOK && check_dump(ost, "Test for Exception in TestCase", true, error_msg.empty());
+    error_msg.clear();
+
+    ost << TestEnd;
+
+    return TestOK;
+}
+
+bool TestType(Type::Sptr typ, ostream& ost)
+{
+    assert(ost.good());
+    assert(typ != nullptr);
+
+    ost << TestStart;
+
+    bool TestOK = true;
+    string error_msg;
+
+    try {
+        typ->SetType("unit_1024_t");
+        TestOK = TestOK && check_dump(ost, "Test Type Get Name after Set", static_cast<string>("unit_1024_t"), typ->GetType());
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Exception in Set Type", true , error_msg.empty());
+    error_msg.clear();
+
+
+
+    try {
+        typ->SetType("");
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Exception in Set Type", Type::ERROR_EMPTY_STRING, error_msg);
     error_msg.clear();
 
     ost << TestEnd;
@@ -321,6 +423,84 @@ bool TestJavaVar(ostream& ost)
     JavaVariable JVar;
 
     TestOK == TestOK && check_dump(ost, "Test Save LineFormat IEC Variable", static_cast<string>(""), JVar.GetSaveLine());
+
+    ost << TestEnd;
+
+    return TestOK;
+}
+
+bool TestIECType(ostream& ost)
+{
+    assert(ost.good());
+
+    ost << TestStart;
+
+
+    bool TestOK = true;
+    string error_msg;
+
+    IECType typ;
+
+    const string LineToDecode = "TYPE SpeedController\n";
+    TestOK == TestOK && check_dump(ost, "Test Load Type Name IEC Type", static_cast<string>("SpeedController"), typ.LoadTypeName(LineToDecode));
+
+    const string InvLineToDecode = "1TYPE SpeedController";
+    TestOK == TestOK && check_dump(ost, "Test Load Type Name IEC Type invalid Format", static_cast<string>(""), typ.LoadTypeName(InvLineToDecode));
+
+    const string Inv2LineToDecode = "TYPE 1SpeedController";
+    TestOK == TestOK && check_dump(ost, "Test Load Type Name IEC Type invalid Format", static_cast<string>(""), typ.LoadTypeName(Inv2LineToDecode));
+
+    const string Inv3LineToDecode = "TYPE S2peedController";
+    TestOK == TestOK && check_dump(ost, "Test Load Type Name IEC Type invalid Format", static_cast<string>("S2peedController"), typ.LoadTypeName(Inv3LineToDecode));
+
+    const string Inv4LineToDecode = "TYPE SpeedController;";
+    TestOK == TestOK && check_dump(ost, "Test Load Type Name IEC Type invalid Format", static_cast<string>(""), typ.LoadTypeName(Inv4LineToDecode));
+
+    const string Inv6LineToDecode = "";
+    TestOK == TestOK && check_dump(ost, "Test Load Type Name IEC Type invalid Format", static_cast<string>(""), typ.LoadTypeName(Inv6LineToDecode));
+
+    typ.SetType(typ.LoadTypeName(LineToDecode));
+
+    TestOK == TestOK && check_dump(ost, "Test Save LineFormat IEC Type", LineToDecode, typ.GetSaveLine());
+
+    ost << TestEnd;
+
+    return TestOK;
+}
+
+bool TestJavaType(ostream& ost)
+{
+    assert(ost.good());
+
+    ost << TestStart;
+
+
+    bool TestOK = true;
+    string error_msg;
+
+    JavaType typ;
+
+    const string LineToDecode = "class SpeedController\n";
+    TestOK == TestOK && check_dump(ost, "Test Load Type Name Java Type", static_cast<string>("SpeedController"), typ.LoadTypeName(LineToDecode));
+
+    const string InvLineToDecode = "1class SpeedController";
+    TestOK == TestOK && check_dump(ost, "Test Load Type Name Java Type invalid Format", static_cast<string>(""), typ.LoadTypeName(InvLineToDecode));
+
+    const string Inv2LineToDecode = "class 1SpeedController";
+    TestOK == TestOK && check_dump(ost, "Test Load Type Name Java Type invalid Format", static_cast<string>(""), typ.LoadTypeName(Inv2LineToDecode));
+
+    const string Inv3LineToDecode = "class S2peedController";
+    TestOK == TestOK && check_dump(ost, "Test Load Type Name Java Type invalid Format", static_cast<string>("S2peedController"), typ.LoadTypeName(Inv3LineToDecode));
+
+    const string Inv4LineToDecode = "class SpeedController;";
+    TestOK == TestOK && check_dump(ost, "Test Load Type Name Java Type invalid Format", static_cast<string>(""), typ.LoadTypeName(Inv4LineToDecode));
+
+    const string Inv6LineToDecode = "";
+    TestOK == TestOK && check_dump(ost, "Test Load Type Name Java Type invalid Format", static_cast<string>(""), typ.LoadTypeName(Inv6LineToDecode));
+
+    typ.SetType(typ.LoadTypeName(LineToDecode));
+
+    TestOK == TestOK && check_dump(ost, "Test Save LineFormat Java Type", LineToDecode, typ.GetSaveLine());
 
     ost << TestEnd;
 

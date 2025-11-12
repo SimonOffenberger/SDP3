@@ -21,7 +21,9 @@ static std::string ScanTypeName(scanner& scan) {
 		scan.next_symbol();
 		TypeName = scan.get_identifier();
 		scan.next_symbol();
-		return TypeName;
+		if (!scan.has_symbol()) {
+			return TypeName;
+		}
 	}
 
 	return "";

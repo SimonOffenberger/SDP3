@@ -13,7 +13,31 @@
 *******************************************
 
 Test Variable Get Name
-[31m[Test FAILED] [37mResult: (Expected: asdf != Result: uint_fast_256_t)
+[32m[Test OK] [37mResult: (Expected: asdf == Result: asdf)
+
+Test Variable Get Type
+[32m[Test OK] [37mResult: (Expected: int == Result: int)
+
+Test Variable Set Name
+[32m[Test OK] [37mResult: (Expected: uint_fast_256_t == Result: uint_fast_256_t)
+
+Check for Exception in Testcase
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test Exception in Set Name
+[32m[Test OK] [37mResult: (Expected: ERROR: Empty String == Result: ERROR: Empty String)
+
+Test Exception in Set Type with nullptr
+[32m[Test OK] [37mResult: (Expected: ERROR: Passed in Nullptr! == Result: ERROR: Passed in Nullptr!)
+
+Test Variable Get Type after set with nullptr
+[32m[Test OK] [37mResult: (Expected: int == Result: int)
+
+Test Variable Get Type after set
+[32m[Test OK] [37mResult: (Expected: uint_fast512_t == Result: uint_fast512_t)
+
+Test for Exception in TestCase
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
 
 
 *******************************************
@@ -23,3 +47,254 @@ Test Variable Get Name
 **** Test Java Var Getter ****
  
  
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Variable Get Name
+[32m[Test OK] [37mResult: (Expected: jklm == Result: jklm)
+
+Test Variable Get Type
+[32m[Test OK] [37mResult: (Expected: int == Result: int)
+
+Test Variable Set Name
+[32m[Test OK] [37mResult: (Expected: uint_fast_256_t == Result: uint_fast_256_t)
+
+Check for Exception in Testcase
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test Exception in Set Name
+[32m[Test OK] [37mResult: (Expected: ERROR: Empty String == Result: ERROR: Empty String)
+
+Test Exception in Set Type with nullptr
+[32m[Test OK] [37mResult: (Expected: ERROR: Passed in Nullptr! == Result: ERROR: Passed in Nullptr!)
+
+Test Variable Get Type after set with nullptr
+[32m[Test OK] [37mResult: (Expected: int == Result: int)
+
+Test Variable Get Type after set
+[32m[Test OK] [37mResult: (Expected: uint_fast512_t == Result: uint_fast512_t)
+
+Test for Exception in TestCase
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+ 
+**** Test IEC Type Getter ****
+ 
+ 
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Type Get Name after Set
+[32m[Test OK] [37mResult: (Expected: unit_1024_t == Result: unit_1024_t)
+
+Test Exception in Set Type
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test Exception in Set Type
+[32m[Test OK] [37mResult: (Expected: ERROR: Empty String == Result: ERROR: Empty String)
+
+
+*******************************************
+
+
+ 
+**** Test Java Type Getter ****
+ 
+ 
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Type Get Name after Set
+[32m[Test OK] [37mResult: (Expected: unit_1024_t == Result: unit_1024_t)
+
+Test Exception in Set Type
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test Exception in Set Type
+[32m[Test OK] [37mResult: (Expected: ERROR: Empty String == Result: ERROR: Empty String)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Load Type Name IEC Var
+[32m[Test OK] [37mResult: (Expected: mCont == Result: mCont)
+
+Test Load Var Name IEC Var
+[32m[Test OK] [37mResult: (Expected: SpeedController == Result: SpeedController)
+
+Test Load Type Name IEC Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Var Name IEC Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name IEC Var invalid Format
+[32m[Test OK] [37mResult: (Expected: mCont == Result: mCont)
+
+Test Load Var Name IEC Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name IEC Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Var Name IEC Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name IEC Var invalid Format
+[32m[Test OK] [37mResult: (Expected: mCont == Result: mCont)
+
+Test Load Var Name IEC Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name IEC Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Var Name IEC Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name IEC Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Var Name IEC Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Save LineFormat IEC Variable
+[32m[Test OK] [37mResult: (Expected: VAR mCont : SpeedController; == Result: VAR mCont : SpeedController;)
+
+Test Save LineFormat IEC Variable
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Load Type Name Java Var
+[32m[Test OK] [37mResult: (Expected: mCont == Result: mCont)
+
+Test Load Var Name Java Var
+[32m[Test OK] [37mResult: (Expected: mBut == Result: mBut)
+
+Test Load Type Name Java Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Var Name Java Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name Java Var invalid Format
+[32m[Test OK] [37mResult: (Expected: mCont == Result: mCont)
+
+Test Load Var Name Java Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name Java Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Var Name Java Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name Java Var invalid Format
+[32m[Test OK] [37mResult: (Expected: mCont == Result: mCont)
+
+Test Load Var Name Java Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name Java Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Var Name Java Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name Java Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Var Name Java Var invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Save LineFormat IEC Variable
+[32m[Test OK] [37mResult: (Expected: mCont mBut == Result: mCont mBut)
+
+Test Save LineFormat IEC Variable
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Load Type Name IEC Type
+[32m[Test OK] [37mResult: (Expected: SpeedController == Result: SpeedController)
+
+Test Load Type Name IEC Type invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name IEC Type invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name IEC Type invalid Format
+[32m[Test OK] [37mResult: (Expected: S2peedController == Result: S2peedController)
+
+Test Load Type Name IEC Type invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name IEC Type invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Save LineFormat IEC Type
+[32m[Test OK] [37mResult: (Expected: TYPE SpeedController
+ == Result: TYPE SpeedController
+)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Load Type Name Java Type
+[32m[Test OK] [37mResult: (Expected: SpeedController == Result: SpeedController)
+
+Test Load Type Name Java Type invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name Java Type invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name Java Type invalid Format
+[32m[Test OK] [37mResult: (Expected: S2peedController == Result: S2peedController)
+
+Test Load Type Name Java Type invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Load Type Name Java Type invalid Format
+[32m[Test OK] [37mResult: (Expected:  == Result: )
+
+Test Save LineFormat Java Type
+[32m[Test OK] [37mResult: (Expected: class SpeedController
+ == Result: class SpeedController
+)
+
+
+*******************************************
+
+[32mTEST OK!![37m

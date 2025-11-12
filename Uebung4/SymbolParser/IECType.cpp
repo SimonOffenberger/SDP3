@@ -21,7 +21,9 @@ static std::string ScanTypeName(scanner& scan) {
 		scan.next_symbol();
 		TypeName = scan.get_identifier();
 		scan.next_symbol();
-		return TypeName;
+		if (!scan.has_symbol()) {
+			return TypeName;
+		}
 	}
 
 	return "";
@@ -43,5 +45,5 @@ std::string IECType::LoadTypeName(const std::string& fileLine) const
 
 std::string IECType::GetSaveLine() const
 {
-	return "TYPE" + m_name + "\n";
+	return "TYPE " + m_name + "\n";
 }

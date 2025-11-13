@@ -11,12 +11,12 @@
 
 Variable::Uptr JavaSymbolFactory::CreateVariable(const std::string& name)
 {
-    return std::make_unique<JavaVariable>(JavaVariable{ name });
+    return std::make_unique<JavaVariable>( name );
 }
 
 Type::Uptr JavaSymbolFactory::CreateType(const std::string& name)
 {
-    return std::make_unique<JavaType>(JavaType{name});
+    return std::make_unique<JavaType>(name);
 }
 
 const std::string& JavaSymbolFactory::GetTypeFileName()

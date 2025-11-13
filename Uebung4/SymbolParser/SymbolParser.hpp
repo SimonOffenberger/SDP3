@@ -58,7 +58,16 @@ public:
      */
     void AddVariable(std::string const& name, std::string const& type);
 
+    /**
+     * \brief CTOR of a Symbol Parser Object.
+     * 
+     * \param fact
+     */
     SymbolParser(ISymbolFactory & fact) : m_Factory{fact} {}
+
+    // Delete CopyCtor and Assign Op to prevent untestet behaviour.
+    SymbolParser(SymbolParser& s) = delete;
+    void operator=(SymbolParser s) = delete;
 
 protected:
 private:

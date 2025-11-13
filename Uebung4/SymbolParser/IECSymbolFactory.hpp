@@ -11,7 +11,7 @@
 #include "ISymbolFactory.hpp"
 #include "SingetonBase.hpp"
 
-class IECSymbolFactory:public ISymbolFactory , public SingletonBase<IECSymbolFactory>
+class IECSymbolFactory : public ISymbolFactory , public SingletonBase<IECSymbolFactory>
 {
 public:
 
@@ -47,6 +47,10 @@ public:
 	 * \return string of filePath
 	 */
 	virtual const std::string& GetVariableFileName() override;
+
+	// delete CopyCtor and Assign operator to prevent untestet behaviour
+	IECSymbolFactory(IECSymbolFactory& fact) = delete;
+	void operator=(IECSymbolFactory fact) = delete;
 
 protected:
 private:

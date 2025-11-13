@@ -139,7 +139,7 @@ bool TestVariable(Variable* var, const string& name, Type::Sptr typ, ostream& os
     try {
     
         TestOK = TestOK && check_dump(ost, "Test Variable Get Name", name, var->GetName());
-        TestOK = TestOK && check_dump(ost, "Test Variable Get Type", typ->GetType(), var->GetType());
+        TestOK = TestOK && check_dump(ost, "Test Variable Get Type", typ->GetName(), var->GetTypeName());
 
         const string var_name = "uint_fast_256_t";
 
@@ -205,12 +205,12 @@ bool TestVariable(Variable* var, const string& name, Type::Sptr typ, ostream& os
 
 
     try {
-        TestOK = TestOK && check_dump(ost, "Test Variable Get Type after set with nullptr", typ->GetType(), var->GetType());
+        TestOK = TestOK && check_dump(ost, "Test Variable Get Type after set with nullptr", typ->GetName(), var->GetTypeName());
 
-        typ->SetType("uint_fast512_t");
+        typ->SetName("uint_fast512_t");
         var->SetType(typ);
 
-        TestOK = TestOK && check_dump(ost, "Test Variable Get Type after set", typ->GetType(), var->GetType());
+        TestOK = TestOK && check_dump(ost, "Test Variable Get Type after set", typ->GetName(), var->GetTypeName());
 
     }
     catch (const string& err) {
@@ -245,8 +245,8 @@ bool TestType(Type::Sptr typ, ostream& ost)
     string error_msg;
 
     try {
-        typ->SetType("unit_1024_t");
-        TestOK = TestOK && check_dump(ost, "Test Type Get Name after Set", static_cast<string>("unit_1024_t"), typ->GetType());
+        typ->SetName("unit_1024_t");
+        TestOK = TestOK && check_dump(ost, "Test Type Get Name after Set", static_cast<string>("unit_1024_t"), typ->GetName());
     }
     catch (const string& err) {
         error_msg = err;
@@ -267,7 +267,7 @@ bool TestType(Type::Sptr typ, ostream& ost)
 
 
     try {
-        typ->SetType("");
+        typ->SetName("");
     }
     catch (const string& err) {
         error_msg = err;
@@ -334,7 +334,7 @@ bool TestIECVar(ostream& ost)
 
         Type::Sptr IECTyp = make_shared<IECType>( IECType{} );
         var.SetName(var.LoadVarName(LineToDecode));
-        IECTyp->SetType(var.LoadTypeName(LineToDecode));
+        IECTyp->SetName(var.LoadTypeName(LineToDecode));
         var.SetType(IECTyp);
 
         TestOK == TestOK && check_dump(ost, "Test Save LineFormat IEC Variable", LineToDecode, var.GetSaveLine());
@@ -409,7 +409,7 @@ bool TestJavaVar(ostream& ost)
 
         Type::Sptr JTyp = make_shared<JavaType>(JavaType{});
         var.SetName(var.LoadVarName(LineToDecode));
-        JTyp->SetType(var.LoadTypeName(LineToDecode));
+        JTyp->SetName(var.LoadTypeName(LineToDecode));
         var.SetType(JTyp);
 
         TestOK == TestOK && check_dump(ost, "Test Save LineFormat IEC Variable", LineToDecode, var.GetSaveLine());
@@ -470,7 +470,7 @@ bool TestIECType(ostream& ost)
         const string Inv6LineToDecode = "";
         TestOK == TestOK && check_dump(ost, "Test Load Type Name IEC Type invalid Format", static_cast<string>(""), typ.LoadTypeName(Inv6LineToDecode));
 
-        typ.SetType(typ.LoadTypeName(LineToDecode));
+        typ.SetName(typ.LoadTypeName(LineToDecode));
 
         TestOK == TestOK && check_dump(ost, "Test Save LineFormat IEC Type", LineToDecode, typ.GetSaveLine());
 
@@ -528,7 +528,7 @@ bool TestJavaType(ostream& ost)
         const string Inv6LineToDecode = "";
         TestOK == TestOK && check_dump(ost, "Test Load Type Name Java Type invalid Format", static_cast<string>(""), typ.LoadTypeName(Inv6LineToDecode));
 
-        typ.SetType(typ.LoadTypeName(LineToDecode));
+        typ.SetName(typ.LoadTypeName(LineToDecode));
 
         TestOK == TestOK && check_dump(ost, "Test Save LineFormat Java Type", LineToDecode, typ.GetSaveLine());
 

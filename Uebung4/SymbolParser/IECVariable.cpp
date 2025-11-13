@@ -18,7 +18,7 @@ std::string IECVariable::GetSaveLine() const
 {
 	if (m_type == nullptr) return "";
 
-	return  "VAR " + m_type->GetType() + " : " + m_name + ";\n";
+	return  "VAR " + m_type->GetName() + " : " + m_name + ";\n";
 }
 
 /**

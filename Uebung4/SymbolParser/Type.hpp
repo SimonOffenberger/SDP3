@@ -9,13 +9,11 @@
 
 #include <memory>
 #include <string>
-#include "Object.h"
+#include "Identifier.hpp"
 
-class Type : public Object
+class Type : public Identifier
 {
 public: 
-
-	inline static const std::string ERROR_EMPTY_STRING = "ERROR: Empty String";
 
 	/**
 	 * \brief Unique pointer type for type
@@ -26,21 +24,6 @@ public:
 	 * \brief Shared pointer type for type
 	 */
 	using Sptr = std::shared_ptr<Type>;
-
-	/**
-	 * \brief Getter for type name
-	 *
-	 * \return string of type
-	 */
-	std::string GetType() const;
-
-	/**
-	 * \brief Sets a types name
-	 *
-	 * \param string fileLine
-	 * \return string of type - SymbolParser has to check type for validity
-	 */
-	void SetType(const std::string& name);
 
 	/**
 	 * \brief Loads a types name from a files line
@@ -55,13 +38,12 @@ public:
 	 *
 	 * \return string of type declaration
 	 */
-	virtual std::string GetSaveLine() const =0;
+	virtual std::string GetSaveLine() const = 0;
 
-	Type(const std::string& name) : m_name{ name } {}
-	Type() = default;
 
 protected:
-	std::string m_name;
+	Type(const std::string& name) : Identifier{ name } {}
+	Type() = default;
 private:
 };
 #endif

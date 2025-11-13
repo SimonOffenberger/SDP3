@@ -59,16 +59,17 @@
              {Fail}{{\textcolor{failred}{Fail}}}4,
 }
 
-\lstset{
-	language={C++},
-	basicstyle=\tiny\ttfamily,
-	keywordstyle=\color{blue},%\bfseries,
-	commentstyle=\color{green},
-	frame=single,
-	linewidth=16cm,
-	breaklines=false,
-	tabsize=3,
-	numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt
+\lstdefinestyle{cppstyle}{
+  language=C++,
+  basicstyle=\ttfamily\tiny,
+  keywordstyle=\color{blue},
+  commentstyle=\textcolor{okgreen},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  breaklines=true,
+  frame=single
 }
 
 
@@ -118,6 +119,9 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \begin{document}
 
 \selectlanguage{naustrian}   % oder "american" fÃ¼r engl. Texte
+
+\includepdf[pages = 1-3]{Uebung04_Deckblatt.pdf}
+
 
 % Titelblatt
 % ----------
@@ -201,8 +205,8 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \subsection{Aufwand}
 	
 	\begin{itemize}
-		\item Simon Offenberger: geschätzt 10 Ph / tatsächlich x Ph
-		\item Simon Vogelhuber:  geschätzt x Ph / tatsächlich x Ph
+		\item Simon Offenberger: geschätzt 10 Ph / tatsächlich 8 Ph
+		\item Simon Vogelhuber:  geschätzt 10 Ph / tatsächlich 10 Ph
 	\end{itemize}
 
 \clearpage
@@ -285,58 +289,64 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 \clearpage
 \section{Quellcode}
 \subsection{Object.hpp}
-\lstinputlisting{../Object.h}
+\lstinputlisting[style = cppstyle]{../Object.h}
 \clearpage
 \subsection{Symbolparser.hpp}
-\lstinputlisting{../Symbolparser.hpp}
+\lstinputlisting[style = cppstyle]{../Symbolparser.hpp}
 \clearpage
 \subsection{Symbolparser.cpp}
-\lstinputlisting{../Symbolparser.cpp}
+\lstinputlisting[style = cppstyle]{../Symbolparser.cpp}
 \clearpage
 \subsection{ISymbolFactory.hpp}
-\lstinputlisting{../ISymbolFactory.hpp}
+\lstinputlisting[style = cppstyle]{../ISymbolFactory.hpp}
+\clearpage
+\subsection{Identifier.hpp}
+\lstinputlisting[style = cppstyle]{../Identifier.hpp}
+\clearpage
+\subsection{Identifier.cpp}
+\lstinputlisting[style = cppstyle]{../Identifier.cpp}
 \clearpage
 \subsection{Variable.hpp}
-\lstinputlisting{../Variable.hpp}
+\lstinputlisting[style = cppstyle]{../Variable.hpp}
 \clearpage
 \subsection{Variable.cpp}
-\lstinputlisting{../Variable.cpp}
+\lstinputlisting[style = cppstyle]{../Variable.cpp}
 \clearpage
 \subsection{Type.hpp}
-\lstinputlisting{../Type.hpp}
+\lstinputlisting[style = cppstyle]{../Type.hpp}
 \clearpage
 \subsection{Type.cpp}
-\lstinputlisting{../Type.cpp}
+\lstinputlisting[style = cppstyle]{../Type.cpp}
 \clearpage
 \subsection{Test.hpp}
-\lstinputlisting{../Test.hpp}
+\lstinputlisting[style = cppstyle]{../Test.hpp}
 \clearpage
 \subsection{SingetonBase.hpp}
-\lstinputlisting{../SingetonBase.hpp}
+\lstinputlisting[style = cppstyle]{../SingetonBase.hpp}
 \clearpage
 \subsection{JavaVariable.hpp}
-\lstinputlisting{../JavaVariable.hpp}
+\lstinputlisting[style = cppstyle]{../JavaVariable.hpp}
 \clearpage
 \subsection{JavaVariable.cpp}
-\lstinputlisting{../JavaVariable.cpp}
+\lstinputlisting[style = cppstyle]{../JavaVariable.cpp}
 \clearpage
 \subsection{JavaSymbolFactory.hpp}
-\lstinputlisting{../JavaSymbolFactory.hpp}
+\lstinputlisting[style = cppstyle]{../JavaSymbolFactory.hpp}
 \clearpage
 \subsection{JavaSymbolFactory.cpp}
-\lstinputlisting{../JavaSymbolFactory.cpp}
+\lstinputlisting[style = cppstyle]{../JavaSymbolFactory.cpp}
 \clearpage
 \subsection{IECVariable.hpp}
-\lstinputlisting{../IECVariable.hpp}
+\lstinputlisting[style = cppstyle]{../IECVariable.hpp}
 \clearpage
 \subsection{IECVariable.cpp}
-\lstinputlisting{../IECVariable.cpp}
+\lstinputlisting[style = cppstyle]{../IECVariable.cpp}
 \clearpage
 \subsection{IECSymbolFactory.hpp}
-\lstinputlisting{../IECSymbolFactory.hpp}
+\lstinputlisting[style = cppstyle]{../IECSymbolFactory.hpp}
 \clearpage
 \subsection{IECSymbolFactory.cpp}
-\lstinputlisting{../IECSymbolFactory.cpp}
+\lstinputlisting[style = cppstyle]{../IECSymbolFactory.cpp}
 
 
 % Literaturverzeichnis

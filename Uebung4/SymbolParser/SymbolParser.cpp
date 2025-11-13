@@ -67,7 +67,7 @@ void SymbolParser::LoadNewState(const std::string& type_file, const std::string&
 
         Type::Uptr pType = m_Factory.CreateType("");
 
-        pType->SetType(pType->LoadTypeName(line));
+        pType->SetName(pType->LoadTypeName(line));
 
         m_typeCont.push_back(move(pType));
     }
@@ -95,7 +95,7 @@ void SymbolParser::LoadNewState(const std::string& type_file, const std::string&
         // look up if type even exists if yes add to type container
         for (const auto& m_type : m_typeCont)
         {
-            if (type == m_type->GetType())
+            if (type == m_type->GetName())
             {
 
                 pVar->SetType(m_type);
@@ -105,7 +105,7 @@ void SymbolParser::LoadNewState(const std::string& type_file, const std::string&
             }
         }
 
-        if (pVar->GetType() != "") {
+        if (pVar->GetTypeName() != "") {
             m_variableCont.push_back(move(pVar));
         }
     }
@@ -130,7 +130,7 @@ void SymbolParser::AddType(std::string const& name)
         throw SymbolParser::ERROR_EMPTY_STRING;
 
     // check if type already exists
-    auto it = find_if(m_typeCont.cbegin(), m_typeCont.cend(), [&](const auto& t) { return t->GetType() == name;});
+    auto it = find_if(m_typeCont.cbegin(), m_typeCont.cend(), [&](const auto& t) { return t->GetName() == name;});
 
     if (it != m_typeCont.cend()) throw ERROR_DUPLICATE_TYPE;
 
@@ -149,14 +149,14 @@ void SymbolParser::AddVariable(std::string const& name, std::string const& type)
 
     // check if variable already exists
     auto it = find_if(m_variableCont.cbegin(), m_variableCont.cend(), 
-        [&](const auto& t) { return t->GetType() == type && t->GetName() == name;});
+        [&](const auto& t) { return t->GetTypeName() == type && t->GetName() == name;});
 
     if (it != m_variableCont.cend()) throw ERROR_DUPLICATE_VAR;
 
     // look up if type even exists if yes add to type container
     for (const auto& m_type : m_typeCont)
     {
-        if (type == m_type->GetType())
+        if (type == m_type->GetName())
         {
             auto pVar = m_Factory.CreateVariable(name);
             pVar->SetType(m_type);

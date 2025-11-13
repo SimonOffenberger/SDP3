@@ -57,6 +57,9 @@
     <ClInclude Include="scanner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Identifier.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IECType.cpp">
@@ -80,13 +83,13 @@
     <ClCompile Include="SymbolParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Type.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Variable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="IECSymbolFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Identifier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

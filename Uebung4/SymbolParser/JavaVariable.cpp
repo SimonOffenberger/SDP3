@@ -49,7 +49,7 @@ std::string JavaVariable::GetSaveLine() const
 {
 	if (m_type == nullptr) return "";
 
-	return m_type->GetType() + " " + m_name + "\n";
+	return m_type->GetName() + " " + m_name + "\n";
 }
 
 std::string JavaVariable::LoadTypeName(std::string const& fileLine) const

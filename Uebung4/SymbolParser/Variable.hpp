@@ -11,19 +11,16 @@
 #include <vector>
 #include <string>
 
-#include "Object.h"
+#include "Identifier.hpp"
 #include "Type.hpp"
 
-class Variable: public Object
+class Variable: public Identifier
 {
 public:
     /**
      * \brief Unique pointer type for variable
      */
     using Uptr = std::unique_ptr<Variable>;
-
-
-    inline static const std::string ERROR_EMPTY_STRING = "ERROR: Empty String";
 
     /**
      * \brief Returns formatted line of a variables declaration
@@ -53,35 +50,25 @@ public:
      *
      * \param shared pointer of type
      * \return void
+     * \throw ERROR_NULLPTR
      */
     void SetType(Type::Sptr type);
     
-    /**
-     * \brief Retuns the name of a variable
-     *
-     * \return string name
-     */
-    std::string GetName() const;
 
     /**
      * \brief Name getter
      *
      * \return string of variable
      */
-    std::string GetType() const;
+    std::string GetTypeName() const;
 
-    /**
-     * \brief Sets name of variable
-     *
-     * \return void
-     */
-    void SetName(const std::string & name);
 
 protected:
-    Variable(const std::string& name) : m_name{ name } {}
+    Variable(const std::string& name) : Identifier{ name } {}
     Variable() = default;
-    std::string m_name;
+
     Type::Sptr m_type;
+
 private:
 };
 #endif

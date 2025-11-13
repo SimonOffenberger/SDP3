@@ -7,7 +7,6 @@
 #ifndef JAVA_SYMBOL_FACTORY_HPP
 #define JAVA_SYMBOL_FACTORY_HPP
 
-#include "Object.h"
 #include "ISymbolFactory.hpp"
 #include "SingetonBase.hpp"
 
@@ -46,6 +45,10 @@ public:
 	 * \return string of filePath
 	 */
 	virtual const std::string& GetVariableFileName() override;
+
+	// delete CopyCtor and Assign operator to prevent untestet behaviour
+	JavaSymbolFactory(JavaSymbolFactory& fact) = delete;
+	void operator=(JavaSymbolFactory fact) = delete;
 
 protected:
 private:

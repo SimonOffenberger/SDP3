@@ -21,12 +21,24 @@ void SymbolParser::SaveState(const std::string & type_file, const std::string & 
 
     type_File.open(m_Factory.GetTypeFileName());
 
+    // check if file is good
+    if (!type_File.good()) {
+        type_File.close();
+        return;
+    }
+
     for_each(m_typeCont.cbegin(), m_typeCont.cend(), [&](const auto& type) { type_File << type->GetSaveLine(); });
 
     type_File.close();
 
 
     var_File.open(m_Factory.GetVariableFileName());
+
+    // check if file is good
+    if (!var_File.good()) {
+        var_File.close();
+        return;
+    }
 
     for_each(m_variableCont.cbegin(), m_variableCont.cend(), [&](const auto& var) { var_File << var->GetSaveLine(); });
 
@@ -43,6 +55,12 @@ void SymbolParser::LoadNewState(const std::string& type_file, const std::string&
 
     type_File.open(m_Factory.GetTypeFileName());
 
+    // check if file is good
+    if (!type_File.good()) {
+        type_File.close();
+        return;
+    }
+
     string line;
 
     while (getline(type_File, line)) {
@@ -58,6 +76,12 @@ void SymbolParser::LoadNewState(const std::string& type_file, const std::string&
 
 
     var_File.open(m_Factory.GetVariableFileName());
+
+    // check if file is good
+    if (!var_File.good()) {
+        var_File.close();
+        return;
+    }
 
     while (getline(var_File, line)) {
 
@@ -105,8 +129,14 @@ void SymbolParser::AddType(std::string const& name)
     if (name.empty())
         throw SymbolParser::ERROR_EMPTY_STRING;
 
+    // check if type already exists
+    auto it = find_if(m_typeCont.cbegin(), m_typeCont.cend(), [&](const auto& t) { return t->GetType() == name;});
+
+    if (it != m_typeCont.cend()) throw ERROR_DUPLICATE_TYPE;
+
     Type::Uptr pType = m_Factory.CreateType(name);
     m_typeCont.push_back(move(pType));
+
 }
 
 void SymbolParser::AddVariable(std::string const& name, std::string const& type)
@@ -116,6 +146,12 @@ void SymbolParser::AddVariable(std::string const& name, std::string const& type)
     
     if (type.empty())
         throw SymbolParser::ERROR_EMPTY_STRING;
+
+    // check if variable already exists
+    auto it = find_if(m_variableCont.cbegin(), m_variableCont.cend(), 
+        [&](const auto& t) { return t->GetType() == type && t->GetName() == name;});
+
+    if (it != m_variableCont.cend()) throw ERROR_DUPLICATE_VAR;
 
     // look up if type even exists if yes add to type container
     for (const auto& m_type : m_typeCont)

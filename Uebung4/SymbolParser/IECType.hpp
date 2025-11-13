@@ -28,6 +28,11 @@ public:
 	 */
 	virtual std::string GetSaveLine() const override;
 
+	/**
+	 * \brief Constructs a Type with a specified name.
+	 * 
+	 * \param name
+	 */
 	IECType(const std::string name) : Type{ name } {}
 
 	IECType() = default;

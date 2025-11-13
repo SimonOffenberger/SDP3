@@ -1,12 +1,12 @@
 /*****************************************************************//**
  * \file   IECSymbolFactory.hpp
- * \brief  A factory for parsing IEC variables and types
+ * \brief  A factory for creating IEC variables and types
  * \author Simon 
  * \date   Dezember 2025
  *********************************************************************/
-
 #ifndef IEC_SYMBOL_FACTORY_HPP
 #define IEC_SYMBOL_FACTORY_HPP
+
 #include "Object.h"
 #include "ISymbolFactory.hpp"
 #include "SingetonBase.hpp"
@@ -15,6 +15,7 @@ class IECSymbolFactory:public ISymbolFactory , public SingletonBase<IECSymbolFac
 {
 public:
 
+	// This class is a Singleton
 	friend class SingletonBase<IECSymbolFactory>;
 
 	/**
@@ -50,6 +51,7 @@ public:
 protected:
 private:
 	IECSymbolFactory() = default;
+
 	const std::string m_TypeFileName = "IECTypes.sym";
 	const std::string m_VariableFileName  =  "IECVars.sym";
 };

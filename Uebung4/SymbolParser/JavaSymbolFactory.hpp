@@ -1,12 +1,12 @@
 /*****************************************************************//**
  * \file   JavaSymbolFactory.hpp
- * \brief  A factory for parsing java variables and types
+ * \brief  A factory for creating java variables and types
  * \author Simon 
  * \date   Dezember 2025
  *********************************************************************/
-
 #ifndef JAVA_SYMBOL_FACTORY_HPP
 #define JAVA_SYMBOL_FACTORY_HPP
+
 #include "Object.h"
 #include "ISymbolFactory.hpp"
 #include "SingetonBase.hpp"
@@ -21,7 +21,7 @@ public:
 	 * \brief Creates a java variable
 	 *
 	 * \param string of variables name
-	 * \return uniqie pointer to variable
+	 * \return unique pointer to variable
 	 */
 	virtual Variable::Uptr CreateVariable(const std::string& name) override;
 

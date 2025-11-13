@@ -14,6 +14,13 @@
 using namespace pfc;
 using namespace std;
 
+/**
+ * \brief Scans an input string for the Type name of the Type.
+ *
+ * \param scan Reference to scanner object
+ * \return emtpy string if no valid type name is found
+ * \return name of type
+ */
 static std::string ScanTypeName(scanner& scan) {
 	string TypeName;
 
@@ -45,9 +52,5 @@ std::string JavaType::LoadTypeName(const std::string& fileLine) const
 
 std::string JavaType::GetSaveLine() const
 {
-	stringstream sstream;
-
-	sstream << "class " << m_name << endl;
-
-	return sstream.str();
+	return "class "  +  m_name + "\n";
 }

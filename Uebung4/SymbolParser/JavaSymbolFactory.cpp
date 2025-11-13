@@ -1,11 +1,9 @@
 /*****************************************************************//**
  * \file   JavaSymbolFactory.cpp
- * \brief  A factory for parsing java variables and types
+ * \brief  A factory for creating java variables and types
  * \author Simon 
  * \date   Dezember 2025
  *********************************************************************/
-
-
 #include "JavaSymbolFactory.hpp"
 #include "JavaType.hpp"
 #include "JavaVariable.hpp"

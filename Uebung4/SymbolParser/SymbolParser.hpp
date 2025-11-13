@@ -9,6 +9,7 @@
 #define SYMBOL_PARSER_HPP
 
 #include <vector>
+#include <map>
 
 #include "Object.h"
 #include "Variable.hpp"
@@ -20,6 +21,8 @@ class SymbolParser : public Object
 public:
     inline static const std::string ERROR_EMPTY_STRING = "ERROR: Provided string is empty.";
     inline static const std::string ERROR_NONEXISTING_TYPE = "ERROR: Provided type does not exist.";
+    inline static const std::string ERROR_DUPLICATE_TYPE = "ERROR: Provided type already exists.";
+    inline static const std::string ERROR_DUPLICATE_VAR = "ERROR: Provided Variable already exists.";
 
     /**
      * \brief Polymorphic conatiner for saving variables
@@ -30,7 +33,8 @@ public:
      * \brief Polymorphic conatiner for saving types
      */
     using TTypeCont = std::vector<Type::Sptr>;
-    
+
+
     /**
      * \brief Sets Factory for parsing a language
      * \brief Previus variables and types of prior factory get saved, 

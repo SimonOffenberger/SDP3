@@ -16,15 +16,18 @@ using namespace std;
 
 std::string IECVariable::GetSaveLine() const
 {
-	stringstream line;
+	if (m_type == nullptr) return "";
 
-	if (m_type != nullptr) {
-		line << "VAR " << m_type->GetType() << " : " << m_name << ";";
-	}
-
-	return line.str();
+	return  "VAR " + m_type->GetType() + " : " + m_name + ";\n";
 }
 
+/**
+ * \brief Scans an input string for the Type name of the Var.
+ *
+ * \param scan Reference to scanner object
+ * \return emtpy string if no valid type name is found
+ * \return name of type
+ */
 static std::string ScanTypeName(scanner & scan) {
 	string TypeName;
 
@@ -38,6 +41,13 @@ static std::string ScanTypeName(scanner & scan) {
 	return "";
 }
 
+/**
+ * \brief Scans an input string for the Variable name of the Var.
+ *
+ * \param scan Reference to scanner object
+ * \return emtpy string if no valid Variable name is found
+ * \return name of Variable
+ */
 static std::string ScanVarName(scanner & scan) {
 	string VarName;
 

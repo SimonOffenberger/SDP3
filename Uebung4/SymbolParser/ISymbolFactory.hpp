@@ -43,6 +43,10 @@ public:
 	 */
 	virtual const std::string& GetVariableFileName()=0;
 
+
+
+	virtual ~ISymbolFactory() = default;
+
 protected:
 private:
 };

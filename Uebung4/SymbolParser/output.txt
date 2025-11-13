@@ -171,10 +171,15 @@ Test Load Var Name IEC Var invalid Format
 [Test OK] Result: (Expected:  == Result: )
 
 Test Save LineFormat IEC Variable
-[Test OK] Result: (Expected: VAR mCont : SpeedController; == Result: VAR mCont : SpeedController;)
+[Test OK] Result: (Expected: VAR mCont : SpeedController;
+ == Result: VAR mCont : SpeedController;
+)
 
 Test Save LineFormat IEC Variable
 [Test OK] Result: (Expected:  == Result: )
+
+Test for Exception in TestCase
+[Test OK] Result: (Expected: true == Result: true)
 
 
 *******************************************
@@ -227,10 +232,15 @@ Test Load Var Name Java Var invalid Format
 [Test OK] Result: (Expected:  == Result: )
 
 Test Save LineFormat IEC Variable
-[Test OK] Result: (Expected: mCont mBut == Result: mCont mBut)
+[Test OK] Result: (Expected: mCont mBut
+ == Result: mCont mBut
+)
 
 Test Save LineFormat IEC Variable
 [Test OK] Result: (Expected:  == Result: )
+
+Test for Exception in TestCase
+[Test OK] Result: (Expected: true == Result: true)
 
 
 *******************************************
@@ -263,6 +273,9 @@ Test Save LineFormat IEC Type
  == Result: TYPE SpeedController
 )
 
+Test for Exception in TestCase
+[Test OK] Result: (Expected: true == Result: true)
+
 
 *******************************************
 
@@ -294,6 +307,9 @@ Test Save LineFormat Java Type
  == Result: class SpeedController
 )
 
+Test for Exception in TestCase
+[Test OK] Result: (Expected: true == Result: true)
+
 
 *******************************************
 
@@ -305,7 +321,7 @@ Test Save LineFormat Java Type
 Normal Operating Parser
 [Test OK] Result: (Expected: true == Result: true)
 
-.AddType() - add empty type to factory
+.AddType() - add empty type to parser
 [Test OK] Result: (Expected: ERROR: Provided string is empty. == Result: ERROR: Provided string is empty.)
 
 .AddVariable() - add empty type to factory
@@ -316,6 +332,12 @@ Normal Operating Parser
 
 .AddVariable() - add variable with nonexisting type
 [Test OK] Result: (Expected: ERROR: Provided type does not exist. == Result: ERROR: Provided type does not exist.)
+
+.AddType() - add duplicate type
+[Test OK] Result: (Expected: ERROR: Provided type already exists. == Result: ERROR: Provided type already exists.)
+
+.AddVar() - add duplicate Var
+[Test OK] Result: (Expected: ERROR: Provided Variable already exists. == Result: ERROR: Provided Variable already exists.)
 
 
 *******************************************

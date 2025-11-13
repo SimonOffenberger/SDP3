@@ -14,6 +14,13 @@
 using namespace pfc;
 using namespace std;
 
+/**
+ * \brief Scans an input string for the Type name of the Type.
+ * 
+ * \param scan Reference to scanner object
+ * \return emtpy string if no valid type name is found
+ * \return name of type
+ */
 static std::string ScanTypeName(scanner& scan) {
 	string TypeName;
 
@@ -22,7 +29,7 @@ static std::string ScanTypeName(scanner& scan) {
 		TypeName = scan.get_identifier();
 		scan.next_symbol();
 		if (!scan.has_symbol()) {
-			return TypeName;
+			return TypeName; 
 		}
 	}
 
@@ -42,6 +49,7 @@ std::string IECType::LoadTypeName(const std::string& fileLine) const
 
 	return ScanTypeName(scan);
 }
+
 
 std::string IECType::GetSaveLine() const
 {

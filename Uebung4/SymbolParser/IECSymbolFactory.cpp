@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   IECSymbolFactory.cpp
- * \brief  A factory for parsing IEC variables and types
+ * \brief  A factory for creating IEC variables and types
  * \author Simon 
  * \date   Dezember 2025
  *********************************************************************/

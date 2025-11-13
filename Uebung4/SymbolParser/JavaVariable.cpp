@@ -13,6 +13,13 @@
 using namespace pfc;
 using namespace std;
 
+/**
+ * \brief Scans an input string for the Type name of the Var.
+ *
+ * \param scan Reference to scanner object
+ * \return emtpy string if no valid type name is found
+ * \return name of type
+ */
 static std::string ScanTypeName(scanner& scan)
 {
 	string typeName = scan.get_identifier();
@@ -20,23 +27,29 @@ static std::string ScanTypeName(scanner& scan)
 	return typeName;
 }
 
+/**
+ * \brief Scans an input string for the Variable name of the Var.
+ *
+ * \param scan Reference to scanner object
+ * \return emtpy string if no valid Variable name is found
+ * \return name of Variable
+ */
 static std::string ScanVarName(scanner& scan)
 {
 	string varName;
 	varName = scan.get_identifier();
+	scan.next_symbol();
 
-	return varName;
+	// The line should be emty after the var Name!
+	if (!scan.has_symbol()) return varName;
+	else				    return "";
 }
 
 std::string JavaVariable::GetSaveLine() const
 {
-	stringstream line;
+	if (m_type == nullptr) return "";
 
-	if (m_type != nullptr) {
-		line << m_type->GetType() << " " << m_name;
-	}
-
-	return line.str();
+	return m_type->GetType() + " " + m_name + "\n";
 }
 
 std::string JavaVariable::LoadTypeName(std::string const& fileLine) const

@@ -63,7 +63,9 @@ public:
      * 
      * \param fact
      */
-    SymbolParser(ISymbolFactory & fact) : m_Factory{fact} {}
+    SymbolParser(ISymbolFactory& fact);
+
+    virtual ~SymbolParser();
 
     // Delete CopyCtor and Assign Op to prevent untestet behaviour.
     SymbolParser(SymbolParser& s) = delete;
@@ -87,6 +89,6 @@ private:
 
     TTypeCont m_typeCont;
     TVariableCont m_variableCont;
-    ISymbolFactory & m_Factory;
+    ISymbolFactory * m_Factory;
 };
 #endif

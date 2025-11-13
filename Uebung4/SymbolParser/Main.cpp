@@ -5,18 +5,26 @@
  * \date   November 2025
  *********************************************************************/
 
+// These Includes are needed because of the testcases !!
 #include "IECVariable.hpp"
 #include "JavaVariable.hpp"
 #include "IECType.hpp"
 #include "JavaType.hpp"
+
+// These are the Includes if the Symbolparses is used by a Client!!
 #include "SymbolParser.hpp"
 #include "JavaSymbolFactory.hpp"
 #include "IECSymbolFactory.hpp"
+#include "Client.hpp"
+
+// Testing Includes
 #include "Test.hpp"
 #include "vld.h"
 #include <fstream>
 #include <iostream>
 #include <cassert>
+
+#include <cstdio>
 
 using namespace std;
 
@@ -28,99 +36,142 @@ static bool TestIECVar(ostream& ost = cout);
 static bool TestJavaVar(ostream& ost = cout);
 static bool TestIECType(ostream& ost = cout);
 static bool TestJavaType(ostream& ost = cout);
-static bool TestSymbolParser(ostream& ost = cout);
 
+
+
+static void EraseFile(const char* path) {
+    // Versucht, die Datei zu loeschen
+    if (std::remove(path) == 0) {
+        // Datei wurde erfolgreich geloescht
+        std::printf("Datei '%s' erfolgreich geloescht.\n", path);
+    }
+    else {
+        // Fehler beim Loeschen der Datei
+        std::perror("Fehler beim Loeschen der Datei");
+    }
+}
 
 int main()
-{
+{   
+    // Erase previos Symbol files for test cases
+    EraseFile("IECTypes.sym");
+    EraseFile("IECVars.sym");
+    EraseFile("JavaTypes.sym");
+    EraseFile("JavaVars.sym");
+
 
     bool TestOK = true;
 
-    Type::Sptr Itype{make_shared<IECType>( IECType{ "int" } )};
+    ofstream output{ "output.txt" };
 
-    Type::Sptr Jtyp{make_shared<JavaType>(JavaType{ "int" } )};
 
-    IECVariable IECVar{ "asdf" };
-    IECVar.SetType(Itype);
+    try {
+        Type::Sptr Itype{ make_shared<IECType>(IECType{ "int" }) };
 
-    JavaVariable JavaVar{ "jklm" };
-    JavaVar.SetType(Jtyp);
+        Type::Sptr Jtyp{ make_shared<JavaType>(JavaType{ "int" }) };
 
-    cout << "\n \n**** Test IEC Var Getter ****\n \n ";
-    TestOK = TestOK && TestVariable(&IECVar, "asdf", Itype);
+        IECVariable IECVar{ "asdf" };
+        IECVar.SetType(Itype);
 
-    cout << "\n \n**** Test Java Var Getter ****\n \n ";
-    TestOK = TestOK && TestVariable(&JavaVar, "jklm",Jtyp);
+        JavaVariable JavaVar{ "jklm" };
+        JavaVar.SetType(Jtyp);
 
-    cout << "\n \n**** Test IEC Type Getter ****\n \n ";
-    TestOK = TestOK && TestType(Itype);
+        cout << "\n \n**** Test IEC Var Getter ****\n \n ";
+        TestOK = TestOK && TestVariable(&IECVar, "asdf", Itype);
 
-    cout << "\n \n**** Test Java Type Getter ****\n \n ";
-    TestOK = TestOK && TestType(Jtyp);
+        cout << "\n \n**** Test Java Var Getter ****\n \n ";
+        TestOK = TestOK && TestVariable(&JavaVar, "jklm", Jtyp);
 
-    TestOK = TestOK && TestIECVar();
+        cout << "\n \n**** Test IEC Type Getter ****\n \n ";
+        TestOK = TestOK && TestType(Itype);
 
-    TestOK = TestOK && TestJavaVar();
+        cout << "\n \n**** Test Java Type Getter ****\n \n ";
+        TestOK = TestOK && TestType(Jtyp);
 
-    TestOK = TestOK && TestIECType();
+        TestOK = TestOK && TestIECVar();
 
-    TestOK = TestOK && TestJavaType();
+        TestOK = TestOK && TestJavaVar();
 
-    TestOK = TestOK && TestSymbolParser();
+        TestOK = TestOK && TestIECType();
 
-    if (WriteOutputFile) {
-        ofstream output{ "output.txt" };
+        TestOK = TestOK && TestJavaType();
 
-        Type::Sptr Itype1{ make_shared<IECType>(IECType{ "int" }) };
+        TestOK = TestOK && TestSymbolParser();
 
-        Type::Sptr Jtyp1{ make_shared<JavaType>(JavaType{ "int" }) };
+        if (WriteOutputFile) {
 
-        IECVariable IECVar1{ "asdf" };
-        IECVar1.SetType(Itype1);
+            // Erase previos Symbol files for test cases
+            EraseFile("IECTypes.sym");
+            EraseFile("IECVars.sym");
+            EraseFile("JavaTypes.sym");
+            EraseFile("JavaVars.sym");
 
-        JavaVariable JavaVar1{ "jklm" };
-        JavaVar1.SetType(Jtyp1);
 
-        output << TestStart;
+            Type::Sptr Itype1{ make_shared<IECType>(IECType{ "int" }) };
 
-        output << "\n \n**** Test IEC Var Getter ****\n \n ";
-        TestOK = TestOK && TestVariable(&IECVar1, "asdf", Itype1,output);
+            Type::Sptr Jtyp1{ make_shared<JavaType>(JavaType{ "int" }) };
 
-        output << "\n \n**** Test Java Var Getter ****\n \n ";
-        TestOK = TestOK && TestVariable(&JavaVar1, "jklm", Jtyp1, output);
+            IECVariable IECVar1{ "asdf" };
+            IECVar1.SetType(Itype1);
 
-        output << "\n \n**** Test IEC Type Getter ****\n \n ";
-        TestOK = TestOK && TestType(Itype1, output);
+            JavaVariable JavaVar1{ "jklm" };
+            JavaVar1.SetType(Jtyp1);
 
-        output << "\n \n**** Test Java Type Getter ****\n \n ";
-        TestOK = TestOK && TestType(Jtyp1, output);
+            output << TestStart;
 
-        TestOK = TestOK && TestIECVar(output);
+            output << "\n \n**** Test IEC Var Getter ****\n \n ";
+            TestOK = TestOK && TestVariable(&IECVar1, "asdf", Itype1, output);
 
-        TestOK = TestOK && TestJavaVar(output);
+            output << "\n \n**** Test Java Var Getter ****\n \n ";
+            TestOK = TestOK && TestVariable(&JavaVar1, "jklm", Jtyp1, output);
 
-        TestOK = TestOK && TestIECType(output);
+            output << "\n \n**** Test IEC Type Getter ****\n \n ";
+            TestOK = TestOK && TestType(Itype1, output);
 
-        TestOK = TestOK && TestJavaType(output);
+            output << "\n \n**** Test Java Type Getter ****\n \n ";
+            TestOK = TestOK && TestType(Jtyp1, output);
 
-        TestOK = TestOK && TestSymbolParser(output);
+            TestOK = TestOK && TestIECVar(output);
+
+            TestOK = TestOK && TestJavaVar(output);
+
+            TestOK = TestOK && TestIECType(output);
+
+            TestOK = TestOK && TestJavaType(output);
+
+            TestOK = TestOK && TestSymbolParser(output);
+
+            if (TestOK) {
+                output << TestCaseOK;
+            }
+            else {
+                output << TestCaseFail;
+            }
+
+            output.close();
+        }
 
         if (TestOK) {
-            output << TestCaseOK;
+            cout << TestCaseOK;
         }
         else {
-            output << TestCaseFail;
+            cout << TestCaseFail;
         }
-
-        output.close();
     }
-
-    if (TestOK) {
-        cout << TestCaseOK;
+    catch (const string& err) {
+        cerr << err << TestCaseFail;
     }
-    else {
-        cout << TestCaseFail;
+    catch (bad_alloc const& error) {
+        cerr << error.what() << TestCaseFail;
     }
+    catch (const exception& err) {
+        cerr << err.what() << TestCaseFail;
+    }
+    catch (...) {
+        cerr << "Unhandelt Exception" << TestCaseFail;
+    }
+    
+    if (output.is_open()) output.close();
 
     return 0;
 }
@@ -379,23 +430,23 @@ bool TestJavaVar(ostream& ost)
 
         JavaVariable var;
 
-        const string LineToDecode = "mCont mBut\n";
+        const string LineToDecode = "mCont mBut;\n";
         TestOK == TestOK && check_dump(ost,"Test Load Type Name Java Var",static_cast<string>("mCont"), var.LoadTypeName(LineToDecode));
         TestOK == TestOK && check_dump(ost,"Test Load Var Name Java Var",static_cast<string>("mBut"), var.LoadVarName(LineToDecode));
 
-        const string InvLineToDecode = "1mCont mBut";
+        const string InvLineToDecode = "1mCont mBut;";
         TestOK == TestOK && check_dump(ost,"Test Load Type Name Java Var invalid Format",static_cast<string>(""), var.LoadTypeName(InvLineToDecode));
         TestOK == TestOK && check_dump(ost,"Test Load Var Name Java Var invalid Format",static_cast<string>(""), var.LoadVarName(InvLineToDecode));
 
-        const string Inv2LineToDecode = "mCont ;mBut";
+        const string Inv2LineToDecode = "mCont ;mBut;";
         TestOK == TestOK && check_dump(ost,"Test Load Type Name Java Var invalid Format",static_cast<string>("mCont"), var.LoadTypeName(Inv2LineToDecode));
         TestOK == TestOK && check_dump(ost,"Test Load Var Name Java Var invalid Format",static_cast<string>(""), var.LoadVarName(Inv2LineToDecode));
     
-        const string Inv3LineToDecode = "2mCont mBut";
+        const string Inv3LineToDecode = "2mCont mBut;";
         TestOK == TestOK && check_dump(ost,"Test Load Type Name Java Var invalid Format",static_cast<string>(""), var.LoadTypeName(Inv3LineToDecode));
         TestOK == TestOK && check_dump(ost,"Test Load Var Name Java Var invalid Format",static_cast<string>(""), var.LoadVarName(Inv3LineToDecode));
     
-        const string Inv4LineToDecode = "mCont 123";
+        const string Inv4LineToDecode = "mCont 123;";
         TestOK == TestOK && check_dump(ost,"Test Load Type Name Java Var invalid Format",static_cast<string>("mCont"), var.LoadTypeName(Inv4LineToDecode));
         TestOK == TestOK && check_dump(ost,"Test Load Var Name Java Var invalid Format",static_cast<string>(""), var.LoadVarName(Inv4LineToDecode));
     
@@ -555,166 +606,3 @@ bool TestJavaType(ostream& ost)
 }
 
 
-bool TestSymbolParser(ostream& ost)
-{
-    bool TestOK = true;
-    string error_msg;
-    ost << TestStart;
-
-    // normal operating mode - no exception should be thrown
-    try {
-        SymbolParser parser{ JavaSymbolFactory::GetInstance() };
-        parser.AddType("Button");
-        parser.AddVariable("mButton", "Button");
-        parser.SetFactory(IECSymbolFactory::GetInstance());
-        parser.AddType("TYPE");
-        parser.AddVariable("VARIABLE", "TYPE");
-    }
-    catch (const string& err) {
-        error_msg = err;
-    }
-    catch (bad_alloc const& error) {
-        error_msg = error.what();
-    }
-    catch (const exception& err) {
-        error_msg = err.what();
-    }
-    catch (...) {
-        error_msg = "Unhandelt Exception";
-    }
-
-    TestOK = TestOK && check_dump(ost, "Normal Operating Parser", true, error_msg.empty());
-    error_msg.clear();
-
-    // addtype - adding empty type - throws error
-    try {
-        SymbolParser parser{ JavaSymbolFactory::GetInstance() };
-        parser.AddType("");
-    }
-    catch (const string& err) {
-        error_msg = err;
-    }
-    catch (bad_alloc const& error) {
-        error_msg = error.what();
-    }
-    catch (const exception& err) {
-        error_msg = err.what();
-    }
-    catch (...) {
-        error_msg = "Unhandelt Exception";
-    }
-
-    TestOK = TestOK && check_dump(ost, ".AddType() - add empty type to parser", SymbolParser::ERROR_EMPTY_STRING, error_msg);
-    error_msg.clear();
-
-    // addVariable add empty type - throws error
-    try {
-        SymbolParser parser{ JavaSymbolFactory::GetInstance() };
-        parser.AddVariable("VarName", "");
-    }
-    catch (const string& err) {
-        error_msg = err;
-    }
-    catch (bad_alloc const& error) {
-        error_msg = error.what();
-    }
-    catch (const exception& err) {
-        error_msg = err.what();
-    }
-    catch (...) {
-        error_msg = "Unhandelt Exception";
-    }
-
-    TestOK = TestOK && check_dump(ost, ".AddVariable() - add empty type to factory", SymbolParser::ERROR_EMPTY_STRING, error_msg);
-    error_msg.clear();
-
-    // addVariable add empty var - throws error
-    try {
-        SymbolParser parser{ JavaSymbolFactory::GetInstance() };
-        parser.AddVariable("", "Type");
-    }
-    catch (const string& err) {
-        error_msg = err;
-    }
-    catch (bad_alloc const& error) {
-        error_msg = error.what();
-    }
-    catch (const exception& err) {
-        error_msg = err.what();
-    }
-    catch (...) {
-        error_msg = "Unhandelt Exception";
-    }
-
-    TestOK = TestOK && check_dump(ost, ".AddVariable() - add empty var to factory", SymbolParser::ERROR_EMPTY_STRING, error_msg);
-    error_msg.clear();
-
-    // addVariable add variable for non existing type
-    try {
-        SymbolParser parser{ JavaSymbolFactory::GetInstance() };
-        parser.AddVariable("Var", "Type");
-    }
-    catch (const string& err) {
-        error_msg = err;
-    }
-    catch (bad_alloc const& error) {
-        error_msg = error.what();
-    }
-    catch (const exception& err) {
-        error_msg = err.what();
-    }
-    catch (...) {
-        error_msg = "Unhandelt Exception";
-    }
-
-    TestOK = TestOK && check_dump(ost, ".AddVariable() - add variable with nonexisting type", SymbolParser::ERROR_NONEXISTING_TYPE, error_msg);
-   
-    
-    // addVariable add variable for non existing type
-    try {
-        SymbolParser parser{ JavaSymbolFactory::GetInstance() };
-        parser.AddType("uint65536_t");
-        parser.AddType("uint65536_t");
-    }
-    catch (const string& err) {
-        error_msg = err;
-    }
-    catch (bad_alloc const& error) {
-        error_msg = error.what();
-    }
-    catch (const exception& err) {
-        error_msg = err.what();
-    }
-    catch (...) {
-        error_msg = "Unhandelt Exception";
-    }
-
-    TestOK = TestOK && check_dump(ost, ".AddType() - add duplicate type", SymbolParser::ERROR_DUPLICATE_TYPE, error_msg);
-    error_msg.clear();
-
-    // addVariable add variable for non existing type
-    try {
-        SymbolParser parser{ JavaSymbolFactory::GetInstance() };
-        parser.AddType("uint4096_t");
-        parser.AddVariable("Large_int", "uint4096_t");
-        parser.AddVariable("Large_int", "uint4096_t");
-    }
-    catch (const string& err) {
-        error_msg = err;
-    }
-    catch (bad_alloc const& error) {
-        error_msg = error.what();
-    }
-    catch (const exception& err) {
-        error_msg = err.what();
-    }
-    catch (...) {
-        error_msg = "Unhandelt Exception";
-    }
-
-    TestOK = TestOK && check_dump(ost, ".AddVar() - add duplicate Var", SymbolParser::ERROR_DUPLICATE_VAR, error_msg);
-    error_msg.clear();
-
-    ost << TestEnd;
-    return TestOK;
-}

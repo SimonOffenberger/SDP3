@@ -19,7 +19,7 @@ public:
 	 * \param string of variables name
 	 * \return uniqie pointer to variable
 	 */
-	virtual Variable::Uptr CreateVariable(const std::string& name)=0;
+	virtual Variable::Uptr CreateVariable(const std::string& name) const =0;
 	
 	/**
 	 * \brief Creates a type
@@ -27,21 +27,21 @@ public:
 	 * \param string of typename
 	 * \return unique pointer to type
 	 */
-	virtual Type::Uptr CreateType(const std::string& name)=0;
+	virtual Type::Uptr CreateType(const std::string& name) const =0;
 
 	/**
 	 * \brief Getter for file path of type file
 	 *
 	 * \return string of filePath
 	 */
-	virtual const std::string& GetTypeFileName()=0;
+	virtual const std::string& GetTypeFileName() const =0;
 
 	/**
 	 * \brief Getter for file path of variable file
 	 *
 	 * \return string of filePath
 	 */
-	virtual const std::string& GetVariableFileName()=0;
+	virtual const std::string& GetVariableFileName() const =0;
 
 
 

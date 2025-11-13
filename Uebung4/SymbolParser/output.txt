@@ -232,8 +232,8 @@ Test Load Var Name Java Var invalid Format
 [Test OK] Result: (Expected:  == Result: )
 
 Test Save LineFormat IEC Variable
-[Test OK] Result: (Expected: mCont mBut
- == Result: mCont mBut
+[Test OK] Result: (Expected: mCont mBut;
+ == Result: mCont mBut;
 )
 
 Test Save LineFormat IEC Variable
@@ -338,6 +338,12 @@ Normal Operating Parser
 
 .AddVar() - add duplicate Var
 [Test OK] Result: (Expected: ERROR: Provided Variable already exists. == Result: ERROR: Provided Variable already exists.)
+
+Test Store and Load Java Fact with exeption Dup Type
+[Test OK] Result: (Expected: ERROR: Provided type already exists. == Result: ERROR: Provided type already exists.)
+
+Test Store and Load IEC Fact with exeption Dup Type
+[Test OK] Result: (Expected: ERROR: Provided type already exists. == Result: ERROR: Provided type already exists.)
 
 
 *******************************************

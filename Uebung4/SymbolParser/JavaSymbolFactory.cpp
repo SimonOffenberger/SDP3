@@ -9,22 +9,22 @@
 #include "JavaVariable.hpp"
 
 
-Variable::Uptr JavaSymbolFactory::CreateVariable(const std::string& name)
+Variable::Uptr JavaSymbolFactory::CreateVariable(const std::string& name) const
 {
     return std::make_unique<JavaVariable>( name );
 }
 
-Type::Uptr JavaSymbolFactory::CreateType(const std::string& name)
+Type::Uptr JavaSymbolFactory::CreateType(const std::string& name) const
 {
     return std::make_unique<JavaType>(name);
 }
 
-const std::string& JavaSymbolFactory::GetTypeFileName()
+const std::string& JavaSymbolFactory::GetTypeFileName() const
 {
     return m_TypeFileName;
 }
 
-const std::string& JavaSymbolFactory::GetVariableFileName()
+const std::string& JavaSymbolFactory::GetVariableFileName() const
 {
     return m_VariableFileName;
 }

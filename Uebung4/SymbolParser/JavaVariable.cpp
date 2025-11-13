@@ -41,7 +41,7 @@ static std::string ScanVarName(scanner& scan)
 	scan.next_symbol();
 
 	// The line should be emty after the var Name!
-	if (!scan.has_symbol()) return varName;
+	if (scan.is(';'))       return varName;
 	else				    return "";
 }
 
@@ -49,7 +49,7 @@ std::string JavaVariable::GetSaveLine() const
 {
 	if (m_type == nullptr) return "";
 
-	return m_type->GetName() + " " + m_name + "\n";
+	return m_type->GetName() + " " + m_name + ";\n";
 }
 
 std::string JavaVariable::LoadTypeName(std::string const& fileLine) const

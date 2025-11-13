@@ -24,7 +24,7 @@ public:
 	 * \param string of variables name
 	 * \return uniqie pointer to variable
 	 */
-	virtual Variable::Uptr CreateVariable(const std::string& name) override;
+	virtual Variable::Uptr CreateVariable(const std::string& name) const override;
 
 	/**
 	 * \brief Creates a IEC type
@@ -32,21 +32,21 @@ public:
 	 * \param string of typename
 	 * \return unique pointer to type
 	 */
-	virtual Type::Uptr CreateType(const std::string& name) override;
+	virtual Type::Uptr CreateType(const std::string& name) const override;
 
 	/**
 	 * \brief Getter for file path of type file
 	 *
 	 * \return string of filePath
 	 */
-	virtual const std::string& GetTypeFileName() override;
+	virtual const std::string& GetTypeFileName() const override;
 
 	/**
 	 * \brief Getter for file path of variable file
 	 *
 	 * \return string of filePath
 	 */
-	virtual const std::string& GetVariableFileName() override;
+	virtual const std::string& GetVariableFileName() const override;
 
 	// delete CopyCtor and Assign operator to prevent untestet behaviour
 	IECSymbolFactory(IECSymbolFactory& fact) = delete;

@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Client.hpp" />
     <ClInclude Include="Identifier.hpp" />
     <ClInclude Include="IECSymbolFactory.hpp" />
     <ClInclude Include="IECType.hpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="Test.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Client.cpp" />
     <ClCompile Include="Identifier.cpp" />
     <ClCompile Include="IECSymbolFactory.cpp" />
     <ClCompile Include="IECType.cpp" />
@@ -156,6 +158,12 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SymbolParser.cpp" />
     <ClCompile Include="Variable.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IECTypes.sym" />
+    <None Include="IECVars.sym" />
+    <None Include="JavaTypes.sym" />
+    <None Include="JavaVars.sym" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -60,6 +60,9 @@
     <ClInclude Include="Identifier.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Client.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IECType.cpp">
@@ -92,5 +95,22 @@
     <ClCompile Include="Identifier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IECTypes.sym">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="IECVars.sym">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="JavaTypes.sym">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="JavaVars.sym">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

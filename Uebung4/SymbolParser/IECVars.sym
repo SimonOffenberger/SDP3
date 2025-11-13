@@ -1,1 +1,2 @@
-Button mButton
+VAR TYPE : VARIABLE;
+VAR ui32 : Hello;

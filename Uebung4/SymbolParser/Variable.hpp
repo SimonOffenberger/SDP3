@@ -7,8 +7,8 @@
 
 #ifndef VARIABLE_HPP
 #define VARIABLE_HPP
+
 #include <memory>
-#include <vector>
 #include <string>
 
 #include "Identifier.hpp"

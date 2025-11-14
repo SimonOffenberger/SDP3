@@ -1,4 +1,31 @@
 var files_dup =
 [
-    [ "Users", "dir_d522931ffa1371640980b621734a4381.html", "dir_d522931ffa1371640980b621734a4381" ]
+    [ "Client.cpp", "d2/dcf/_client_8cpp.html", "d2/dcf/_client_8cpp" ],
+    [ "Client.hpp", "d9/dbb/_client_8hpp.html", "d9/dbb/_client_8hpp" ],
+    [ "Identifier.cpp", "d0/d37/_identifier_8cpp.html", null ],
+    [ "Identifier.hpp", "d8/d6a/_identifier_8hpp.html", "d8/d6a/_identifier_8hpp" ],
+    [ "IECSymbolFactory.cpp", "d3/dad/_i_e_c_symbol_factory_8cpp.html", null ],
+    [ "IECSymbolFactory.hpp", "d4/d5b/_i_e_c_symbol_factory_8hpp.html", "d4/d5b/_i_e_c_symbol_factory_8hpp" ],
+    [ "IECType.cpp", "d3/d3c/_i_e_c_type_8cpp.html", null ],
+    [ "IECType.hpp", "df/dfa/_i_e_c_type_8hpp.html", "df/dfa/_i_e_c_type_8hpp" ],
+    [ "IECVariable.cpp", "d5/de8/_i_e_c_variable_8cpp.html", null ],
+    [ "IECVariable.hpp", "d0/d57/_i_e_c_variable_8hpp.html", "d0/d57/_i_e_c_variable_8hpp" ],
+    [ "ISymbolFactory.hpp", "d0/dc1/_i_symbol_factory_8hpp.html", "d0/dc1/_i_symbol_factory_8hpp" ],
+    [ "JavaSymbolFactory.cpp", "d6/d0f/_java_symbol_factory_8cpp.html", null ],
+    [ "JavaSymbolFactory.hpp", "dd/d2f/_java_symbol_factory_8hpp.html", "dd/d2f/_java_symbol_factory_8hpp" ],
+    [ "JavaType.cpp", "d5/d33/_java_type_8cpp.html", null ],
+    [ "JavaType.hpp", "d6/d6b/_java_type_8hpp.html", "d6/d6b/_java_type_8hpp" ],
+    [ "JavaVariable.cpp", "d4/dea/_java_variable_8cpp.html", null ],
+    [ "JavaVariable.hpp", "d6/dac/_java_variable_8hpp.html", "d6/dac/_java_variable_8hpp" ],
+    [ "Main.cpp", "d5/d12/_main_8cpp.html", "d5/d12/_main_8cpp" ],
+    [ "Object.h", "df/d30/_object_8h.html", "df/d30/_object_8h" ],
+    [ "scanner.h", "db/d62/scanner_8h.html", "db/d62/scanner_8h" ],
+    [ "SingetonBase.hpp", "d1/de4/_singeton_base_8hpp.html", "d1/de4/_singeton_base_8hpp" ],
+    [ "SymbolParser.cpp", "d1/d9b/_symbol_parser_8cpp.html", null ],
+    [ "SymbolParser.hpp", "d4/dc3/_symbol_parser_8hpp.html", "d4/dc3/_symbol_parser_8hpp" ],
+    [ "Test.hpp", "d9/dfc/_test_8hpp.html", "d9/dfc/_test_8hpp" ],
+    [ "Type.cpp", "d7/d91/_type_8cpp.html", null ],
+    [ "Type.hpp", "d6/dcd/_type_8hpp.html", "d6/dcd/_type_8hpp" ],
+    [ "Variable.cpp", "d6/dcb/_variable_8cpp.html", null ],
+    [ "Variable.hpp", "d6/d69/_variable_8hpp.html", "d6/d69/_variable_8hpp" ]
 ];

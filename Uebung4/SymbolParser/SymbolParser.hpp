@@ -9,7 +9,6 @@
 #define SYMBOL_PARSER_HPP
 
 #include <vector>
-#include <map>
 
 #include "Object.h"
 #include "Variable.hpp"
@@ -42,7 +41,7 @@ public:
      * \param Reference to a SymbolFactory
      * \return void
      */
-    void SetFactory(ISymbolFactory& Factory);
+    void SetFactory(const ISymbolFactory& Factory);
 
     /**
      * \brief Adds a new type to the language
@@ -60,11 +59,15 @@ public:
 
     /**
      * \brief CTOR of a Symbol Parser Object.
-     * 
+     * Loads the current state form the sym files
      * \param fact
      */
-    SymbolParser(ISymbolFactory& fact);
+    SymbolParser(const ISymbolFactory& fact);
 
+    /**
+     * \brief DTOR of Symbol Parser.
+     * Saves the current state to the sym Files
+     */
     virtual ~SymbolParser();
 
     // Delete CopyCtor and Assign Op to prevent untestet behaviour.
@@ -89,6 +92,7 @@ private:
 
     TTypeCont m_typeCont;
     TVariableCont m_variableCont;
-    ISymbolFactory * m_Factory;
+
+    const ISymbolFactory * m_Factory;
 };
 #endif

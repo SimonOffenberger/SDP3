@@ -164,8 +164,6 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 		\begin{itemize}
 			\item Design Klassendiagramm
 			\item Implementierung und Test der Klassen: 
-			\item Implementierung des Testtreibers
-			\item Dokumentation
 			\begin{itemize}
 				\item Object
 				\item Symbolparser
@@ -179,6 +177,8 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 				\item IECType
 				\item IECSymbolFactory
 			\end{itemize}
+			\item Implementierung des Testtreibers
+			\item Dokumentation
 		\end{itemize}
 
 	\item Simon Vogelhuber
@@ -206,7 +206,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \subsection{Aufwand}
 	
 	\begin{itemize}
-		\item Simon Offenberger: geschätzt 10 Ph / tatsächlich 8 Ph
+		\item Simon Offenberger: geschätzt 10 Ph / tatsächlich 11 Ph
 		\item Simon Vogelhuber:  geschätzt 10 Ph / tatsächlich 7 Ph
 	\end{itemize}
 
@@ -240,7 +240,7 @@ Dazu wird eine Factory benötigt, die die entsprechenden Objekte für die versch
 	\item Zurückgeben des Variablennamens
 	\item Zurückgeben des Variablentyps
 \end{itemize}
-
+\newpage
 \textbf{Funktionen des Type:}
 \begin{itemize}
 	\item Auswerten der Typdeklaration (Syntaxprüfung)
@@ -261,10 +261,10 @@ Dazu wird eine Factory benötigt, die die entsprechenden Objekte für die versch
 \textbf{Verwendung des Factory-Patterns:} \\
 Das Factory-Pattern wurde verwendet, um die Erstellung von Objekten der verschiedenen Programmiersprachen zu kapseln. 
 Das ermöglicht eine einfache Erweiterung des Systems um weitere Sprachen, ohne dass der Symbolparser angepasst werden muss.
-Der Parser Speichert hierführ eine Referenz auf die aktuelle SymbolFactory, die zur Laufzeit gewechselt werden kann.
+Der Parser Speichert hierführ einen Pointer auf die aktuelle SymbolFactory, die zur Laufzeit gewechselt werden kann.
 \par
 \textbf{Verwendung des Singleton-Patterns:} \\
-Das Singleton- Pattern wurde für die SymbolFactory implementiert, um sicherzustellen, dass nur eine Instanz der Factory existiert.
+Das Singleton- Pattern wurde für die konkreten SymbolFactories implementiert, um sicherzustellen, dass nur eine Instanz der Factory existiert.
 \par
 \textbf{Verwendung von Vererbung und Polymorphie:} \\
 Die Klassen Variable und Type sind Basisklassen, von denen spezifische Implementierungen für jede Programmiersprache abgeleitet sind.
@@ -281,12 +281,59 @@ Er bietet Methoden zum Setzen der aktuellen SymbolFactory, zum Erzeugen von Vari
 Der Parser überprüft ob eine eingegebene Variable oder ein Type gültig ist, indem er die entsprechenden Methoden der Objekte aufruft.
 
 \color{black}
+\section{Dateibeschreibung}
+Im folgenden Abschnitt werden die Formate der verwendeten Dateien beschrieben.
+\subsection{Datei: JavaTypes.sym}
+Diese Datei wird verwendet um die vom Symbolparser verwaltete JavaTypes zu speicher.n
+Die Datei ist folgendermaßen aufgebaut:
+\\
+\begin{verbatim}
+ClassDeclaration = "class"  Identifier  "\n" .
+Identifier       = Letter , { Letter | Digit | "_" } .
+Letter           = "A"…"Z" | "a"…"z" .
+Digit            = "0"…"9" .
+\end{verbatim}
 
+\subsection{Datei: JavaVars.sym}
+Diese Datei wird verwendet um die vom Symbolparser verwaltete JavaVariablen zu speichern.
+Die Datei ist folgendermaßen aufgebaut:
+\\
+\begin{verbatim}
+ClassDeclaration =  Identifier  Identifier  ";\n" ;
+Identifier       = Letter , { Letter | Digit | "_" } .
+Letter           = "A"…"Z" | "a"…"z" .
+Digit            = "0"…"9" .
+\end{verbatim}
+\clearpage
+\subsection{Datei: IECTypes.sym}
+Diese Datei wird verwendet um die vom Symbolparser verwaltete IECTypes zu speichern.
+Die Datei ist folgendermaßen aufgebaut:
+\\
+\begin{verbatim}
+ClassDeclaration = "TYPE"  Identifier "\n" .
+Identifier       = Letter , { Letter | Digit | "_" } .
+Letter           = "A"…"Z" | "a"…"z" .
+Digit            = "0"…"9" .
+\end{verbatim}
+
+\subsection{Datei: IECVars.sym}
+Diese Datei wird verwendet um die vom Symbolparser verwaltete IEC Variablen zu speichern.
+Die Datei ist folgendermaßen aufgebaut:
+\\
+\begin{verbatim}
+ClassDeclaration = "VAR" Identifier ":"  Identifier  ";\n" .
+Identifier       = Letter  { Letter | Digit | "_" } .
+Letter           = "A"…"Z" | "a"…"z" .
+Digit            = "0"…"9" .
+\end{verbatim}
+\clearpage
 \section{Dokumentation der Komponenten (Klassen)}
 Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.html}{./../doxy/html/index.html}
 
 \clearpage
 \section{Testprotokollierung}
+Der Testtreiber für die Symbolfactory wurde im Client implementiert, um zu zeigen dass dieser nur vom Interface und den Factories abhängt!
+
 \lstinputlisting[style=teststyle]{../output.txt}
 
 \clearpage
@@ -318,11 +365,14 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 \subsection{Type.hpp}
 \lstinputlisting[style = cppstyle]{../Type.hpp}
 \clearpage
-\subsection{Type.cpp}
-\lstinputlisting[style = cppstyle]{../Type.cpp}
-\clearpage
 \subsection{SingetonBase.hpp}
 \lstinputlisting[style = cppstyle]{../SingetonBase.hpp}
+\clearpage
+\subsection{JavaType.hpp}
+\lstinputlisting[style = cppstyle]{../JavaType.hpp}
+\clearpage
+\subsection{JavaType.cpp}
+\lstinputlisting[style = cppstyle]{../JavaType.cpp}
 \clearpage
 \subsection{JavaVariable.hpp}
 \lstinputlisting[style = cppstyle]{../JavaVariable.hpp}
@@ -335,6 +385,12 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 \clearpage
 \subsection{JavaSymbolFactory.cpp}
 \lstinputlisting[style = cppstyle]{../JavaSymbolFactory.cpp}
+\clearpage
+\subsection{IECType.hpp}
+\lstinputlisting[style = cppstyle]{../IECType.hpp}
+\clearpage
+\subsection{IECType.cpp}
+\lstinputlisting[style = cppstyle]{../IECType.cpp}
 \clearpage
 \subsection{IECVariable.hpp}
 \lstinputlisting[style = cppstyle]{../IECVariable.hpp}
@@ -359,6 +415,9 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 \clearpage
 \subsection{Test.hpp}
 \lstinputlisting[style = cppstyle]{../Test.hpp}
+\clearpage
+\subsection{scanner.h}
+\lstinputlisting[style = cppstyle]{../scanner.h}
 
 
 % Literaturverzeichnis

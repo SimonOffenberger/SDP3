@@ -22,15 +22,21 @@ using namespace std;
  * \return name of type
  */
 static std::string ScanTypeName(scanner& scan) {
-	string TypeName;
+	try{
+		string TypeName;
 
-	if (scan.get_identifier() == "class") {
-		scan.next_symbol();
-		TypeName = scan.get_identifier();
-		scan.next_symbol();
-		if (!scan.has_symbol()) {
-			return TypeName;
+		if (scan.get_identifier() == "class") {
+			scan.next_symbol();
+			TypeName = scan.get_identifier();
+			scan.next_symbol();
+			if (!scan.has_symbol()) {
+				return TypeName;
+			}
 		}
+	}
+	// catch Scanner Exceptions 
+	catch (...) {
+		return "";
 	}
 
 	return "";

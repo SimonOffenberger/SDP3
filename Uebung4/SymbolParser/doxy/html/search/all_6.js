@@ -1,5 +1,12 @@
 var searchData=
 [
-  ['loadtypename_0',['LoadTypeName',['../class_i_e_c_type.html#a90d4fdbe38776546a45c06360a69a2c6',1,'IECType::LoadTypeName()'],['../class_i_e_c_variable.html#a53e4476e9cc5031bba51b3b1fc38e240',1,'IECVariable::LoadTypeName()'],['../class_java_type.html#ad19c312c3815b7835fe29e4508e7cf81',1,'JavaType::LoadTypeName()'],['../class_java_variable.html#a9d11ecce85e622cc138f833a91478b1f',1,'JavaVariable::LoadTypeName()'],['../class_type.html#aedb7ca31d7c944280c2f2dcdb3ccadb7',1,'Type::LoadTypeName()'],['../class_variable.html#ae3d2d6ff4b212351bdb34ce884077da9',1,'Variable::LoadTypeName()']]],
-  ['loadvarname_1',['LoadVarName',['../class_i_e_c_variable.html#aa7aa0a38bbf366e7856bf570bd782a92',1,'IECVariable::LoadVarName()'],['../class_java_variable.html#ab477be817beafd23dfb7c5fefdaffd18',1,'JavaVariable::LoadVarName()'],['../class_variable.html#a0c6c2bb537e72793944c047877c4881a',1,'Variable::LoadVarName()']]]
+  ['javasymbolfactory_0',['JavaSymbolFactory',['../d9/dd2/class_java_symbol_factory.html',1,'JavaSymbolFactory'],['../d9/dd2/class_java_symbol_factory.html#abfca99d46d8c572556c77547aa712472',1,'JavaSymbolFactory::JavaSymbolFactory(JavaSymbolFactory &amp;fact)=delete'],['../d9/dd2/class_java_symbol_factory.html#a8ca090f0bb97ab12ec1e3731d0efaee1',1,'JavaSymbolFactory::JavaSymbolFactory()=default']]],
+  ['javasymbolfactory_2ecpp_1',['JavaSymbolFactory.cpp',['../d6/d0f/_java_symbol_factory_8cpp.html',1,'']]],
+  ['javasymbolfactory_2ehpp_2',['JavaSymbolFactory.hpp',['../dd/d2f/_java_symbol_factory_8hpp.html',1,'']]],
+  ['javatype_3',['JavaType',['../dd/db2/class_java_type.html',1,'JavaType'],['../dd/db2/class_java_type.html#a7e700e07105423070955d86a4f181df8',1,'JavaType::JavaType(const std::string name)'],['../dd/db2/class_java_type.html#afa19a9bd2221fa3f5c50201195648b86',1,'JavaType::JavaType()=default']]],
+  ['javatype_2ecpp_4',['JavaType.cpp',['../d5/d33/_java_type_8cpp.html',1,'']]],
+  ['javatype_2ehpp_5',['JavaType.hpp',['../d6/d6b/_java_type_8hpp.html',1,'']]],
+  ['javavariable_6',['JavaVariable',['../dc/d8d/class_java_variable.html',1,'JavaVariable'],['../dc/d8d/class_java_variable.html#abf2932300e7bb5e43268c72d25159953',1,'JavaVariable::JavaVariable()=default'],['../dc/d8d/class_java_variable.html#aec6255fe49fe43d22d2b27c6457635d7',1,'JavaVariable::JavaVariable(const std::string &amp;name)']]],
+  ['javavariable_2ecpp_7',['JavaVariable.cpp',['../d4/dea/_java_variable_8cpp.html',1,'']]],
+  ['javavariable_2ehpp_8',['JavaVariable.hpp',['../d6/dac/_java_variable_8hpp.html',1,'']]]
 ];

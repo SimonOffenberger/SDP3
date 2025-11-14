@@ -13,6 +13,11 @@
 
 template <typename T> class SingletonBase : public Object {
 public:
+	/**
+	 * \brief Getter for static member Singleton.
+	 * 
+	 * \return 
+	 */
 	static T& GetInstance() {
 		if (mInstance == nullptr) { mInstance = std::unique_ptr<T>{ new T{} }; };
 		return *mInstance;

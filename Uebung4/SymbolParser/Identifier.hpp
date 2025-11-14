@@ -7,7 +7,6 @@
 #ifndef IDENTIFIER_HPP
 #define IDENTIFIER_HPP
 
-#include <memory>
 #include <string>
 #include "Object.h"
 

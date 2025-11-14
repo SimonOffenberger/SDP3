@@ -22,8 +22,17 @@ using namespace std;
  */
 static std::string ScanTypeName(scanner& scan)
 {
-	string typeName = scan.get_identifier();
-	scan.next_symbol();
+	string typeName;
+
+	try{
+		typeName = scan.get_identifier();
+		scan.next_symbol();
+	}
+	// catch Scanner Exceptions 
+	catch (...) {
+		return "";
+	}
+
 	return typeName;
 }
 
@@ -37,12 +46,20 @@ static std::string ScanTypeName(scanner& scan)
 static std::string ScanVarName(scanner& scan)
 {
 	string varName;
-	varName = scan.get_identifier();
-	scan.next_symbol();
 
-	// The line should be emty after the var Name!
-	if (scan.is(';'))       return varName;
-	else				    return "";
+	try{
+		varName = scan.get_identifier();
+		scan.next_symbol();
+
+		// The line should be emty after the var Name!
+		if (!scan.is(';'))  varName = "";
+	}
+	// catch Scanner Exceptions 
+	catch (...) {
+		return "";
+	}
+
+	return varName;
 }
 
 std::string JavaVariable::GetSaveLine() const

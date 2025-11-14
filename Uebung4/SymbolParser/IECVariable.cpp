@@ -29,15 +29,20 @@ std::string IECVariable::GetSaveLine() const
  * \return name of type
  */
 static std::string ScanTypeName(scanner & scan) {
-	string TypeName;
+	try{
+		string TypeName;
 
-	if (scan.get_identifier() == "VAR") {
-		scan.next_symbol();
-		TypeName = scan.get_identifier();
-		scan.next_symbol();
-		return TypeName;
+		if (scan.get_identifier() == "VAR") {
+			scan.next_symbol();
+			TypeName = scan.get_identifier();
+			scan.next_symbol();
+			return TypeName;
+		}
 	}
-
+	// catch Scanner Exceptions 
+	catch (...) {
+		return "";
+	}
 	return "";
 }
 
@@ -51,13 +56,19 @@ static std::string ScanTypeName(scanner & scan) {
 static std::string ScanVarName(scanner & scan) {
 	string VarName;
 
-	if (scan.is(':')) {
-		scan.next_symbol();
-		VarName = scan.get_identifier();
-		scan.next_symbol();
-		if (!scan.is(';')) {
-			VarName = "";
+	try{
+		if (scan.is(':')) {
+			scan.next_symbol();
+			VarName = scan.get_identifier();
+			scan.next_symbol();
+			if (!scan.is(';')) {
+				VarName = "";
+			}
 		}
+	}
+	// catch Scanner Exceptions 
+	catch (...) {
+		return "";
 	}
 
 	return VarName;

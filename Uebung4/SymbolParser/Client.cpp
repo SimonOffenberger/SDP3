@@ -7,7 +7,7 @@
  * \date   November 2025
  *********************************************************************/
 
-
+// The client is only dependent on these classes!!
 #include "SymbolParser.hpp"
 #include "JavaSymbolFactory.hpp"
 #include "IECSymbolFactory.hpp"
@@ -24,6 +24,9 @@ bool TestSymbolParser(std::ostream& ost)
 {
     bool TestOK = true;
     string error_msg;
+
+    if (!ost.good()) throw "Error Ostream bad!";
+
     ost << TestStart;
 
     // normal operating mode - no exception should be thrown

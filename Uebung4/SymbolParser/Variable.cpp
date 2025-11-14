@@ -6,11 +6,8 @@
  *********************************************************************/
 
 #include "Variable.hpp"
-#include <cassert>
-
 
 using namespace std;
-
 
 void Variable::SetType(Type::Sptr type)
 {

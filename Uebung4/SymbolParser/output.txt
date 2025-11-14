@@ -132,7 +132,7 @@ Test Load Type Name IEC Var
 [Test OK] Result: (Expected: mCont == Result: mCont)
 
 Test Load Var Name IEC Var
-[Test OK] Result: (Expected: SpeedController == Result: SpeedController)
+[Test OK] Result: (Expected: Speed_Controller == Result: Speed_Controller)
 
 Test Load Type Name IEC Var invalid Format
 [Test OK] Result: (Expected:  == Result: )
@@ -171,8 +171,8 @@ Test Load Var Name IEC Var invalid Format
 [Test OK] Result: (Expected:  == Result: )
 
 Test Save LineFormat IEC Variable
-[Test OK] Result: (Expected: VAR mCont : SpeedController;
- == Result: VAR mCont : SpeedController;
+[Test OK] Result: (Expected: VAR mCont : Speed_Controller;
+ == Result: VAR mCont : Speed_Controller;
 )
 
 Test Save LineFormat IEC Variable

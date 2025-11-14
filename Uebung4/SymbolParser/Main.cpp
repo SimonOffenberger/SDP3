@@ -34,8 +34,11 @@ static bool TestJavaVar(ostream& ost = cout);
 static bool TestIECType(ostream& ost = cout);
 static bool TestJavaType(ostream& ost = cout);
 
-
-
+/**
+ * \brief For deleting the sym files bevor the test cases!.
+ * 
+ * \param path
+ */
 static void EraseFile(const char* path) {
     // Versucht, die Datei zu loeschen
     if (std::remove(path) == 0) {
@@ -352,9 +355,9 @@ bool TestIECVar(ostream& ost)
 
         IECVariable var;
 
-        const string LineToDecode = "VAR mCont : SpeedController;\n";
+        const string LineToDecode = "VAR mCont : Speed_Controller;\n";
         TestOK == TestOK && check_dump(ost,"Test Load Type Name IEC Var",static_cast<string>("mCont"), var.LoadTypeName(LineToDecode));
-        TestOK == TestOK && check_dump(ost,"Test Load Var Name IEC Var",static_cast<string>("SpeedController"), var.LoadVarName(LineToDecode));
+        TestOK == TestOK && check_dump(ost,"Test Load Var Name IEC Var",static_cast<string>("Speed_Controller"), var.LoadVarName(LineToDecode));
 
         const string InvLineToDecode = "1VAR mCont : SpeedController;";
         TestOK == TestOK && check_dump(ost,"Test Load Type Name IEC Var invalid Format",static_cast<string>(""), var.LoadTypeName(InvLineToDecode));

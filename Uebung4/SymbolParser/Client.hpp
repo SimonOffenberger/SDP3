@@ -11,7 +11,11 @@
 #define CLIENT_HPP
 
 #include <iostream>
-
+/**
+ * \brief TestDriver for the SymbolParser.
+ */
 bool TestSymbolParser(std::ostream& ost = std::cout);
 
 #endif // !1
+
+

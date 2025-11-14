@@ -13,6 +13,11 @@
 class IECVariable : public Variable
 {
 public:
+    /**
+     * \brief Returns formatted line of a Variable declaration
+     *
+     * \return string of variable
+     */
     virtual std::string GetSaveLine() const override;
 
     /**

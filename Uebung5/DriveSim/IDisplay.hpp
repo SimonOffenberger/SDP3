@@ -5,7 +5,7 @@
 
 class IDisplay{
 public:
-	using Uptr = std::unique_ptr<IDisplay>;
+	using Sptr = std::shared_ptr<IDisplay>;
 
 	virtual	void Update() = 0;
 

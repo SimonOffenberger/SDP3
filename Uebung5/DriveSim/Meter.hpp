@@ -9,6 +9,8 @@
 class Meter : public Object, public IDisplay {
 public:
 
+	void Update() = 0;
+
 private:
 	std::unique_ptr<WindowsDisplay> m_window;
 };

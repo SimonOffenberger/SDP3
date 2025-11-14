@@ -7,15 +7,14 @@
 #include <vector>
 
 
-class Vehicle : public Object, public IDisplay{
+class Vehicle : public Object{
 public:
 
-	using TCont = std::vector<IDisplay::Uptr>;
+	using TCont = std::vector<IDisplay::Sptr>;
 
-	void Attach(IDisplay::Uptr display);
+	void Attach(IDisplay::Sptr display);
 
-	void Detach(IDisplay::Uptr display);
-
+	void Detach(IDisplay::Sptr display);
 
 protected:
 

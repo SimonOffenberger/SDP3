@@ -3,13 +3,19 @@
 
 #include "Object.h"
 #include "Meter.hpp"
+#include "Car.hpp"
 
-class Odometer : public Object, public Meter {
+class Odometer :public Meter {
 public:
 
 	virtual void Update() override;
 
+	Odometer(Car& car) : m_car{ car }, m_milage{ 0 } {}
+
 private:
+
+	const Car& m_car;
+
 	unsigned int m_milage;
 };
 

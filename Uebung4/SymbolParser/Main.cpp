@@ -11,10 +11,7 @@
 #include "IECType.hpp"
 #include "JavaType.hpp"
 
-// These are the Includes if the Symbolparses is used by a Client!!
-#include "SymbolParser.hpp"
-#include "JavaSymbolFactory.hpp"
-#include "IECSymbolFactory.hpp"
+// The Client thests the SymbolParser and SymbolFactories
 #include "Client.hpp"
 
 // Testing Includes

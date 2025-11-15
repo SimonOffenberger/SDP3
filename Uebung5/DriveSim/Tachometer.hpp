@@ -5,18 +5,19 @@
 #include "Meter.hpp"
 #include "Car.hpp"
 
+
 class Tachometer : public Meter {
 public:
 
 	virtual void Update() override;
 
-	Tachometer(Car& car) : m_car{ car }, m_speed{ 0 } {}
-
+	Tachometer(Car::Sptr car, WindowsDisplay::SPtr display);
+									
 private:
 
-	const Car & m_car;
+	Car::Sptr m_car;
 
-	unsigned int m_speed;
+	double m_speed;
 };
 
 

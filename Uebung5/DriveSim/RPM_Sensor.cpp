@@ -2,5 +2,5 @@
 
 unsigned int RPM_Sensor::GetRevolutioins() const
 {
-    return rand();
+    return 2000;
 }

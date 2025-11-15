@@ -10,13 +10,14 @@ public:
 
 	virtual void Update() override;
 
-	Odometer(Car& car) : m_car{ car }, m_milage{ 0 } {}
+	Odometer(Car::Sptr car, WindowsDisplay::SPtr display);
+						
 
 private:
 
-	const Car& m_car;
+	Car::Sptr m_car;
 
-	unsigned int m_milage;
+	double m_milage;
 };
 
 

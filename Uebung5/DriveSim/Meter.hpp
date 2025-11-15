@@ -11,8 +11,13 @@ public:
 
 	void Update() = 0;
 
+protected:
+
+	Meter(WindowsDisplay::SPtr display);
+	
+	WindowsDisplay::SPtr m_window;
 private:
-	std::unique_ptr<WindowsDisplay> m_window;
+
 };
 
 

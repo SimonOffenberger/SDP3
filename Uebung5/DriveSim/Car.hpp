@@ -11,6 +11,8 @@
 class Car : public Vehicle {
 public:
 
+	using Sptr = std::shared_ptr<Car>;
+
 	static inline const std::string ERROR_WHEEL_DIA_0 = "ERROR: Wheel Diameter cannot be 0!";
 
 	void Process();

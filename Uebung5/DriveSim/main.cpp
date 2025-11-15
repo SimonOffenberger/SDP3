@@ -18,31 +18,23 @@ using namespace std;
 
 int main() 
 {
+    //Erzeugen der Objekte
+    WindowsDisplay::SPtr digDisp = make_shared<DigitalDisplay>();
+    WindowsDisplay::SPtr anaDisp = make_shared<AnalogDisplay>();
+
     RPM_Sensor::Sptr rpm_sens = make_shared<RPM_Sensor>("Hello");
-    Car TestCar{ 600,rpm_sens };
-    Tachometer::Sptr tacho = make_shared<Tachometer>(TestCar);
-    Odometer::Sptr odo = make_shared<Odometer>(TestCar);
-    TestCar.Attach(tacho);
-    TestCar.Attach(odo);
+    Car::Sptr TestCar = make_shared<Car>( 600, rpm_sens );
+    Tachometer::Sptr tacho = make_shared<Tachometer>(TestCar,anaDisp);
+    Odometer::Sptr odo = make_shared<Odometer>(TestCar, digDisp);
+    TestCar->Attach(tacho);
+    TestCar->Attach(odo);
     
 
-   //Erzeugen der Objekte
-   WindowsDisplay::SPtr digDisp = make_shared<DigitalDisplay>();
-   WindowsDisplay::SPtr anaDisp = make_shared<AnalogDisplay>();
 
 	//send values to displays
-	for (int i = 0; i < 4711; i++) {
+	while(1){
 
-        TestCar.Process();
-
-      if (digDisp->SendValue(TestCar.GetCurrentSpeed()))
-      {
-         cout <<  "digi: " << i * 5 << endl;
-      }
-      if (anaDisp->SendValue((i * 5) % 220))
-      {
-         cout << "analog: " << i * 5 << endl;
-      }
+        TestCar->Process();
 		Sleep(500);
 	}
 

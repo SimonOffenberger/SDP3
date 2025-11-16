@@ -16,7 +16,7 @@ void Variable::SetType(Type::Sptr type)
     m_type = std::move(type); 
 }
 
-std::string Variable::GetTypeName() const
+const std::string & Variable::GetTypeName() const
 {
     return m_type->GetName();
 }

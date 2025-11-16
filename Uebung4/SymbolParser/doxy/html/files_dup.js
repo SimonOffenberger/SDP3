@@ -24,7 +24,6 @@ var files_dup =
     [ "SymbolParser.cpp", "d1/d9b/_symbol_parser_8cpp.html", null ],
     [ "SymbolParser.hpp", "d4/dc3/_symbol_parser_8hpp.html", "d4/dc3/_symbol_parser_8hpp" ],
     [ "Test.hpp", "d9/dfc/_test_8hpp.html", "d9/dfc/_test_8hpp" ],
-    [ "Type.cpp", "d7/d91/_type_8cpp.html", null ],
     [ "Type.hpp", "d6/dcd/_type_8hpp.html", "d6/dcd/_type_8hpp" ],
     [ "Variable.cpp", "d6/dcb/_variable_8cpp.html", null ],
     [ "Variable.hpp", "d6/d69/_variable_8hpp.html", "d6/d69/_variable_8hpp" ]

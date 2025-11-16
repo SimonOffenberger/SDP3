@@ -8,7 +8,7 @@
 #include "Identifier.hpp"
 
 
-std::string Identifier::GetName() const{
+const std::string & Identifier::GetName() const{
 	return m_name;
 }
 

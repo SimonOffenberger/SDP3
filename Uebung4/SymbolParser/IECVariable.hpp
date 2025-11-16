@@ -38,7 +38,7 @@ public:
 
     IECVariable() = default;
 
-    IECVariable(const std::string& name) : Variable{ name } {}
+    IECVariable(const std::string & name) : Variable{ name } {}
 
 protected:
 private:

@@ -18,6 +18,5 @@ var searchData=
   ['ttypecont_15',['TTypeCont',['../d4/d5b/class_symbol_parser.html#a1ce97a94f34d1acac52f7d03412701ab',1,'SymbolParser']]],
   ['tvariablecont_16',['TVariableCont',['../d4/d5b/class_symbol_parser.html#a91626a53ab605a3db0f4cf58680af33f',1,'SymbolParser']]],
   ['type_17',['Type',['../d8/df6/class_type.html',1,'Type'],['../d8/df6/class_type.html#ac8674a7f7581fdc535376adf12437bc6',1,'Type::Type(const std::string &amp;name)'],['../d8/df6/class_type.html#a571cd982de307ade28ef73435cf01bf5',1,'Type::Type()=default']]],
-  ['type_2ecpp_18',['Type.cpp',['../d7/d91/_type_8cpp.html',1,'']]],
-  ['type_2ehpp_19',['Type.hpp',['../d6/dcd/_type_8hpp.html',1,'']]]
+  ['type_2ehpp_18',['Type.hpp',['../d6/dcd/_type_8hpp.html',1,'']]]
 ];

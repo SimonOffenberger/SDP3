@@ -29,7 +29,7 @@ public:
 	 */
 	virtual std::string GetSaveLine() const override;
 
-	JavaType(const std::string name) : Type{ name } {}
+	JavaType(const std::string & name) : Type{ name } {}
 
 	JavaType() = default;
 

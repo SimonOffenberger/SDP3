@@ -60,7 +60,7 @@ public:
      *
      * \return string of variable
      */
-    std::string GetTypeName() const;
+    const std::string & GetTypeName() const;
 
 
 protected:
@@ -68,7 +68,6 @@ protected:
     Variable() = default;
 
     Type::Sptr m_type;
-
 private:
 };
 #endif

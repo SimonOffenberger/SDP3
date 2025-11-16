@@ -21,7 +21,7 @@ public:
 	 *
 	 * \return string of name
 	 */
-	std::string GetName() const;
+	const std::string & GetName() const;
 
 	/**
 	 * \brief Sets a  name
@@ -31,7 +31,6 @@ public:
 	 * \throw ERROR_EMPTY_STRING
 	 */
 	void SetName(const std::string& name);
-
 
 protected:
 	Identifier(const std::string& name) : m_name{ name } {}

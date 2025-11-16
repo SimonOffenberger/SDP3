@@ -33,7 +33,7 @@ public:
 	 * 
 	 * \param name
 	 */
-	IECType(const std::string name) : Type{ name } {}
+	IECType(const std::string & name) : Type{ name } {}
 
 	IECType() = default;
 

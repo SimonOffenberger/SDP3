@@ -22,7 +22,7 @@ int main()
     WindowsDisplay::SPtr digDisp = make_shared<DigitalDisplay>();
     WindowsDisplay::SPtr anaDisp = make_shared<AnalogDisplay>();
 
-    RPM_Sensor::Sptr rpm_sens = make_shared<RPM_Sensor>("Hello");
+    RPM_Sensor::Sptr rpm_sens = make_shared<RPM_Sensor>("rpm_data.txt");
     Car::Sptr TestCar = make_shared<Car>( 600, rpm_sens );
     Tachometer::Sptr tacho = make_shared<Tachometer>(TestCar,anaDisp);
     Odometer::Sptr odo = make_shared<Odometer>(TestCar, digDisp);

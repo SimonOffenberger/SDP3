@@ -1,0 +1,317 @@
+% Systemdokumentation OOP3
+% Unterlage fÃ¼r Studenten als Leitfaden fÃ¼r die Erstellung einer SystemDoku
+% 17. Oktober 2022
+% ---------------------------------------------------------------------------
+
+
+
+% Dokumentklasse
+% --------------
+\documentclass[12pt,naustrian,a4widepaper]{scrartcl}   
+% article style
+%   - 11pt Schriftgroesse
+%   - new austrian (neue Rechtschreibung)
+%   - Papierformat A4
+%   - pdf-hyperlinks
+
+
+% Packages
+% --------
+\usepackage[utf8]{inputenc}  % fuer Umlaute, Ü
+\usepackage[T1]{fontenc}
+\usepackage{a4wide}
+\usepackage{times}      % Times Schriften (zusammen mit fontencoding, s.o.)
+
+\usepackage{babel}
+\usepackage{graphicx}	  % fÃ¼r das Einbinden von Grafiken
+\usepackage{color}      % fÃ¼r fÃ¤rbigen Text
+\usepackage{framed}     % fÃ¼r (Text-) Rahmen
+\usepackage{fancyhdr}   % fÃ¼r Kopf- und Fusszeilen
+\usepackage{listings}   % fÃ¼r den Sourcecode
+\usepackage{pdfpages}
+
+\pagestyle{fancy}       % Kopf- / Fusszeile aktivieren
+
+\definecolor{failred}{rgb}{0.7, 0.0, 0.0}
+\definecolor{okgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{gray}{rgb}{0.0, 0.5, 0.0}
+
+\lstdefinelanguage{TestOutput}{
+    morekeywords={},
+    morecomment=[l]{//},
+    morestring=[b]",
+    sensitive=false,
+}
+
+\lstdefinestyle{teststyle}{
+    language=TestOutput,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{black},
+    commentstyle=\color{gray},
+    stringstyle=\color{black},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+    literate={OK}{{\textcolor{okgreen}{OK}}}2
+             {Fail}{{\textcolor{failred}{Fail}}}4,
+}
+
+\lstset{
+	language={C++},
+	basicstyle=\tiny\ttfamily,
+	keywordstyle=\color{blue},%\bfseries,
+	commentstyle=\color{green},
+	frame=single,
+	linewidth=16cm,
+	breaklines=false,
+	tabsize=3,
+	numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt
+}
+
+
+% Seitenspiegel
+% -------------
+
+\typearea{8}	% Festlegung des Seitenspiegels gem. Koma. 4..groÃŸ, 9..klein
+
+
+% Kopfzeile
+% ---------
+\lhead{{\footnotesize{s. Offenberger, S. Vogelhuber}}}   %  (links)
+\chead{{\footnotesize{Systemdokumentation - Fuhrpark}}} %  (mitte)
+\rhead{{\footnotesize{Seite \thepage}}}      %  (rechts)
+
+% Fusszeile
+% ---------
+\lfoot{}  % links
+\cfoot{}  % mitte 
+\rfoot{}  % rechts
+
+% Absatzformatierung
+% ------------------
+\setlength{\parindent}{0cm}   % EinrÃ¼ckung der 1. Zeile jedes Absatzes
+\setlength{\parskip}{10pt}    % Abstand zwischen den AbsÃ¤tzen
+
+
+% Package fÃ¼r Hyperlinks (mit pdf-Optionen)
+% -----------------------------------------
+\usepackage[
+urlcolor=blue,		% blaue weblinks
+linkcolor=black,	% interne Links sind schwarz
+colorlinks=true,        % links werden eingefÃ¤rbt
+pdfstartview=FitH,      % PDF-Anzeige: Fensterbreite
+pdfborder={0 0 0},      % keine Umrandung um links
+pdftitle   ={Systemdokumentation},% Referenzen in der Pdf-Datei
+pdfauthor  ={M. Mustermann, S. Sorglos},
+pdfsubject ={Systemdoku},
+pdfcreator ={Der Creator},
+pdfproducer={Der Producer},
+pdfkeywords={Dokumentation, Systemdokumentation}
+]{hyperref}
+
+
+% Beginn des Dokumentes
+% ---------------------
+\begin{document}
+
+\selectlanguage{naustrian}   % oder "american" fÃ¼r engl. Texte
+
+% Titelblatt
+% ----------
+\title {\vspace{1cm}
+       \includegraphics[width=8cm]{./Images/FhOOeLogoOkt2009_HSD_Rot_pastell}\\
+       \vspace{2cm}
+       {\textbf{Systemdokumentation\\Projekt Fuhrpark}}\\
+       \vspace{5mm}
+       {\small{Version 1.0}}\\
+       \vspace{5mm}
+}
+
+\author{\small{S. Offenberger, S. Vogelhuber}}
+\date  {\small{Hagenberg, \today}}
+\maketitle
+
+%\begin{abstract}
+%Dieses Dokument zeigt den prinzipiellen Aufbau einer Systemdokumentation fÃ¼r Software-Projekte. Die einzelnen Kapitel sind mit Kommentaren versehen, welche die Struktur und den Inhalt erlÃ¤utern. 
+%\end{abstract}
+
+\clearpage
+
+% Inhalts-, Tabellen- und Bildverzeichnis (werden generiert)
+% ----------------------------------------------------------
+\tableofcontents
+% \listoftables
+% \listoffigures
+\clearpage
+
+
+
+\section{Organisatorisches}
+
+\subsection{Team}
+\begin{itemize}
+	\item Simon Offenberger, Matr.-Nr.: S2410306027, E-Mail: Simon.Offenberger@fh-hagenberg.at
+	\item Susi Sorglos, Matr.-Nr.: yyyy, E-Mail: Susi.Sorglos@fh-hagenberg.at	
+\end{itemize}
+
+\subsection{Aufteilung der Verantwortlichkeitsbereiche}
+\begin{itemize}
+	\item Simon Offenberger
+		\begin{itemize}
+			\item Design Klassendiagramm
+			\item Implementierung und Test der Klassen: 
+			\begin{itemize}
+				\item Object,
+				\item RecordEntry, 
+				\item DriveRecord,
+				\item Vehicle,
+			\end{itemize}
+			\item Implementierung des Testtreibers
+			\item Dokumentation
+		\end{itemize}
+	\item Simon Vogelhuber
+		\begin{itemize}
+			\item Design Klassendiagramm
+			\item Implementierung und Komponententest der Klassen: 
+			\begin{itemize}
+				\item Garage
+				\item Car, 
+				\item Bike und  
+				\item Truck 
+			\end{itemize}
+			\item Implementierung des Testtreibers
+			\item Dokumentation
+		\end{itemize}	
+\end{itemize}
+
+\subsection{Aufwand}
+	
+	\begin{itemize}
+		\item Simon Offenberger: geschätzt 10 Ph / tatsächlich x Ph
+		\item Simon Vogelhuber:  geschätzt x Ph / tatsächlich x Ph
+	\end{itemize}
+
+\clearpage
+\section{Anforderungsdefinition (Systemspezifikation)}
+In diesem System werden Fahrzeuge in einem Fuhrpark verwaltet. 
+Zusätzlich soll auch noch ein Fahrtenbuch zu jedem Fahrzeug gespeichert werden.
+\\
+\\
+\textbf{Funktionen des Fahrtenbuches}
+\begin{itemize}
+	\item Berechnen des Kilometerstands der aufgezeichneten Fahrten.
+	\item Speichere Datum und Distanz einer Fahrt.
+\end{itemize}
+
+\textbf{Funktionen des Fuhrparks}
+\begin{itemize}
+	\item Hinzufügen und löschen eines Fahrzeuges
+	\item Ausgabe aller Fahrzeugdaten inklusive der Fahrtenbucheinträge.
+	\item Suchen nach einem Fahrzeug mit dessen Kennzeichen.
+	\item Berechnung der Gesamtkilometer aller Fahrzeuge im Fuhrpark.
+\end{itemize}
+
+\textbf{Funktionen der Fahrzeuge}
+\begin{itemize}
+	\item Bereitstellen einer Print Funktion mit Info über das Fahrzeug und die Fahrtenbucheinträge.
+	\item Hinzufügen von Fahrtenbucheinträgen.
+	\item Ermittlung vom Kilometerstand eines Fahrzeugs.
+	\item Speichern von Hersteller, Treibstoff und Kennzeichen des Fahrzeugs
+\end{itemize}
+
+\clearpage
+\section{Systementwurf}
+
+\subsection{Klassendiagramm}
+\includegraphics[width=14cm]{./Images/Klassendiagramm.png}
+\newpage
+
+\subsection{Designentscheidungen}
+Im Klassendiagramm wurde der Polymorphismus angewendet, um unterschiedliche Fahrzeugarten mit der gemeinsamen Schnittstelle 'Vehicle' anzusprechen. Die Klasse 'Garage' speichert einen Container mit der abstrakte Basisklasse 'Vehicle' als Elementtyp und kann somit alle bestehenden und auch neuen Fahrzeugarten verwalten, die sich von der gemeinsamen Basisklasse 'Vehicle' ableiten.
+Für die Aufzeichnung eines Fahrtenbuches wurde die Klasse \textbf{DriveRecord} implementiert. Diese Klasse speichert mehrere Objekte der Klasse \textbf{RecordEntry}.
+Die Record Entries werden im Fahrtenbuch in einem \textbf{Multiset} gespeichert, damit sind die Einträge ins Fahrtenbuch immer nach dem Datum aufsteigend sortiert.
+Aus diesem Grund wurde der \textbf{operator<} für die Record Entries definiert. Dieser vergleicht das Datum der Einträge.
+Dadurch, dass die Einträge ins Fahrtenbuch als eigene Klasse implementiert wurde, lassen sich die einzelnen Einträge schnell und einfach erweitern.\\
+\\
+\\
+Als Container für die Speicherung der Fahrzeuge in der Klasse \textbf{Garage} wurde der Vektor verwendet. 
+Dieser erlaubt es schnell Fahrzeuge hinzuzufügen, und das Suchen geschieht relativ schnell in O(n).
+Einzig und allein, das Löschen aus der Mitte des Vektors stellt bei größerwerdenden Fuhrparks ein Problem dar.
+Wenn dies in der Verwendung des Fuhrparks öfters passiert sollte der verwendete Container ausgetauscht werden.
+\\
+\\
+Die Klassen \textbf{Car, Truck und Bike} wurden für die Konkretisierung der Printfunktion verwendet.
+Diese Klassen lassen sich schnell und einfach erweitern, und können trotzdem weiter vom Fuhrpark verwaltet werden.\\
+\\
+
+\color{black}
+
+\section{Dokumentation der Komponenten (Klassen)}
+Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.html}{./../doxy/html/index.html}
+
+\clearpage
+\section{Testprotokollierung}
+\lstinputlisting[style=teststyle]{../TestOutput.txt}
+
+\clearpage
+\section{Quellcode}
+
+\subsection{Object.hpp}
+\lstinputlisting{../Object.hpp}
+
+\subsection{RecordEntry.hpp}
+\lstinputlisting{./../RecordEntry.hpp}
+
+\subsection{RecordEntry.cpp}
+\lstinputlisting{./../RecordEntry.cpp}
+
+\subsection{DriveRecord.hpp}
+\lstinputlisting{./../DriveRecord.hpp}
+
+\subsection{DriveRecord.cpp}
+\lstinputlisting{./../DriveRecord.cpp}
+
+\subsection{Garage.hpp}
+\lstinputlisting{./../Garage.hpp}
+
+\subsection{Garage.cpp}
+\lstinputlisting{./../Garage.cpp}
+
+\subsection{Vehicle.hpp}
+\lstinputlisting{./../Vehicle.hpp}
+
+\subsection{Vehicle.cpp}
+\lstinputlisting{./../Vehicle.cpp}
+
+\subsection{Car.hpp}
+\lstinputlisting{./../Car.hpp}
+
+\subsection{Car.cpp}
+\lstinputlisting{./../Car.cpp}
+
+\subsection{Truck.hpp}
+\lstinputlisting{./../Truck.hpp}
+
+\subsection{Truck.cpp}
+\lstinputlisting{./../Truck.cpp}
+
+\subsection{Bike.hpp}
+\lstinputlisting{./../Bike.hpp}
+
+\subsection{Bike.cpp}
+\lstinputlisting{./../Bike.cpp}
+
+% Literaturverzeichnis
+% --------------------
+%\begin{thebibliography}{99}
+%\bibitem{Pomberger} Pomberger G., Blaschek G. : \textit{Software Engineering: Prototyping und objektorientert Software-Entwicklung}. Hanser, 1996
+%
+%\end{thebibliography}
+
+
+% Ende des Dokuments
+% ------------------
+\end{document}

@@ -5,9 +5,9 @@
  * \author Simon
  * \date   November 2025
  *********************************************************************/
-#include "IFolder.hpp"
+#include "FSObject.hpp"
 
-class Folder : public IFolder
+class IFolder : public FSObject
 {
 public:
 private:

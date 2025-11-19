@@ -1,3 +1,11 @@
+/*****************************************************************//**
+ * \file   Car.hpp
+ * \brief  A car class that uses an RPM sensor to calculate its speed
+ *
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
+
 #ifndef CAR_HPP
 #define CAR_HPP
 
@@ -10,13 +18,22 @@
 
 class Car : public Vehicle {
 public:
-
+	/**
+     * \brief Shared pointer type for Car
+	 */
 	using Sptr = std::shared_ptr<Car>;
 
 	static inline const std::string ERROR_WHEEL_DIA_0 = "ERROR: Wheel Diameter cannot be 0!";
 
+	/**
+     * \brief Gets data from the RPM sensor
+	 */
 	void Process();
 
+	/**
+     * \brief Calculated current speed of the car in KPH
+     * \return double speed in KPH
+	 */
 	double GetCurrentSpeed();
 
 	Car(const unsigned int & wheel_diameter, RPM_Sensor::Sptr wh_rpm_sen);

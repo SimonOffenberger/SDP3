@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   Tachometer.hpp
+ * \brief  A display that shows the current speed of the car
+ *
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
 #ifndef TACHOMETER_HPP
 #define TACHOMETER_HPP
 
@@ -8,7 +15,9 @@
 
 class Tachometer : public Meter {
 public:
-
+	/**
+     * \brief Update the display to get current speed
+	 */
 	virtual void Update() override;
 
 	Tachometer(Car & car, WindowsDisplay::SPtr display);

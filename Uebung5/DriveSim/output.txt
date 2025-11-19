@@ -4,10 +4,10 @@
 *******************************************
 
 Test normal operation in Odometer Setup
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Display nullptr in CTOR of Odometer
-[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+[Test OK] Result: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
 
 
 *******************************************
@@ -18,12 +18,29 @@ Test Display nullptr in CTOR of Odometer
 *******************************************
 
 Test normal operation in Tachometer Setup
-[32m[Test OK] [37mResult: (Expected: true == Result: true)
+[Test OK] Result: (Expected: true == Result: true)
 
 Test Display nullptr in CTOR of Tachometer
-[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+[Test OK] Result: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
 
 
 *******************************************
 
-[32mTEST OK!![37m
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test normal operation in RPM_Sensor
+[Test OK] Result: (Expected: true == Result: true)
+
+Test file not found in RPM_Sensor
+[Test OK] Result: (Expected: ERROR RPM sensor file was not found == Result: ERROR RPM sensor file was not found)
+
+Test empty file in RPM_Sensor
+[Test OK] Result: (Expected: ERROR RPM sensor could not read data from file. == Result: ERROR RPM sensor could not read data from file.)
+
+
+*******************************************
+
+TEST OK!!

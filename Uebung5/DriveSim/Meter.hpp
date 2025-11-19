@@ -1,3 +1,11 @@
+/*****************************************************************//**
+ * \file   Meter.hpp
+ * \brief  Abstract base class for all meters
+ *
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
+
 #ifndef METER_HPP
 #define METER_HPP
 
@@ -5,10 +13,11 @@
 #include "IDisplay.hpp"
 #include "WindowsDisplay.h"
 
-
 class Meter : public Object, public IDisplay {
 public:
-
+	/**
+     * \brief Update the display with new values
+	 */
 	void Update() = 0;
 
 protected:

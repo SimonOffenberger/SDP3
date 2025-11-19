@@ -38,6 +38,7 @@ using namespace std;
 
 static bool TestOdometer(std::ostream & ost = std::cout);
 static bool TestTachometer(std::ostream & ost = std::cout);
+static bool TestRPMSensor(std::ostream& ost = std::cout);
 
 
 int main() 
@@ -52,12 +53,14 @@ int main()
 
         TestOK = TestOK && TestOdometer();
         TestOK = TestOK && TestTachometer();
+        TestOK = TestOK && TestRPMSensor();
 
 
         if (WriteOutputFile) {
 
             TestOK = TestOK && TestOdometer(output);
             TestOK = TestOK && TestTachometer(output);
+            TestOK = TestOK && TestRPMSensor(output);
 
             if (TestOK) {
                 output << TestCaseOK;
@@ -242,6 +245,81 @@ bool TestTachometer(std::ostream& ost)
     TestOK = TestOK && check_dump(ost, "Test Display nullptr in CTOR of Tachometer", Tachometer::ERROR_NULLPTR, error_msg);
     error_msg.clear();
 
+    ost << TestEnd;
+
+    return TestOK;
+}
+
+bool TestRPMSensor(std::ostream& ost)
+{
+    assert(ost.good());
+    ost << TestStart;
+
+    bool TestOK = true;
+    string error_msg;
+
+    // test normal operation
+    try {
+        RPM_Sensor::Sptr sen = make_shared<RPM_Sensor>("rpm_data.txt");
+        unsigned int revs = sen->GetRevolutions();
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    // check if exception was thrown
+    TestOK = TestOK && check_dump(ost, "Test normal operation in RPM_Sensor", true, error_msg.empty());
+    error_msg.clear();
+
+    // test file not found
+    try {
+        RPM_Sensor::Sptr sen = make_shared<RPM_Sensor>("file_not_found.txt");
+        unsigned int revs = sen->GetRevolutions();
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test file not found in RPM_Sensor", RPM_Sensor::ERROR_SENSOR_FILE_NOT_FOUND, error_msg);
+    error_msg.clear();
+
+    // check empty file
+    try {
+        RPM_Sensor::Sptr sen = make_shared<RPM_Sensor>("rpm_data_empty.txt");
+        unsigned int revs = sen->GetRevolutions();
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+    TestOK = TestOK && check_dump(ost, "Test empty file in RPM_Sensor", RPM_Sensor::ERROR_SENSOR_INVALID_DATA_INPUT, error_msg);
+    error_msg.clear();
     ost << TestEnd;
 
     return TestOK;

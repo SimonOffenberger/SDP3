@@ -81,7 +81,7 @@
 % Kopfzeile
 % ---------
 \lhead{{\footnotesize{s. Offenberger, S. Vogelhuber}}}   %  (links)
-\chead{{\footnotesize{Systemdokumentation - Fuhrpark}}} %  (mitte)
+\chead{{\footnotesize{Systemdokumentation - DriveSim}}} %  (mitte)
 \rhead{{\footnotesize{Seite \thepage}}}      %  (rechts)
 
 % Fusszeile
@@ -124,7 +124,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \title {\vspace{1cm}
        \includegraphics[width=8cm]{./Images/FhOOeLogoOkt2009_HSD_Rot_pastell}\\
        \vspace{2cm}
-       {\textbf{Systemdokumentation\\Projekt Fuhrpark}}\\
+       {\textbf{Systemdokumentation\\Projekt DriveSim}}\\
        \vspace{5mm}
        {\small{Version 1.0}}\\
        \vspace{5mm}
@@ -154,7 +154,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \subsection{Team}
 \begin{itemize}
 	\item Simon Offenberger, Matr.-Nr.: S2410306027, E-Mail: Simon.Offenberger@fh-hagenberg.at
-	\item Susi Sorglos, Matr.-Nr.: yyyy, E-Mail: Susi.Sorglos@fh-hagenberg.at	
+	\item Simon Vogelhuber, Matr.-Nr.: S2410306014, E-Mail: S2410306014@fh-hagenberg.at	
 \end{itemize}
 
 \subsection{Aufteilung der Verantwortlichkeitsbereiche}
@@ -162,28 +162,36 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 	\item Simon Offenberger
 		\begin{itemize}
 			\item Design Klassendiagramm
+			\item Implementierung des Testtreibers
+			\item Dokumentation
 			\item Implementierung und Test der Klassen: 
 			\begin{itemize}
 				\item Object,
-				\item RecordEntry, 
-				\item DriveRecord,
 				\item Vehicle,
+				\item Car,
+				\item Meter,
+				\item IDisplay,
+				\item Tachometer,
+				\item Odometer,
+				\item RPM Sensor
 			\end{itemize}
-			\item Implementierung des Testtreibers
-			\item Dokumentation
 		\end{itemize}
 	\item Simon Vogelhuber
-		\begin{itemize}
+	\begin{itemize}
 			\item Design Klassendiagramm
-			\item Implementierung und Komponententest der Klassen: 
-			\begin{itemize}
-				\item Garage
-				\item Car, 
-				\item Bike und  
-				\item Truck 
-			\end{itemize}
 			\item Implementierung des Testtreibers
 			\item Dokumentation
+			\item Implementierung und Test der Klassen: 
+			\begin{itemize}
+				\item Object,
+				\item Vehicle,
+				\item Car,
+				\item Meter,
+				\item IDisplay,
+				\item Tachometer,
+				\item Odometer,
+				\item RPM Sensor
+			\end{itemize}
 		\end{itemize}	
 \end{itemize}
 
@@ -191,35 +199,35 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 	
 	\begin{itemize}
 		\item Simon Offenberger: geschätzt 10 Ph / tatsächlich x Ph
-		\item Simon Vogelhuber:  geschätzt x Ph / tatsächlich x Ph
+		\item Simon Vogelhuber:  geschätzt 10 Ph / tatsächlich 5 Ph
 	\end{itemize}
 
 \clearpage
 \section{Anforderungsdefinition (Systemspezifikation)}
-In diesem System werden Fahrzeuge in einem Fuhrpark verwaltet. 
-Zusätzlich soll auch noch ein Fahrtenbuch zu jedem Fahrzeug gespeichert werden.
-\\
-\\
-\textbf{Funktionen des Fahrtenbuches}
+In diesem Abschnitt werden die funktionalen Anforderungen an das System beschrieben.
+
+\textbf{Funktionen des Vehicle}
 \begin{itemize}
-	\item Berechnen des Kilometerstands der aufgezeichneten Fahrten.
-	\item Speichere Datum und Distanz einer Fahrt.
+	\item Abstrakte Basisklasse für alle Fahrzeugtypen
+	\item Anfragen der Sensordaten (Drehzahl der Reifen)
 \end{itemize}
 
-\textbf{Funktionen des Fuhrparks}
+\textbf{Funktionen des Sensors}
 \begin{itemize}
-	\item Hinzufügen und löschen eines Fahrzeuges
-	\item Ausgabe aller Fahrzeugdaten inklusive der Fahrtenbucheinträge.
-	\item Suchen nach einem Fahrzeug mit dessen Kennzeichen.
-	\item Berechnung der Gesamtkilometer aller Fahrzeuge im Fuhrpark.
+	\item Erzeugen der Sensordaten (Drehzahl der Reifen) durch lesen einer Textdatei
+	\item Weitergabe der Sensordaten an die verbauten Anzeigen
 \end{itemize}
 
-\textbf{Funktionen der Fahrzeuge}
+\textbf{Funktionen des Display}
 \begin{itemize}
-	\item Bereitstellen einer Print Funktion mit Info über das Fahrzeug und die Fahrtenbucheinträge.
-	\item Hinzufügen von Fahrtenbucheinträgen.
-	\item Ermittlung vom Kilometerstand eines Fahrzeugs.
-	\item Speichern von Hersteller, Treibstoff und Kennzeichen des Fahrzeugs
+	\item Interface für alle Anzeigetypen für die Verwendung eines Displays innerhalb eines Vehicles
+\end{itemize}
+
+\textbf{Funktionen des Meter}
+\begin{itemize}
+	\item Abstrakte Basisklasse für alle Anzeigetypen
+	\item Anbfragen der anzuzeigenden Werte vom Vehicle
+	\item Darstellung der Werte
 \end{itemize}
 
 \clearpage
@@ -230,22 +238,16 @@ Zusätzlich soll auch noch ein Fahrtenbuch zu jedem Fahrzeug gespeichert werden.
 \newpage
 
 \subsection{Designentscheidungen}
-Im Klassendiagramm wurde der Polymorphismus angewendet, um unterschiedliche Fahrzeugarten mit der gemeinsamen Schnittstelle 'Vehicle' anzusprechen. Die Klasse 'Garage' speichert einen Container mit der abstrakte Basisklasse 'Vehicle' als Elementtyp und kann somit alle bestehenden und auch neuen Fahrzeugarten verwalten, die sich von der gemeinsamen Basisklasse 'Vehicle' ableiten.
-Für die Aufzeichnung eines Fahrtenbuches wurde die Klasse \textbf{DriveRecord} implementiert. Diese Klasse speichert mehrere Objekte der Klasse \textbf{RecordEntry}.
-Die Record Entries werden im Fahrtenbuch in einem \textbf{Multiset} gespeichert, damit sind die Einträge ins Fahrtenbuch immer nach dem Datum aufsteigend sortiert.
-Aus diesem Grund wurde der \textbf{operator<} für die Record Entries definiert. Dieser vergleicht das Datum der Einträge.
-Dadurch, dass die Einträge ins Fahrtenbuch als eigene Klasse implementiert wurde, lassen sich die einzelnen Einträge schnell und einfach erweitern.\\
-\\
-\\
-Als Container für die Speicherung der Fahrzeuge in der Klasse \textbf{Garage} wurde der Vektor verwendet. 
-Dieser erlaubt es schnell Fahrzeuge hinzuzufügen, und das Suchen geschieht relativ schnell in O(n).
-Einzig und allein, das Löschen aus der Mitte des Vektors stellt bei größerwerdenden Fuhrparks ein Problem dar.
-Wenn dies in der Verwendung des Fuhrparks öfters passiert sollte der verwendete Container ausgetauscht werden.
-\\
-\\
-Die Klassen \textbf{Car, Truck und Bike} wurden für die Konkretisierung der Printfunktion verwendet.
-Diese Klassen lassen sich schnell und einfach erweitern, und können trotzdem weiter vom Fuhrpark verwaltet werden.\\
-\\
+Im Klassendiagramm wurd als Patter das \textit{Observer Pattern} verwendet, da in diesem fall ein Fahzeug
+mehrere Anzeigen (Meter) haben kann, welche auf die Daten des Fahrzeugs reagieren müssen. Das Observer 
+Pattern ermöglicht es, dass die Anzeigen sich beim Fahrzeug registrieren können und bei einer Änderung 
+der Sensordaten automatisch benachrichtigt werden.
+
+Die Displays können vom Fahrzeug die aufbereiteten Daten (z.B. Geschwindigkeit, Drehzahl) abfragen,
+indem sie die entsprechenden Methoden des Fahrzeugs aufrufen.
+
+Die Abstakte \textit{Meter} dient dazu, das WindowDisplay Interface zu implementieren und die gemeinsamen
+Funktionen der verschiedenen Anzeigetypen (Tachometer, Odometer, RPM Sensor) zu bündeln.
 
 \color{black}
 
@@ -254,55 +256,31 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 
 \clearpage
 \section{Testprotokollierung}
-\lstinputlisting[style=teststyle]{../TestOutput.txt}
+\lstinputlisting[style=teststyle]{../output.txt}
 
 \clearpage
 \section{Quellcode}
 
 \subsection{Object.hpp}
-\lstinputlisting{../Object.hpp}
-
-\subsection{RecordEntry.hpp}
-\lstinputlisting{./../RecordEntry.hpp}
-
-\subsection{RecordEntry.cpp}
-\lstinputlisting{./../RecordEntry.cpp}
-
-\subsection{DriveRecord.hpp}
-\lstinputlisting{./../DriveRecord.hpp}
-
-\subsection{DriveRecord.cpp}
-\lstinputlisting{./../DriveRecord.cpp}
-
-\subsection{Garage.hpp}
-\lstinputlisting{./../Garage.hpp}
-
-\subsection{Garage.cpp}
-\lstinputlisting{./../Garage.cpp}
+\lstinputlisting{../Object.h}
+\clearpage
 
 \subsection{Vehicle.hpp}
-\lstinputlisting{./../Vehicle.hpp}
+\lstinputlisting{../Vehicle.hpp}
+\clearpage
 
 \subsection{Vehicle.cpp}
-\lstinputlisting{./../Vehicle.cpp}
+\lstinputlisting{../Vehicle.cpp}
+\clearpage
 
 \subsection{Car.hpp}
-\lstinputlisting{./../Car.hpp}
+\lstinputlisting{../Car.hpp}
+\clearpage
 
 \subsection{Car.cpp}
-\lstinputlisting{./../Car.cpp}
+\lstinputlisting{../Car.cpp}
+\clearpage
 
-\subsection{Truck.hpp}
-\lstinputlisting{./../Truck.hpp}
-
-\subsection{Truck.cpp}
-\lstinputlisting{./../Truck.cpp}
-
-\subsection{Bike.hpp}
-\lstinputlisting{./../Bike.hpp}
-
-\subsection{Bike.cpp}
-\lstinputlisting{./../Bike.cpp}
 
 % Literaturverzeichnis
 % --------------------

@@ -3,13 +3,24 @@
 
 void Car::Process()
 {
-	m_wheel_rmp = m_wheel_rpm_sensor->GetRevolutioins();
+	try {
+		// Get Revolutionins 
+		m_wheel_rmp = m_wheel_rpm_sensor->GetRevolutions();
+	}
+	catch (...) {
+
+		m_wheel_rmp = 0;
+
+		throw; // rethrow exception to inform user of the exception
+	}
+
+
 	Notify();
 }
 
 double Car::GetCurrentSpeed()
 {
-	return ((m_wheel_rmp / 60) * m_wheel_diameter * std::numbers::pi * 3.6) / 1000;
+	return ((m_wheel_rmp / seconds_in_min) * m_wheel_diameter * std::numbers::pi * mps_to_kph) / mm_in_m;
 }
 
 Car::Car(const unsigned int & wheel_diameter, RPM_Sensor::Sptr wh_rpm_sen) : m_wheel_rmp{0}

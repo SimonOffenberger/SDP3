@@ -16,6 +16,7 @@ protected:
 	Meter(WindowsDisplay::SPtr display);
 	
 	WindowsDisplay::SPtr m_window;
+
 private:
 
 };

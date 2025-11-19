@@ -9,7 +9,7 @@
 
 #include "RPM_Sensor.hpp"
 
-unsigned int RPM_Sensor::GetRevolutioins()
+unsigned int RPM_Sensor::GetRevolutions()
 {
     unsigned int sensor_reading;
 

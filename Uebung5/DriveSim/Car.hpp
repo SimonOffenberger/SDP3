@@ -27,6 +27,10 @@ private:
 	unsigned int m_wheel_rmp;
 	unsigned int m_wheel_diameter;
 	RPM_Sensor::Sptr m_wheel_rpm_sensor;
+
+	const double mps_to_kph = 3.6;
+    const double seconds_in_min = 60;
+	const double mm_in_m = 1000;
 };
 
 #endif // !CAR_HPP

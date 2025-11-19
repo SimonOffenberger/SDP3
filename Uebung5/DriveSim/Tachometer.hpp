@@ -11,11 +11,11 @@ public:
 
 	virtual void Update() override;
 
-	Tachometer(Car::Sptr car, WindowsDisplay::SPtr display);
+	Tachometer(Car & car, WindowsDisplay::SPtr display);
 									
 private:
 
-	Car::Sptr m_car;
+	Car & m_car;
 
 	double m_speed;
 };

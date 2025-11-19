@@ -10,12 +10,11 @@ public:
 
 	virtual void Update() override;
 
-	Odometer(Car::Sptr car, WindowsDisplay::SPtr display);
+	Odometer(Car & car, WindowsDisplay::SPtr display);
 						
-
 private:
 
-	Car::Sptr m_car;
+	Car & m_car;
 
 	double m_milage;
 };

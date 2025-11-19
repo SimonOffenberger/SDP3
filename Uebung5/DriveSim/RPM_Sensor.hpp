@@ -10,12 +10,13 @@
 #ifndef RPM_SENSOR_HPP
 #define RPM_SENSOR_HPP
 
+#include "Object.h"
 #include <string>
 #include <string_view>
 #include <memory>
 #include <fstream>
 
-class RPM_Sensor {
+class RPM_Sensor : public Object {
 public:
 	inline static const std::string ERROR_SENSOR_FILE_NOT_FOUND = "ERROR RPM sensor file was not found";
 	inline static const std::string ERROR_SENSOR_INVALID_DATA_INPUT = "ERROR RPM sensor could not read data from file.";
@@ -33,7 +34,7 @@ public:
 	 * be handled by the user of this class.
 	 * \return unsigned int revs 
 	 */
-	unsigned int GetRevolutioins();
+	unsigned int GetRevolutions();
 
 	/**
 	 * \brief RPM_Sensor constructor
@@ -47,6 +48,11 @@ public:
 	 * close ifstream.
 	 */
 	~RPM_Sensor();
+
+	// delete CopyCtor and Assign Operator to prevent untestet behavour.
+	RPM_Sensor(RPM_Sensor& s) = delete;
+	void operator= (RPM_Sensor s) = delete;
+
 private:
 	// open a filestream when sensor is constructed
 	// close when destructor is called.

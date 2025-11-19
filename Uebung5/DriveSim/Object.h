@@ -4,9 +4,12 @@
 #include <string>
 
 class Object{
-protected:
+public:
 
 	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
+
+protected:
+
 
    Object(){};
 public:

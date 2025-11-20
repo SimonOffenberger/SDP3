@@ -4,10 +4,31 @@
 *******************************************
 
 Test normal operation in Odometer Setup
-[Test OK] Result: (Expected: true == Result: true)
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test nullptr Car in Odometer CTOR
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
 
 Test Display nullptr in CTOR of Odometer
-[Test OK] Result: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test nullptr in CTOR of Odometer
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test Car nullptr in Update of Odometer
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test nullptr in Set Display
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test initial Milage of Odomerter
+[32m[Test OK] [37mResult: (Expected: 0 == Result: 0)
+
+Test Milage after one Process of Odomerter
+[32m[Test OK] [37mResult: (Expected: 26 == Result: 26)
+
+Test for Exception in Testcase
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
 
 
 *******************************************
@@ -18,10 +39,22 @@ Test Display nullptr in CTOR of Odometer
 *******************************************
 
 Test normal operation in Tachometer Setup
-[Test OK] Result: (Expected: true == Result: true)
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test nullptr Car in Tachometer CTOR
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
 
 Test Display nullptr in CTOR of Tachometer
-[Test OK] Result: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test nullptr in CTOR of Tachometer
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test Car nullptr in Update of Tachometer
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test nullptr in Set Display
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
 
 
 *******************************************
@@ -32,15 +65,59 @@ Test Display nullptr in CTOR of Tachometer
 *******************************************
 
 Test normal operation in RPM_Sensor
-[Test OK] Result: (Expected: true == Result: true)
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test invalid RPM Data (aaaa aaaa)
+[32m[Test OK] [37mResult: (Expected: ERROR RPM sensor could not read data from file. == Result: ERROR RPM sensor could not read data from file.)
+
+Test invalid RPM Data (-1000)
+[32m[Test OK] [37mResult: (Expected: ERROR RPM sensor could not read data from file. == Result: ERROR RPM sensor could not read data from file.)
+
+Test invalid RPM Data (1007ab)
+[32m[Test OK] [37mResult: (Expected: ERROR RPM sensor could not read data from file. == Result: ERROR RPM sensor could not read data from file.)
+
+Test invalid RPM Data (10.00)
+[32m[Test OK] [37mResult: (Expected: ERROR RPM sensor could not read data from file. == Result: ERROR RPM sensor could not read data from file.)
 
 Test file not found in RPM_Sensor
-[Test OK] Result: (Expected: ERROR RPM sensor file was not found == Result: ERROR RPM sensor file was not found)
+[32m[Test OK] [37mResult: (Expected: ERROR RPM sensor file was not found == Result: ERROR RPM sensor file was not found)
 
 Test empty file in RPM_Sensor
-[Test OK] Result: (Expected: ERROR RPM sensor could not read data from file. == Result: ERROR RPM sensor could not read data from file.)
+[32m[Test OK] [37mResult: (Expected: ERROR RPM sensor could not read data from file. == Result: ERROR RPM sensor could not read data from file.)
 
 
 *******************************************
 
-TEST OK!!
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Car CTOR with RPM Nullptr
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test Car CTOR with 0 Wheel Diameter
+[32m[Test OK] [37mResult: (Expected: ERROR: Wheel Diameter cannot be 0! == Result: ERROR: Wheel Diameter cannot be 0!)
+
+Test Car Attach with nullptr
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test Car Detach with nullptr
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test Car Detach with non attached observer
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test Car Get Current Speed
+[32m[Test OK] [37mResult: (Expected: 18849 == Result: 18849)
+
+Test Exception in TestCase
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test Exception End of File in Car Process
+[32m[Test OK] [37mResult: (Expected: ERROR RPM sensor file has ended, theres no more data. == Result: ERROR RPM sensor file has ended, theres no more data.)
+
+
+*******************************************
+
+[32mTEST OK!![37m

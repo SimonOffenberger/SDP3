@@ -2,14 +2,34 @@
 
 void Odometer::Update()
 {
-	double speed = m_car.GetCurrentSpeed();
 
-	m_milage = m_milage + (speed * 0.5)/3600;
+	Car::Sptr car = m_car.lock();
 
-	m_window->SendValue(m_milage);
+	if (car == nullptr) throw Odometer::ERROR_NULLPTR;
+
+	const double speed = abs(car->GetCurrentSpeed());
+
+	m_milage = m_milage + (speed * Odometer::Update_Intervall)/ mseconds_in_hours;
+
+	if(m_window != nullptr) m_window->SendValue(static_cast<unsigned int>(m_milage));
 }
 
-Odometer::Odometer(Car& car, WindowsDisplay::SPtr display) : m_car{ car },  m_milage { 0 }, Meter{ move(display) }
+Odometer::Odometer(Car::Sptr car, WindowsDisplay::SPtr display) : m_milage { 0 }, Meter{ move(display) }
 {
+	if (car == nullptr) throw Odometer::ERROR_NULLPTR;
 
+	m_car = move(car);
+}
+
+Odometer::Odometer(Car::Sptr car) : m_milage{ 0 }
+{
+	if (car == nullptr) throw Odometer::ERROR_NULLPTR;
+
+	m_car = move(car);
+}
+
+
+size_t Odometer::GetMilage() const
+{
+	return static_cast<size_t>(m_milage);
 }

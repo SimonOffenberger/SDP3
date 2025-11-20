@@ -9,17 +9,32 @@
 
 #include "RPM_Sensor.hpp"
 
-unsigned int RPM_Sensor::GetRevolutions()
+#include <algorithm>
+#include <sstream>
+
+size_t RPM_Sensor::GetRevolutions()
 {
-    unsigned int sensor_reading;
+    std::string sensor_reading;
+    std::stringstream converter;
+    size_t sensor_value = 0;
 
     if (m_fileStream.eof())
         throw ERROR_SENSOR_EOF;
 
-    if (!(m_fileStream >> sensor_reading))
+    m_fileStream >> sensor_reading;
+
+    if (sensor_reading.empty())
         throw ERROR_SENSOR_INVALID_DATA_INPUT;
+
+    // check if all of the readings are digits
+    if (!std::all_of(sensor_reading.cbegin(), sensor_reading.cend(), ::isdigit))
+        throw ERROR_SENSOR_INVALID_DATA_INPUT;
+
+    // use Stringstream for type Conversion
+    converter << sensor_reading;
+    converter >> sensor_value;
     
-    return sensor_reading;
+    return static_cast<size_t>(sensor_value);
 }
 
 RPM_Sensor::RPM_Sensor(std::string_view testFileName)

@@ -18,6 +18,7 @@
 
 class RPM_Sensor : public Object {
 public:
+	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
 	inline static const std::string ERROR_SENSOR_FILE_NOT_FOUND = "ERROR RPM sensor file was not found";
 	inline static const std::string ERROR_SENSOR_INVALID_DATA_INPUT = "ERROR RPM sensor could not read data from file.";
 	inline static const std::string ERROR_SENSOR_EOF = "ERROR RPM sensor file has ended, theres no more data.";
@@ -34,7 +35,7 @@ public:
 	 * be handled by the user of this class.
 	 * \return unsigned int revs 
 	 */
-	unsigned int GetRevolutions();
+	size_t GetRevolutions();
 
 	/**
 	 * \brief RPM_Sensor constructor

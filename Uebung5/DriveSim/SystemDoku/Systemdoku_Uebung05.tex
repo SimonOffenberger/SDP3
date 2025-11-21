@@ -29,6 +29,7 @@
 \usepackage{fancyhdr}   % fÃ¼r Kopf- und Fusszeilen
 \usepackage{listings}   % fÃ¼r den Sourcecode
 \usepackage{pdfpages}
+\usepackage{rotating}
 
 \pagestyle{fancy}       % Kopf- / Fusszeile aktivieren
 
@@ -199,7 +200,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 	
 	\begin{itemize}
 		\item Simon Offenberger: geschätzt 10 Ph / tatsächlich x Ph
-		\item Simon Vogelhuber:  geschätzt 10 Ph / tatsächlich 5 Ph
+		\item Simon Vogelhuber:  geschätzt 10 Ph / tatsächlich 6 Ph
 	\end{itemize}
 
 \clearpage
@@ -230,15 +231,27 @@ In diesem Abschnitt werden die funktionalen Anforderungen an das System beschrie
 	\item Darstellung der Werte
 \end{itemize}
 
+\textbf{Funktionen des Odometer}
+\begin{itemize}
+	\item Berechnung der gefahrenen Strecke anhand der Raddrehzahl
+\end{itemize}
+
+\textbf{Funktionen des Tachometer}
+\begin{itemize}
+	\item Messung der Drehzahl des Motors
+\end{itemize}
+
 \clearpage
 \section{Systementwurf}
 
-\subsection{Klassendiagramm}
-\includegraphics[width=14cm]{./Images/Klassendiagramm.png}
-\newpage
+\begin{sidewaysfigure}
+    \centering
+    {\large \textbf{Klassendiagramm}\\[1em]}
+    \includegraphics[width=\textheight]{./Images/Klassendiagramm.png}
+\end{sidewaysfigure}
 
 \subsection{Designentscheidungen}
-Im Klassendiagramm wurd als Patter das \textit{Observer Pattern} verwendet, da in diesem fall ein Fahzeug
+Im Klassendiagramm wurd als Pattern das \textit{Observer Pattern} verwendet, da in diesem fall ein Fahzeug
 mehrere Anzeigen (Meter) haben kann, welche auf die Daten des Fahrzeugs reagieren müssen. Das Observer 
 Pattern ermöglicht es, dass die Anzeigen sich beim Fahrzeug registrieren können und bei einer Änderung 
 der Sensordaten automatisch benachrichtigt werden.
@@ -261,7 +274,7 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 \clearpage
 \section{Quellcode}
 
-\subsection{Object.hpp}
+\subsection{Object.h}
 \lstinputlisting{../Object.h}
 \clearpage
 
@@ -281,6 +294,49 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 \lstinputlisting{../Car.cpp}
 \clearpage
 
+\subsection{IDisplay.hpp}
+\lstinputlisting{../IDisplay.hpp}
+\clearpage
+
+\subsection{Meter.hpp}
+\lstinputlisting{../Meter.hpp}
+\clearpage
+
+\subsection{Meter.cpp}
+\lstinputlisting{../Meter.cpp}
+\clearpage
+
+\subsection{Tachometer.hpp}
+\lstinputlisting{../Tachometer.hpp}
+\clearpage
+
+\subsection{Tachometer.cpp}
+\lstinputlisting{../Tachometer.cpp}
+\clearpage
+
+\subsection{Odometer.hpp}
+\lstinputlisting{../Odometer.hpp}
+\clearpage
+
+\subsection{Odometer.cpp}
+\lstinputlisting{../Odometer.cpp}
+\clearpage
+
+\subsection{RPM\_Sensor.hpp}
+\lstinputlisting{../RPM_Sensor.hpp}
+\clearpage
+
+\subsection{RPM\_Sensor.cpp}
+\lstinputlisting{../RPM_Sensor.cpp}
+\clearpage
+
+\subsection{main.cpp}
+\lstinputlisting{../main.cpp}
+\clearpage
+
+\subsection{Test.hpp}
+\lstinputlisting{../Test.hpp}
+\clearpage
 
 % Literaturverzeichnis
 % --------------------

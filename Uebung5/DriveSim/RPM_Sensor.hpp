@@ -30,7 +30,7 @@ public:
 
 	/**
 	 * \brief Returns current rpm. This is achieved by parsing 
-	 * from a testfile - if the end of the fiel is reached a
+	 * from a testfile - if the end of the file is reached a
 	 * exception is thrown (ERROR_SENSOR_EOF). This has to
 	 * be handled by the user of this class.
 	 * \return unsigned int revs 
@@ -50,7 +50,8 @@ public:
 	 */
 	~RPM_Sensor();
 
-	// delete CopyCtor and Assign Operator to prevent untestet behavour.
+	// delete CopyCtor and Assign Operator because we warp a file stream
+	// which should not be copied or assigned!
 	RPM_Sensor(RPM_Sensor& s) = delete;
 	void operator= (RPM_Sensor s) = delete;
 

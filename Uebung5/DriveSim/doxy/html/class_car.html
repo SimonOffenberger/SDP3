@@ -25,7 +25,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Fastaf.png"/></td>
   <td id="projectalign">
    <div id="projectname">Drive Sim<span id="projectnumber">&#160;1.0</span>
    </div>
@@ -125,8 +124,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Wptr</b> = std::weak
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3ac746b22d54e8e1fd425678a856f85f" id="r_a3ac746b22d54e8e1fd425678a856f85f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ac746b22d54e8e1fd425678a856f85f">Process</a> ()</td></tr>
 <tr class="memdesc:a3ac746b22d54e8e1fd425678a856f85f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves RPM data from the sensor and updates internal state.  <br /></td></tr>
-<tr class="memitem:afc096d82730a23724423aa544c7eada6" id="r_afc096d82730a23724423aa544c7eada6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc096d82730a23724423aa544c7eada6">GetCurrentSpeed</a> ()</td></tr>
-<tr class="memdesc:afc096d82730a23724423aa544c7eada6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the current speed of the car in kilometers per hour.  <br /></td></tr>
+<tr class="memitem:a6f0193b94c28ec0ef2a887445a37e5d1" id="r_a6f0193b94c28ec0ef2a887445a37e5d1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f0193b94c28ec0ef2a887445a37e5d1">GetCurrentSpeed</a> () const</td></tr>
+<tr class="memdesc:a6f0193b94c28ec0ef2a887445a37e5d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the current speed of the car in kilometers per hour.  <br /></td></tr>
 <tr class="memitem:a78c97b184677d7ff94d232884542cfae" id="r_a78c97b184677d7ff94d232884542cfae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78c97b184677d7ff94d232884542cfae">Car</a> (const size_t &amp;wheel_diameter, <a class="el" href="class_r_p_m___sensor.html#a479b0f10fbe3b3ea0cdee630dc8a0e8a">RPM_Sensor::Sptr</a> wh_rpm_sen)</td></tr>
 <tr class="memdesc:a78c97b184677d7ff94d232884542cfae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_car.html" title="Vehicle subclass that calculates speed using an RPM sensor.">Car</a> with a wheel diameter and an RPM sensor.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_vehicle"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_vehicle')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_vehicle.html">Vehicle</a></td></tr>
@@ -151,8 +150,8 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>E
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_class_vehicle"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_vehicle')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="class_vehicle.html">Vehicle</a></td></tr>
-<tr class="memitem:aa8fc75b01233bd1400bcdcf86b691c91 inherit pro_methods_class_vehicle" id="r_aa8fc75b01233bd1400bcdcf86b691c91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vehicle.html#aa8fc75b01233bd1400bcdcf86b691c91">Notify</a> ()</td></tr>
-<tr class="memdesc:aa8fc75b01233bd1400bcdcf86b691c91 inherit pro_methods_class_vehicle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies all attached display observers.  <br /></td></tr>
+<tr class="memitem:a42321a681a655ca9226d50034ef63b5e inherit pro_methods_class_vehicle" id="r_a42321a681a655ca9226d50034ef63b5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vehicle.html#a42321a681a655ca9226d50034ef63b5e">Notify</a> () const</td></tr>
+<tr class="memdesc:a42321a681a655ca9226d50034ef63b5e inherit pro_methods_class_vehicle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies all attached display observers.  <br /></td></tr>
 <tr class="memitem:a8b7885b66c0f4f46a50ec71a8570f8b3 inherit pro_methods_class_vehicle" id="r_a8b7885b66c0f4f46a50ec71a8570f8b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vehicle.html#a8b7885b66c0f4f46a50ec71a8570f8b3">Vehicle</a> ()=default</td></tr>
 <tr class="memdesc:a8b7885b66c0f4f46a50ec71a8570f8b3 inherit pro_methods_class_vehicle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected default constructor.  <br /></td></tr>
 </table>
@@ -197,8 +196,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="afc096d82730a23724423aa544c7eada6" name="afc096d82730a23724423aa544c7eada6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc096d82730a23724423aa544c7eada6">&#9670;&#160;</a></span>GetCurrentSpeed()</h2>
+<a id="a6f0193b94c28ec0ef2a887445a37e5d1" name="a6f0193b94c28ec0ef2a887445a37e5d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f0193b94c28ec0ef2a887445a37e5d1">&#9670;&#160;</a></span>GetCurrentSpeed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,20 +206,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">double Car::GetCurrentSpeed </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Computes the current speed of the car in kilometers per hour. </p>
-<p>The speed is calculated using the wheel RPM, wheel diameter (in mm), and conversion constants.</p>
-<p>The calculation is based on:</p><ul>
-<li>converting RPM to revolutions per second</li>
-<li>converting wheel diameter to circumference (diameter * pi)</li>
-<li>converting millimeters to meters</li>
-<li>converting meters per second to kilometers per hour</li>
-</ul>
-<dl class="section return"><dt>Returns</dt><dd>The current speed in KPH. </dd></dl>
+<p>The speed is calculated using the wheel RPM, wheel diameter (in mm), and conversion constants. </p><dl class="section return"><dt>Returns</dt><dd>The current speed in KPH. </dd></dl>
 
 </div>
 </div>
@@ -240,8 +232,8 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retrieves RPM data from the sensor and updates internal state. </p>
-<p>This method calls <a class="el" href="class_r_p_m___sensor.html#a06b12c33d06000b135857704e3a4358c" title="Returns current rpm. This is achieved by parsing from a testfile - if the end of the fiel is reached ...">RPM_Sensor::GetRevolutions()</a> to update the current wheel RPM. If the sensor throws an exception, the internal RPM value is reset to zero before rethrowing the exception.</p>
-<p>After processing sensor data, this method notifies all observers through <a class="el" href="class_vehicle.html#aa8fc75b01233bd1400bcdcf86b691c91" title="Notifies all attached display observers.">Vehicle::Notify()</a>.</p>
+<p>This method calls <a class="el" href="class_r_p_m___sensor.html#a06b12c33d06000b135857704e3a4358c" title="Returns current rpm. This is achieved by parsing from a testfile - if the end of the file is reached ...">RPM_Sensor::GetRevolutions()</a> to update the current wheel RPM. If the sensor throws an exception, the internal RPM value is reset to zero before rethrowing the exception.</p>
+<p>After processing sensor data, this method notifies all observers through <a class="el" href="class_vehicle.html#a42321a681a655ca9226d50034ef63b5e" title="Notifies all attached display observers.">Vehicle::Notify()</a>.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">Any</td><td>exception thrown by the underlying RPM sensor. </td></tr>
@@ -252,8 +244,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung5/DriveSim/<a class="el" href="_car_8hpp_source.html">Car.hpp</a></li>
-<li>C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung5/DriveSim/<b>Car.cpp</b></li>
+<li><a class="el" href="_car_8hpp_source.html">Car.hpp</a></li>
+<li><a class="el" href="_car_8cpp.html">Car.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

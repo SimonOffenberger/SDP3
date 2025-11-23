@@ -5,8 +5,7 @@
  *
  * The Vehicle class manages a collection of display observers that
  * implement the IDisplay interface. Observers can be attached or
- * detached at runtime. Whenever the vehicle's internal state changes,
- * derived classes can call Notify() to update all attached displays.
+ * detached at runtime.
  *
  * \author Simon
  * \date   November 2025
@@ -22,14 +21,6 @@
  /**
   * \class Vehicle
   * \brief Base class supporting observer management for display updates.
-  *
-  * The Vehicle class is responsible for managing observers that display
-  * information about the vehicle. It provides methods to attach and detach
-  * display objects, as well as a protected Notify() method that derived
-  * classes can call when their internal state has changed.
-  *
-  * This class uses shared pointers for observer references. A null pointer
-  * is treated as an invalid argument and produces an exception.
   */
 class Vehicle : public Object {
 public:
@@ -49,9 +40,6 @@ public:
     /**
      * \brief Attaches a display observer to the vehicle.
      *
-     * The display pointer must not be null. The observer is added to the
-     * internal container and will receive updates on the next Notify().
-     *
      * \param display Shared pointer to a display object implementing IDisplay.
      *
      * \throws std::string ERROR_NULLPTR if display is null.
@@ -60,9 +48,6 @@ public:
 
     /**
      * \brief Detaches a display observer from the vehicle.
-     *
-     * If the observer exists in the internal container, it is removed.
-     * Passing a null pointer is considered an invalid operation.
      *
      * \param display Shared pointer to a display object that should be removed.
      *
@@ -76,10 +61,9 @@ protected:
      * \brief Notifies all attached display observers.
      *
      * This method loops through all observers stored in the container and
-     * calls Update() on each non-null display. Derived classes should call
-     * this method whenever their observable state changes.
+     * calls Update() on each non-null display.
      */
-    void Notify();
+    void Notify() const;
 
     /**
      * \brief Protected default constructor.

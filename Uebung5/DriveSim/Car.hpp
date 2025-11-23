@@ -42,7 +42,7 @@ public:
     /**
      * \brief Error message for null sensor pointer.
      */
-    inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
+    static inline const std::string ERROR_NULLPTR = "ERROR Nullptr";
 
     /**
      * \brief Retrieves RPM data from the sensor and updates internal state.
@@ -63,16 +63,9 @@ public:
      *
      * The speed is calculated using the wheel RPM, wheel diameter (in mm),
      * and conversion constants.
-     *
-     * The calculation is based on:
-     * - converting RPM to revolutions per second
-     * - converting wheel diameter to circumference (diameter * pi)
-     * - converting millimeters to meters
-     * - converting meters per second to kilometers per hour
-     *
      * \return The current speed in KPH.
      */
-    double GetCurrentSpeed();
+    double GetCurrentSpeed() const;
 
     /**
      * \brief Constructs a Car with a wheel diameter and an RPM sensor.
@@ -104,17 +97,17 @@ private:
     /**
      * \brief Conversion factor from meters per second to kilometers per hour.
      */
-    const double mps_to_kph = 3.6;
+    inline static const double mps_to_kph = 3.6;
 
     /**
-     * \brief Number of seconds in one minute.
+     * \brief Number of seconds in one minute.5
      */
-    const double seconds_in_min = 60;
+    inline static const double seconds_in_min = 60;
 
     /**
      * \brief Millimeters in one meter.
      */
-    const double mm_in_m = 1000;
+    inline static const double mm_in_m = 1000;
 };
 
 #endif // !CAR_HPP

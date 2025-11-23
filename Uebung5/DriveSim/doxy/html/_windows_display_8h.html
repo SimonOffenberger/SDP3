@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Drive Sim: C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung5 Directory Reference</title>
+<title>Drive Sim: WindowsDisplay.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Fastaf.png"/></td>
   <td id="projectalign">
    <div id="projectname">Drive Sim<span id="projectnumber">&#160;1.0</span>
    </div>
@@ -64,7 +63,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('dir_4febe2610d086cae91dc915bcbebb0c0.html','',''); });
+$(function(){initNavTree('_windows_display_8h.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -90,15 +89,47 @@ $(function(){initNavTree('dir_4febe2610d086cae91dc915bcbebb0c0.html','',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Uebung5 Directory Reference</div></div>
+  <div class="headertitle"><div class="title">WindowsDisplay.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provided Implementation for <a class="el" href="class_windows_display.html">WindowsDisplay</a> using Named Pipes.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;Windows.h&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &quot;<a class="el" href="_object_8h_source.html">Object.h</a>&quot;</code><br />
+</div>
+<p><a href="_windows_display_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-subdirs" class="groupheader"><a id="subdirs" name="subdirs"></a>
-Directories</h2></td></tr>
-<tr class="memitem:DriveSim" id="r_DriveSim"><td class="memItemLeft" align="right" valign="top"><span class="iconfolder"><div class="folder-icon"></div></span>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dir_37c04d0c54e9a12c0da5882f4d6000e9.html">DriveSim</a></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:DataPacket" id="r_DataPacket"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_data_packet.html">DataPacket</a></td></tr>
+<tr class="memitem:WindowsDisplay" id="r_WindowsDisplay"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_windows_display.html">WindowsDisplay</a></td></tr>
+<tr class="memitem:DigitalDisplay" id="r_DigitalDisplay"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_digital_display.html">DigitalDisplay</a></td></tr>
+<tr class="memitem:AnalogDisplay" id="r_AnalogDisplay"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_analog_display.html">AnalogDisplay</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:af3a63f674d38acb98a175b1fc24bd78c" id="r_af3a63f674d38acb98a175b1fc24bd78c"><td class="memItemLeft" align="right" valign="top"><a id="af3a63f674d38acb98a175b1fc24bd78c" name="af3a63f674d38acb98a175b1fc24bd78c"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>eCommand</b> { <br />
+&#160;&#160;<b>ConfigureAnalogOnly</b> = 0
+, <b>ConfigureDigitalOnly</b> = 1
+, <b>ConfigureBoth</b> = 2
+, <b>SetValueAnalogOnly</b> = 3
+, <br />
+&#160;&#160;<b>SetValueDigitalOnly</b> = 4
+, <b>SetValueBoth</b> = 5
+<br />
+ }</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provided Implementation for <a class="el" href="class_windows_display.html">WindowsDisplay</a> using Named Pipes. </p>
+<dl class="section author"><dt>Author</dt><dd>unknown </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2025-11-23</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2025 </dd></dl>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>
@@ -111,7 +142,7 @@ Directories</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a href="dir_05281450f6bf2626e6f8ba97f969f8de.html">vogel</a></li><li class="navelem"><a href="dir_73662a00082686dcdc38f581e27cb5e7.html">Desktop</a></li><li class="navelem"><a href="dir_b9cc87c962421726742cee2ced4952ed.html">SDP3</a></li><li class="navelem"><a href="dir_7b24da6d519f781230c569871c2cfb81.html">Übung</a></li><li class="navelem"><a href="dir_e5b549314c5916f169c8a55dfb0e9ca9.html">SDP3</a></li><li class="navelem"><a href="dir_4febe2610d086cae91dc915bcbebb0c0.html">Uebung5</a></li>
+    <li class="navelem"><a href="_windows_display_8h.html">WindowsDisplay.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Drive Sim: C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung5/DriveSim/Odometer.hpp Source File</title>
+<title>Drive Sim: Odometer.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Fastaf.png"/></td>
   <td id="projectalign">
    <div id="projectname">Drive Sim<span id="projectnumber">&#160;1.0</span>
    </div>
@@ -94,62 +93,62 @@ $(function(){initNavTree('_odometer_8hpp_source.html','',''); });
 </div><!--header-->
 <div class="contents">
 <a href="_odometer_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*****************************************************************/</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef ODOMETER_HPP</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define ODOMETER_HPP</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="_object_8h.html">Object.h</a>&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="_meter_8hpp.html">Meter.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="_car_8hpp.html">Car.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span></div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_odometer.html">   33</a></span><span class="keyword">class </span><a class="code hl_function" href="class_odometer.html#ad9aed24ab1583c359364df994b047d1a">Odometer</a> : <span class="keyword">public</span> <a class="code hl_function" href="class_meter.html#a8bb256cbf804dadbd93cf6b66fd5fccb">Meter</a> {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef ODOMETER_HPP</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define ODOMETER_HPP</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="_object_8h.html">Object.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="_meter_8hpp.html">Meter.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_car_8hpp.html">Car.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_odometer.html">   28</a></span><span class="keyword">class </span><a class="code hl_function" href="class_odometer.html#ad9aed24ab1583c359364df994b047d1a">Odometer</a> : <span class="keyword">public</span> <a class="code hl_function" href="class_meter.html#a8bb256cbf804dadbd93cf6b66fd5fccb">Meter</a> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_odometer.html#add2719e25f716345cad5955311960605">   34</a></span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code hl_variable" href="class_odometer.html#add2719e25f716345cad5955311960605">ERROR_NULLPTR</a> = <span class="stringliteral">&quot;ERROR Nullptr&quot;</span>;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_odometer.html#add2719e25f716345cad5955311960605">   39</a></span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code hl_variable" href="class_odometer.html#add2719e25f716345cad5955311960605">ERROR_NULLPTR</a> = <span class="stringliteral">&quot;ERROR Nullptr&quot;</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_odometer.html#a4a3ae9419a5077a61f48f8b2fd7ead95">   48</a></span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_variable" href="class_odometer.html#a4a3ae9419a5077a61f48f8b2fd7ead95">Update_Intervall</a> = 500;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_odometer.html#a4a3ae9419a5077a61f48f8b2fd7ead95">   43</a></span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_variable" href="class_odometer.html#a4a3ae9419a5077a61f48f8b2fd7ead95">Update_Intervall</a> = 500;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_odometer.html#af578b482d0a97c0c2303beff0f91d32a">   48</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_odometer.html#af578b482d0a97c0c2303beff0f91d32a">Sptr</a> = std::shared_ptr&lt;Odometer&gt;;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_odometer.html#af578b482d0a97c0c2303beff0f91d32a">   53</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_odometer.html#af578b482d0a97c0c2303beff0f91d32a">Sptr</a> = std::shared_ptr&lt;Odometer&gt;;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_odometer.html#a5cd73b4df0c780ba5b92f05693c4553d">Update</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_odometer.html#ae0bc1484fd0a506da2a2805cd3b0aa1a">GetMilage</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_function" href="class_odometer.html#ad9aed24ab1583c359364df994b047d1a">Odometer</a>(<a class="code hl_typedef" href="class_car.html#a08d10a5e2ed861538483273ae5d75ca5">Car::Sptr</a> car, WindowsDisplay::SPtr display);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_function" href="class_odometer.html#ad9aed24ab1583c359364df994b047d1a">Odometer</a>(<a class="code hl_typedef" href="class_car.html#a08d10a5e2ed861538483273ae5d75ca5">Car::Sptr</a> car);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_odometer.html#a5cd73b4df0c780ba5b92f05693c4553d">Update</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_odometer.html#ae0bc1484fd0a506da2a2805cd3b0aa1a">GetMilage</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_function" href="class_odometer.html#ad9aed24ab1583c359364df994b047d1a">Odometer</a>(<a class="code hl_typedef" href="class_car.html#a08d10a5e2ed861538483273ae5d75ca5">Car::Sptr</a> car, WindowsDisplay::SPtr display);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_function" href="class_odometer.html#ad9aed24ab1583c359364df994b047d1a">Odometer</a>(<a class="code hl_typedef" href="class_car.html#a08d10a5e2ed861538483273ae5d75ca5">Car::Sptr</a> car);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_typedef" href="class_car.html#ae1b7279e76abac6f77b08006e4cfdfb0">Car::Wptr</a> m_car;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">double</span> m_milage;</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_typedef" href="class_car.html#ae1b7279e76abac6f77b08006e4cfdfb0">Car::Wptr</a> m_car;</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordtype">double</span> m_milage;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> mseconds_in_hours = 3600000;</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>};</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> mseconds_in_hours = 3600000;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>};</div>
 </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">#endif </span><span class="comment">// !ODOMETER_HPP</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">#endif </span><span class="comment">// !ODOMETER_HPP</span></div>
 <div class="ttc" id="a_car_8hpp_html"><div class="ttname"><a href="_car_8hpp.html">Car.hpp</a></div><div class="ttdoc">Declares the Car class, a Vehicle implementation using an RPM sensor to calculate its current speed.</div></div>
 <div class="ttc" id="a_meter_8hpp_html"><div class="ttname"><a href="_meter_8hpp.html">Meter.hpp</a></div><div class="ttdoc">Abstract base class for all meter display types.</div></div>
 <div class="ttc" id="a_object_8h_html"><div class="ttname"><a href="_object_8h.html">Object.h</a></div><div class="ttdoc">Base Object class for all other classes.</div></div>
 <div class="ttc" id="aclass_car_html_a08d10a5e2ed861538483273ae5d75ca5"><div class="ttname"><a href="class_car.html#a08d10a5e2ed861538483273ae5d75ca5">Car::Sptr</a></div><div class="ttdeci">std::shared_ptr&lt; Car &gt; Sptr</div><div class="ttdoc">Shared pointer alias for Car.</div><div class="ttdef"><b>Definition</b> Car.hpp:30</div></div>
 <div class="ttc" id="aclass_car_html_ae1b7279e76abac6f77b08006e4cfdfb0"><div class="ttname"><a href="class_car.html#ae1b7279e76abac6f77b08006e4cfdfb0">Car::Wptr</a></div><div class="ttdeci">std::weak_ptr&lt; Car &gt; Wptr</div><div class="ttdoc">Weak pointer alias for Car.</div><div class="ttdef"><b>Definition</b> Car.hpp:35</div></div>
 <div class="ttc" id="aclass_meter_html_a8bb256cbf804dadbd93cf6b66fd5fccb"><div class="ttname"><a href="class_meter.html#a8bb256cbf804dadbd93cf6b66fd5fccb">Meter::Meter</a></div><div class="ttdeci">Meter(WindowsDisplay::SPtr display)</div><div class="ttdoc">Constructs a Meter with an initial WindowsDisplay instance.</div><div class="ttdef"><b>Definition</b> Meter.cpp:11</div></div>
-<div class="ttc" id="aclass_odometer_html_a4a3ae9419a5077a61f48f8b2fd7ead95"><div class="ttname"><a href="class_odometer.html#a4a3ae9419a5077a61f48f8b2fd7ead95">Odometer::Update_Intervall</a></div><div class="ttdeci">static const size_t Update_Intervall</div><div class="ttdoc">Update interval in milliseconds.</div><div class="ttdef"><b>Definition</b> Odometer.hpp:48</div></div>
-<div class="ttc" id="aclass_odometer_html_a5cd73b4df0c780ba5b92f05693c4553d"><div class="ttname"><a href="class_odometer.html#a5cd73b4df0c780ba5b92f05693c4553d">Odometer::Update</a></div><div class="ttdeci">virtual void Update() override</div><div class="ttdoc">Updates the mileage and forwards the new value to the display.</div><div class="ttdef"><b>Definition</b> Odometer.cpp:3</div></div>
-<div class="ttc" id="aclass_odometer_html_ad9aed24ab1583c359364df994b047d1a"><div class="ttname"><a href="class_odometer.html#ad9aed24ab1583c359364df994b047d1a">Odometer::Odometer</a></div><div class="ttdeci">Odometer(Car::Sptr car, WindowsDisplay::SPtr display)</div><div class="ttdoc">Constructs an Odometer with a Car and a display.</div><div class="ttdef"><b>Definition</b> Odometer.cpp:17</div></div>
-<div class="ttc" id="aclass_odometer_html_add2719e25f716345cad5955311960605"><div class="ttname"><a href="class_odometer.html#add2719e25f716345cad5955311960605">Odometer::ERROR_NULLPTR</a></div><div class="ttdeci">static const std::string ERROR_NULLPTR</div><div class="ttdoc">Error message thrown when a null pointer is passed.</div><div class="ttdef"><b>Definition</b> Odometer.hpp:39</div></div>
-<div class="ttc" id="aclass_odometer_html_ae0bc1484fd0a506da2a2805cd3b0aa1a"><div class="ttname"><a href="class_odometer.html#ae0bc1484fd0a506da2a2805cd3b0aa1a">Odometer::GetMilage</a></div><div class="ttdeci">size_t GetMilage() const</div><div class="ttdoc">Returns the accumulated mileage.</div><div class="ttdef"><b>Definition</b> Odometer.cpp:32</div></div>
-<div class="ttc" id="aclass_odometer_html_af578b482d0a97c0c2303beff0f91d32a"><div class="ttname"><a href="class_odometer.html#af578b482d0a97c0c2303beff0f91d32a">Odometer::Sptr</a></div><div class="ttdeci">std::shared_ptr&lt; Odometer &gt; Sptr</div><div class="ttdoc">Shared pointer alias for Odometer.</div><div class="ttdef"><b>Definition</b> Odometer.hpp:53</div></div>
+<div class="ttc" id="aclass_odometer_html_a4a3ae9419a5077a61f48f8b2fd7ead95"><div class="ttname"><a href="class_odometer.html#a4a3ae9419a5077a61f48f8b2fd7ead95">Odometer::Update_Intervall</a></div><div class="ttdeci">static const size_t Update_Intervall</div><div class="ttdoc">Update interval in milliseconds.</div><div class="ttdef"><b>Definition</b> Odometer.hpp:43</div></div>
+<div class="ttc" id="aclass_odometer_html_a5cd73b4df0c780ba5b92f05693c4553d"><div class="ttname"><a href="class_odometer.html#a5cd73b4df0c780ba5b92f05693c4553d">Odometer::Update</a></div><div class="ttdeci">virtual void Update() override</div><div class="ttdoc">Updates the mileage and forwards the new value to the display.</div><div class="ttdef"><b>Definition</b> Odometer.cpp:10</div></div>
+<div class="ttc" id="aclass_odometer_html_ad9aed24ab1583c359364df994b047d1a"><div class="ttname"><a href="class_odometer.html#ad9aed24ab1583c359364df994b047d1a">Odometer::Odometer</a></div><div class="ttdeci">Odometer(Car::Sptr car, WindowsDisplay::SPtr display)</div><div class="ttdoc">Constructs an Odometer with a Car and a display.</div><div class="ttdef"><b>Definition</b> Odometer.cpp:28</div></div>
+<div class="ttc" id="aclass_odometer_html_add2719e25f716345cad5955311960605"><div class="ttname"><a href="class_odometer.html#add2719e25f716345cad5955311960605">Odometer::ERROR_NULLPTR</a></div><div class="ttdeci">static const std::string ERROR_NULLPTR</div><div class="ttdoc">Error message thrown when a null pointer is passed.</div><div class="ttdef"><b>Definition</b> Odometer.hpp:34</div></div>
+<div class="ttc" id="aclass_odometer_html_ae0bc1484fd0a506da2a2805cd3b0aa1a"><div class="ttname"><a href="class_odometer.html#ae0bc1484fd0a506da2a2805cd3b0aa1a">Odometer::GetMilage</a></div><div class="ttdeci">size_t GetMilage() const</div><div class="ttdoc">Returns the accumulated mileage.</div><div class="ttdef"><b>Definition</b> Odometer.cpp:43</div></div>
+<div class="ttc" id="aclass_odometer_html_af578b482d0a97c0c2303beff0f91d32a"><div class="ttname"><a href="class_odometer.html#af578b482d0a97c0c2303beff0f91d32a">Odometer::Sptr</a></div><div class="ttdeci">std::shared_ptr&lt; Odometer &gt; Sptr</div><div class="ttdoc">Shared pointer alias for Odometer.</div><div class="ttdef"><b>Definition</b> Odometer.hpp:48</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a href="dir_05281450f6bf2626e6f8ba97f969f8de.html">vogel</a></li><li class="navelem"><a href="dir_73662a00082686dcdc38f581e27cb5e7.html">Desktop</a></li><li class="navelem"><a href="dir_b9cc87c962421726742cee2ced4952ed.html">SDP3</a></li><li class="navelem"><a href="dir_7b24da6d519f781230c569871c2cfb81.html">Übung</a></li><li class="navelem"><a href="dir_e5b549314c5916f169c8a55dfb0e9ca9.html">SDP3</a></li><li class="navelem"><a href="dir_4febe2610d086cae91dc915bcbebb0c0.html">Uebung5</a></li><li class="navelem"><a href="dir_37c04d0c54e9a12c0da5882f4d6000e9.html">DriveSim</a></li><li class="navelem"><a href="_odometer_8hpp.html">Odometer.hpp</a></li>
+    <li class="navelem"><a href="_odometer_8hpp.html">Odometer.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

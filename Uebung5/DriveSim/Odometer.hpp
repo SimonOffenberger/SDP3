@@ -2,11 +2,6 @@
  * \file   Odometer.hpp
  * \brief  Display that calculates and shows the current mileage of a car.
  *
- * The Odometer class observes a Car instance and accumulates mileage
- * based on the car's speed. It derives from Meter and therefore acts as
- * a display component. Updates occur when the subject notifies this
- * meter through the Observer pattern.
- *
  * \author Simon
  * \date   November 2025
  *********************************************************************/
@@ -55,13 +50,6 @@ public:
     /**
      * \brief Updates the mileage and forwards the new value to the display.
      *
-     * The method attempts to lock the weak pointer to the observed Car.
-     * If locking fails, the method throws ERROR_NULLPTR.
-     *
-     * The current speed is retrieved from the Car and converted into
-     * distance traveled during the update interval. The resulting mileage
-     * is forwarded to the associated WindowsDisplay instance if available.
-     *
      * \throws std::string ERROR_NULLPTR if the car pointer is expired.
      */
     virtual void Update() override;
@@ -75,9 +63,6 @@ public:
 
     /**
      * \brief Constructs an Odometer with a Car and a display.
-     *
-     * Both pointers must be non-null. The Car pointer is stored as a weak
-     * reference. Display ownership is transferred via move semantics.
      *
      * \param car Shared pointer to the observed Car.
      * \param display Shared pointer to a WindowsDisplay instance.

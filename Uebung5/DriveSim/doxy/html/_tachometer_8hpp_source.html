@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Drive Sim: C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung5/DriveSim/Tachometer.hpp Source File</title>
+<title>Drive Sim: Tachometer.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Fastaf.png"/></td>
   <td id="projectalign">
    <div id="projectname">Drive Sim<span id="projectnumber">&#160;1.0</span>
    </div>
@@ -102,46 +101,46 @@ $(function(){initNavTree('_tachometer_8hpp_source.html','',''); });
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_meter_8hpp.html">Meter.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="_car_8hpp.html">Car.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_tachometer.html">   30</a></span><span class="keyword">class </span><a class="code hl_function" href="class_tachometer.html#ab8f0aabb9e3bbf4b01b1d4b9a28b01a0">Tachometer</a> : <span class="keyword">public</span> <a class="code hl_function" href="class_meter.html#a8bb256cbf804dadbd93cf6b66fd5fccb">Meter</a> {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_tachometer.html#a76d100b54945b6fe1f4f5205ea3fc0c5">   36</a></span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code hl_variable" href="class_tachometer.html#a76d100b54945b6fe1f4f5205ea3fc0c5">ERROR_NULLPTR</a> = <span class="stringliteral">&quot;ERROR Nullptr&quot;</span>;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_tachometer.html#a9020964061688bdbfc63bfaaad60ee5e">   41</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_tachometer.html#a9020964061688bdbfc63bfaaad60ee5e">Sptr</a> = std::shared_ptr&lt;Tachometer&gt;;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_tachometer.html#a3075fd40abe7f2f28985b59a66c66c1d">Update</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_function" href="class_tachometer.html#ab8f0aabb9e3bbf4b01b1d4b9a28b01a0">Tachometer</a>(<a class="code hl_typedef" href="class_car.html#a08d10a5e2ed861538483273ae5d75ca5">Car::Sptr</a> car, WindowsDisplay::SPtr display);</div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_tachometer.html">   23</a></span><span class="keyword">class </span><a class="code hl_function" href="class_tachometer.html#ab8f0aabb9e3bbf4b01b1d4b9a28b01a0">Tachometer</a> : <span class="keyword">public</span> <a class="code hl_function" href="class_meter.html#a8bb256cbf804dadbd93cf6b66fd5fccb">Meter</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_tachometer.html#a76d100b54945b6fe1f4f5205ea3fc0c5">   29</a></span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code hl_variable" href="class_tachometer.html#a76d100b54945b6fe1f4f5205ea3fc0c5">ERROR_NULLPTR</a> = <span class="stringliteral">&quot;ERROR Nullptr&quot;</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_tachometer.html#a9020964061688bdbfc63bfaaad60ee5e">   34</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_tachometer.html#a9020964061688bdbfc63bfaaad60ee5e">Sptr</a> = std::shared_ptr&lt;Tachometer&gt;;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_tachometer.html#a3075fd40abe7f2f28985b59a66c66c1d">Update</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_function" href="class_tachometer.html#ab8f0aabb9e3bbf4b01b1d4b9a28b01a0">Tachometer</a>(<a class="code hl_typedef" href="class_car.html#a08d10a5e2ed861538483273ae5d75ca5">Car::Sptr</a> car, WindowsDisplay::SPtr display);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_function" href="class_tachometer.html#ab8f0aabb9e3bbf4b01b1d4b9a28b01a0">Tachometer</a>(<a class="code hl_typedef" href="class_car.html#a08d10a5e2ed861538483273ae5d75ca5">Car::Sptr</a> car);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_function" href="class_tachometer.html#ab8f0aabb9e3bbf4b01b1d4b9a28b01a0">Tachometer</a>(<a class="code hl_typedef" href="class_car.html#a08d10a5e2ed861538483273ae5d75ca5">Car::Sptr</a> car);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_typedef" href="class_car.html#ae1b7279e76abac6f77b08006e4cfdfb0">Car::Wptr</a> m_car;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">double</span> m_speed;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>};</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_typedef" href="class_car.html#ae1b7279e76abac6f77b08006e4cfdfb0">Car::Wptr</a> m_car;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">double</span> m_speed;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>};</div>
 </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#endif </span><span class="comment">// !TACHOMETER_HPP</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#endif </span><span class="comment">// !TACHOMETER_HPP</span></div>
 <div class="ttc" id="a_car_8hpp_html"><div class="ttname"><a href="_car_8hpp.html">Car.hpp</a></div><div class="ttdoc">Declares the Car class, a Vehicle implementation using an RPM sensor to calculate its current speed.</div></div>
 <div class="ttc" id="a_meter_8hpp_html"><div class="ttname"><a href="_meter_8hpp.html">Meter.hpp</a></div><div class="ttdoc">Abstract base class for all meter display types.</div></div>
 <div class="ttc" id="a_object_8h_html"><div class="ttname"><a href="_object_8h.html">Object.h</a></div><div class="ttdoc">Base Object class for all other classes.</div></div>
 <div class="ttc" id="aclass_car_html_a08d10a5e2ed861538483273ae5d75ca5"><div class="ttname"><a href="class_car.html#a08d10a5e2ed861538483273ae5d75ca5">Car::Sptr</a></div><div class="ttdeci">std::shared_ptr&lt; Car &gt; Sptr</div><div class="ttdoc">Shared pointer alias for Car.</div><div class="ttdef"><b>Definition</b> Car.hpp:30</div></div>
 <div class="ttc" id="aclass_car_html_ae1b7279e76abac6f77b08006e4cfdfb0"><div class="ttname"><a href="class_car.html#ae1b7279e76abac6f77b08006e4cfdfb0">Car::Wptr</a></div><div class="ttdeci">std::weak_ptr&lt; Car &gt; Wptr</div><div class="ttdoc">Weak pointer alias for Car.</div><div class="ttdef"><b>Definition</b> Car.hpp:35</div></div>
 <div class="ttc" id="aclass_meter_html_a8bb256cbf804dadbd93cf6b66fd5fccb"><div class="ttname"><a href="class_meter.html#a8bb256cbf804dadbd93cf6b66fd5fccb">Meter::Meter</a></div><div class="ttdeci">Meter(WindowsDisplay::SPtr display)</div><div class="ttdoc">Constructs a Meter with an initial WindowsDisplay instance.</div><div class="ttdef"><b>Definition</b> Meter.cpp:11</div></div>
-<div class="ttc" id="aclass_tachometer_html_a3075fd40abe7f2f28985b59a66c66c1d"><div class="ttname"><a href="class_tachometer.html#a3075fd40abe7f2f28985b59a66c66c1d">Tachometer::Update</a></div><div class="ttdeci">virtual void Update() override</div><div class="ttdoc">Updates the tachometer display with the current speed.</div><div class="ttdef"><b>Definition</b> Tachometer.cpp:5</div></div>
-<div class="ttc" id="aclass_tachometer_html_a76d100b54945b6fe1f4f5205ea3fc0c5"><div class="ttname"><a href="class_tachometer.html#a76d100b54945b6fe1f4f5205ea3fc0c5">Tachometer::ERROR_NULLPTR</a></div><div class="ttdeci">static const std::string ERROR_NULLPTR</div><div class="ttdoc">Error message thrown when a null pointer is passed.</div><div class="ttdef"><b>Definition</b> Tachometer.hpp:36</div></div>
-<div class="ttc" id="aclass_tachometer_html_a9020964061688bdbfc63bfaaad60ee5e"><div class="ttname"><a href="class_tachometer.html#a9020964061688bdbfc63bfaaad60ee5e">Tachometer::Sptr</a></div><div class="ttdeci">std::shared_ptr&lt; Tachometer &gt; Sptr</div><div class="ttdoc">Shared pointer alias for Tachometer.</div><div class="ttdef"><b>Definition</b> Tachometer.hpp:41</div></div>
-<div class="ttc" id="aclass_tachometer_html_ab8f0aabb9e3bbf4b01b1d4b9a28b01a0"><div class="ttname"><a href="class_tachometer.html#ab8f0aabb9e3bbf4b01b1d4b9a28b01a0">Tachometer::Tachometer</a></div><div class="ttdeci">Tachometer(Car::Sptr car, WindowsDisplay::SPtr display)</div><div class="ttdoc">Constructs a Tachometer with both a Car and a display.</div><div class="ttdef"><b>Definition</b> Tachometer.cpp:17</div></div>
+<div class="ttc" id="aclass_tachometer_html_a3075fd40abe7f2f28985b59a66c66c1d"><div class="ttname"><a href="class_tachometer.html#a3075fd40abe7f2f28985b59a66c66c1d">Tachometer::Update</a></div><div class="ttdeci">virtual void Update() override</div><div class="ttdoc">Updates the tachometer display with the current speed.</div><div class="ttdef"><b>Definition</b> Tachometer.cpp:16</div></div>
+<div class="ttc" id="aclass_tachometer_html_a76d100b54945b6fe1f4f5205ea3fc0c5"><div class="ttname"><a href="class_tachometer.html#a76d100b54945b6fe1f4f5205ea3fc0c5">Tachometer::ERROR_NULLPTR</a></div><div class="ttdeci">static const std::string ERROR_NULLPTR</div><div class="ttdoc">Error message thrown when a null pointer is passed.</div><div class="ttdef"><b>Definition</b> Tachometer.hpp:29</div></div>
+<div class="ttc" id="aclass_tachometer_html_a9020964061688bdbfc63bfaaad60ee5e"><div class="ttname"><a href="class_tachometer.html#a9020964061688bdbfc63bfaaad60ee5e">Tachometer::Sptr</a></div><div class="ttdeci">std::shared_ptr&lt; Tachometer &gt; Sptr</div><div class="ttdoc">Shared pointer alias for Tachometer.</div><div class="ttdef"><b>Definition</b> Tachometer.hpp:34</div></div>
+<div class="ttc" id="aclass_tachometer_html_ab8f0aabb9e3bbf4b01b1d4b9a28b01a0"><div class="ttname"><a href="class_tachometer.html#ab8f0aabb9e3bbf4b01b1d4b9a28b01a0">Tachometer::Tachometer</a></div><div class="ttdeci">Tachometer(Car::Sptr car, WindowsDisplay::SPtr display)</div><div class="ttdoc">Constructs a Tachometer with both a Car and a display.</div><div class="ttdef"><b>Definition</b> Tachometer.cpp:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a href="dir_05281450f6bf2626e6f8ba97f969f8de.html">vogel</a></li><li class="navelem"><a href="dir_73662a00082686dcdc38f581e27cb5e7.html">Desktop</a></li><li class="navelem"><a href="dir_b9cc87c962421726742cee2ced4952ed.html">SDP3</a></li><li class="navelem"><a href="dir_7b24da6d519f781230c569871c2cfb81.html">Übung</a></li><li class="navelem"><a href="dir_e5b549314c5916f169c8a55dfb0e9ca9.html">SDP3</a></li><li class="navelem"><a href="dir_4febe2610d086cae91dc915bcbebb0c0.html">Uebung5</a></li><li class="navelem"><a href="dir_37c04d0c54e9a12c0da5882f4d6000e9.html">DriveSim</a></li><li class="navelem"><a href="_tachometer_8hpp.html">Tachometer.hpp</a></li>
+    <li class="navelem"><a href="_tachometer_8hpp.html">Tachometer.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

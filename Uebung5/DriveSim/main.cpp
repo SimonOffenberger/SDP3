@@ -6,14 +6,6 @@
  * \date   November 2025
  *********************************************************************/
 
-#include <iostream>
-#include <list>
-#include <iomanip>
-#include <algorithm>
-#include <sstream>
-#include <memory>
-#include <windows.h>
-
 //zur Verwendung der analogen und digitalen Anzeige
 #include "WindowsDisplay.h"
 
@@ -28,10 +20,6 @@
 #include <iostream>
 #include <cassert>
 
-#include <cstdio>
-
-using namespace std;
-
 #define WriteOutputFile ON
 
 using namespace std;
@@ -41,14 +29,11 @@ static bool TestTachometer(std::ostream & ost = std::cout);
 static bool TestRPMSensor(std::ostream& ost = std::cout);
 static bool TestCar(std::ostream& ost = std::cout);
 
-
 int main() 
 {
-
     bool TestOK = true;
 
     ofstream output{ "output.txt" };
-
 
     try {
 
@@ -140,7 +125,6 @@ bool TestOdometer(std::ostream& ost)
 
     ost << TestStart;
 
-
     bool TestOK = true;
     string error_msg;
 
@@ -205,6 +189,7 @@ bool TestOdometer(std::ostream& ost)
 
     TestOK = TestOK && check_dump(ost, "Test Display nullptr in CTOR of Odometer", Odometer::ERROR_NULLPTR, error_msg);
     error_msg.clear();
+
     try {
         RPM_Sensor::Sptr sen = make_shared<RPM_Sensor>("rpm_data.txt");
         Car::Sptr AudiA3 = make_shared<Car>(600, sen);
@@ -225,7 +210,6 @@ bool TestOdometer(std::ostream& ost)
 
     TestOK = TestOK && check_dump(ost, "Test nullptr in CTOR of Odometer", Odometer::ERROR_NULLPTR, error_msg);
     error_msg.clear();
-
 
     try {
         RPM_Sensor::Sptr sen = make_shared<RPM_Sensor>("rpm_data.txt");

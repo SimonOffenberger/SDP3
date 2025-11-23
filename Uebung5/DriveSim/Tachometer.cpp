@@ -1,3 +1,14 @@
+/*****************************************************************//**
+ * \file   Tachometer.cpp
+ * \brief  Display that shows the current speed of a car.
+ *
+ * The Tachometer observes a Car instance and displays its current speed.
+ * It derives from Meter and serves as an observer in the Vehicle system.
+ *
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
+
 #include "Tachometer.hpp"
 
 #include <iostream>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Drive Sim: C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung5/DriveSim/WindowsDisplay.h Source File</title>
+<title>Drive Sim: WindowsDisplay.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Fastaf.png"/></td>
   <td id="projectalign">
    <div id="projectname">Drive Sim<span id="projectnumber">&#160;1.0</span>
    </div>
@@ -93,80 +92,81 @@ $(function(){initNavTree('_windows_display_8h_source.html','',''); });
   <div class="headertitle"><div class="title">WindowsDisplay.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef WINDOWDISPLAY_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define WINDOWDISPLAY_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;Windows.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_object_8h.html">Object.h</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">enum</span> eCommand {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>   ConfigureAnalogOnly  = 0,</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>   ConfigureDigitalOnly = 1,</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>   ConfigureBoth = 2,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>   SetValueAnalogOnly = 3,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>   SetValueDigitalOnly = 4,</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>   SetValueBoth = 5</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="struct_data_packet.html">   19</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_data_packet.html">DataPacket</a> {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>   eCommand command;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> value;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>};</div>
+<a href="_windows_display_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef WINDOWDISPLAY_H</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define WINDOWDISPLAY_H</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;Windows.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="_object_8h.html">Object.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">enum</span> eCommand {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>   ConfigureAnalogOnly  = 0,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>   ConfigureDigitalOnly = 1,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>   ConfigureBoth = 2,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>   SetValueAnalogOnly = 3,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>   SetValueDigitalOnly = 4,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>   SetValueBoth = 5</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct_data_packet.html">   29</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_data_packet.html">DataPacket</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>   eCommand command;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> value;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
 </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_windows_display.html">   24</a></span><span class="keyword">class </span>WindowsDisplay : <span class="keyword">public</span> Object {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:   </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>   ~WindowsDisplay();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>   <span class="keywordtype">bool</span> SendValue(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> value);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>   <span class="keyword">typedef</span> std::shared_ptr&lt;WindowsDisplay&gt; SPtr;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>   WindowsDisplay(std::string <span class="keyword">const</span>&amp; pipeName);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>   WindowsDisplay(WindowsDisplay <span class="keyword">const</span>&amp;);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>   WindowsDisplay&amp; operator=(WindowsDisplay <span class="keyword">const</span>&amp;);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>   HANDLE mhPipe;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_windows_display.html">   34</a></span><span class="keyword">class </span>WindowsDisplay : <span class="keyword">public</span> Object {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:   </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>   ~WindowsDisplay();</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>   <span class="keywordtype">void</span> Init(std::string <span class="keyword">const</span>&amp; pipeName);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>   <span class="keywordtype">bool</span> Send(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> value);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>   <span class="keywordtype">bool</span> SendValue(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> value);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>   <span class="keyword">typedef</span> std::shared_ptr&lt;WindowsDisplay&gt; SPtr;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>   WindowsDisplay(std::string <span class="keyword">const</span>&amp; pipeName);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>   WindowsDisplay(WindowsDisplay <span class="keyword">const</span>&amp;);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>   WindowsDisplay&amp; operator=(WindowsDisplay <span class="keyword">const</span>&amp;);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>   HANDLE mhPipe;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>   <span class="keywordtype">void</span> Init(std::string <span class="keyword">const</span>&amp; pipeName);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>   <span class="keywordtype">bool</span> Send(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> value);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
 </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_digital_display.html">   44</a></span><span class="keyword">class </span>DigitalDisplay: <span class="keyword">public</span> WindowsDisplay {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>   DigitalDisplay(): WindowsDisplay(<span class="stringliteral">&quot;SDP_DigitalDisplay&quot;</span>) {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>   }</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="};">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_digital_display.html">   54</a></span><span class="keyword">class </span>DigitalDisplay: <span class="keyword">public</span> WindowsDisplay {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>   DigitalDisplay(): WindowsDisplay(<span class="stringliteral">&quot;SDP_DigitalDisplay&quot;</span>) {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>   }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
 </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="foldopen" id="foldopen00051" data-start="{" data-end="};">
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_analog_display.html">   51</a></span><span class="keyword">class </span>AnalogDisplay: <span class="keyword">public</span> WindowsDisplay {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>   AnalogDisplay(): WindowsDisplay(<span class="stringliteral">&quot;SDP_AnalogDisplay&quot;</span>) {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>   }</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="};">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="class_analog_display.html">   61</a></span><span class="keyword">class </span>AnalogDisplay: <span class="keyword">public</span> WindowsDisplay {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>   AnalogDisplay(): WindowsDisplay(<span class="stringliteral">&quot;SDP_AnalogDisplay&quot;</span>) {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>   }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
 </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#endif </span><span class="comment">//WINDOWDISPLAY_H</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif </span><span class="comment">//WINDOWDISPLAY_H</span></div>
 <div class="ttc" id="a_object_8h_html"><div class="ttname"><a href="_object_8h.html">Object.h</a></div><div class="ttdoc">Base Object class for all other classes.</div></div>
-<div class="ttc" id="astruct_data_packet_html"><div class="ttname"><a href="struct_data_packet.html">DataPacket</a></div><div class="ttdef"><b>Definition</b> WindowsDisplay.h:19</div></div>
+<div class="ttc" id="astruct_data_packet_html"><div class="ttname"><a href="struct_data_packet.html">DataPacket</a></div><div class="ttdef"><b>Definition</b> WindowsDisplay.h:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a href="dir_05281450f6bf2626e6f8ba97f969f8de.html">vogel</a></li><li class="navelem"><a href="dir_73662a00082686dcdc38f581e27cb5e7.html">Desktop</a></li><li class="navelem"><a href="dir_b9cc87c962421726742cee2ced4952ed.html">SDP3</a></li><li class="navelem"><a href="dir_7b24da6d519f781230c569871c2cfb81.html">Übung</a></li><li class="navelem"><a href="dir_e5b549314c5916f169c8a55dfb0e9ca9.html">SDP3</a></li><li class="navelem"><a href="dir_4febe2610d086cae91dc915bcbebb0c0.html">Uebung5</a></li><li class="navelem"><a href="dir_37c04d0c54e9a12c0da5882f4d6000e9.html">DriveSim</a></li><li class="navelem"><b>WindowsDisplay.h</b></li>
+    <li class="navelem"><a href="_windows_display_8h.html">WindowsDisplay.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

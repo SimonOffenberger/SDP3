@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Drive Sim: C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung5/DriveSim/Car.hpp Source File</title>
+<title>Drive Sim: Car.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Fastaf.png"/></td>
   <td id="projectalign">
    <div id="projectname">Drive Sim<span id="projectnumber">&#160;1.0</span>
    </div>
@@ -115,39 +114,39 @@ $(function(){initNavTree('_car_8hpp_source.html','',''); });
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_car.html#a35c2356b28bae7e16564abd1a3847e2a">   40</a></span>    <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> std::string <a class="code hl_variable" href="class_car.html#a35c2356b28bae7e16564abd1a3847e2a">ERROR_WHEEL_DIA_0</a> = <span class="stringliteral">&quot;ERROR: Wheel Diameter cannot be 0!&quot;</span>;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_car.html#a26710a94272e502cdd86577db21bb7a6">   45</a></span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code hl_variable" href="class_car.html#a26710a94272e502cdd86577db21bb7a6">ERROR_NULLPTR</a> = <span class="stringliteral">&quot;ERROR Nullptr&quot;</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_car.html#a26710a94272e502cdd86577db21bb7a6">   45</a></span>    <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> std::string <a class="code hl_variable" href="class_car.html#a26710a94272e502cdd86577db21bb7a6">ERROR_NULLPTR</a> = <span class="stringliteral">&quot;ERROR Nullptr&quot;</span>;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_car.html#a3ac746b22d54e8e1fd425678a856f85f">Process</a>();</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_car.html#afc096d82730a23724423aa544c7eada6">GetCurrentSpeed</a>();</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <a class="code hl_function" href="class_car.html#a78c97b184677d7ff94d232884542cfae">Car</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span>&amp; wheel_diameter, <a class="code hl_typedef" href="class_r_p_m___sensor.html#a479b0f10fbe3b3ea0cdee630dc8a0e8a">RPM_Sensor::Sptr</a> wh_rpm_sen);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">size_t</span> m_wheel_rmp;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">size_t</span> m_wheel_diameter;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <a class="code hl_typedef" href="class_r_p_m___sensor.html#a479b0f10fbe3b3ea0cdee630dc8a0e8a">RPM_Sensor::Sptr</a> m_wheel_rpm_sensor;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> mps_to_kph = 3.6;</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> seconds_in_min = 60;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> mm_in_m = 1000;</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>};</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_car.html#a6f0193b94c28ec0ef2a887445a37e5d1">GetCurrentSpeed</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_function" href="class_car.html#a78c97b184677d7ff94d232884542cfae">Car</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span>&amp; wheel_diameter, <a class="code hl_typedef" href="class_r_p_m___sensor.html#a479b0f10fbe3b3ea0cdee630dc8a0e8a">RPM_Sensor::Sptr</a> wh_rpm_sen);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">size_t</span> m_wheel_rmp;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">size_t</span> m_wheel_diameter;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_typedef" href="class_r_p_m___sensor.html#a479b0f10fbe3b3ea0cdee630dc8a0e8a">RPM_Sensor::Sptr</a> m_wheel_rpm_sensor;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">double</span> mps_to_kph = 3.6;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">double</span> seconds_in_min = 60;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">double</span> mm_in_m = 1000;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>};</div>
 </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="preprocessor">#endif </span><span class="comment">// !CAR_HPP</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#endif </span><span class="comment">// !CAR_HPP</span></div>
 <div class="ttc" id="a_r_p_m___sensor_8hpp_html"><div class="ttname"><a href="_r_p_m___sensor_8hpp.html">RPM_Sensor.hpp</a></div><div class="ttdoc">A &quot;sensor&quot; for returning individual readings when GetRevolutioins() is called.</div></div>
 <div class="ttc" id="a_vehicle_8hpp_html"><div class="ttname"><a href="_vehicle_8hpp.html">Vehicle.hpp</a></div><div class="ttdoc">Base class representing a generic vehicle that supports display observers following the Observer desi...</div></div>
 <div class="ttc" id="aclass_car_html_a08d10a5e2ed861538483273ae5d75ca5"><div class="ttname"><a href="class_car.html#a08d10a5e2ed861538483273ae5d75ca5">Car::Sptr</a></div><div class="ttdeci">std::shared_ptr&lt; Car &gt; Sptr</div><div class="ttdoc">Shared pointer alias for Car.</div><div class="ttdef"><b>Definition</b> Car.hpp:30</div></div>
 <div class="ttc" id="aclass_car_html_a26710a94272e502cdd86577db21bb7a6"><div class="ttname"><a href="class_car.html#a26710a94272e502cdd86577db21bb7a6">Car::ERROR_NULLPTR</a></div><div class="ttdeci">static const std::string ERROR_NULLPTR</div><div class="ttdoc">Error message for null sensor pointer.</div><div class="ttdef"><b>Definition</b> Car.hpp:45</div></div>
 <div class="ttc" id="aclass_car_html_a35c2356b28bae7e16564abd1a3847e2a"><div class="ttname"><a href="class_car.html#a35c2356b28bae7e16564abd1a3847e2a">Car::ERROR_WHEEL_DIA_0</a></div><div class="ttdeci">static const std::string ERROR_WHEEL_DIA_0</div><div class="ttdoc">Error message for invalid wheel diameter.</div><div class="ttdef"><b>Definition</b> Car.hpp:40</div></div>
-<div class="ttc" id="aclass_car_html_a3ac746b22d54e8e1fd425678a856f85f"><div class="ttname"><a href="class_car.html#a3ac746b22d54e8e1fd425678a856f85f">Car::Process</a></div><div class="ttdeci">void Process()</div><div class="ttdoc">Retrieves RPM data from the sensor and updates internal state.</div><div class="ttdef"><b>Definition</b> Car.cpp:4</div></div>
-<div class="ttc" id="aclass_car_html_a78c97b184677d7ff94d232884542cfae"><div class="ttname"><a href="class_car.html#a78c97b184677d7ff94d232884542cfae">Car::Car</a></div><div class="ttdeci">Car(const size_t &amp;wheel_diameter, RPM_Sensor::Sptr wh_rpm_sen)</div><div class="ttdoc">Constructs a Car with a wheel diameter and an RPM sensor.</div><div class="ttdef"><b>Definition</b> Car.cpp:26</div></div>
+<div class="ttc" id="aclass_car_html_a3ac746b22d54e8e1fd425678a856f85f"><div class="ttname"><a href="class_car.html#a3ac746b22d54e8e1fd425678a856f85f">Car::Process</a></div><div class="ttdeci">void Process()</div><div class="ttdoc">Retrieves RPM data from the sensor and updates internal state.</div><div class="ttdef"><b>Definition</b> Car.cpp:13</div></div>
+<div class="ttc" id="aclass_car_html_a6f0193b94c28ec0ef2a887445a37e5d1"><div class="ttname"><a href="class_car.html#a6f0193b94c28ec0ef2a887445a37e5d1">Car::GetCurrentSpeed</a></div><div class="ttdeci">double GetCurrentSpeed() const</div><div class="ttdoc">Computes the current speed of the car in kilometers per hour.</div><div class="ttdef"><b>Definition</b> Car.cpp:29</div></div>
+<div class="ttc" id="aclass_car_html_a78c97b184677d7ff94d232884542cfae"><div class="ttname"><a href="class_car.html#a78c97b184677d7ff94d232884542cfae">Car::Car</a></div><div class="ttdeci">Car(const size_t &amp;wheel_diameter, RPM_Sensor::Sptr wh_rpm_sen)</div><div class="ttdoc">Constructs a Car with a wheel diameter and an RPM sensor.</div><div class="ttdef"><b>Definition</b> Car.cpp:34</div></div>
 <div class="ttc" id="aclass_car_html_ae1b7279e76abac6f77b08006e4cfdfb0"><div class="ttname"><a href="class_car.html#ae1b7279e76abac6f77b08006e4cfdfb0">Car::Wptr</a></div><div class="ttdeci">std::weak_ptr&lt; Car &gt; Wptr</div><div class="ttdoc">Weak pointer alias for Car.</div><div class="ttdef"><b>Definition</b> Car.hpp:35</div></div>
-<div class="ttc" id="aclass_car_html_afc096d82730a23724423aa544c7eada6"><div class="ttname"><a href="class_car.html#afc096d82730a23724423aa544c7eada6">Car::GetCurrentSpeed</a></div><div class="ttdeci">double GetCurrentSpeed()</div><div class="ttdoc">Computes the current speed of the car in kilometers per hour.</div><div class="ttdef"><b>Definition</b> Car.cpp:21</div></div>
 <div class="ttc" id="aclass_r_p_m___sensor_html_a479b0f10fbe3b3ea0cdee630dc8a0e8a"><div class="ttname"><a href="class_r_p_m___sensor.html#a479b0f10fbe3b3ea0cdee630dc8a0e8a">RPM_Sensor::Sptr</a></div><div class="ttdeci">std::shared_ptr&lt; RPM_Sensor &gt; Sptr</div><div class="ttdoc">Shared pointer tyope for RPM_Sensor.</div><div class="ttdef"><b>Definition</b> RPM_Sensor.hpp:29</div></div>
 <div class="ttc" id="aclass_vehicle_html_a8b7885b66c0f4f46a50ec71a8570f8b3"><div class="ttname"><a href="class_vehicle.html#a8b7885b66c0f4f46a50ec71a8570f8b3">Vehicle::Vehicle</a></div><div class="ttdeci">Vehicle()=default</div><div class="ttdoc">Protected default constructor.</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -156,7 +155,7 @@ $(function(){initNavTree('_car_8hpp_source.html','',''); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a href="dir_05281450f6bf2626e6f8ba97f969f8de.html">vogel</a></li><li class="navelem"><a href="dir_73662a00082686dcdc38f581e27cb5e7.html">Desktop</a></li><li class="navelem"><a href="dir_b9cc87c962421726742cee2ced4952ed.html">SDP3</a></li><li class="navelem"><a href="dir_7b24da6d519f781230c569871c2cfb81.html">Übung</a></li><li class="navelem"><a href="dir_e5b549314c5916f169c8a55dfb0e9ca9.html">SDP3</a></li><li class="navelem"><a href="dir_4febe2610d086cae91dc915bcbebb0c0.html">Uebung5</a></li><li class="navelem"><a href="dir_37c04d0c54e9a12c0da5882f4d6000e9.html">DriveSim</a></li><li class="navelem"><a href="_car_8hpp.html">Car.hpp</a></li>
+    <li class="navelem"><a href="_car_8hpp.html">Car.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

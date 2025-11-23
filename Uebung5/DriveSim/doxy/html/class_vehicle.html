@@ -25,7 +25,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Fastaf.png"/></td>
   <td id="projectalign">
    <div id="projectname">Drive Sim<span id="projectnumber">&#160;1.0</span>
    </div>
@@ -129,15 +128,13 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>E
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:aa8fc75b01233bd1400bcdcf86b691c91" id="r_aa8fc75b01233bd1400bcdcf86b691c91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8fc75b01233bd1400bcdcf86b691c91">Notify</a> ()</td></tr>
-<tr class="memdesc:aa8fc75b01233bd1400bcdcf86b691c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies all attached display observers.  <br /></td></tr>
+<tr class="memitem:a42321a681a655ca9226d50034ef63b5e" id="r_a42321a681a655ca9226d50034ef63b5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42321a681a655ca9226d50034ef63b5e">Notify</a> () const</td></tr>
+<tr class="memdesc:a42321a681a655ca9226d50034ef63b5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies all attached display observers.  <br /></td></tr>
 <tr class="memitem:a8b7885b66c0f4f46a50ec71a8570f8b3" id="r_a8b7885b66c0f4f46a50ec71a8570f8b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b7885b66c0f4f46a50ec71a8570f8b3">Vehicle</a> ()=default</td></tr>
 <tr class="memdesc:a8b7885b66c0f4f46a50ec71a8570f8b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected default constructor.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class supporting observer management for display updates. </p>
-<p>The <a class="el" href="class_vehicle.html" title="Base class supporting observer management for display updates.">Vehicle</a> class is responsible for managing observers that display information about the vehicle. It provides methods to attach and detach display objects, as well as a protected <a class="el" href="#aa8fc75b01233bd1400bcdcf86b691c91" title="Notifies all attached display observers.">Notify()</a> method that derived classes can call when their internal state has changed.</p>
-<p>This class uses shared pointers for observer references. A null pointer is treated as an invalid argument and produces an exception. </p>
 </div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
 <a id="a41c3229141d0306a5aaaf24f5301d5a2" name="a41c3229141d0306a5aaaf24f5301d5a2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a41c3229141d0306a5aaaf24f5301d5a2">&#9670;&#160;</a></span>TCont</h2>
@@ -202,7 +199,6 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Attaches a display observer to the vehicle. </p>
-<p>The display pointer must not be null. The observer is added to the internal container and will receive updates on the next <a class="el" href="#aa8fc75b01233bd1400bcdcf86b691c91" title="Notifies all attached display observers.">Notify()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">display</td><td>Shared pointer to a display object implementing <a class="el" href="class_i_display.html" title="Interface for display observer implementations.">IDisplay</a>.</td></tr>
@@ -234,7 +230,6 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Detaches a display observer from the vehicle. </p>
-<p>If the observer exists in the internal container, it is removed. Passing a null pointer is considered an invalid operation.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">display</td><td>Shared pointer to a display object that should be removed.</td></tr>
@@ -250,8 +245,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa8fc75b01233bd1400bcdcf86b691c91" name="aa8fc75b01233bd1400bcdcf86b691c91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8fc75b01233bd1400bcdcf86b691c91">&#9670;&#160;</a></span>Notify()</h2>
+<a id="a42321a681a655ca9226d50034ef63b5e" name="a42321a681a655ca9226d50034ef63b5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42321a681a655ca9226d50034ef63b5e">&#9670;&#160;</a></span>Notify()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -263,7 +258,7 @@ Protected Member Functions</h2></td></tr>
           <td class="memname">void Vehicle::Notify </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -274,13 +269,13 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Notifies all attached display observers. </p>
-<p>This method loops through all observers stored in the container and calls Update() on each non-null display. Derived classes should call this method whenever their observable state changes. </p>
+<p>This method loops through all observers stored in the container and calls Update() on each non-null display. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung5/DriveSim/<a class="el" href="_vehicle_8hpp_source.html">Vehicle.hpp</a></li>
-<li>C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung5/DriveSim/<b>Vehicle.cpp</b></li>
+<li><a class="el" href="_vehicle_8hpp_source.html">Vehicle.hpp</a></li>
+<li><a class="el" href="_vehicle_8cpp.html">Vehicle.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

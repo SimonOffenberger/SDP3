@@ -1,3 +1,13 @@
+/**
+ * @file WindowsDisplay.h
+ * @author unknown
+ * @brief Provided Implementation for WindowsDisplay using Named Pipes
+ * @version 0.1
+ * @date 2025-11-23
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
 #ifndef WINDOWDISPLAY_H
 #define WINDOWDISPLAY_H
 

@@ -21,6 +21,9 @@ size_t RPM_Sensor::GetRevolutions()
     if (m_fileStream.eof())
         throw ERROR_SENSOR_EOF;
 
+    if(m_fileStream.fail())
+        throw ERROR_SENSOR_INVALID_DATA_INPUT;
+
     m_fileStream >> sensor_reading;
 
     if (sensor_reading.empty())
@@ -34,7 +37,7 @@ size_t RPM_Sensor::GetRevolutions()
     converter << sensor_reading;
     converter >> sensor_value;
     
-    return static_cast<size_t>(sensor_value);
+    return sensor_value;
 }
 
 RPM_Sensor::RPM_Sensor(std::string_view testFileName)

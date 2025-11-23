@@ -25,7 +25,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Fastaf.png"/></td>
   <td id="projectalign">
    <div id="projectname">Drive Sim<span id="projectnumber">&#160;1.0</span>
    </div>
@@ -133,14 +132,12 @@ Protected Member Functions</h2></td></tr>
 <tr class="memdesc:a8bb256cbf804dadbd93cf6b66fd5fccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_meter.html" title="Abstract base class for all meter display components.">Meter</a> with an initial <a class="el" href="class_windows_display.html">WindowsDisplay</a> instance.  <br /></td></tr>
 <tr class="memitem:a83d56a4b3110cc8f0693508d61e39d88" id="r_a83d56a4b3110cc8f0693508d61e39d88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83d56a4b3110cc8f0693508d61e39d88">Meter</a> ()=default</td></tr>
 <tr class="memdesc:a83d56a4b3110cc8f0693508d61e39d88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default protected constructor.  <br /></td></tr>
-<tr class="inherit_header pro_methods_class_i_display"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_i_display')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="class_i_display.html">IDisplay</a></td></tr>
-<tr class="memitem:a8b5ed76c4838a9b2965eeed8a774709b inherit pro_methods_class_i_display" id="r_a8b5ed76c4838a9b2965eeed8a774709b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_display.html#a8b5ed76c4838a9b2965eeed8a774709b">IDisplay</a> ()=default</td></tr>
-<tr class="memdesc:a8b5ed76c4838a9b2965eeed8a774709b inherit pro_methods_class_i_display"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected default constructor.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a78897c7d775670cbcbc92d737765542e" id="r_a78897c7d775670cbcbc92d737765542e"><td class="memItemLeft" align="right" valign="top">WindowsDisplay::SPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78897c7d775670cbcbc92d737765542e">m_window</a></td></tr>
-<tr class="memdesc:a78897c7d775670cbcbc92d737765542e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the display window used by the meter.  <br /></td></tr>
+<tr class="memitem:a78897c7d775670cbcbc92d737765542e" id="r_a78897c7d775670cbcbc92d737765542e"><td class="memItemLeft" align="right" valign="top"><a id="a78897c7d775670cbcbc92d737765542e" name="a78897c7d775670cbcbc92d737765542e"></a>
+WindowsDisplay::SPtr&#160;</td><td class="memItemRight" valign="bottom"><b>m_window</b></td></tr>
+<tr class="memdesc:a78897c7d775670cbcbc92d737765542e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the display window used by the meter. <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -151,8 +148,6 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Sptr</b> = std::shar
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract base class for all meter display components. </p>
-<p>The <a class="el" href="class_meter.html" title="Abstract base class for all meter display components.">Meter</a> class provides the foundation for visual display elements that react to state changes from a subject (for example, a <a class="el" href="class_vehicle.html" title="Base class supporting observer management for display updates.">Vehicle</a>). It maintains a <a class="el" href="class_windows_display.html">WindowsDisplay</a> instance used for rendering.</p>
-<p>Display pointers are stored using move semantics. Null pointers are not permitted and will result in an exception. Subclasses should rely on the protected member m_window when performing drawing operations. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8bb256cbf804dadbd93cf6b66fd5fccb" name="a8bb256cbf804dadbd93cf6b66fd5fccb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8bb256cbf804dadbd93cf6b66fd5fccb">&#9670;&#160;</a></span>Meter() <span class="overload">[1/2]</span></h2>
@@ -178,7 +173,6 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Sptr</b> = std::shar
 </div><div class="memdoc">
 
 <p>Constructs a <a class="el" href="class_meter.html" title="Abstract base class for all meter display components.">Meter</a> with an initial <a class="el" href="class_windows_display.html">WindowsDisplay</a> instance. </p>
-<p>The provided display pointer must not be null. Ownership of the pointer is transferred into the <a class="el" href="class_meter.html" title="Abstract base class for all meter display components.">Meter</a> through move semantics. Derived meter classes typically call this constructor to ensure that drawing capabilities are available immediately.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">display</td><td>Shared pointer to a <a class="el" href="class_windows_display.html">WindowsDisplay</a>.</td></tr>
@@ -239,7 +233,6 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Sptr</b> = std::shar
 </div><div class="memdoc">
 
 <p>Sets the <a class="el" href="class_windows_display.html">WindowsDisplay</a> instance used by this meter. </p>
-<p>The provided pointer must not be null. The display pointer is moved into internal storage, transferring ownership to the <a class="el" href="class_meter.html" title="Abstract base class for all meter display components.">Meter</a> object. Existing display pointers (if any) are overwritten.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">display</td><td>Shared pointer to a <a class="el" href="class_windows_display.html">WindowsDisplay</a>.</td></tr>
@@ -255,35 +248,9 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Sptr</b> = std::shar
 
 </div>
 </div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a78897c7d775670cbcbc92d737765542e" name="a78897c7d775670cbcbc92d737765542e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78897c7d775670cbcbc92d737765542e">&#9670;&#160;</a></span>m_window</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">WindowsDisplay::SPtr Meter::m_window</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Pointer to the display window used by the meter. </p>
-<p>This pointer is assigned through either the constructor or <a class="el" href="#a44c59c394ba83dc16a0f94962b851bd8" title="Sets the WindowsDisplay instance used by this meter.">SetDisplay()</a>, using move semantics. Derived classes use this member for rendering updated values. </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung5/DriveSim/<a class="el" href="_meter_8hpp_source.html">Meter.hpp</a></li>
-<li>C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung5/DriveSim/<b>Meter.cpp</b></li>
+<li><a class="el" href="_meter_8hpp_source.html">Meter.hpp</a></li>
+<li><b>Meter.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

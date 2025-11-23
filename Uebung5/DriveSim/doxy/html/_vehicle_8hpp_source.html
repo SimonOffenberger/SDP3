@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Drive Sim: C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung5/DriveSim/Vehicle.hpp Source File</title>
+<title>Drive Sim: Vehicle.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Fastaf.png"/></td>
   <td id="projectalign">
    <div id="projectname">Drive Sim<span id="projectnumber">&#160;1.0</span>
    </div>
@@ -94,55 +93,55 @@ $(function(){initNavTree('_vehicle_8hpp_source.html','',''); });
 </div><!--header-->
 <div class="contents">
 <a href="_vehicle_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*****************************************************************/</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#ifndef VEHICLE_HPP</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#define VEHICLE_HPP</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="_object_8h.html">Object.h</a>&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="_i_display_8hpp.html">IDisplay.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
-<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_vehicle.html">   34</a></span><span class="keyword">class </span><a class="code hl_function" href="class_vehicle.html#a8b7885b66c0f4f46a50ec71a8570f8b3">Vehicle</a> : <span class="keyword">public</span> Object {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_vehicle.html#a16d3f53a8b8df2c4b8818fc041f9a139">   40</a></span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code hl_variable" href="class_vehicle.html#a16d3f53a8b8df2c4b8818fc041f9a139">ERROR_NULLPTR</a> = <span class="stringliteral">&quot;ERROR Nullptr&quot;</span>;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_vehicle.html#a41c3229141d0306a5aaaf24f5301d5a2">   47</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_vehicle.html#a41c3229141d0306a5aaaf24f5301d5a2">TCont</a> = std::vector&lt;IDisplay::Sptr&gt;;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef VEHICLE_HPP</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define VEHICLE_HPP</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="_object_8h.html">Object.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="_i_display_8hpp.html">IDisplay.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span></div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="};">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_vehicle.html">   25</a></span><span class="keyword">class </span><a class="code hl_function" href="class_vehicle.html#a8b7885b66c0f4f46a50ec71a8570f8b3">Vehicle</a> : <span class="keyword">public</span> Object {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_vehicle.html#a16d3f53a8b8df2c4b8818fc041f9a139">   31</a></span>    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code hl_variable" href="class_vehicle.html#a16d3f53a8b8df2c4b8818fc041f9a139">ERROR_NULLPTR</a> = <span class="stringliteral">&quot;ERROR Nullptr&quot;</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_vehicle.html#a41c3229141d0306a5aaaf24f5301d5a2">   38</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_vehicle.html#a41c3229141d0306a5aaaf24f5301d5a2">TCont</a> = std::vector&lt;IDisplay::Sptr&gt;;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_vehicle.html#a5acfc63c2c50035dfc134644ed69d993">Attach</a>(<a class="code hl_typedef" href="class_i_display.html#a7583b70df84ded578818af2693675d05">IDisplay::Sptr</a> display);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_vehicle.html#a5acfc63c2c50035dfc134644ed69d993">Attach</a>(<a class="code hl_typedef" href="class_i_display.html#a7583b70df84ded578818af2693675d05">IDisplay::Sptr</a> display);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_vehicle.html#aa9885985c50f51e5ceda4ed3a3c598b7">Detach</a>(<a class="code hl_typedef" href="class_i_display.html#a7583b70df84ded578818af2693675d05">IDisplay::Sptr</a> display);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_vehicle.html#aa8fc75b01233bd1400bcdcf86b691c91">Notify</a>();</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="class_vehicle.html#a8b7885b66c0f4f46a50ec71a8570f8b3">   89</a></span>    <a class="code hl_function" href="class_vehicle.html#a8b7885b66c0f4f46a50ec71a8570f8b3">Vehicle</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_typedef" href="class_vehicle.html#a41c3229141d0306a5aaaf24f5301d5a2">TCont</a> m_display_observers;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>};</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_vehicle.html#aa9885985c50f51e5ceda4ed3a3c598b7">Detach</a>(<a class="code hl_typedef" href="class_i_display.html#a7583b70df84ded578818af2693675d05">IDisplay::Sptr</a> display);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_vehicle.html#a42321a681a655ca9226d50034ef63b5e">Notify</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="class_vehicle.html#a8b7885b66c0f4f46a50ec71a8570f8b3">   73</a></span>    <a class="code hl_function" href="class_vehicle.html#a8b7885b66c0f4f46a50ec71a8570f8b3">Vehicle</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_typedef" href="class_vehicle.html#a41c3229141d0306a5aaaf24f5301d5a2">TCont</a> m_display_observers;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
 </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#endif </span><span class="comment">// !VEHICLE_HPP</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#endif </span><span class="comment">// !VEHICLE_HPP</span></div>
 <div class="ttc" id="a_i_display_8hpp_html"><div class="ttname"><a href="_i_display_8hpp.html">IDisplay.hpp</a></div><div class="ttdoc">Interface for all display types used by vehicles.</div></div>
 <div class="ttc" id="a_object_8h_html"><div class="ttname"><a href="_object_8h.html">Object.h</a></div><div class="ttdoc">Base Object class for all other classes.</div></div>
-<div class="ttc" id="aclass_i_display_html_a7583b70df84ded578818af2693675d05"><div class="ttname"><a href="class_i_display.html#a7583b70df84ded578818af2693675d05">IDisplay::Sptr</a></div><div class="ttdeci">std::shared_ptr&lt; IDisplay &gt; Sptr</div><div class="ttdoc">Shared pointer alias for IDisplay.</div><div class="ttdef"><b>Definition</b> IDisplay.hpp:34</div></div>
-<div class="ttc" id="aclass_vehicle_html_a16d3f53a8b8df2c4b8818fc041f9a139"><div class="ttname"><a href="class_vehicle.html#a16d3f53a8b8df2c4b8818fc041f9a139">Vehicle::ERROR_NULLPTR</a></div><div class="ttdeci">static const std::string ERROR_NULLPTR</div><div class="ttdoc">Error message thrown when a null pointer is passed.</div><div class="ttdef"><b>Definition</b> Vehicle.hpp:40</div></div>
-<div class="ttc" id="aclass_vehicle_html_a41c3229141d0306a5aaaf24f5301d5a2"><div class="ttname"><a href="class_vehicle.html#a41c3229141d0306a5aaaf24f5301d5a2">Vehicle::TCont</a></div><div class="ttdeci">std::vector&lt; IDisplay::Sptr &gt; TCont</div><div class="ttdoc">Container type alias for display observers.</div><div class="ttdef"><b>Definition</b> Vehicle.hpp:47</div></div>
-<div class="ttc" id="aclass_vehicle_html_a5acfc63c2c50035dfc134644ed69d993"><div class="ttname"><a href="class_vehicle.html#a5acfc63c2c50035dfc134644ed69d993">Vehicle::Attach</a></div><div class="ttdeci">void Attach(IDisplay::Sptr display)</div><div class="ttdoc">Attaches a display observer to the vehicle.</div><div class="ttdef"><b>Definition</b> Vehicle.cpp:6</div></div>
+<div class="ttc" id="aclass_i_display_html_a7583b70df84ded578818af2693675d05"><div class="ttname"><a href="class_i_display.html#a7583b70df84ded578818af2693675d05">IDisplay::Sptr</a></div><div class="ttdeci">std::shared_ptr&lt; IDisplay &gt; Sptr</div><div class="ttdoc">Shared pointer alias for IDisplay.</div><div class="ttdef"><b>Definition</b> IDisplay.hpp:23</div></div>
+<div class="ttc" id="aclass_vehicle_html_a16d3f53a8b8df2c4b8818fc041f9a139"><div class="ttname"><a href="class_vehicle.html#a16d3f53a8b8df2c4b8818fc041f9a139">Vehicle::ERROR_NULLPTR</a></div><div class="ttdeci">static const std::string ERROR_NULLPTR</div><div class="ttdoc">Error message thrown when a null pointer is passed.</div><div class="ttdef"><b>Definition</b> Vehicle.hpp:31</div></div>
+<div class="ttc" id="aclass_vehicle_html_a41c3229141d0306a5aaaf24f5301d5a2"><div class="ttname"><a href="class_vehicle.html#a41c3229141d0306a5aaaf24f5301d5a2">Vehicle::TCont</a></div><div class="ttdeci">std::vector&lt; IDisplay::Sptr &gt; TCont</div><div class="ttdoc">Container type alias for display observers.</div><div class="ttdef"><b>Definition</b> Vehicle.hpp:38</div></div>
+<div class="ttc" id="aclass_vehicle_html_a42321a681a655ca9226d50034ef63b5e"><div class="ttname"><a href="class_vehicle.html#a42321a681a655ca9226d50034ef63b5e">Vehicle::Notify</a></div><div class="ttdeci">void Notify() const</div><div class="ttdoc">Notifies all attached display observers.</div><div class="ttdef"><b>Definition</b> Vehicle.cpp:36</div></div>
+<div class="ttc" id="aclass_vehicle_html_a5acfc63c2c50035dfc134644ed69d993"><div class="ttname"><a href="class_vehicle.html#a5acfc63c2c50035dfc134644ed69d993">Vehicle::Attach</a></div><div class="ttdeci">void Attach(IDisplay::Sptr display)</div><div class="ttdoc">Attaches a display observer to the vehicle.</div><div class="ttdef"><b>Definition</b> Vehicle.cpp:18</div></div>
 <div class="ttc" id="aclass_vehicle_html_a8b7885b66c0f4f46a50ec71a8570f8b3"><div class="ttname"><a href="class_vehicle.html#a8b7885b66c0f4f46a50ec71a8570f8b3">Vehicle::Vehicle</a></div><div class="ttdeci">Vehicle()=default</div><div class="ttdoc">Protected default constructor.</div></div>
-<div class="ttc" id="aclass_vehicle_html_aa8fc75b01233bd1400bcdcf86b691c91"><div class="ttname"><a href="class_vehicle.html#aa8fc75b01233bd1400bcdcf86b691c91">Vehicle::Notify</a></div><div class="ttdeci">void Notify()</div><div class="ttdoc">Notifies all attached display observers.</div><div class="ttdef"><b>Definition</b> Vehicle.cpp:24</div></div>
-<div class="ttc" id="aclass_vehicle_html_aa9885985c50f51e5ceda4ed3a3c598b7"><div class="ttname"><a href="class_vehicle.html#aa9885985c50f51e5ceda4ed3a3c598b7">Vehicle::Detach</a></div><div class="ttdeci">void Detach(IDisplay::Sptr display)</div><div class="ttdoc">Detaches a display observer from the vehicle.</div><div class="ttdef"><b>Definition</b> Vehicle.cpp:13</div></div>
+<div class="ttc" id="aclass_vehicle_html_aa9885985c50f51e5ceda4ed3a3c598b7"><div class="ttname"><a href="class_vehicle.html#aa9885985c50f51e5ceda4ed3a3c598b7">Vehicle::Detach</a></div><div class="ttdeci">void Detach(IDisplay::Sptr display)</div><div class="ttdoc">Detaches a display observer from the vehicle.</div><div class="ttdef"><b>Definition</b> Vehicle.cpp:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a href="dir_05281450f6bf2626e6f8ba97f969f8de.html">vogel</a></li><li class="navelem"><a href="dir_73662a00082686dcdc38f581e27cb5e7.html">Desktop</a></li><li class="navelem"><a href="dir_b9cc87c962421726742cee2ced4952ed.html">SDP3</a></li><li class="navelem"><a href="dir_7b24da6d519f781230c569871c2cfb81.html">Übung</a></li><li class="navelem"><a href="dir_e5b549314c5916f169c8a55dfb0e9ca9.html">SDP3</a></li><li class="navelem"><a href="dir_4febe2610d086cae91dc915bcbebb0c0.html">Uebung5</a></li><li class="navelem"><a href="dir_37c04d0c54e9a12c0da5882f4d6000e9.html">DriveSim</a></li><li class="navelem"><a href="_vehicle_8hpp.html">Vehicle.hpp</a></li>
+    <li class="navelem"><a href="_vehicle_8hpp.html">Vehicle.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

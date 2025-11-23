@@ -118,6 +118,8 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 % ---------------------
 \begin{document}
 
+\includepdf[pages= 1-2]{Deckblatt_Uebung05.pdf}
+
 \selectlanguage{naustrian}   % oder "american" fÃ¼r engl. Texte
 
 % Titelblatt
@@ -154,7 +156,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 
 \subsection{Team}
 \begin{itemize}
-	\item Simon Offenberger, Matr.-Nr.: S2410306027, E-Mail: Simon.Offenberger@fh-hagenberg.at
+	\item Simon Offenberger, Matr.-Nr.: S2410306027, E-Mail: S2410306027@fh-hagenberg.at
 	\item Simon Vogelhuber, Matr.-Nr.: S2410306014, E-Mail: S2410306014@fh-hagenberg.at	
 \end{itemize}
 
@@ -174,7 +176,6 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 				\item IDisplay,
 				\item Tachometer,
 				\item Odometer,
-				\item RPM Sensor
 			\end{itemize}
 		\end{itemize}
 	\item Simon Vogelhuber
@@ -189,8 +190,6 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 				\item Car,
 				\item Meter,
 				\item IDisplay,
-				\item Tachometer,
-				\item Odometer,
 				\item RPM Sensor
 			\end{itemize}
 		\end{itemize}	
@@ -199,7 +198,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \subsection{Aufwand}
 	
 	\begin{itemize}
-		\item Simon Offenberger: geschätzt 10 Ph / tatsächlich x Ph
+		\item Simon Offenberger: geschätzt 10 Ph / tatsächlich 8 Ph
 		\item Simon Vogelhuber:  geschätzt 10 Ph / tatsächlich 6 Ph
 	\end{itemize}
 
@@ -227,7 +226,7 @@ In diesem Abschnitt werden die funktionalen Anforderungen an das System beschrie
 \textbf{Funktionen des Meter}
 \begin{itemize}
 	\item Abstrakte Basisklasse für alle Anzeigetypen
-	\item Anbfragen der anzuzeigenden Werte vom Vehicle
+	\item Abfragen der anzuzeigenden Werte vom Vehicle
 	\item Darstellung der Werte
 \end{itemize}
 
@@ -238,7 +237,7 @@ In diesem Abschnitt werden die funktionalen Anforderungen an das System beschrie
 
 \textbf{Funktionen des Tachometer}
 \begin{itemize}
-	\item Messung der Drehzahl des Motors
+	\item Anzeige der Fahrzeuggeschwindigkeit
 \end{itemize}
 
 \clearpage
@@ -246,12 +245,12 @@ In diesem Abschnitt werden die funktionalen Anforderungen an das System beschrie
 
 \begin{sidewaysfigure}
     \centering
-    {\large \textbf{Klassendiagramm}\\[1em]}
+    {\large \textbf{3.2 Klassendiagramm}\\[1em]}
     \includegraphics[width=\textheight]{./Images/Klassendiagramm.png}
 \end{sidewaysfigure}
 
 \subsection{Designentscheidungen}
-Im Klassendiagramm wurd als Pattern das \textit{Observer Pattern} verwendet, da in diesem fall ein Fahzeug
+Im Klassendiagramm wurde als Pattern das \textit{Observer Pattern} verwendet, da in diesem fall ein Fahrzeug
 mehrere Anzeigen (Meter) haben kann, welche auf die Daten des Fahrzeugs reagieren müssen. Das Observer 
 Pattern ermöglicht es, dass die Anzeigen sich beim Fahrzeug registrieren können und bei einer Änderung 
 der Sensordaten automatisch benachrichtigt werden.
@@ -259,11 +258,23 @@ der Sensordaten automatisch benachrichtigt werden.
 Die Displays können vom Fahrzeug die aufbereiteten Daten (z.B. Geschwindigkeit, Drehzahl) abfragen,
 indem sie die entsprechenden Methoden des Fahrzeugs aufrufen.
 
-Die Abstakte \textit{Meter} dient dazu, das WindowDisplay Interface zu implementieren und die gemeinsamen
+Die abstrakte Basisklasse \textit{Meter} dient dazu,  die gemeinsamen
 Funktionen der verschiedenen Anzeigetypen (Tachometer, Odometer, RPM Sensor) zu bündeln.
-
+Weiters wird dadurch die Erweiterbarkeit des Systems verbessert, da neue Anzeigetypen
+leicht hinzugefügt werden können, indem sie von der Basisklasse erben.
 \color{black}
+\clearpage
+\section{Dateibeschreibung}
+Im folgenden Abschnitt werden die Formate der verwendeten Dateien beschrieben.
+\subsection{Datei: rmp\_data.txt}
+Diese Datei wird vom RPM - Sensor verwendet, um die Testdaten für die Raddrehzahl zu lesen.
+Jeder Eintrag enthält eine Ganzzahl, die die Raddrehzahl in Umdrehungen pro Minute (RPM) angibt.
+\begin{verbatim}
+RPM_Data = Digit {Digit}.
+Digit    = "0"…"9".
+\end{verbatim}
 
+\newpage
 \section{Dokumentation der Komponenten (Klassen)}
 Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.html}{./../doxy/html/index.html}
 

@@ -25,7 +25,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Fastaf.png"/></td>
   <td id="projectalign">
    <div id="projectname">Drive Sim<span id="projectnumber">&#160;1.0</span>
    </div>
@@ -152,17 +151,13 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memdesc:a8bb256cbf804dadbd93cf6b66fd5fccb inherit pro_methods_class_meter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_meter.html" title="Abstract base class for all meter display components.">Meter</a> with an initial <a class="el" href="class_windows_display.html">WindowsDisplay</a> instance.  <br /></td></tr>
 <tr class="memitem:a83d56a4b3110cc8f0693508d61e39d88 inherit pro_methods_class_meter" id="r_a83d56a4b3110cc8f0693508d61e39d88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meter.html#a83d56a4b3110cc8f0693508d61e39d88">Meter</a> ()=default</td></tr>
 <tr class="memdesc:a83d56a4b3110cc8f0693508d61e39d88 inherit pro_methods_class_meter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default protected constructor.  <br /></td></tr>
-<tr class="inherit_header pro_methods_class_i_display"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_i_display')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="class_i_display.html">IDisplay</a></td></tr>
-<tr class="memitem:a8b5ed76c4838a9b2965eeed8a774709b inherit pro_methods_class_i_display" id="r_a8b5ed76c4838a9b2965eeed8a774709b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_display.html#a8b5ed76c4838a9b2965eeed8a774709b">IDisplay</a> ()=default</td></tr>
-<tr class="memdesc:a8b5ed76c4838a9b2965eeed8a774709b inherit pro_methods_class_i_display"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected default constructor.  <br /></td></tr>
 <tr class="inherit_header pro_attribs_class_meter"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_meter')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="class_meter.html">Meter</a></td></tr>
-<tr class="memitem:a78897c7d775670cbcbc92d737765542e inherit pro_attribs_class_meter" id="r_a78897c7d775670cbcbc92d737765542e"><td class="memItemLeft" align="right" valign="top">WindowsDisplay::SPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meter.html#a78897c7d775670cbcbc92d737765542e">m_window</a></td></tr>
-<tr class="memdesc:a78897c7d775670cbcbc92d737765542e inherit pro_attribs_class_meter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the display window used by the meter.  <br /></td></tr>
+<tr class="memitem:a78897c7d775670cbcbc92d737765542e inherit pro_attribs_class_meter" id="r_a78897c7d775670cbcbc92d737765542e"><td class="memItemLeft" align="right" valign="top">
+WindowsDisplay::SPtr&#160;</td><td class="memItemRight" valign="bottom"><b>m_window</b></td></tr>
+<tr class="memdesc:a78897c7d775670cbcbc92d737765542e inherit pro_attribs_class_meter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the display window used by the meter. <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_meter.html" title="Abstract base class for all meter display components.">Meter</a> implementation that displays the real-time speed of a vehicle. </p>
-<p>The <a class="el" href="class_tachometer.html" title="Meter implementation that displays the real-time speed of a vehicle.">Tachometer</a> observes a <a class="el" href="class_car.html" title="Vehicle subclass that calculates speed using an RPM sensor.">Car</a> instance through a weak pointer. When <a class="el" href="#a3075fd40abe7f2f28985b59a66c66c1d" title="Updates the tachometer display with the current speed.">Update()</a> is called, it retrieves the current speed from the car and forwards the value to the attached <a class="el" href="class_windows_display.html">WindowsDisplay</a>, if present.</p>
-<p>If the observed <a class="el" href="class_car.html" title="Vehicle subclass that calculates speed using an RPM sensor.">Car</a> instance is no longer valid, <a class="el" href="#a3075fd40abe7f2f28985b59a66c66c1d" title="Updates the tachometer display with the current speed.">Update()</a> throws an exception to indicate incorrect usage or lifetime issues. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab8f0aabb9e3bbf4b01b1d4b9a28b01a0" name="ab8f0aabb9e3bbf4b01b1d4b9a28b01a0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab8f0aabb9e3bbf4b01b1d4b9a28b01a0">&#9670;&#160;</a></span>Tachometer() <span class="overload">[1/2]</span></h2>
@@ -184,7 +179,6 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructs a <a class="el" href="class_tachometer.html" title="Meter implementation that displays the real-time speed of a vehicle.">Tachometer</a> with both a <a class="el" href="class_car.html" title="Vehicle subclass that calculates speed using an RPM sensor.">Car</a> and a display. </p>
-<p>The display pointer and car pointer must not be null. Ownership of the display is transferred into the <a class="el" href="class_meter.html" title="Abstract base class for all meter display components.">Meter</a> base class via move semantics. The <a class="el" href="class_car.html" title="Vehicle subclass that calculates speed using an RPM sensor.">Car</a> is referenced through a weak pointer.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">car</td><td>Shared pointer to the observed <a class="el" href="class_car.html" title="Vehicle subclass that calculates speed using an RPM sensor.">Car</a>. </td></tr>
@@ -258,7 +252,6 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Updates the tachometer display with the current speed. </p>
-<p>The method locks the weak pointer to the observed <a class="el" href="class_car.html" title="Vehicle subclass that calculates speed using an RPM sensor.">Car</a>. If locking fails, an exception is thrown. The car's current speed is then read and stored internally. If a display window is available, the value is forwarded to the <a class="el" href="class_windows_display.html">WindowsDisplay</a> instance.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::string</td><td>ERROR_NULLPTR if the car pointer is expired. </td></tr>
@@ -271,8 +264,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung5/DriveSim/<a class="el" href="_tachometer_8hpp_source.html">Tachometer.hpp</a></li>
-<li>C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung5/DriveSim/<b>Tachometer.cpp</b></li>
+<li><a class="el" href="_tachometer_8hpp_source.html">Tachometer.hpp</a></li>
+<li><a class="el" href="_tachometer_8cpp.html">Tachometer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

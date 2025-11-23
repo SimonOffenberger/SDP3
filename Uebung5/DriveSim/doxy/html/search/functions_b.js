@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tachometer_0',['Tachometer',['../class_tachometer.html#ab8f0aabb9e3bbf4b01b1d4b9a28b01a0',1,'Tachometer::Tachometer(Car::Sptr car, WindowsDisplay::SPtr display)'],['../class_tachometer.html#a8122f8b149199e7f1c9ec84e57af1523',1,'Tachometer::Tachometer(Car::Sptr car)']]]
+  ['update_0',['Update',['../class_i_display.html#a1ee3bc30b6b87fed05a9d3eea659deb0',1,'IDisplay::Update()'],['../class_odometer.html#a5cd73b4df0c780ba5b92f05693c4553d',1,'Odometer::Update()'],['../class_tachometer.html#a3075fd40abe7f2f28985b59a66c66c1d',1,'Tachometer::Update()']]]
 ];

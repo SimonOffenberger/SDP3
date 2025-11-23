@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Drive Sim: C:/Users/vogel/Desktop/SDP3/Übung/SDP3/Uebung5/DriveSim/RPM_Sensor.hpp Source File</title>
+<title>Drive Sim: RPM_Sensor.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="Fastaf.png"/></td>
   <td id="projectalign">
    <div id="projectname">Drive Sim<span id="projectnumber">&#160;1.0</span>
    </div>
@@ -120,30 +119,31 @@ $(function(){initNavTree('_r_p_m___sensor_8hpp_source.html','',''); });
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_function" href="class_r_p_m___sensor.html#a15207cf8078a880997b4dfdf468f1127">~RPM_Sensor</a>();</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">// delete CopyCtor and Assign Operator to prevent untestet behavour.</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_function" href="class_r_p_m___sensor.html#a909f9ecd2323a98a35abbc7fab2d0cef">RPM_Sensor</a>(<a class="code hl_function" href="class_r_p_m___sensor.html#a909f9ecd2323a98a35abbc7fab2d0cef">RPM_Sensor</a>&amp; s) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> operator= (<a class="code hl_function" href="class_r_p_m___sensor.html#a909f9ecd2323a98a35abbc7fab2d0cef">RPM_Sensor</a> s) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">// open a filestream when sensor is constructed</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment">// close when destructor is called.</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::ifstream m_fileStream;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>};</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">// delete CopyCtor and Assign Operator because we warp a file stream</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment">// which should not be copied or assigned!</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="class_r_p_m___sensor.html#a909f9ecd2323a98a35abbc7fab2d0cef">RPM_Sensor</a>(<a class="code hl_function" href="class_r_p_m___sensor.html#a909f9ecd2323a98a35abbc7fab2d0cef">RPM_Sensor</a>&amp; s) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> operator= (<a class="code hl_function" href="class_r_p_m___sensor.html#a909f9ecd2323a98a35abbc7fab2d0cef">RPM_Sensor</a> s) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment">// open a filestream when sensor is constructed</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// close when destructor is called.</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    std::ifstream m_fileStream;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
 </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#endif </span><span class="comment">// !RPM_SENSOR_HPP</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif </span><span class="comment">// !RPM_SENSOR_HPP</span></div>
 <div class="ttc" id="a_object_8h_html"><div class="ttname"><a href="_object_8h.html">Object.h</a></div><div class="ttdoc">Base Object class for all other classes.</div></div>
-<div class="ttc" id="aclass_r_p_m___sensor_html_a06b12c33d06000b135857704e3a4358c"><div class="ttname"><a href="class_r_p_m___sensor.html#a06b12c33d06000b135857704e3a4358c">RPM_Sensor::GetRevolutions</a></div><div class="ttdeci">size_t GetRevolutions()</div><div class="ttdoc">Returns current rpm. This is achieved by parsing from a testfile - if the end of the fiel is reached ...</div><div class="ttdef"><b>Definition</b> RPM_Sensor.cpp:15</div></div>
-<div class="ttc" id="aclass_r_p_m___sensor_html_a15207cf8078a880997b4dfdf468f1127"><div class="ttname"><a href="class_r_p_m___sensor.html#a15207cf8078a880997b4dfdf468f1127">RPM_Sensor::~RPM_Sensor</a></div><div class="ttdeci">~RPM_Sensor()</div><div class="ttdoc">custom destructor is needed to close ifstream.</div><div class="ttdef"><b>Definition</b> RPM_Sensor.cpp:48</div></div>
+<div class="ttc" id="aclass_r_p_m___sensor_html_a06b12c33d06000b135857704e3a4358c"><div class="ttname"><a href="class_r_p_m___sensor.html#a06b12c33d06000b135857704e3a4358c">RPM_Sensor::GetRevolutions</a></div><div class="ttdeci">size_t GetRevolutions()</div><div class="ttdoc">Returns current rpm. This is achieved by parsing from a testfile - if the end of the file is reached ...</div><div class="ttdef"><b>Definition</b> RPM_Sensor.cpp:15</div></div>
+<div class="ttc" id="aclass_r_p_m___sensor_html_a15207cf8078a880997b4dfdf468f1127"><div class="ttname"><a href="class_r_p_m___sensor.html#a15207cf8078a880997b4dfdf468f1127">RPM_Sensor::~RPM_Sensor</a></div><div class="ttdeci">~RPM_Sensor()</div><div class="ttdoc">custom destructor is needed to close ifstream.</div><div class="ttdef"><b>Definition</b> RPM_Sensor.cpp:51</div></div>
 <div class="ttc" id="aclass_r_p_m___sensor_html_a479b0f10fbe3b3ea0cdee630dc8a0e8a"><div class="ttname"><a href="class_r_p_m___sensor.html#a479b0f10fbe3b3ea0cdee630dc8a0e8a">RPM_Sensor::Sptr</a></div><div class="ttdeci">std::shared_ptr&lt; RPM_Sensor &gt; Sptr</div><div class="ttdoc">Shared pointer tyope for RPM_Sensor.</div><div class="ttdef"><b>Definition</b> RPM_Sensor.hpp:29</div></div>
-<div class="ttc" id="aclass_r_p_m___sensor_html_a909f9ecd2323a98a35abbc7fab2d0cef"><div class="ttname"><a href="class_r_p_m___sensor.html#a909f9ecd2323a98a35abbc7fab2d0cef">RPM_Sensor::RPM_Sensor</a></div><div class="ttdeci">RPM_Sensor(std::string_view testFileName)</div><div class="ttdoc">RPM_Sensor constructor throws error (ERROR_SENSOR_FILE_NOT_FOUND) if the provided file/path is invali...</div><div class="ttdef"><b>Definition</b> RPM_Sensor.cpp:40</div></div>
+<div class="ttc" id="aclass_r_p_m___sensor_html_a909f9ecd2323a98a35abbc7fab2d0cef"><div class="ttname"><a href="class_r_p_m___sensor.html#a909f9ecd2323a98a35abbc7fab2d0cef">RPM_Sensor::RPM_Sensor</a></div><div class="ttdeci">RPM_Sensor(std::string_view testFileName)</div><div class="ttdoc">RPM_Sensor constructor throws error (ERROR_SENSOR_FILE_NOT_FOUND) if the provided file/path is invali...</div><div class="ttdef"><b>Definition</b> RPM_Sensor.cpp:43</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a href="dir_05281450f6bf2626e6f8ba97f969f8de.html">vogel</a></li><li class="navelem"><a href="dir_73662a00082686dcdc38f581e27cb5e7.html">Desktop</a></li><li class="navelem"><a href="dir_b9cc87c962421726742cee2ced4952ed.html">SDP3</a></li><li class="navelem"><a href="dir_7b24da6d519f781230c569871c2cfb81.html">Übung</a></li><li class="navelem"><a href="dir_e5b549314c5916f169c8a55dfb0e9ca9.html">SDP3</a></li><li class="navelem"><a href="dir_4febe2610d086cae91dc915bcbebb0c0.html">Uebung5</a></li><li class="navelem"><a href="dir_37c04d0c54e9a12c0da5882f4d6000e9.html">DriveSim</a></li><li class="navelem"><a href="_r_p_m___sensor_8hpp.html">RPM_Sensor.hpp</a></li>
+    <li class="navelem"><a href="_r_p_m___sensor_8hpp.html">RPM_Sensor.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

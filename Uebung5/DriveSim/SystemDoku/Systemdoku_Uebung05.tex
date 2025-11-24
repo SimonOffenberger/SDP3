@@ -266,10 +266,11 @@ leicht hinzugefügt werden können, indem sie von der Basisklasse erben.
 \clearpage
 \section{Dateibeschreibung}
 Im folgenden Abschnitt werden die Formate der verwendeten Dateien beschrieben.
-\subsection{Datei: rmp\_data.txt}
+\subsection{Datei: rpm\_data.txt}
 Diese Datei wird vom RPM - Sensor verwendet, um die Testdaten für die Raddrehzahl zu lesen.
 Jeder Eintrag enthält eine Ganzzahl, die die Raddrehzahl in Umdrehungen pro Minute (RPM) angibt.
 \begin{verbatim}
+RPM_File = RPM_Data { "\n" RPM_Data } [ "\n" ].
 RPM_Data = Digit {Digit}.
 Digit    = "0"…"9".
 \end{verbatim}

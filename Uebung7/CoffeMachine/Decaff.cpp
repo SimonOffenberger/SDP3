@@ -3,10 +3,10 @@
 
 double Decaff::GetCost()
 {
-	return CoffeeInfo::mEspressoPrice;
+	return CoffeeInfo::mDecaffPrice;
 }
 
 std::string Decaff::GetDescription()
 {
-	return CoffeeInfo::mEspressoInfo;
+	return CoffeeInfo::mDecaffInfo + ":";
 }

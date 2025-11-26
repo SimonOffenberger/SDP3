@@ -8,5 +8,5 @@ double Sugar::GetCost()
 
 std::string Sugar::GetDescription()
 {
-	return Ingredient::GetDescription() + " " + CoffeeInfo::mSugarInfo;
+	return Ingredient::GetDescription() + " " + CoffeeInfo::mSugarInfo + ",";
 }

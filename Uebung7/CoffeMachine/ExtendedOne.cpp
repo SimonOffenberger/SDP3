@@ -4,10 +4,10 @@
 
 double ExtendedOne::GetCost()
 {
-	return CoffeeInfo::mEspressoPrice;
+	return CoffeeInfo::mExtendedPrice;
 }
 
 std::string ExtendedOne::GetDescription()
 {
-	return CoffeeInfo::mEspressoInfo;
+	return CoffeeInfo::mExtendedInfo + ":";
 }

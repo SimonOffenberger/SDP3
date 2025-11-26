@@ -7,7 +7,7 @@ class CoffeeInfo {
 public:
 
 	inline static const double mEspressoPrice = 3;
-	inline static const std::string mEspressoInfo = "Espresso:";
+	inline static const std::string mEspressoInfo = "Espresso";
 
 	inline static const double mDecaffPrice = 2.8;
 	inline static const std::string mDecaffInfo = "Decaff";

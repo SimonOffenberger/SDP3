@@ -9,5 +9,5 @@ double Espresso::GetCost()
 
 std::string Espresso::GetDescription()
 {
-	return CoffeeInfo::mEspressoInfo;
+	return CoffeeInfo::mEspressoInfo + ":";
 }

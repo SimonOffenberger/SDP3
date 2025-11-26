@@ -8,5 +8,5 @@ double SojaMilk::GetCost()
 
 std::string SojaMilk::GetDescription()
 {
-	return Ingredient::GetDescription() + " " + CoffeeInfo::mSojaMilkInfo;
+	return Ingredient::GetDescription() + " " + CoffeeInfo::mSojaMilkInfo + ",";
 }

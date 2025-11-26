@@ -2,6 +2,7 @@
 #define	ICOFFEE_HPP
 
 #include <memory>
+#include <string>
 
 class ICoffee {
 public:

@@ -8,5 +8,5 @@ double Cream::GetCost()
 
 std::string Cream::GetDescription()
 {
-	return Ingredient::GetDescription() + " " + CoffeeInfo::mCreamInfo;
+	return Ingredient::GetDescription() + " " + CoffeeInfo::mCreamInfo + ",";
 }

@@ -8,5 +8,5 @@ double Milk::GetCost()
 
 std::string Milk::GetDescription()
 {
-	return Ingredient::GetDescription() + " " + CoffeeInfo::mMilkInfo;
+	return Ingredient::GetDescription() + " " + CoffeeInfo::mMilkInfo + ",";
 }

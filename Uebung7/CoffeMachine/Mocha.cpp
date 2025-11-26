@@ -1,13 +1,12 @@
-
-#include "Espresso.hpp"
+#include "Mocha.hpp"
 #include "CoffeeInfo.hpp"
 
-double ExtendedOne::GetCost()
+double Mocha::GetCost()
 {
-	return CoffeeInfo::mEspressoPrice;
+	return CoffeeInfo::mMochaPrice;
 }
 
-std::string ExtendedOne::GetDescription()
+std::string Mocha::GetDescription()
 {
-	return CoffeeInfo::mEspressoInfo;
+	return CoffeeInfo::mMochaInfo + ":";
 }

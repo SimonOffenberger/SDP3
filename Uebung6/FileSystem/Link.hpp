@@ -17,7 +17,7 @@ public:
 
 	explicit Link(FSObj_Sptr linked_obj);
 
-	//FSObj_Sptr operator*();
+	FSObj_Sptr operator*();
 
 	virtual void Accept(IVisitor& visit) override;
 

@@ -1,0 +1,412 @@
+% Systemdokumentation OOP3
+% Unterlage fÃ¼r Studenten als Leitfaden fÃ¼r die Erstellung einer SystemDoku
+% 17. Oktober 2022
+% ---------------------------------------------------------------------------
+
+
+
+% Dokumentklasse
+% --------------
+\documentclass[12pt,naustrian,a4widepaper]{scrartcl}   
+% article style
+%   - 11pt Schriftgroesse
+%   - new austrian (neue Rechtschreibung)
+%   - Papierformat A4
+%   - pdf-hyperlinks
+
+
+% Packages
+% --------
+\usepackage[utf8]{inputenc}  % fuer Umlaute, Ü
+\usepackage[T1]{fontenc}
+\usepackage{a4wide}
+\usepackage{times}      % Times Schriften (zusammen mit fontencoding, s.o.)
+
+\usepackage{babel}
+\usepackage{graphicx}	  % fÃ¼r das Einbinden von Grafiken
+\usepackage{color}      % fÃ¼r fÃ¤rbigen Text
+\usepackage{framed}     % fÃ¼r (Text-) Rahmen
+\usepackage{fancyhdr}   % fÃ¼r Kopf- und Fusszeilen
+\usepackage{listings}   % fÃ¼r den Sourcecode
+\usepackage{pdfpages}
+
+\pagestyle{fancy}       % Kopf- / Fusszeile aktivieren
+
+\definecolor{failred}{rgb}{0.7, 0.0, 0.0}
+\definecolor{okgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{gray}{rgb}{0.0, 0.5, 0.0}
+
+\lstdefinelanguage{TestOutput}{
+    morekeywords={},
+    morecomment=[l]{//},
+    morestring=[b]",
+    sensitive=false,
+}
+
+\lstdefinestyle{teststyle}{
+    language=TestOutput,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{black},
+    commentstyle=\color{gray},
+    stringstyle=\color{black},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+    literate={OK}{{\textcolor{okgreen}{OK}}}2
+             {Fail}{{\textcolor{failred}{Fail}}}4,
+}
+
+\lstset{
+	language={C++},
+	basicstyle=\tiny\ttfamily,
+	keywordstyle=\color{blue},%\bfseries,
+	commentstyle=\color{green},
+	frame=single,
+	linewidth=16cm,
+	breaklines=false,
+	tabsize=3,
+	numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt
+}
+
+
+% Seitenspiegel
+% -------------
+
+\typearea{8}	% Festlegung des Seitenspiegels gem. Koma. 4..groÃŸ, 9..klein
+
+
+% Kopfzeile
+% ---------
+\lhead{{\footnotesize{s. Offenberger, S. Vogelhuber}}}   %  (links)
+\chead{{\footnotesize{Systemdokumentation - Filesystem}}} %  (mitte)
+\rhead{{\footnotesize{Seite \thepage}}}      %  (rechts)
+
+% Fusszeile
+% ---------
+\lfoot{}  % links
+\cfoot{}  % mitte 
+\rfoot{}  % rechts
+
+% Absatzformatierung
+% ------------------
+\setlength{\parindent}{0cm}   % EinrÃ¼ckung der 1. Zeile jedes Absatzes
+\setlength{\parskip}{10pt}    % Abstand zwischen den AbsÃ¤tzen
+
+
+% Package fÃ¼r Hyperlinks (mit pdf-Optionen)
+% -----------------------------------------
+\usepackage[
+urlcolor=blue,		% blaue weblinks
+linkcolor=black,	% interne Links sind schwarz
+colorlinks=true,        % links werden eingefÃ¤rbt
+pdfstartview=FitH,      % PDF-Anzeige: Fensterbreite
+pdfborder={0 0 0},      % keine Umrandung um links
+pdftitle   ={Systemdokumentation},% Referenzen in der Pdf-Datei
+pdfauthor  ={M. Mustermann, S. Sorglos},
+pdfsubject ={Systemdoku},
+pdfcreator ={Der Creator},
+pdfproducer={Der Producer},
+pdfkeywords={Dokumentation, Systemdokumentation}
+]{hyperref}
+
+
+% Beginn des Dokumentes
+% ---------------------
+\begin{document}
+
+\includepdf[pages= 1-2]{Uebung06_Deckblatt.pdf}
+
+
+\selectlanguage{naustrian}   % oder "american" fÃ¼r engl. Texte
+
+% Titelblatt
+% ----------
+\title {\vspace{1cm}
+       \includegraphics[width=8cm]{./Images/FhOOeLogoOkt2009_HSD_Rot_pastell}\\
+       \vspace{2cm}
+       {\textbf{Systemdokumentation\\Projekt Filesystem}}\\
+       \vspace{5mm}
+       {\small{Version 1.0}}\\
+       \vspace{5mm}
+}
+
+\author{\small{S. Offenberger, S. Vogelhuber}}
+\date  {\small{Hagenberg, \today}}
+\maketitle
+
+%\begin{abstract}
+%Dieses Dokument zeigt den prinzipiellen Aufbau einer Systemdokumentation fÃ¼r Software-Projekte. Die einzelnen Kapitel sind mit Kommentaren versehen, welche die Struktur und den Inhalt erlÃ¤utern. 
+%\end{abstract}
+
+\clearpage
+
+% Inhalts-, Tabellen- und Bildverzeichnis (werden generiert)
+% ----------------------------------------------------------
+\tableofcontents
+% \listoftables
+% \listoffigures
+\clearpage
+
+
+
+\section{Organisatorisches}
+
+\subsection{Team}
+\begin{itemize}
+	\item Simon Offenberger, Matr.-Nr.: S2410306027, E-Mail: Simon.Offenberger@fh-hagenberg.at
+	\item Simon Vogelhuber, Matr.-Nr.: S2410306014, E-Mail: Simon.Vogelhuber@fh-hagenberg.at	
+\end{itemize}
+
+\subsection{Aufteilung der Verantwortlichkeitsbereiche}
+\begin{itemize}
+	\item Simon Offenberger
+		\begin{itemize}
+			\item Design Klassendiagramm
+			\item Implementierung und Test der Klassen: 
+			\begin{itemize}
+				\item IVisitor,
+				\item FilterVisitor, 
+				\item FilterFileVisitor,
+				\item FilterLinkVisitor,
+				\item DumpVisitor und
+				\item FSObjectFactory
+			\end{itemize}
+			\item Implementierung des Testtreibers
+			\item Dokumentation
+		\end{itemize}
+	\item Simon Vogelhuber
+		\begin{itemize}
+			\item Design Klassendiagramm
+			\item Implementierung und Komponententest der Klassen: 
+			\begin{itemize}
+				\item FSObject
+				\item File, 
+				\item iFolder, 
+				\item Folder und  
+				\item Link 
+			\end{itemize}
+			\item Implementierung des Testtreibers
+			\item Dokumentation
+		\end{itemize}	
+\end{itemize}
+
+\subsection{Aufwand}
+	
+	\begin{itemize}
+		\item Simon Offenberger: geschätzt 7 Ph / tatsächlich 9 Ph
+		\item Simon Vogelhuber:  geschätzt 8 Ph / tatsächlich 7 Ph
+	\end{itemize}
+
+\clearpage
+\section{Anforderungsdefinition (Systemspezifikation)}
+
+Das zu entwickelnde System dient der Simulation eines einfachen Dateisystems für ein
+eingebettetes System. Ziel ist es, die Struktur und das Verhalten eines hierarchischen
+Dateisystems softwaretechnisch abzubilden und durch geeignete Entwurfsmuster
+(Composite, Factory, Visitor) erweiterbar und wartbar zu gestalten.  
+Die Anforderungen ergeben sich aus der gegebenen Systemspezifikation der Übung
+und beschreiben die grundlegenden funktionalen Eigenschaften des Systems
+sowie alle wesentlichen Rahmenbedingungen für das Verständnis.
+
+\subsection{Systemüberblick}
+Das System verwaltet drei Arten von Dateisystemelementen:
+\begin{itemize}
+    \item \textbf{Dateien}
+    \item \textbf{Ordner}
+    \item \textbf{Verweise} (Referenzen auf Dateien, Ordner oder weitere Verweise)
+\end{itemize}
+
+Diese Elemente bilden gemeinsam eine hierarchische Struktur, in der Ordner beliebige
+Kombinationen dieser Elemente enthalten können. Jedes Element besitzt einen Namen,
+der nachträglich veränderbar ist.
+
+\subsection{Funktionale Anforderungen}
+
+\subsubsection{Dateien}
+Eine Datei verfügt über folgende unveränderliche Eigenschaften, die bei ihrer Erzeugung
+festgelegt werden:
+\begin{itemize}
+    \item Blockgröße auf dem Speichermedium (Bytes)
+    \item Anzahl reservierter Blöcke
+\end{itemize}
+Zusätzlich wird die aktuelle Dateigröße in Bytes verwaltet.  
+Das Schreiben in eine Datei erfolgt über:
+\begin{itemize}
+    \item \texttt{Write(size\_t const bytes)}
+\end{itemize}
+Die Datei darf niemals größer werden als der durch die reservierten Blöcke bereitgestellte Speicher.
+
+\subsubsection{Ordner}
+Ein Ordner kann beliebig viele Dateien, Verweise und weitere Ordner enthalten.
+Er bildet die Grundlage des hierarchischen Dateisystems.
+
+\subsubsection{Verweise}
+Ein Verweis referenziert exakt ein Zielobjekt (Datei, Ordner oder weiteren Verweis).
+Der Name des Verweises kann verändert werden, zusätzlich muss der Name des Zielobjekts
+im Rahmen der Filterausgabe ausgegeben werden.
+
+\subsection{Erzeugung der Elemente}
+Für die Erstellung aller Dateisystemelemente ist eine einfache \textbf{Fabrik} zu implementieren.
+Diese kapselt die Instanziierungslogik und stellt sicher, dass die Objekterzeugung einheitlich erfolgt.
+
+\subsection{Besucher (Visitor) Anforderungen}
+
+\subsubsection{Visitor: Dump}
+\begin{itemize}
+    \item Gibt die gesamte Dateisystemhierarchie aus.
+    \item Ausgabe sowohl auf der Standardausgabe als auch in einer Datei.
+    \item Muss Dateien, Ordner und Verweise in strukturierter Form darstellen.
+\end{itemize}
+
+\subsubsection{Visitor: FilterFiles}
+\begin{itemize}
+    \item Filtert Dateien anhand eines minimalen und maximalen Größenschwellwerts.
+    \item Filtert optional alle Verweise.
+    \item Ausgabe aller gefilterten Dateien mit ihrem vollständigen Pfad.
+    \item Bei Verweisen muss zusätzlich der Name des referenzierten Zielobjekts ausgegeben werden.
+\end{itemize}
+
+\subsection{Testanforderungen}
+Ein Testtreiber muss:
+\begin{itemize}
+    \item ein mehrstufiges hierarchisches Dateisystem erzeugen,
+    \item alle implementierten Besucher umfassend testen,
+    \item die Funktionsweise demonstrieren und Testausgaben bereitstellen.
+\end{itemize}
+
+
+
+\clearpage
+\section{Systementwurf}
+
+\subsection{Klassendiagramm}
+\includegraphics[width=14cm]{./FileSystem.png}
+\newpage
+
+\subsection{Designentscheidungen}
+
+
+\color{black}
+
+\section{Dokumentation der Komponenten (Klassen)}
+Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.html}{./../doxy/html/index.html}
+
+\clearpage
+\section{Testprotokollierung}
+\lstinputlisting[style=teststyle]{../TestOutput.txt}
+
+\clearpage
+\section{Quellcode}
+
+\subsection{Object.hpp}
+\lstinputlisting{../Object.h}
+\clearpage
+\subsection{FSObjectFactory.hpp}
+\lstinputlisting{./../FSObjectFactory.hpp}
+\clearpage
+\subsection{FSObjectFactory.cpp}
+\lstinputlisting{./../FSObjectFactory.cpp}
+
+\clearpage
+\subsection{Filesystem.hpp}
+\lstinputlisting{./../Filesystem.hpp}
+
+\clearpage
+\subsection{Filesystem.cpp}
+\lstinputlisting{./../Filesystem.cpp}
+
+\clearpage
+\subsection{FSObject.hpp}
+\lstinputlisting{./../FSObject.hpp}
+
+\clearpage
+\subsection{FSObject.cpp}
+\lstinputlisting{./../FSObject.cpp}
+\clearpage
+
+\subsection{File.hpp}
+\lstinputlisting{./../File.hpp}
+\clearpage
+
+\subsection{File.cpp}
+\lstinputlisting{./../File.cpp}
+\clearpage
+
+\subsection{IFolder.hpp}
+\lstinputlisting{./../IFolder.hpp}
+\clearpage
+
+\subsection{Folder.hpp}
+\lstinputlisting{./../Folder.hpp}
+\clearpage
+
+\subsection{Folder.cpp}
+\lstinputlisting{./../Folder.cpp}
+\clearpage
+
+\subsection{Link.hpp}
+\lstinputlisting{./../Link.hpp}
+\clearpage
+
+\subsection{Link.cpp}
+\lstinputlisting{./../Link.cpp}
+\clearpage
+
+\subsection{IVisitor.hpp}
+\lstinputlisting{./../IVisitor.hpp}
+\clearpage
+
+\subsection{FilterVisitor.hpp}
+\lstinputlisting{./../FilterVisitor.hpp}
+\clearpage
+
+\subsection{FilterVisitor.cpp}
+\lstinputlisting{./../FilterVisitor.cpp}
+\clearpage
+
+\subsection{FilterFileVisitor.hpp}
+\lstinputlisting{./../FilterFileVisitor.hpp}
+\clearpage
+
+\subsection{FilterFileVisitor.cpp}
+\lstinputlisting{./../FilterFileVisitor.cpp}
+\clearpage
+
+\subsection{FilterLinkVisitor.hpp}
+\lstinputlisting{./../FilterLinkVisitor.hpp}
+\clearpage
+
+\subsection{FilterLinkVisitor.cpp}
+\lstinputlisting{./../FilterLinkVisitor.cpp}
+\clearpage
+
+\subsection{DumpVisitor.hpp}
+\lstinputlisting{./../DumpVisitor.hpp}
+\clearpage
+
+\subsection{DumpVisitor.cpp}
+\lstinputlisting{./../DumpVisitor.cpp}
+\clearpage
+
+\subsection{main.cpp}
+\lstinputlisting{./../main.cpp}
+\clearpage
+
+\subsection{Test.hpp}
+\lstinputlisting{./../Test.hpp}
+	
+
+% Literaturverzeichnis
+% --------------------
+%\begin{thebibliography}{99}
+%\bibitem{Pomberger} Pomberger G., Blaschek G. : \textit{Software Engineering: Prototyping und objektorientert Software-Entwicklung}. Hanser, 1996
+%
+%\end{thebibliography}
+
+
+% Ende des Dokuments
+% ------------------
+\end{document}

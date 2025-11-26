@@ -1,6 +1,6 @@
 /*****************************************************************//**
- * \file
- * \brief
+ * \file IFolder.hpp
+ * \brief Interface for folder-like FSObjects
  *
  * \author Simon
  * \date   November 2025

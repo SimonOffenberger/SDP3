@@ -9,22 +9,29 @@
 #define FOLDER_HPP
 
 #include "IFolder.hpp"
-#include <memory>
+#include "IVisitor.hpp"
+#include "FSObject.hpp"
 
-class Folder : public IFolder, public Object
+#include <memory>
+#include <vector>
+
+class Folder : public IFolder, public FSObject
 {
 public:
 
 	using Sptr = std::shared_ptr<Folder>;
 	using Wptr = std::shared_ptr<Folder>;
+    using Cont = std::vector<FSObj_Sptr>;
 
-	virtual void Add(FSObject::Sptr fsobj) override;
+	virtual void Add(FSObj_Sptr fsobj);
+	virtual FSObj_Sptr GetChild(size_t idx) override;
+	virtual void Remove(FSObj_Sptr fsobj);
 
-	virtual FSObject::Sptr GetChild(size_t idx) override;
-
-	virtual void Remove(FSObject::Sptr fsobj) override;
-
+	virtual IFolder::Sptr AsFolder() override;
+	virtual void Accept(IVisitor& visit) override;
+	
 private:
+    Folder::Cont m_Children;
 };
 
 #endif

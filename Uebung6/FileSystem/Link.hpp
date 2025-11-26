@@ -9,18 +9,20 @@
 #define LINK_HPP
 
 #include "FSObject.hpp"
+#include "IVisitor.hpp"
 
 class Link: public FSObject
 {
 public:
 
-	explicit Link(FSObject::Sptr linked_obj);
+	explicit Link(FSObj_Sptr linked_obj);
 
-	FSObject::Sptr operator*();
+	//FSObj_Sptr operator*();
+
+	virtual void Accept(IVisitor& visit) override;
 
 private:
-
-	FSObject::Wptr m_Ref;
+	FSObj_Wptr m_Ref;
 };
 
 #endif

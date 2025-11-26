@@ -117,7 +117,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 % ---------------------
 \begin{document}
 
-\includepdf[pages= 1]{Uebung06_Deckblatt.pdf}
+\includepdf[pages= 1-2]{Uebung06_Deckblatt.pdf}
 
 
 \selectlanguage{naustrian}   % oder "american" fÃ¼r engl. Texte
@@ -127,7 +127,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \title {\vspace{1cm}
        \includegraphics[width=8cm]{./Images/FhOOeLogoOkt2009_HSD_Rot_pastell}\\
        \vspace{2cm}
-       {\textbf{Systemdokumentation\\Projekt Fuhrpark}}\\
+       {\textbf{Systemdokumentation\\Projekt Filesystem}}\\
        \vspace{5mm}
        {\small{Version 1.0}}\\
        \vspace{5mm}
@@ -157,7 +157,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \subsection{Team}
 \begin{itemize}
 	\item Simon Offenberger, Matr.-Nr.: S2410306027, E-Mail: Simon.Offenberger@fh-hagenberg.at
-	\item Susi Sorglos, Matr.-Nr.: yyyy, E-Mail: Susi.Sorglos@fh-hagenberg.at	
+	\item Simon Vogelhuber, Matr.-Nr.: S2410306014, E-Mail: Simon.Vogelhuber@fh-hagenberg.at	
 \end{itemize}
 
 \subsection{Aufteilung der Verantwortlichkeitsbereiche}
@@ -167,10 +167,12 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 			\item Design Klassendiagramm
 			\item Implementierung und Test der Klassen: 
 			\begin{itemize}
-				\item Object,
-				\item RecordEntry, 
-				\item DriveRecord,
-				\item Vehicle,
+				\item IVisitor,
+				\item FilterVisitor, 
+				\item FilterFileVisitor,
+				\item FilterLinkVisitor,
+				\item DumpVisitor und
+				\item FSObjectFactory
 			\end{itemize}
 			\item Implementierung des Testtreibers
 			\item Dokumentation
@@ -180,10 +182,11 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 			\item Design Klassendiagramm
 			\item Implementierung und Komponententest der Klassen: 
 			\begin{itemize}
-				\item Garage
-				\item Car, 
-				\item Bike und  
-				\item Truck 
+				\item FSObject
+				\item File, 
+				\item iFolder, 
+				\item Folder und  
+				\item Link 
 			\end{itemize}
 			\item Implementierung des Testtreibers
 			\item Dokumentation
@@ -193,62 +196,98 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \subsection{Aufwand}
 	
 	\begin{itemize}
-		\item Simon Offenberger: geschätzt 10 Ph / tatsächlich x Ph
-		\item Simon Vogelhuber:  geschätzt x Ph / tatsächlich x Ph
+		\item Simon Offenberger: geschätzt 7 Ph / tatsächlich 9 Ph
+		\item Simon Vogelhuber:  geschätzt 8 Ph / tatsächlich 7 Ph
 	\end{itemize}
 
 \clearpage
 \section{Anforderungsdefinition (Systemspezifikation)}
-In diesem System werden Fahrzeuge in einem Fuhrpark verwaltet. 
-Zusätzlich soll auch noch ein Fahrtenbuch zu jedem Fahrzeug gespeichert werden.
-\\
-\\
-\textbf{Funktionen des Fahrtenbuches}
+
+Das zu entwickelnde System dient der Simulation eines einfachen Dateisystems für ein
+eingebettetes System. Ziel ist es, die Struktur und das Verhalten eines hierarchischen
+Dateisystems softwaretechnisch abzubilden und durch geeignete Entwurfsmuster
+(Composite, Factory, Visitor) erweiterbar und wartbar zu gestalten.  
+Die Anforderungen ergeben sich aus der gegebenen Systemspezifikation der Übung
+und beschreiben die grundlegenden funktionalen Eigenschaften des Systems
+sowie alle wesentlichen Rahmenbedingungen für das Verständnis.
+
+\subsection{Systemüberblick}
+Das System verwaltet drei Arten von Dateisystemelementen:
 \begin{itemize}
-	\item Berechnen des Kilometerstands der aufgezeichneten Fahrten.
-	\item Speichere Datum und Distanz einer Fahrt.
+    \item \textbf{Dateien}
+    \item \textbf{Ordner}
+    \item \textbf{Verweise} (Referenzen auf Dateien, Ordner oder weitere Verweise)
 \end{itemize}
 
-\textbf{Funktionen des Fuhrparks}
+Diese Elemente bilden gemeinsam eine hierarchische Struktur, in der Ordner beliebige
+Kombinationen dieser Elemente enthalten können. Jedes Element besitzt einen Namen,
+der nachträglich veränderbar ist.
+
+\subsection{Funktionale Anforderungen}
+
+\subsubsection{Dateien}
+Eine Datei verfügt über folgende unveränderliche Eigenschaften, die bei ihrer Erzeugung
+festgelegt werden:
 \begin{itemize}
-	\item Hinzufügen und löschen eines Fahrzeuges
-	\item Ausgabe aller Fahrzeugdaten inklusive der Fahrtenbucheinträge.
-	\item Suchen nach einem Fahrzeug mit dessen Kennzeichen.
-	\item Berechnung der Gesamtkilometer aller Fahrzeuge im Fuhrpark.
+    \item Blockgröße auf dem Speichermedium (Bytes)
+    \item Anzahl reservierter Blöcke
+\end{itemize}
+Zusätzlich wird die aktuelle Dateigröße in Bytes verwaltet.  
+Das Schreiben in eine Datei erfolgt über:
+\begin{itemize}
+    \item \texttt{Write(size\_t const bytes)}
+\end{itemize}
+Die Datei darf niemals größer werden als der durch die reservierten Blöcke bereitgestellte Speicher.
+
+\subsubsection{Ordner}
+Ein Ordner kann beliebig viele Dateien, Verweise und weitere Ordner enthalten.
+Er bildet die Grundlage des hierarchischen Dateisystems.
+
+\subsubsection{Verweise}
+Ein Verweis referenziert exakt ein Zielobjekt (Datei, Ordner oder weiteren Verweis).
+Der Name des Verweises kann verändert werden, zusätzlich muss der Name des Zielobjekts
+im Rahmen der Filterausgabe ausgegeben werden.
+
+\subsection{Erzeugung der Elemente}
+Für die Erstellung aller Dateisystemelemente ist eine einfache \textbf{Fabrik} zu implementieren.
+Diese kapselt die Instanziierungslogik und stellt sicher, dass die Objekterzeugung einheitlich erfolgt.
+
+\subsection{Besucher (Visitor) Anforderungen}
+
+\subsubsection{Visitor: Dump}
+\begin{itemize}
+    \item Gibt die gesamte Dateisystemhierarchie aus.
+    \item Ausgabe sowohl auf der Standardausgabe als auch in einer Datei.
+    \item Muss Dateien, Ordner und Verweise in strukturierter Form darstellen.
 \end{itemize}
 
-\textbf{Funktionen der Fahrzeuge}
+\subsubsection{Visitor: FilterFiles}
 \begin{itemize}
-	\item Bereitstellen einer Print Funktion mit Info über das Fahrzeug und die Fahrtenbucheinträge.
-	\item Hinzufügen von Fahrtenbucheinträgen.
-	\item Ermittlung vom Kilometerstand eines Fahrzeugs.
-	\item Speichern von Hersteller, Treibstoff und Kennzeichen des Fahrzeugs
+    \item Filtert Dateien anhand eines minimalen und maximalen Größenschwellwerts.
+    \item Filtert optional alle Verweise.
+    \item Ausgabe aller gefilterten Dateien mit ihrem vollständigen Pfad.
+    \item Bei Verweisen muss zusätzlich der Name des referenzierten Zielobjekts ausgegeben werden.
 \end{itemize}
+
+\subsection{Testanforderungen}
+Ein Testtreiber muss:
+\begin{itemize}
+    \item ein mehrstufiges hierarchisches Dateisystem erzeugen,
+    \item alle implementierten Besucher umfassend testen,
+    \item die Funktionsweise demonstrieren und Testausgaben bereitstellen.
+\end{itemize}
+
+
 
 \clearpage
 \section{Systementwurf}
 
 \subsection{Klassendiagramm}
-\includegraphics[width=14cm]{./Images/Klassendiagramm.png}
+\includegraphics[width=14cm]{./FileSystem.png}
 \newpage
 
 \subsection{Designentscheidungen}
-Im Klassendiagramm wurde der Polymorphismus angewendet, um unterschiedliche Fahrzeugarten mit der gemeinsamen Schnittstelle 'Vehicle' anzusprechen. Die Klasse 'Garage' speichert einen Container mit der abstrakte Basisklasse 'Vehicle' als Elementtyp und kann somit alle bestehenden und auch neuen Fahrzeugarten verwalten, die sich von der gemeinsamen Basisklasse 'Vehicle' ableiten.
-Für die Aufzeichnung eines Fahrtenbuches wurde die Klasse \textbf{DriveRecord} implementiert. Diese Klasse speichert mehrere Objekte der Klasse \textbf{RecordEntry}.
-Die Record Entries werden im Fahrtenbuch in einem \textbf{Multiset} gespeichert, damit sind die Einträge ins Fahrtenbuch immer nach dem Datum aufsteigend sortiert.
-Aus diesem Grund wurde der \textbf{operator<} für die Record Entries definiert. Dieser vergleicht das Datum der Einträge.
-Dadurch, dass die Einträge ins Fahrtenbuch als eigene Klasse implementiert wurde, lassen sich die einzelnen Einträge schnell und einfach erweitern.\\
-\\
-\\
-Als Container für die Speicherung der Fahrzeuge in der Klasse \textbf{Garage} wurde der Vektor verwendet. 
-Dieser erlaubt es schnell Fahrzeuge hinzuzufügen, und das Suchen geschieht relativ schnell in O(n).
-Einzig und allein, das Löschen aus der Mitte des Vektors stellt bei größerwerdenden Fuhrparks ein Problem dar.
-Wenn dies in der Verwendung des Fuhrparks öfters passiert sollte der verwendete Container ausgetauscht werden.
-\\
-\\
-Die Klassen \textbf{Car, Truck und Bike} wurden für die Konkretisierung der Printfunktion verwendet.
-Diese Klassen lassen sich schnell und einfach erweitern, und können trotzdem weiter vom Fuhrpark verwaltet werden.\\
-\\
+
 
 \color{black}
 
@@ -264,13 +303,101 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 
 \subsection{Object.hpp}
 \lstinputlisting{../Object.h}
+\clearpage
+\subsection{FSObjectFactory.hpp}
+\lstinputlisting{./../FSObjectFactory.hpp}
+\clearpage
+\subsection{FSObjectFactory.cpp}
+\lstinputlisting{./../FSObjectFactory.cpp}
 
-\subsection{RecordEntry.hpp}
-\lstinputlisting{./../RecordEntry.hpp}
+\clearpage
+\subsection{Filesystem.hpp}
+\lstinputlisting{./../Filesystem.hpp}
 
-\subsection{RecordEntry.cpp}
-\lstinputlisting{./../RecordEntry.cpp}
+\clearpage
+\subsection{Filesystem.cpp}
+\lstinputlisting{./../Filesystem.cpp}
 
+\clearpage
+\subsection{FSObject.hpp}
+\lstinputlisting{./../FSObject.hpp}
+
+\clearpage
+\subsection{FSObject.cpp}
+\lstinputlisting{./../FSObject.cpp}
+\clearpage
+
+\subsection{File.hpp}
+\lstinputlisting{./../File.hpp}
+\clearpage
+
+\subsection{File.cpp}
+\lstinputlisting{./../File.cpp}
+\clearpage
+
+\subsection{IFolder.hpp}
+\lstinputlisting{./../IFolder.hpp}
+\clearpage
+
+\subsection{Folder.hpp}
+\lstinputlisting{./../Folder.hpp}
+\clearpage
+
+\subsection{Folder.cpp}
+\lstinputlisting{./../Folder.cpp}
+\clearpage
+
+\subsection{Link.hpp}
+\lstinputlisting{./../Link.hpp}
+\clearpage
+
+\subsection{Link.cpp}
+\lstinputlisting{./../Link.cpp}
+\clearpage
+
+\subsection{IVisitor.hpp}
+\lstinputlisting{./../IVisitor.hpp}
+\clearpage
+
+\subsection{FilterVisitor.hpp}
+\lstinputlisting{./../FilterVisitor.hpp}
+\clearpage
+
+\subsection{FilterVisitor.cpp}
+\lstinputlisting{./../FilterVisitor.cpp}
+\clearpage
+
+\subsection{FilterFileVisitor.hpp}
+\lstinputlisting{./../FilterFileVisitor.hpp}
+\clearpage
+
+\subsection{FilterFileVisitor.cpp}
+\lstinputlisting{./../FilterFileVisitor.cpp}
+\clearpage
+
+\subsection{FilterLinkVisitor.hpp}
+\lstinputlisting{./../FilterLinkVisitor.hpp}
+\clearpage
+
+\subsection{FilterLinkVisitor.cpp}
+\lstinputlisting{./../FilterLinkVisitor.cpp}
+\clearpage
+
+\subsection{DumpVisitor.hpp}
+\lstinputlisting{./../DumpVisitor.hpp}
+\clearpage
+
+\subsection{DumpVisitor.cpp}
+\lstinputlisting{./../DumpVisitor.cpp}
+\clearpage
+
+\subsection{main.cpp}
+\lstinputlisting{./../main.cpp}
+\clearpage
+
+\subsection{Test.hpp}
+\lstinputlisting{./../Test.hpp}
+	
 
 % Literaturverzeichnis
 % --------------------

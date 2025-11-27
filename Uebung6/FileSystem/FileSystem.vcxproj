@@ -126,6 +126,7 @@
   <ItemGroup>
     <ClCompile Include="DumpVisitor.cpp" />
     <ClCompile Include="File.cpp" />
+    <ClCompile Include="Filesystem.cpp" />
     <ClCompile Include="FilterFileVisitor.cpp" />
     <ClCompile Include="FilterLinkVisitor.cpp" />
     <ClCompile Include="FilterVisitor.cpp" />
@@ -138,6 +139,7 @@
   <ItemGroup>
     <ClInclude Include="DumpVisitor.hpp" />
     <ClInclude Include="File.hpp" />
+    <ClInclude Include="Filesystem.hpp" />
     <ClInclude Include="FilterFileVisitor.hpp" />
     <ClInclude Include="FilterLinkVisitor.hpp" />
     <ClInclude Include="FilterVisitor.hpp" />

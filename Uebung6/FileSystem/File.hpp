@@ -17,8 +17,8 @@ public:
 
     static inline const std::string ERR_OUT_OF_SPACE = "Not enough space to write data";
 
-    File(size_t size, size_t blocksize = 4096)
-        : m_size(size), m_blocksize(blocksize),
+    File(std::string_view name,size_t size, size_t blocksize = 4096)
+        : m_size(size), m_blocksize(blocksize), FSObject{ name },
         m_res_blocks((size + blocksize - 1) / blocksize)
     {}
 

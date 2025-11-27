@@ -17,7 +17,7 @@ public:
 
     /* \brief Constructor taking a shared pointer to the linked FSObject
 	*/
-	explicit Link(FSObj_Sptr linked_obj);
+	explicit Link(FSObj_Sptr linked_obj, std::string_view name = "");
 
 	virtual std::shared_ptr<const ILink> AsLink() const override;
 

@@ -22,9 +22,9 @@ public:
 	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
 
 
-	FSObject::Sptr CreateFile(size_t size, size_t blocksize = 4096) const;
+	FSObject::Sptr CreateFile(std::string_view name, size_t size, size_t blocksize = 4096) const;
 	FSObject::Sptr CreateFolder() const;
-	FSObject::Sptr CreateLink(FSObject::Sptr linkedObj) const;
+	FSObject::Sptr CreateLink(std::string_view name, FSObject::Sptr linkedObj) const;
 
 private:
 };

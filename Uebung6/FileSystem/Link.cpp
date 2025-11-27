@@ -1,6 +1,6 @@
 #include "Link.hpp"
 
-Link::Link(FSObj_Sptr linked_obj)
+Link::Link(FSObj_Sptr linked_obj, std::string_view name) : FSObject(name)
 {
     m_Ref = move(linked_obj);
 }

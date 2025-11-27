@@ -5,21 +5,28 @@
  * \author Simon
  * \date   November 2025
  *********************************************************************/
-#ifndef FILE_HPP
-#define FILE_HPP
+#ifndef FILE_SYSTEM_HPP
+#define FILE_SYSTEM_HPP
 
 #include "FSObject.hpp"
+#include "IVisitor.hpp"
 
-class File : public FSObject
+class FileSystem : public Object
 {
 public:
+	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
 
+	FileSystem() = default;	
+	FileSystem(FSObject::Sptr root);
+	
+	IVisitor& Work(IVisitor& visitor);
 
+	FSObject::Sptr GetRoot();
+
+	void SetRoot(FSObject::Sptr root);
 
 
 private:
-	size_t m_size;
-	const size_t m_blocksize;
-	const size_t res_blocks;
+	FSObject::Sptr m_Root;
 };
 #endif

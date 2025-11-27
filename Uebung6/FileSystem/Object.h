@@ -6,8 +6,6 @@
 class Object{
 public:
 
-	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
-
 protected:
 
 

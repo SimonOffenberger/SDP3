@@ -7,42 +7,44 @@
 #include <vector>
 #include <algorithm>
 
-void DumpVisitor::Visit(const Folder& folder)
+void DumpVisitor::Visit(std::shared_ptr<Folder>  folder)
 {
 	if (m_ost.fail()) throw ERROR_BAD_OSTREAM;
-	Dump(folder);
+	Dump(move(folder));
 }
 
-void DumpVisitor::Visit(const File& file)
+void DumpVisitor::Visit(std::shared_ptr<File>  file)
 {
 	if (m_ost.fail()) throw ERROR_BAD_OSTREAM;
-	Dump(file);
+	Dump(move(file));
 }
 
-void DumpVisitor::Visit(const Link& Link)
+void DumpVisitor::Visit(std::shared_ptr<Link>  Link)
 {
 	if (m_ost.fail()) throw ERROR_BAD_OSTREAM;
-	Dump(Link);
+	Dump(move(Link));
 }
 
-void DumpVisitor::Dump(const FSObject& fsobj)
+void DumpVisitor::Dump(std::shared_ptr<FSObject> fsobj)
 {
 	std::vector<FSObject::Sptr> path_components;
+	path_components.reserve(10);
 
-	FSObject::Sptr parent = fsobj.GetParent().lock();
+	FSObject::Sptr parent = fsobj->GetParent().lock();
+	FSObject::Sptr next_parent;
 
 	while (parent != nullptr) {
-
-		path_components.push_back(parent);
-		parent = parent->GetParent().lock();
+		next_parent = parent->GetParent().lock();
+		path_components.emplace_back(move(parent));
+		parent = move(next_parent);
 	}
 
 	for_each(path_components.rbegin(), path_components.rend(),
-		[&](const FSObject::Sptr& obj) {
+		[&](const FSObject::Sptr & obj) {
 			m_ost << obj->GetName() << "\\";
 		});
 
-	m_ost << fsobj.GetName() << "\n";
+	m_ost << fsobj->GetName() << "\n";
 
 }
 

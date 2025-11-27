@@ -15,20 +15,20 @@
 class DumpVisitor : public IVisitor
 {
 public: 
-
+	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
 	inline static const std::string ERROR_BAD_OSTREAM = "ERROR: bad output stream";
 
 	DumpVisitor(std::ostream& ost) : m_ost{ ost } {}
 
-	virtual void Visit(const Folder& folder) override;
+	virtual void Visit(std::shared_ptr<Folder>  folder) override;
 
-	virtual void Visit(const File& file) override;
+	virtual void Visit(std::shared_ptr<File> file) override;
 
-	virtual void Visit(const Link& Link) override;
+	virtual void Visit(std::shared_ptr<Link>  Link) override;
 
 private:
 
-	void Dump(const FSObject& fsobj);
+	void Dump(std::shared_ptr<FSObject> fsobj);
 
 	std::ostream & m_ost;
 };

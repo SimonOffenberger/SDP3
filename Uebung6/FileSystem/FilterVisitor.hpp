@@ -17,21 +17,23 @@ class FilterVisitor : public IVisitor
 {
 public:
 
-	virtual void Visit(const Folder& folder) override {}
+	inline static const std::string ERROR_NULLPTR = "ERROR: null pointer";
 
-	virtual void Visit(const File& file) override;
+	virtual void Visit(std::shared_ptr<Folder> folder) override {}
 
-	virtual void Visit(const Link& link) override;
+	virtual void Visit(std::shared_ptr<File> file) override;
+
+	virtual void Visit(std::shared_ptr<Link> link) override;
 
 	void DumpFiltered(std::ostream& ost) const;
 
 protected: 
 
-	virtual bool DoFilter(const File& file)=0;
+	virtual bool DoFilter(std::shared_ptr<File> file)=0;
 
-	virtual bool DoFilter(const Link& link)=0;
+	virtual bool DoFilter(std::shared_ptr<Link> link)=0;
 
-	using TContFSobj = std::vector<const FSObject*>;
+	using TContFSobj = std::vector<FSObj_Wptr>;
 
 private:
 

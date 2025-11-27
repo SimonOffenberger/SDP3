@@ -2,7 +2,7 @@
 
 void File::Accept(IVisitor& visit)
 {
-    visit.Visit(*this);
+    visit.Visit(shared_from_this());
 }
 
 void File::Write(size_t bytes)

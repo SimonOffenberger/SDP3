@@ -19,6 +19,7 @@ class Folder : public IFolder, public FSObject, public std::enable_shared_from_t
 {
 public:
 
+
 	using Sptr = std::shared_ptr<Folder>;
 	using Wptr = std::shared_ptr<Folder>;
     using Cont = std::vector<FSObj_Sptr>;

@@ -13,15 +13,17 @@ class Folder;
 class File;
 class Link;
 
+#include <memory>
+
 class IVisitor
 {
 public:
 
-	virtual void Visit(const Folder & folder)=0;
+	virtual void Visit(std::shared_ptr<Folder> folder)=0;
 
-	virtual void Visit(const File & file)=0;
+	virtual void Visit(std::shared_ptr<File> file)=0;
 
-	virtual void Visit(const Link & link)=0;
+	virtual void Visit(std::shared_ptr<Link> link)=0;
 
 	virtual ~IVisitor() = default;
 

@@ -1,11 +1,11 @@
 #include "FilterLinkVisitor.hpp"
 
-bool FilterLinkVisitor::DoFilter(const File& file)
+bool FilterLinkVisitor::DoFilter(std::shared_ptr<File> file)
 {
 	return false;
 }
 
-bool FilterLinkVisitor::DoFilter(const Link& link)
+bool FilterLinkVisitor::DoFilter(std::shared_ptr<Link> link)
 {
 	return true;
 }

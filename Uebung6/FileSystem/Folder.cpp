@@ -31,7 +31,7 @@ IFolder::Sptr Folder::AsFolder()
 
 void Folder::Accept(IVisitor& visit)
 {
-    visit.Visit(*this);
+    visit.Visit(shared_from_this());
 
     for(auto& child : m_Children)
     {

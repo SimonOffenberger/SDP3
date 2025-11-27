@@ -9,28 +9,32 @@
 
 using namespace std;
 
-void FilterVisitor::Visit(const File& file)
+void FilterVisitor::Visit(std::shared_ptr<File>  file)
 {
 	if(DoFilter(file))
 	{
-		m_FilterCont.push_back(&file);
+		m_FilterCont.push_back(file);
 	}
 }
 
-void FilterVisitor::Visit(const Link& link)
+void FilterVisitor::Visit(std::shared_ptr<Link>  link)
 {
 	if (DoFilter(link))
 	{
-		m_FilterCont.push_back(&link);
+		m_FilterCont.push_back(link);
 	}
 }
 
 
-static void Dump(const FSObject * const fsobj, ostream & ost) {
+static void Dump(FSObj_Wptr fsobj, ostream & ost) {
 
 	std::vector<FSObject::Sptr> path_components;
 
-	FSObject::Sptr parent = fsobj->GetParent().lock();
+	FSObj_Sptr fsobj_ptr = fsobj.lock();
+	
+	if (fsobj_ptr == 0) throw FilterVisitor::ERROR_NULLPTR;
+
+	FSObject::Sptr parent = fsobj_ptr->GetParent().lock();
 
 	while (parent != nullptr) {
 
@@ -39,16 +43,19 @@ static void Dump(const FSObject * const fsobj, ostream & ost) {
 	}
 
 	for_each(path_components.rbegin(), path_components.rend(),
-		[&](const FSObject::Sptr& obj) {
+		[&](const FSObject::Sptr & obj) {
 			ost << obj->GetName() << "\\";
 		});
 
-	ost << fsobj->GetName();
+	ost << fsobj_ptr->GetName();
 
-	std::shared_ptr<const ILink> link_ptr = fsobj->AsLink();
+	std::shared_ptr<const ILink> link_ptr = fsobj_ptr->AsLink();
 
-	if (link_ptr) {
-		ost << " -> " << (**link_ptr)->GetName();
+	if (link_ptr) { 
+		FSObject::Sptr linked_obj = link_ptr->GetReferncedFSObject();
+		if (linked_obj) {
+			ost << " -> " << link_ptr->GetReferncedFSObject()->GetName();
+		}
 	}
 
 	ost << "\n";
@@ -58,7 +65,7 @@ static void Dump(const FSObject * const fsobj, ostream & ost) {
 void FilterVisitor::DumpFiltered(std::ostream& ost) const
 {
 	
-	for_each(m_FilterCont.cbegin(), m_FilterCont.cend(), [&](const FSObject * obj) {
+	for_each(m_FilterCont.cbegin(), m_FilterCont.cend(), [&](FSObj_Wptr obj) {
 		Dump(obj,ost);
 	});
 }

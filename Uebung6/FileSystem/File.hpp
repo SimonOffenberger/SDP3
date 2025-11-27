@@ -10,9 +10,11 @@
 
 #include "FSObject.hpp"
 
-class File : public FSObject
+class File : public FSObject, public std::enable_shared_from_this<File>
 {
 public:
+    inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
+
     static inline const std::string ERR_OUT_OF_SPACE = "Not enough space to write data";
 
     File(size_t size, size_t blocksize = 4096)

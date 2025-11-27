@@ -19,6 +19,9 @@
 class FSObject : public Object
 {
 public:
+	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
+
+
 	using Sptr = std::shared_ptr<FSObject>;
 	using Wptr = std::weak_ptr<FSObject>;
 

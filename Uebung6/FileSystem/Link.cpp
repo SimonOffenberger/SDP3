@@ -10,12 +10,12 @@ std::shared_ptr<const ILink> Link::AsLink() const
     return shared_from_this();
 }
 
-FSObj_Sptr Link::operator*() const
+FSObj_Sptr Link::GetReferncedFSObject() const
 {
     return m_Ref.lock();
 }
 
 void Link::Accept(IVisitor& visit)
 {
-    visit.Visit(*this);
+    visit.Visit(shared_from_this());
 }

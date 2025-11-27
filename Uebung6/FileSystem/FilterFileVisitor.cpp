@@ -12,12 +12,14 @@ FilterFileVisitor::FilterFileVisitor(const size_t& min, const size_t& max)
 	m_MaxSize = max;
 }
 
-bool FilterFileVisitor::DoFilter(const File& file)
+bool FilterFileVisitor::DoFilter(std::shared_ptr<File> file)
 {
-	return file.GetSize() >= m_MinSize && file.GetSize() <= m_MaxSize;
+	if (file == nullptr) throw ERROR_NULLPTR;
+
+	return file->GetSize() >= m_MinSize && file->GetSize() <= m_MaxSize;
 }
 
-bool FilterFileVisitor::DoFilter(const Link& link)
+bool FilterFileVisitor::DoFilter(std::shared_ptr<Link> link)
 {
 	return false;
 }

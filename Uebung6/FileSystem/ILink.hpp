@@ -22,7 +22,7 @@ public:
 
 	using Sptr = std::shared_ptr<ILink>;
 
-	virtual FSObj_Sptr operator*() const = 0;
+	virtual FSObj_Sptr GetReferncedFSObject() const = 0;
 
 	virtual ~ILink() = default;
 

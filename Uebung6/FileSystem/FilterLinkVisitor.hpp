@@ -16,9 +16,9 @@ public:
 
 protected:
 
-	virtual bool DoFilter(const File& file) override;
+	virtual bool DoFilter(std::shared_ptr<File> file) override;
 
-	virtual bool DoFilter(const Link& link) override;
+	virtual bool DoFilter(std::shared_ptr<Link> link) override;
 
 private:
 };

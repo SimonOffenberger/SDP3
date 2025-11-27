@@ -5,7 +5,12 @@ Link::Link(FSObj_Sptr linked_obj)
     m_Ref = move(linked_obj);
 }
 
-FSObj_Sptr Link::operator*()
+std::shared_ptr<const ILink> Link::AsLink() const
+{
+    return shared_from_this();
+}
+
+FSObj_Sptr Link::operator*() const
 {
     return m_Ref.lock();
 }

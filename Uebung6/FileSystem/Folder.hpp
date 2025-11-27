@@ -15,7 +15,7 @@
 #include <memory>
 #include <vector>
 
-class Folder : public IFolder, public FSObject
+class Folder : public IFolder, public FSObject, public std::enable_shared_from_this<Folder>
 {
 public:
 

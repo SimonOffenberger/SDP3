@@ -17,17 +17,21 @@ class FilterVisitor : public IVisitor
 {
 public:
 
-	virtual void Visit(const Folder& folder) override;
+	virtual void Visit(const Folder& folder) override {}
 
 	virtual void Visit(const File& file) override;
 
-	virtual void Visit(const Link& Link) override;
+	virtual void Visit(const Link& link) override;
+
+	void DumpFiltered(std::ostream& ost) const;
 
 protected: 
 
-	virtual bool DoFilter()=0;
+	virtual bool DoFilter(const File& file)=0;
 
-	using TContFSobj = std::vector<FSObject::Wptr>;
+	virtual bool DoFilter(const Link& link)=0;
+
+	using TContFSobj = std::vector<const FSObject*>;
 
 private:
 

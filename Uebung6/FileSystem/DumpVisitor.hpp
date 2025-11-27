@@ -5,16 +5,18 @@
  * \author Simon
  * \date   November 2025
  *********************************************************************/
-#ifndef IVISITOR_HPP
-#define IVISITOR_HPP
-
-#include "IVisitor.hpp"
+#ifndef DUMP_VISITOR_HPP
+#define DUMP_VISITOR_HPP
 
 #include <iostream>
+#include "IVisitor.hpp"
+#include "FSObject.hpp"
 
 class DumpVisitor : public IVisitor
 {
-public:
+public: 
+
+	inline static const std::string ERROR_BAD_OSTREAM = "ERROR: bad output stream";
 
 	DumpVisitor(std::ostream& ost) : m_ost{ ost } {}
 
@@ -25,6 +27,8 @@ public:
 	virtual void Visit(const Link& Link) override;
 
 private:
+
+	void Dump(const FSObject& fsobj);
 
 	std::ostream & m_ost;
 };

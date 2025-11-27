@@ -15,7 +15,10 @@ class FilterLinkVisitor : public FilterVisitor
 public:
 
 protected:
-	virtual bool DoFilter() override;
+
+	virtual bool DoFilter(const File& file) override;
+
+	virtual bool DoFilter(const Link& link) override;
 
 private:
 };

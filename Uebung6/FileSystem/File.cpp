@@ -12,3 +12,8 @@ void File::Write(size_t bytes)
 
     m_size += bytes;
 }
+
+size_t File::GetSize() const
+{
+    return m_size; 
+}

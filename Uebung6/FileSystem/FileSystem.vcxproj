@@ -145,6 +145,7 @@
     <ClInclude Include="FSObject.hpp" />
     <ClInclude Include="FSObjectFactory.hpp" />
     <ClInclude Include="IFolder.hpp" />
+    <ClInclude Include="ILink.hpp" />
     <ClInclude Include="Link.hpp" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Test.hpp" />

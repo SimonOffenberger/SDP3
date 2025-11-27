@@ -24,6 +24,8 @@ public:
     
     void Write(size_t bytes);
 
+    size_t GetSize() const;
+
 private:
 	size_t m_size;
 	const size_t m_blocksize;

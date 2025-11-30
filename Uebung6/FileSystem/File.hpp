@@ -20,15 +20,29 @@ public:
     using Sptr = std::shared_ptr<File>;
     using Wptr = std::shared_ptr<File>;
 
-    File(std::string_view name,size_t size, size_t blocksize = 4096)
-        : m_size(size), m_blocksize(blocksize), FSObject{ name },
-        m_res_blocks((size + blocksize - 1) / blocksize)
+    /** \brief Construct a file
+		 * \param name File name
+		 * \param res_blocks Reserved blocks
+		 * \param blocksize Block size (default4096)
+		 */
+    File(std::string_view name,size_t res_blocks, size_t blocksize =4096)
+        : m_size(0), m_blocksize(blocksize), FSObject{ name },
+        m_res_blocks(res_blocks)
     {}
 
+    /** \brief Accept a visitor
+		 * \param visit Visitor to accept
+		 */
     virtual void Accept(IVisitor& visit) override;
     
+    /** \brief Write bytes to the file (increases size)
+		 * \param bytes Number of bytes to write
+		 */
     void Write(size_t bytes);
 
+    /** \brief Get current size of the file
+		 * \return Size in bytes
+		 */
     size_t GetSize() const;
 
 private:

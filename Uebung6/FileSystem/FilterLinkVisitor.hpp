@@ -1,10 +1,3 @@
-/*****************************************************************//**
- * \file
- * \brief
- *
- * \author Simon
- * \date   November 2025
- *********************************************************************/
 #ifndef FILTER_LINK_VISITOR_HPP
 #define FILTER_LINK_VISITOR_HPP
 
@@ -16,9 +9,17 @@ public:
 
 protected:
 
-	virtual bool DoFilter(std::shared_ptr<File> file) override;
+	/** \brief Links are accepted by this filter
+	 * \param file File to check
+	 * \return false always
+	 */
+	virtual bool DoFilter(const std::shared_ptr<File>& file) override;
 
-	virtual bool DoFilter(std::shared_ptr<Link> link) override;
+	/** \brief Links are accepted by this filter
+	 * \param link Link to check
+	 * \return true if link is present
+	 */
+	virtual bool DoFilter(const std::shared_ptr<Link>& link) override;
 
 private:
 };

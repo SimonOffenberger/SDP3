@@ -19,24 +19,29 @@ public:
 	using Uptr = std::unique_ptr<Link>;
 	using Wptr = std::weak_ptr<Link>;
 
-    /* \brief Constructor taking a shared pointer to the linked FSObject
-	*/
+    /** \brief Constructor taking a shared pointer to the linked FSObject
+	 * \param linked_obj Shared pointer to the referenced FSObject
+	 * \param name Optional name for the link
+	 */
 	explicit Link(FSObj_Sptr linked_obj, std::string_view name = "");
 
+	/** \brief Cast this object to link interface
+	 * \return Shared pointer to ILink
+	 */
 	virtual std::shared_ptr<const ILink> AsLink() const override;
 
-    /* \brief Dereference operator to access the linked FSObject
-    *  \return A shared pointer to the linked FSObject
-	*/
+    /** \brief Get the referenced FSObject
+	 * \return Shared pointer to the referenced FSObject or nullptr if expired
+	 */
 	virtual FSObj_Sptr GetReferncedFSObject() const override;
 
-    /* \brief Accept a visitor
-    *  \param visit The visitor to accept
-	*/
+    /** \brief Accept a visitor
+	 * \param visit Visitor to accept
+	 */
 	virtual void Accept(IVisitor& visit) override;
 
 private:
-    /* \brief Weak pointer to the linked FSObject
+    /** \brief Weak pointer to the linked FSObject
 	*/
 	FSObj_Wptr m_Ref;
 };

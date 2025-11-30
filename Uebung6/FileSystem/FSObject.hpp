@@ -25,17 +25,44 @@ public:
 	using Uptr = std::unique_ptr<FSObject>;
 	using Wptr = std::weak_ptr<FSObject>;
 
-	virtual void Accept(IVisitor& visit) = 0;
+	/** \brief Accept a visitor (pure virtual)
+	 * \param visit Visitor to accept
+	 */
+	virtual void Accept(IVisitor& visit) =0;
+	
+	/** \brief Try to "cast" this FSObject to a folder
+	 * \return Shared pointer to IFolder or nullptr
+	 */
 	virtual IFolder::Sptr AsFolder();
+
+	/** \brief Try to cast this FSObject to a link
+	 * \return Shared pointer to ILink or nullptr
+	 */
 	virtual std::shared_ptr<const ILink> AsLink() const;
 
+	/** \brief Construct an FSObject with optional name
+	 * \param name Name of the FSObject
+	 */
 	FSObject(std::string_view name = "") : m_Name{ name } {}
 
+	/** \brief Get the name of the object
+	 * \return Name as std::string_view
+	 */
 	std::string_view GetName() const;
+
+	/** \brief Set the name of the object
+	 * \param name New name
+	 */
 	void SetName(std::string_view name);
 
+	/** \brief Set parent of this FSObject
+	 * \param parent Shared pointer to parent FSObject
+	 */
 	void SetParant(Sptr parent);
 
+	/** \brief Get parent as weak pointer
+	 * \return Weak pointer to parent
+	 */
 	FSObj_Wptr GetParent() const;
 
 private:

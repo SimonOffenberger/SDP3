@@ -22,11 +22,21 @@ public:
 
 	using Sptr = std::shared_ptr<IFolder>;
 
-	virtual void Add(FSObj_Sptr fsobj) = 0;
+	/** \brief Add a child FSObject to the folder
+	 * \param fsobj Shared pointer to the FSObject to add
+	 */
+	virtual void Add(FSObj_Sptr fsobj) =0;
 
-	virtual FSObj_Sptr GetChild(size_t idx) = 0;
+	/** \brief Get a child by index
+	 * \param idx Index of the child
+	 * \return Shared pointer to the child or nullptr if out of range
+	 */
+	virtual FSObj_Sptr GetChild(size_t idx) =0;
 
-	virtual void Remove(FSObj_Sptr fsobj) = 0;
+	/** \brief Remove a child FSObject from the folder
+	 * \param fsobj Shared pointer to the FSObject to remove
+	 */
+	virtual void Remove(FSObj_Sptr fsobj) =0;
 
 	virtual ~IFolder() = default;
 

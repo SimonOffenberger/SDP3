@@ -17,12 +17,26 @@ public:
 	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
 
 	FileSystem() = default;	
+
+	/** \brief Construct a FileSystem with a root FSObject
+	 * \param root Root FSObject shared pointer
+	 */
 	FileSystem(FSObject::Sptr root);
 	
+	/** \brief Walk the filesystem with a visitor
+	 * \param visitor Visitor to apply
+	 * \return Reference to visitor
+	 */
 	IVisitor& Work(IVisitor& visitor);
 
+	/** \brief Get root FSObject
+	 * \return Shared pointer to root
+	 */
 	FSObject::Sptr GetRoot();
 
+	/** \brief Set the filesystem root
+	 * \param root Shared pointer to new root
+	 */
 	void SetRoot(FSObject::Sptr root);
 
 

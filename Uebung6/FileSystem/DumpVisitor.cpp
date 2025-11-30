@@ -8,31 +8,35 @@
 #include <algorithm>
 #include <cassert>
 
-void DumpVisitor::Visit(std::shared_ptr<Folder>  folder)
+/** \brief Visit folder and dump its path */
+void DumpVisitor::Visit(const std::shared_ptr<Folder>& folder)
 {
 	if (m_ost.fail()) throw ERROR_BAD_OSTREAM;
 	if (folder == nullptr) throw ERROR_NULLPTR;
 
-	Dump(move(folder));
+	Dump(folder);
 }
 
-void DumpVisitor::Visit(std::shared_ptr<File>  file)
+/** \brief Visit file and dump its path */
+void DumpVisitor::Visit(const std::shared_ptr<File>& file)
 {
 	if (m_ost.fail()) throw ERROR_BAD_OSTREAM;
 	if (file == nullptr) throw ERROR_NULLPTR;
 
-	Dump(move(file));
+	Dump(file);
 }
 
-void DumpVisitor::Visit(std::shared_ptr<Link>  Link)
+/** \brief Visit link and dump its path */
+void DumpVisitor::Visit(const std::shared_ptr<Link>& Link)
 {
 	if (m_ost.fail()) throw ERROR_BAD_OSTREAM;
 	if (Link == nullptr) throw ERROR_NULLPTR;
 
-	Dump(move(Link));
+	Dump(Link);
 }
 
-void DumpVisitor::Dump(std::shared_ptr<FSObject> fsobj)
+/** \brief Dump full path for a FSObject to the internal ostream */
+void DumpVisitor::Dump(const std::shared_ptr<FSObject>& fsobj)
 {
 	assert(fsobj != nullptr);
 
@@ -44,7 +48,7 @@ void DumpVisitor::Dump(std::shared_ptr<FSObject> fsobj)
 
 	while (parent != nullptr) {
 		next_parent = parent->GetParent().lock();
-		path_components.emplace_back(move(parent));
+		path_components.emplace_back(parent);
 		parent = move(next_parent);
 	}
 

@@ -18,16 +18,31 @@ public:
 	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
 	inline static const std::string ERROR_BAD_OSTREAM = "ERROR: bad output stream";
 
+	/** \brief Construct a dumper that writes to given ostream
+	 * \param ost Output stream reference
+	 */
 	DumpVisitor(std::ostream& ost) : m_ost{ ost } {}
 
-	virtual void Visit(std::shared_ptr<Folder> folder) override;
+	/** \brief Visit folder
+	 * \param folder Folder to visit
+	 */
+	virtual void Visit(const std::shared_ptr<Folder>& folder) override;
 
-	virtual void Visit(std::shared_ptr<File> file) override;
+	/** \brief Visit file
+	 * \param file File to visit
+	 */
+	virtual void Visit(const std::shared_ptr<File>& file) override;
 
-	virtual void Visit(std::shared_ptr<Link> Link) override;
+	/** \brief Visit link
+	 * \param Link Link to visit
+	 */
+	virtual void Visit(const std::shared_ptr<Link>& Link) override;
 
 private:
-	void Dump(std::shared_ptr<FSObject> fsobj);
+	/** \brief Dump a single FSObject path to the output stream
+	 * \param fsobj Shared pointer to object
+	 */
+	void Dump(const std::shared_ptr<FSObject>& fsobj);
 
 	std::ostream & m_ost;
 };

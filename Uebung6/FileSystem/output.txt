@@ -99,4 +99,60 @@ Test for Exception in Dump with bad Ostream
 
 *******************************************
 
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+FilterFileVisitor Test filtered amount
+[32m[Test OK] [37mResult: (Expected: 2 == Result: 2)
+
+FilterFileVisitor Test for filtered file
+[32m[Test OK] [37mResult: (Expected: file3.txt == Result: file3.txt)
+
+FilterFileVisitor Test for filtered file
+[32m[Test OK] [37mResult: (Expected: file1.txt == Result: file1.txt)
+
+Filter File Visitor Test Dump 
+[32m[Test OK] [37mResult: (Expected: root\file3.txt
+root\sub_folder\sub_sub_folder\file1.txt
+ == Result: root\file3.txt
+root\sub_folder\sub_sub_folder\file1.txt
+)
+
+Test for Exception in Testcase
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test for Exception in Dump with bad Ostream
+[32m[Test OK] [37mResult: (Expected: ERROR: bad output stream == Result: ERROR: bad output stream)
+
+Test for Exception in Filter File Visiter CTOR
+[32m[Test OK] [37mResult: (Expected: Invalid size range: minimum size must be less than maximum size == Result: Invalid size range: minimum size must be less than maximum size)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test if file was constructed
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test if Link was constructed
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test if Folder was constructed
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test for Execption in Tesstcase
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test Exception nullptr CTOR Link
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+
+*******************************************
+
 [32mTEST OK!![37m

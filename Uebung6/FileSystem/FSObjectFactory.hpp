@@ -21,8 +21,7 @@ class FSObjectFactory : public Object
 public:
 	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
 
-
-	FSObject::Sptr CreateFile(std::string_view name, size_t size, size_t blocksize = 4096) const;
+	FSObject::Sptr CreateFile(std::string_view name, size_t res_blocks, size_t blocksize = 4096) const;
 	FSObject::Sptr CreateFolder(std::string_view name = "") const;
 	FSObject::Sptr CreateLink(std::string_view name, FSObject::Sptr linkedObj) const;
 

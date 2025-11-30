@@ -19,12 +19,22 @@ class IVisitor
 {
 public:
 
-	virtual void Visit(std::shared_ptr<Folder> folder)=0;
+	/** \brief Visit a folder
+	 * \param folder Shared pointer to the folder to visit
+	 */
+	virtual void Visit(const std::shared_ptr<Folder>& folder)=0;
 
-	virtual void Visit(std::shared_ptr<File> file)=0;
+	/** \brief Visit a file
+	 * \param file Shared pointer to the file to visit
+	 */
+	virtual void Visit(const std::shared_ptr<File>& file)=0;
 
-	virtual void Visit(std::shared_ptr<Link> link)=0;
+	/** \brief Visit a link
+	 * \param link Shared pointer to the link to visit
+	 */
+	virtual void Visit(const std::shared_ptr<Link>& link)=0;
 
+	/** \brief Virtual destructor for visitor implementations */
 	virtual ~IVisitor() = default;
 
 private: 

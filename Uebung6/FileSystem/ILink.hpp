@@ -22,7 +22,10 @@ public:
 
 	using Sptr = std::shared_ptr<ILink>;
 
-	virtual FSObj_Sptr GetReferncedFSObject() const = 0;
+	/** \brief Get the referenced FSObject
+	 * \return Shared pointer to the referenced FSObject or nullptr if expired
+	 */
+	virtual FSObj_Sptr GetReferncedFSObject() const =0;
 
 	virtual ~ILink() = default;
 

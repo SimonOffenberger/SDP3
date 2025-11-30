@@ -19,11 +19,11 @@ using namespace std;
 
 #define WriteOutputFile ON
 
-
 static bool TestDumpVisitor(ostream& ost);
 static bool TestFilterLinkVisitor(ostream& ost);
 static bool TestFilterFileVisitor(ostream& ost);
 static bool TestVisitor(ostream& ost,IVisitor & visit);
+static bool TestFactory(ostream& ost);
 
 int main()
 {
@@ -89,6 +89,8 @@ int main()
         TestOK = TestOK && TestVisitor(cout, filter_link);
         TestOK = TestOK && TestVisitor(cout, filter_file);
         TestOK = TestOK && TestFilterLinkVisitor(cout);
+        TestOK = TestOK && TestFilterFileVisitor(cout);
+        TestOK = TestOK && TestFactory(cout);
 
 
         if (WriteOutputFile) {
@@ -98,6 +100,8 @@ int main()
             TestOK = TestOK && TestVisitor(output, filter_link);
             TestOK = TestOK && TestVisitor(output, filter_file);
             TestOK = TestOK && TestFilterLinkVisitor(output);
+            TestOK = TestOK && TestFilterFileVisitor(output);
+            TestOK = TestOK && TestFactory(output);
 
             if (TestOK) {
                 output << TestCaseOK;
@@ -244,7 +248,7 @@ bool TestFilterLinkVisitor(ostream& ost)
 		root_folder->Accept(link_filter);
 
 		TestOK = TestOK && check_dump(ost, "FilterLinkVisitor Test filtered amount", static_cast<size_t>(1), link_filter.GetFilteredObjects().size());
-		TestOK = TestOK && check_dump(ost, "FilterLinkVisitor Test filtered obj", link->GetReferncedFSObject()->GetName(), link_filter.GetFilteredObjects().begin()->lock()->AsLink()->GetReferncedFSObject()->GetName());
+		TestOK = TestOK && check_dump(ost, "FilterLinkVisitor Test filtered obj", link->GetReferncedFSObject()->GetName(), link_filter.GetFilteredObjects().cbegin()->lock()->AsLink()->GetReferncedFSObject()->GetName());
 
         stringstream result;
 		stringstream expected;
@@ -305,7 +309,122 @@ bool TestFilterLinkVisitor(ostream& ost)
 
 bool TestFilterFileVisitor(ostream& ost)
 {
-    return false;
+    assert(ost.good());
+
+    ost << TestStart;
+
+    bool TestOK = true;
+    string error_msg;
+
+
+    try {
+        FSObjectFactory factory;
+        FSObject::Sptr root_folder = factory.CreateFolder("root");
+        FSObject::Sptr sub_folder = factory.CreateFolder("sub_folder");
+        FSObject::Sptr sub_sub_folder = factory.CreateFolder("sub_sub_folder");
+        File::Sptr file = make_shared<File>("file1.txt", 10);
+        File::Sptr file1 = make_shared<File>("file2.txt", 10);
+        File::Sptr file2 = make_shared<File>("file3.txt", 10);
+        File::Sptr file3 = make_shared<File>("file4.txt", 10);
+        Link::Sptr link = make_shared<Link>(file, "LinkToFile1");
+
+		file->Write(8192);   
+		file1->Write(4096);   
+		file2->Write(6000);   
+		file3->Write(1000); 
+
+        sub_sub_folder->AsFolder()->Add(file);
+        root_folder->AsFolder()->Add(file2);
+        sub_sub_folder->AsFolder()->Add(link);
+        sub_folder->AsFolder()->Add(sub_sub_folder);
+        sub_folder->AsFolder()->Add(file3);
+        root_folder->AsFolder()->Add(sub_folder);
+        root_folder->AsFolder()->Add(file1);
+
+        FilterFileVisitor file_filter(5000,9000);
+
+        root_folder->Accept(file_filter);
+
+        TestOK = TestOK && check_dump(ost, "FilterFileVisitor Test filtered amount", static_cast<size_t>(2), file_filter.GetFilteredObjects().size());
+        TestOK = TestOK && check_dump(ost, "FilterFileVisitor Test for filtered file", file2->GetName(), file_filter.GetFilteredObjects().cbegin()->lock()->GetName());
+        TestOK = TestOK && check_dump(ost, "FilterFileVisitor Test for filtered file", file->GetName(), file_filter.GetFilteredObjects().crbegin()->lock()->GetName());
+
+        stringstream result;
+        stringstream expected;
+
+        file_filter.DumpFiltered(result);
+
+        expected << "root\\file3.txt" << std::endl
+                 << "root\\sub_folder\\sub_sub_folder\\file1.txt" << std::endl;
+
+        TestOK = TestOK && check_dump(ost, "Filter File Visitor Test Dump ", expected.str(), result.str());
+
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test for Exception in Testcase", true, error_msg.empty());
+    error_msg.clear();
+
+    try {
+
+        FilterFileVisitor file_filter{1,2};
+
+        stringstream result;
+        result.setstate(ios::badbit);
+
+        file_filter.DumpFiltered(result);
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test for Exception in Dump with bad Ostream", error_msg, FilterLinkVisitor::ERROR_BAD_OSTREAM);
+    error_msg.clear();
+    
+    try {
+
+		FilterFileVisitor file_filter{ 2,1 }; // <= should throw invalid size range
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test for Exception in Filter File Visiter CTOR", error_msg, FilterFileVisitor::ERROR_INVALID_SIZE_RANGE);
+    error_msg.clear();
+
+
+    ost << TestEnd;
+
+    return TestOK;
 }
 
 bool TestVisitor(ostream& ost, IVisitor& visit)
@@ -391,6 +510,71 @@ bool TestVisitor(ostream& ost, IVisitor& visit)
     }
 
     TestOK = TestOK && check_dump(ost, "Test Exception nullptr in Visit Link", DumpVisitor::ERROR_NULLPTR, error_msg);
+    error_msg.clear();
+
+    ost << TestEnd;
+
+    return TestOK;
+}
+
+bool TestFactory(ostream& ost)
+{
+    assert(ost.good());
+
+    ost << TestStart;
+
+    bool TestOK = true;
+    string error_msg;
+
+
+    try {
+        FSObjectFactory fact;
+        FSObj_Sptr file = fact.CreateFile("file1.txt",10);
+        FSObj_Sptr folder = fact.CreateFolder();
+        FSObj_Sptr lnk = fact.CreateLink("link to file",file);
+
+
+        TestOK = TestOK && check_dump(ost, "Test if file was constructed", true, file != nullptr);
+        TestOK = TestOK && check_dump(ost, "Test if Link was constructed", true, lnk->AsLink() != nullptr);
+        TestOK = TestOK && check_dump(ost, "Test if Folder was constructed", true, folder->AsFolder() != nullptr);
+
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test for Execption in Tesstcase", true, error_msg.empty());
+    error_msg.clear();
+
+    try {
+        FSObjectFactory fact;
+        File::Sptr file= nullptr;
+        FSObj_Sptr Lnk = fact.CreateLink("Link to File", file);
+
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Exception nullptr CTOR Link", Link::ERROR_NULLPTR, error_msg);
     error_msg.clear();
 
     ost << TestEnd;

@@ -6,11 +6,19 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <cassert>
 
 using namespace std;
 
+void FilterVisitor::Visit(std::shared_ptr<Folder>  folder)
+{	
+	if (folder == nullptr) throw ERROR_NULLPTR;
+}
+
 void FilterVisitor::Visit(std::shared_ptr<File>  file)
-{
+{	
+	if (file == nullptr) throw ERROR_NULLPTR;
+
 	if(DoFilter(file))
 	{
 		m_FilterCont.push_back(file);
@@ -19,6 +27,8 @@ void FilterVisitor::Visit(std::shared_ptr<File>  file)
 
 void FilterVisitor::Visit(std::shared_ptr<Link>  link)
 {
+	if (link == nullptr) throw ERROR_NULLPTR;
+
 	if (DoFilter(link))
 	{
 		m_FilterCont.push_back(link);
@@ -64,8 +74,14 @@ static void Dump(FSObj_Wptr fsobj, ostream & ost) {
 
 void FilterVisitor::DumpFiltered(std::ostream& ost) const
 {
-	
+	if (ost.fail()) throw FilterVisitor::ERROR_BAD_OSTREAM;
+
 	for_each(m_FilterCont.cbegin(), m_FilterCont.cend(), [&](FSObj_Wptr obj) {
 		Dump(obj,ost);
 	});
+}
+
+const FilterVisitor::TContFSobj& FilterVisitor::GetFilteredObjects() const
+{
+	return m_FilterCont;
 }

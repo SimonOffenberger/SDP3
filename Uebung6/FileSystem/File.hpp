@@ -14,8 +14,11 @@ class File : public FSObject, public std::enable_shared_from_this<File>
 {
 public:
     inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
-
     static inline const std::string ERR_OUT_OF_SPACE = "Not enough space to write data";
+
+    using Uptr = std::unique_ptr<File>;
+    using Sptr = std::shared_ptr<File>;
+    using Wptr = std::shared_ptr<File>;
 
     File(std::string_view name,size_t size, size_t blocksize = 4096)
         : m_size(size), m_blocksize(blocksize), FSObject{ name },

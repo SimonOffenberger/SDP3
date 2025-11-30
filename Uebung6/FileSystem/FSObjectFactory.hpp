@@ -23,7 +23,7 @@ public:
 
 
 	FSObject::Sptr CreateFile(std::string_view name, size_t size, size_t blocksize = 4096) const;
-	FSObject::Sptr CreateFolder() const;
+	FSObject::Sptr CreateFolder(std::string_view name = "") const;
 	FSObject::Sptr CreateLink(std::string_view name, FSObject::Sptr linkedObj) const;
 
 private:

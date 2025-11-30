@@ -21,5 +21,7 @@ bool FilterFileVisitor::DoFilter(std::shared_ptr<File> file)
 
 bool FilterFileVisitor::DoFilter(std::shared_ptr<Link> link)
 {
+	if (link == nullptr) throw ERROR_NULLPTR;
+
 	return false;
 }

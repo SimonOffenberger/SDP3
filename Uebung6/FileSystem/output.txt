@@ -1,0 +1,102 @@
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+DumpVisitor Test
+[32m[Test OK] [37mResult: (Expected: root
+root\sub_folder
+root\sub_folder\sub_sub_folder
+root\sub_folder\sub_sub_folder\file1.txt
+ == Result: root
+root\sub_folder
+root\sub_folder\sub_sub_folder
+root\sub_folder\sub_sub_folder\file1.txt
+)
+
+Test Exception in TestCase
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test Exception Bad Ostream in DumpVisitor
+[32m[Test OK] [37mResult: (Expected: ERROR: bad output stream == Result: ERROR: bad output stream)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Exception nullptr in Visit File
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test Exception nullptr in Visit Folder
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test Exception nullptr in Visit Link
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Exception nullptr in Visit File
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test Exception nullptr in Visit Folder
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test Exception nullptr in Visit Link
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Exception nullptr in Visit File
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test Exception nullptr in Visit Folder
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test Exception nullptr in Visit Link
+[32m[Test OK] [37mResult: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+FilterLinkVisitor Test filtered amount
+[32m[Test OK] [37mResult: (Expected: 1 == Result: 1)
+
+FilterLinkVisitor Test filtered obj
+[32m[Test OK] [37mResult: (Expected: file1.txt == Result: file1.txt)
+
+Filter Link Visitor Test Dump 
+[32m[Test OK] [37mResult: (Expected: root\sub_folder\sub_sub_folder\LinkToFile1 -> file1.txt
+ == Result: root\sub_folder\sub_sub_folder\LinkToFile1 -> file1.txt
+)
+
+Test for Exception in Testcase
+[32m[Test OK] [37mResult: (Expected: true == Result: true)
+
+Test for Exception in Dump with bad Ostream
+[32m[Test OK] [37mResult: (Expected: ERROR: bad output stream == Result: ERROR: bad output stream)
+
+
+*******************************************
+
+[32mTEST OK!![37m

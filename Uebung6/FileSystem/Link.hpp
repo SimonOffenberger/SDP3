@@ -15,6 +15,10 @@ class Link : public FSObject, public ILink, public std::enable_shared_from_this<
 {
 public:
 
+	using Sptr = std::shared_ptr<Link>;
+	using Uptr = std::unique_ptr<Link>;
+	using Wptr = std::weak_ptr<Link>;
+
     /* \brief Constructor taking a shared pointer to the linked FSObject
 	*/
 	explicit Link(FSObj_Sptr linked_obj, std::string_view name = "");

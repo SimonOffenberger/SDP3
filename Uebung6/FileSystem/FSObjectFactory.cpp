@@ -6,9 +6,9 @@ FSObject::Sptr FSObjectFactory::CreateFile(std::string_view name,size_t size, si
 	return std::make_shared<File>(name,size,blocksize);
 }
 
-FSObject::Sptr FSObjectFactory::CreateFolder() const
+FSObject::Sptr FSObjectFactory::CreateFolder(std::string_view name) const
 {
-	return std::make_shared<Folder>();
+	return std::make_shared<Folder>(name);
 }
 
 FSObject::Sptr FSObjectFactory::CreateLink(std::string_view name, FSObject::Sptr linkedObj) const

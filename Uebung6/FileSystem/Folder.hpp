@@ -24,6 +24,8 @@ public:
 	using Wptr = std::shared_ptr<Folder>;
     using Cont = std::vector<FSObj_Sptr>;
 
+	Folder(std::string_view name) : FSObject(name) {}
+
 	virtual void Add(FSObj_Sptr fsobj);
 	virtual FSObj_Sptr GetChild(size_t idx) override;
 	virtual void Remove(FSObj_Sptr fsobj);

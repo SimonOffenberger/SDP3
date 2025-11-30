@@ -6,29 +6,38 @@
 
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 void DumpVisitor::Visit(std::shared_ptr<Folder>  folder)
 {
 	if (m_ost.fail()) throw ERROR_BAD_OSTREAM;
+	if (folder == nullptr) throw ERROR_NULLPTR;
+
 	Dump(move(folder));
 }
 
 void DumpVisitor::Visit(std::shared_ptr<File>  file)
 {
 	if (m_ost.fail()) throw ERROR_BAD_OSTREAM;
+	if (file == nullptr) throw ERROR_NULLPTR;
+
 	Dump(move(file));
 }
 
 void DumpVisitor::Visit(std::shared_ptr<Link>  Link)
 {
 	if (m_ost.fail()) throw ERROR_BAD_OSTREAM;
+	if (Link == nullptr) throw ERROR_NULLPTR;
+
 	Dump(move(Link));
 }
 
 void DumpVisitor::Dump(std::shared_ptr<FSObject> fsobj)
 {
+	assert(fsobj != nullptr);
+
 	std::vector<FSObject::Sptr> path_components;
-	path_components.reserve(10);
+	path_components.reserve(10); // reserve some space to avoid multiple allocations
 
 	FSObject::Sptr parent = fsobj->GetParent().lock();
 	FSObject::Sptr next_parent;

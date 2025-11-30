@@ -20,14 +20,13 @@ public:
 
 	DumpVisitor(std::ostream& ost) : m_ost{ ost } {}
 
-	virtual void Visit(std::shared_ptr<Folder>  folder) override;
+	virtual void Visit(std::shared_ptr<Folder> folder) override;
 
 	virtual void Visit(std::shared_ptr<File> file) override;
 
-	virtual void Visit(std::shared_ptr<Link>  Link) override;
+	virtual void Visit(std::shared_ptr<Link> Link) override;
 
 private:
-
 	void Dump(std::shared_ptr<FSObject> fsobj);
 
 	std::ostream & m_ost;

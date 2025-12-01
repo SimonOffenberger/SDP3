@@ -15,6 +15,7 @@ class Link : public FSObject, public ILink, public std::enable_shared_from_this<
 {
 public:
 
+	// Public Error Messages
 	using Sptr = std::shared_ptr<Link>;
 	using Uptr = std::unique_ptr<Link>;
 	using Wptr = std::weak_ptr<Link>;

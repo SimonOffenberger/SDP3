@@ -16,7 +16,7 @@ IVisitor& FileSystem::Work(IVisitor& visitor)
 	return visitor;
 }
 
-FSObject::Sptr FileSystem::GetRoot()
+FSObject::Sptr FileSystem::ReturnRoot()
 {
 	return move(m_Root);
 }

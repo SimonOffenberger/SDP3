@@ -11,7 +11,7 @@ Link::Link(FSObj_Sptr linked_obj, std::string_view name) : FSObject(name)
 /** \brief Cast to ILink */
 std::shared_ptr<const ILink> Link::AsLink() const
 {
-    return shared_from_this();
+    return move(shared_from_this());
 }
 
 /** \brief Get referenced FSObject (shared_ptr) or nullptr */

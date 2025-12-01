@@ -1,16 +1,21 @@
+/*****************************************************************//**
+ * \file   Object.h
+ * \brief  Root base class for all objects
+ * 
+ * \author Simon
+ * \date   December 2025
+ *********************************************************************/
 #ifndef OBJECT_H
 #define OBJECT_H
 
 #include <string>
 
 class Object{
-public:
-
 protected:
-
-
+	/** \brief Prevent direct instantiation */
    Object(){};
 public:
+	/** \brief Virtual destructor */
    virtual ~Object(){}
 };
 

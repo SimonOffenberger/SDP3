@@ -1,3 +1,11 @@
+/*****************************************************************//**
+ * \file   FSObjectFactory.cpp
+ * \brief  Simple Factory class to create filesystem objects
+ * 
+ * \author Simon
+ * \date   December 2025
+ *********************************************************************/
+
 #include "FSObjectFactory.hpp"
 
 

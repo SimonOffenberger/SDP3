@@ -1,6 +1,6 @@
 /*****************************************************************//**
- * \file
- * \brief
+ * \file Filesystem.hpp
+ * \brief Filesystem class representing the root of a filesystem
  *
  * \author Simon
  * \date   November 2025
@@ -14,6 +14,8 @@
 class FileSystem : public Object
 {
 public:
+
+	// Public Error Messages
 	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
 
 	FileSystem() = default;	
@@ -29,16 +31,15 @@ public:
 	 */
 	IVisitor& Work(IVisitor& visitor);
 
-	/** \brief Get root FSObject
+	/** \brief Returns the root FSObject
 	 * \return Shared pointer to root
 	 */
-	FSObject::Sptr GetRoot();
+	FSObject::Sptr ReturnRoot();
 
 	/** \brief Set the filesystem root
 	 * \param root Shared pointer to new root
 	 */
 	void SetRoot(FSObject::Sptr root);
-
 
 private:
 	FSObject::Sptr m_Root;

@@ -1,3 +1,11 @@
+/*****************************************************************//**
+ * \file   main.cpp
+ * \brief  Testdriver for the filesystem
+ * 
+ * \author Simon
+ * \date   December 2025
+ *********************************************************************/
+
 #include <iostream>
 #include <string>
 #include <memory>
@@ -76,7 +84,7 @@ int main()
 
     bool TestOK = true;
 
-    ofstream output{ "output.txt" };
+    ofstream output{ "Testoutput.txt" };
 
     try {
 

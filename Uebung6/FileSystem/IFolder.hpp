@@ -38,6 +38,7 @@ public:
 	 */
 	virtual void Remove(FSObj_Sptr fsobj) =0;
 
+	/** \brief Virtual destructor */
 	virtual ~IFolder() = default;
 
 private:

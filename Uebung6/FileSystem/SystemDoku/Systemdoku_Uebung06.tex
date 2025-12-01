@@ -185,6 +185,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 				\item FSObject
 				\item File, 
 				\item iFolder, 
+				\item iLink, 
 				\item Folder und  
 				\item Link 
 			\end{itemize}
@@ -207,9 +208,7 @@ Das zu entwickelnde System dient der Simulation eines einfachen Dateisystems fü
 eingebettetes System. Ziel ist es, die Struktur und das Verhalten eines hierarchischen
 Dateisystems softwaretechnisch abzubilden und durch geeignete Entwurfsmuster
 (Composite, Factory, Visitor) erweiterbar und wartbar zu gestalten.  
-Die Anforderungen ergeben sich aus der gegebenen Systemspezifikation der Übung
-und beschreiben die grundlegenden funktionalen Eigenschaften des Systems
-sowie alle wesentlichen Rahmenbedingungen für das Verständnis.
+Die Anforderungen ergeben sich aus der gegebenen Systemspezifikation der Übung.
 
 \subsection{Systemüberblick}
 Das System verwaltet drei Arten von Dateisystemelementen:
@@ -257,26 +256,16 @@ Diese kapselt die Instanziierungslogik und stellt sicher, dass die Objekterzeugu
 \subsubsection{Visitor: Dump}
 \begin{itemize}
     \item Gibt die gesamte Dateisystemhierarchie aus.
-    \item Ausgabe sowohl auf der Standardausgabe als auch in einer Datei.
+    \item Ausgabe sowohl auf der Standardausgabe als auch in einer Datei möglich.
     \item Muss Dateien, Ordner und Verweise in strukturierter Form darstellen.
 \end{itemize}
 
 \subsubsection{Visitor: FilterFiles}
 \begin{itemize}
     \item Filtert Dateien anhand eines minimalen und maximalen Größenschwellwerts.
-    \item Filtert optional alle Verweise.
     \item Ausgabe aller gefilterten Dateien mit ihrem vollständigen Pfad.
     \item Bei Verweisen muss zusätzlich der Name des referenzierten Zielobjekts ausgegeben werden.
 \end{itemize}
-
-\subsection{Testanforderungen}
-Ein Testtreiber muss:
-\begin{itemize}
-    \item ein mehrstufiges hierarchisches Dateisystem erzeugen,
-    \item alle implementierten Besucher umfassend testen,
-    \item die Funktionsweise demonstrieren und Testausgaben bereitstellen.
-\end{itemize}
-
 
 
 \clearpage
@@ -345,6 +334,10 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 
 \subsection{Folder.cpp}
 \lstinputlisting{./../Folder.cpp}
+\clearpage
+
+\subsection{ILink.hpp}
+\lstinputlisting{./../ILink.hpp}
 \clearpage
 
 \subsection{Link.hpp}

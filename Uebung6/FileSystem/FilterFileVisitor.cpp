@@ -5,7 +5,7 @@
 #include "Link.hpp"
 
 /** \brief Construct filter with size bounds */
-FilterFileVisitor::FilterFileVisitor(const size_t& min, const size_t& max)
+FilterFileVisitor::FilterFileVisitor(const size_t min, const size_t max)
 {
 	if (min >= max) throw ERROR_INVALID_SIZE_RANGE;
 

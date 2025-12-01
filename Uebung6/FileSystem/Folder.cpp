@@ -3,13 +3,13 @@
 /** \brief Add child to folder, sets parent pointer on child */
 void Folder::Add(FSObj_Sptr fsobj)
 {
-	if (fsobj == nullptr) throw FSObject::ERROR_NULLPTR;
+ if (fsobj == nullptr) throw FSObject::ERROR_NULLPTR;
  fsobj->SetParant(std::move(shared_from_this()));
  m_Children.emplace_back(move(fsobj));
 }
 
 /** \brief Get child by index */
-FSObj_Sptr Folder::GetChild(size_t idx)
+FSObj_Sptr Folder::GetChild(const size_t idx)
 {
  if(idx < m_Children.size())
  {

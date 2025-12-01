@@ -1,6 +1,6 @@
 /*****************************************************************//**
- * \file
- * \brief
+ * \file FSObject.hpp
+ * \brief Base class for filesystem objects
  *
  * \author Simon
  * \date   November 2025
@@ -19,8 +19,10 @@
 class FSObject : public Object
 {
 public:
+	// Public Error Messages
 	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
 
+	// Smart pointer types
 	using Sptr = std::shared_ptr<FSObject>;
 	using Uptr = std::unique_ptr<FSObject>;
 	using Wptr = std::weak_ptr<FSObject>;

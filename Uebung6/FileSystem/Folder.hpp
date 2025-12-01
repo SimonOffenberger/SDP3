@@ -1,6 +1,6 @@
 /*****************************************************************//**
- * \file
- * \brief
+ * \file Folder.hpp
+ * \brief Folder class representing a folder in the filesystem
  *
  * \author Simon
  * \date   November 2025
@@ -19,6 +19,7 @@ class Folder : public IFolder, public FSObject, public std::enable_shared_from_t
 {
 public:
 
+	// Smart pointer types
 	using Uptr = std::unique_ptr<Folder>;
 	using Sptr = std::shared_ptr<Folder>;
 	using Wptr = std::shared_ptr<Folder>;
@@ -35,10 +36,10 @@ public:
 	virtual void Add(FSObj_Sptr fsobj);
 
 	/** \brief Get child by index
-	 * \param idx Index
+	 * \param idx Index (by value is faster than by reference)
 	 * \return Shared pointer to child or nullptr
 	 */
-	virtual FSObj_Sptr GetChild(size_t idx) override;
+	virtual FSObj_Sptr GetChild(const size_t idx) override;
 
 	/** \brief Remove a child from the folder
 	 * \param fsobj Child to remove

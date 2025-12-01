@@ -27,6 +27,7 @@ public:
 	 */
 	virtual FSObj_Sptr GetReferncedFSObject() const =0;
 
+	/** \brief Virtual destructor */
 	virtual ~ILink() = default;
 
 private:

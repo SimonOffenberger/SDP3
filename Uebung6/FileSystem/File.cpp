@@ -7,7 +7,7 @@ void File::Accept(IVisitor& visit)
 }
 
 /** \brief Write bytes to the file, throws on out of space */
-void File::Write(size_t bytes)
+void File::Write(const size_t bytes)
 {
     if ((bytes + m_size) > m_blocksize * m_res_blocks)
         throw ERR_OUT_OF_SPACE;

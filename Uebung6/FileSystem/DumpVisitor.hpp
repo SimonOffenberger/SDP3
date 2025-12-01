@@ -1,6 +1,6 @@
 /*****************************************************************//**
- * \file
- * \brief
+ * \file DumpVisitor.hpp
+ * \brief Visitor that dumps filesystem object paths to an output stream
  *
  * \author Simon
  * \date   November 2025
@@ -15,6 +15,8 @@
 class DumpVisitor : public IVisitor
 {
 public: 
+
+	// Public Error Messages
 	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
 	inline static const std::string ERROR_BAD_OSTREAM = "ERROR: bad output stream";
 
@@ -44,6 +46,7 @@ private:
 	 */
 	void Dump(const std::shared_ptr<FSObject>& fsobj);
 
+	// Output stream reference
 	std::ostream & m_ost;
 };
 

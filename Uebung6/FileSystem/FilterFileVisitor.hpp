@@ -1,6 +1,6 @@
 /*****************************************************************//**
- * \file
- * \brief
+ * \file FilterFileVisitor.hpp
+ * \brief Visitor that filters files by size range
  *
  * \author Simon
  * \date   November 2025
@@ -13,13 +13,14 @@
 class FilterFileVisitor : public FilterVisitor
 {
 public:
+	// Public Error Messages
 	inline static const std::string ERROR_INVALID_SIZE_RANGE = "Invalid size range: minimum size must be less than maximum size";
 
 	/** \brief Construct file filter with size range [min,max]
-	 * \param min Minimum size (inclusive)
-	 * \param max Maximum size (inclusive)
+	 * \param min Minimum size (inclusive) call by value for built-in type -> is faster than by reference
+	 * \param max Maximum size (inclusive) call by value for built-in type -> is faster than by reference
 	 */
-	FilterFileVisitor(const size_t & min, const size_t & max);
+	FilterFileVisitor(const size_t min, const size_t max);
 
 protected:
 
@@ -36,6 +37,7 @@ protected:
 	virtual bool DoFilter(const std::shared_ptr<Link>& link) override;
 
 private:
+	// cannot be const because there are checks in the constructor
 	size_t m_MinSize;
 	size_t m_MaxSize;
 };

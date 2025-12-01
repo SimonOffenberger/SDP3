@@ -1,6 +1,6 @@
 /*****************************************************************//** 
- * \file
- * \brief
+ * \file FilterVisitor.hpp
+ * \brief Visitor that filters filesystem objects based on criteria defines in derived classes
  *
  * \author Simon
  * \date   November 2025
@@ -12,14 +12,17 @@
 #include "FSObject.hpp"
 
 #include <vector>
+#include <ostream>
 
-class FilterVisitor : public IVisitor
+class FilterVisitor : public Object, public IVisitor
 {
 public:
 
+	// Public Error Messages
 	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
 	inline static const std::string ERROR_BAD_OSTREAM = "ERROR: bad output stream";
 
+	// constainer Alias for filtered objects (weak pointers)
 	using TContFSobj = std::vector<FSObj_Wptr>;
 
 	/** \brief Visit a folder (default no-op)
@@ -64,6 +67,12 @@ protected:
 	FilterVisitor() = default;
 
 private:
+
+	/** \brief Dump a single FSObject path to the output stream
+	 * \param fsobj Weak pointer to object
+	 * \param ost Output stream
+	 */
+	void Dump(const FSObj_Wptr& fsobj, std::ostream& ost) const;
 
 	TContFSobj m_FilterCont;
 };

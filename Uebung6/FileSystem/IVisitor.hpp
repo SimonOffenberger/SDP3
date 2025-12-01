@@ -1,6 +1,6 @@
 /*****************************************************************//**
- * \file   
- * \brief  
+ * \file  IVisitor.hpp
+ * \brief  Interface for visitor pattern in filesystem objects
  *
  * \author Simon
  * \date   November 2025

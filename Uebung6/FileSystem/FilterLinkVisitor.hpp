@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   FilterLinkVisitor.hpp
+ * \brief  Visitor that filters links in the filesystem
+ * 
+ * \author Simon
+ * \date   December 2025
+ *********************************************************************/
 #ifndef FILTER_LINK_VISITOR_HPP
 #define FILTER_LINK_VISITOR_HPP
 

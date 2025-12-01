@@ -52,7 +52,7 @@ void DumpVisitor::Dump(const std::shared_ptr<FSObject>& fsobj)
 		parent = move(next_parent);
 	}
 
-	for_each(path_components.rbegin(), path_components.rend(),
+	for_each(path_components.crbegin(), path_components.crend(),
 		[&](const FSObject::Sptr & obj) {
 			m_ost << obj->GetName() << "\\";
 		});

@@ -42,11 +42,6 @@ public:
 	 */
 	virtual std::shared_ptr<const ILink> AsLink() const;
 
-	/** \brief Construct an FSObject with optional name
-	 * \param name Name of the FSObject
-	 */
-	FSObject(std::string_view name = "") : m_Name{ name } {}
-
 	/** \brief Get the name of the object
 	 * \return Name as std::string_view
 	 */
@@ -57,15 +52,23 @@ public:
 	 */
 	void SetName(std::string_view name);
 
-	/** \brief Set parent of this FSObject
-	 * \param parent Shared pointer to parent FSObject
-	 */
-	void SetParant(Sptr parent);
 
 	/** \brief Get parent as weak pointer
 	 * \return Weak pointer to parent
 	 */
 	FSObj_Wptr GetParent() const;
+
+	/** \brief Set parent of this FSObject
+	 * \param parent Shared pointer to parent FSObject
+	 */
+	void SetParant(Sptr parent);
+
+protected:
+	/** \brief Construct an FSObject with optional name
+	 * \param name Name of the FSObject
+	 */
+	FSObject(std::string_view name = "") : m_Name{ name } {}
+
 
 private:
 	std::string m_Name;

@@ -8,6 +8,8 @@
 #include <algorithm>
 #include <cassert>
 
+
+
 /** \brief Visit folder and dump its path */
 void DumpVisitor::Visit(const std::shared_ptr<Folder>& folder)
 {
@@ -40,24 +42,24 @@ void DumpVisitor::Dump(const std::shared_ptr<FSObject>& fsobj)
 {
 	assert(fsobj != nullptr);
 
-	std::vector<FSObject::Sptr> path_components;
-	path_components.reserve(10); // reserve some space to avoid multiple allocations
-
 	FSObject::Sptr parent = fsobj->GetParent().lock();
-	FSObject::Sptr next_parent;
 
+	// Print an indentation token for each ancestor
 	while (parent != nullptr) {
-		next_parent = parent->GetParent().lock();
-		path_components.emplace_back(parent);
-		parent = move(next_parent);
+		m_ost << "|  ";
+		parent = parent->GetParent().lock();
 	}
 
-	for_each(path_components.crbegin(), path_components.crend(),
-		[&](const FSObject::Sptr & obj) {
-			m_ost << obj->GetName() << "\\";
-		});
+	m_ost << "|---[" << fsobj->GetName();
 
-	m_ost << fsobj->GetName() << "\n";
-
+	if (fsobj->AsFolder()) {
+		m_ost << "/]\n";
+	}
+	else if (fsobj->AsLink()) {
+		m_ost << "->]\n";
+	}
+	else {
+		m_ost << "]\n";
+	}
 }
 

@@ -58,6 +58,7 @@ void FilterVisitor::Visit(const std::shared_ptr<Link>& link)
 {
 	if (link == nullptr) throw ERROR_NULLPTR;
 
+
 	// if link matches filter add to container
 	if (DoFilter(link))
 	{

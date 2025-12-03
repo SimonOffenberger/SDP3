@@ -835,9 +835,23 @@ bool TestFile(ostream& ost)
     bool TestOK = true;
     string error_msg;
 
+    // File as intended
     try
     {
-        // test
+        string_view file_name = "file1.txt";
+        size_t block_size = 2048;
+        size_t res_blocks = 20;
+        File::Sptr file = make_shared<File>(file_name, res_blocks, block_size);
+
+        TestOK = TestOK && check_dump(ost, "Test normal CTOR File", file_name, file->GetName());
+        TestOK = TestOK && check_dump(
+            ost, "Test normal CTOR File - size", 
+            static_cast<size_t>(0), file->GetSize());
+        
+        // Write to file
+        size_t write_size = 4096;
+        file->Write(write_size);
+        TestOK = TestOK && check_dump(ost, "Test normal - write file size", write_size, file->GetSize());
     }
     catch (const string& err) {
         error_msg = err;
@@ -852,7 +866,28 @@ bool TestFile(ostream& ost)
         error_msg = "Unhandelt Exception";
     }
 
-    TestOK = TestOK && check_dump(ost, "Test ", true, true);
+    TestOK = TestOK && check_dump(ost, "Test normal - error buffer empty", error_msg.empty(), true);
+    error_msg.clear();
+
+    // File with empty string
+    try
+    {
+        File::Sptr file = make_shared<File>("", 20, 2048);
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test CTOR Empty string - error buffer empty", error_msg, File::ERROR_STRING_EMPTY);
     error_msg.clear();
 
     ost << TestEnd;

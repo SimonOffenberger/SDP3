@@ -190,10 +190,10 @@ Test normal CTOR Folder
 [Test OK] Result: (Expected: MyFolder == Result: MyFolder)
 
 Get Child from folder
-[Test OK] Result: (Expected: 00000202191F1AE0 == Result: 00000202191F1AE0)
+[Test OK] Result: (Expected: 0000022EDCA6A0D0 == Result: 0000022EDCA6A0D0)
 
 Get next Child from folder
-[Test OK] Result: (Expected: 00000202191F90F0 == Result: 00000202191F90F0)
+[Test OK] Result: (Expected: 0000022EDCA79C00 == Result: 0000022EDCA79C00)
 
 Get Child for invalid index
 [Test OK] Result: (Expected: 0000000000000000 == Result: 0000000000000000)
@@ -202,7 +202,7 @@ Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test Remove Child from Folder
-[Test OK] Result: (Expected: 00000202191F90F0 == Result: 00000202191F90F0)
+[Test OK] Result: (Expected: 0000022EDCA79C00 == Result: 0000022EDCA79C00)
 
 Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -221,8 +221,20 @@ Test Folder - CTOR with empty string
              TESTCASE START                
 *******************************************
 
-Test 
+Test normal CTOR File
+[Test OK] Result: (Expected: file1.txt == Result: file1.txt)
+
+Test normal CTOR File - size
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test normal - write file size
+[Test OK] Result: (Expected: 4096 == Result: 4096)
+
+Test normal - error buffer empty
 [Test OK] Result: (Expected: true == Result: true)
+
+Test CTOR Empty string - error buffer empty
+[Test OK] Result: (Expected: ERROR String Empty == Result: ERROR String Empty)
 
 
 *******************************************

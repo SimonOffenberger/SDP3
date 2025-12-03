@@ -68,7 +68,7 @@ protected:
 	/** \brief Construct an FSObject with optional name
 	 * \param name Name of the FSObject
 	 */
-	FSObject(std::string_view name = "") : m_Name{ name } {}
+	FSObject(std::string_view name = "");
 
 
 private:

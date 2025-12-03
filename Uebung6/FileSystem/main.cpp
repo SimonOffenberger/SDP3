@@ -46,11 +46,11 @@ int main()
 
 	FSObjectFactory factory;
 
-	FSObject::Sptr root_folder = factory.CreateFolder();
+	FSObject::Sptr root_folder = factory.CreateFolder("root");
 	IFolder::Sptr root_folder_ptr = root_folder->AsFolder();
-	FSObject::Sptr sub_folder = factory.CreateFolder();
+	FSObject::Sptr sub_folder = factory.CreateFolder("sub");
 	IFolder::Sptr sub_folder_ptr = sub_folder->AsFolder();
-	FSObject::Sptr sub_sub_folder = factory.CreateFolder();
+	FSObject::Sptr sub_sub_folder = factory.CreateFolder("sub");
 	IFolder::Sptr sub_sub_folder_ptr = sub_sub_folder->AsFolder();
 
 	sub_folder->SetName("sub_folder");
@@ -546,7 +546,7 @@ bool TestFactory(ostream& ost)
     try {
         FSObjectFactory fact;
         FSObj_Sptr file = fact.CreateFile("file1.txt",10);
-        FSObj_Sptr folder = fact.CreateFolder();
+        FSObj_Sptr folder = fact.CreateFolder("root");
         FSObj_Sptr lnk = fact.CreateLink("link to file",file);
 
 
@@ -606,6 +606,34 @@ bool TestLink(ostream& ost)
 
     bool TestOK = true;
     string error_msg;
+
+    // test normal operation
+    try
+    {
+        std::string_view folder_name = "MyFolder";
+        std::string_view link_name = "LinkToMyFolder";
+        Folder::Sptr folder = make_shared<Folder>(folder_name);
+        Link::Sptr link = make_shared<Link>(folder, link_name);
+
+        TestOK = TestOK && check_dump(ost, "Test normal CTOR Link", folder_name, link->GetReferncedFSObject()->GetName());
+        TestOK = TestOK && check_dump(ost, "Test normal CTOR Link", link_name, link->GetName());
+
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test normal CTOR Link - error buffer", true, error_msg.empty());
+    error_msg.clear();
 
     // test link to nullptr
     try
@@ -674,6 +702,9 @@ bool TestLink(ostream& ost)
         error_msg = "Unhandelt Exception";
     }
 
+    TestOK = TestOK && check_dump(ost, "Empty error buffer", true, error_msg.empty());
+    error_msg.clear();
+
     return TestOK;
 }
 bool TestFolder(ostream& ost)
@@ -685,9 +716,25 @@ bool TestFolder(ostream& ost)
     bool TestOK = true;
     string error_msg;
 
+    // test folder as intended
     try
     {
-        // test
+        string_view folder_name = "MyFolder";
+        Folder::Sptr folder = make_shared<Folder>(folder_name);
+        TestOK = TestOK && check_dump(ost, "Test normal CTOR Folder", folder_name, folder->GetName());
+
+        File::Sptr file1 = make_shared<File>("file1.txt", 2048);
+        File::Sptr file2 = make_shared<File>("file2.txt", 4096);
+        
+        folder->Add(file1);
+        folder->Add(file2);
+
+        FSObject::Sptr err_file = folder->GetChild(2); // <= should be nullptr
+        FSObject::Sptr shared_null = nullptr;
+
+        TestOK = TestOK && check_dump(ost, "Get Child from folder", static_pointer_cast<FSObject>(file1), folder->GetChild(0));
+        TestOK = TestOK && check_dump(ost, "Get next Child from folder", static_pointer_cast<FSObject>(file2), folder->GetChild(1));
+        TestOK = TestOK && check_dump(ost, "Get Child for invalid index", err_file, shared_null);
     }
     catch (const string& err) {
         error_msg = err;
@@ -702,9 +749,80 @@ bool TestFolder(ostream& ost)
         error_msg = "Unhandelt Exception";
     }
 
-    TestOK = TestOK && check_dump(ost, "Test ", true, true);
+    TestOK = TestOK && check_dump(ost, "Test Folder - error buffer", error_msg.empty(), true);
+    error_msg.clear();
+
+    // test remove child
+    try
+    {
+        Folder::Sptr folder = make_shared<Folder>("MyFolder");
+        File::Sptr file1 = make_shared<File>("file1.txt", 2048);
+        File::Sptr file2 = make_shared<File>("file2.txt", 4096);
+        folder->Add(file1);
+        folder->Add(file2);
+        folder->Remove(file1);
+        TestOK = TestOK && check_dump(ost, "Test Remove Child from Folder", static_pointer_cast<FSObject>(file2), folder->GetChild(0));
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Folder - error buffer", error_msg.empty(), true);
     error_msg.clear();
     
+    // test add nullptr
+    try
+    {
+        Folder::Sptr folder = make_shared<Folder>("MyFolder");
+        FSObject::Sptr null_ptr = nullptr;
+        folder->Add(null_ptr); // <= should throw Exception
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Folder - add nullptr", Folder::ERROR_NULLPTR, error_msg);
+    error_msg.clear();
+
+    // test Folder with empty string
+    try
+    {
+        Folder::Sptr folder = make_shared<Folder>("");
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Folder - CTOR with empty string", FSObject::ERROR_STRING_EMPTY, error_msg);
+    error_msg.clear();
+
     ost << TestEnd;
     return TestOK;
 }

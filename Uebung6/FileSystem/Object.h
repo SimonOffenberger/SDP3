@@ -13,7 +13,7 @@
 class Object{
 protected:
 	/** \brief Prevent direct instantiation */
-   Object(){};
+   Object() = default;
 public:
 	/** \brief Virtual destructor */
    virtual ~Object(){}

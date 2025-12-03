@@ -4,14 +4,14 @@
 *******************************************
 
 DumpVisitor Test
-[Test OK] Result: (Expected: root
-root\sub_folder
-root\sub_folder\sub_sub_folder
-root\sub_folder\sub_sub_folder\file1.txt
- == Result: root
-root\sub_folder
-root\sub_folder\sub_sub_folder
-root\sub_folder\sub_sub_folder\file1.txt
+[Test OK] Result: (Expected: |---[root/]
+|  |---[sub_folder/]
+|  |  |---[sub_sub_folder/]
+|  |  |  |---[file1.txt]
+ == Result: |---[root/]
+|  |---[sub_folder/]
+|  |  |---[sub_sub_folder/]
+|  |  |  |---[file1.txt]
 )
 
 Test Exception in TestCase
@@ -86,8 +86,8 @@ FilterLinkVisitor Test filtered obj
 [Test OK] Result: (Expected: file1.txt == Result: file1.txt)
 
 Filter Link Visitor Test Dump 
-[Test OK] Result: (Expected: root\sub_folder\sub_sub_folder\LinkToFile1 -> file1.txt
- == Result: root\sub_folder\sub_sub_folder\LinkToFile1 -> file1.txt
+[Test OK] Result: (Expected: \root\sub_folder\sub_sub_folder\LinkToFile1 -> file1.txt
+ == Result: \root\sub_folder\sub_sub_folder\LinkToFile1 -> file1.txt
 )
 
 Test for Exception in Testcase
@@ -114,10 +114,10 @@ FilterFileVisitor Test for filtered file
 [Test OK] Result: (Expected: file1.txt == Result: file1.txt)
 
 Filter File Visitor Test Dump 
-[Test OK] Result: (Expected: root\file3.txt
-root\sub_folder\sub_sub_folder\file1.txt
- == Result: root\file3.txt
-root\sub_folder\sub_sub_folder\file1.txt
+[Test OK] Result: (Expected: \root\file3.txt
+\root\sub_folder\sub_sub_folder\file1.txt
+ == Result: \root\file3.txt
+\root\sub_folder\sub_sub_folder\file1.txt
 )
 
 Test for Exception in Testcase

@@ -59,17 +59,20 @@
              {Fail}{{\textcolor{failred}{Fail}}}4,
 }
 
-\lstset{
-	language={C++},
-	basicstyle=\tiny\ttfamily,
-	keywordstyle=\color{blue},%\bfseries,
-	commentstyle=\color{green},
-	frame=single,
-	linewidth=16cm,
-	breaklines=false,
-	tabsize=3,
-	numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt
+
+\lstdefinestyle{cppstyle}{
+  language=C++,
+  basicstyle=\ttfamily\tiny,
+  keywordstyle=\color{blue},
+  commentstyle=\textcolor{okgreen},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  breaklines=true,
+  frame=single
 }
+
 
 
 % Seitenspiegel
@@ -192,90 +195,136 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 			\item Implementierung des Testtreibers
 			\item Dokumentation
 		\end{itemize}	
-\end{itemize}
-
-\subsection{Aufwand}
+	\end{itemize}
+	
+	\subsection{Aufwand}
 	
 	\begin{itemize}
 		\item Simon Offenberger: geschätzt 7 Ph / tatsächlich 9 Ph
 		\item Simon Vogelhuber:  geschätzt 8 Ph / tatsächlich 7 Ph
 	\end{itemize}
-
-\clearpage
-\section{Anforderungsdefinition (Systemspezifikation)}
-
-Das zu entwickelnde System dient der Simulation eines einfachen Dateisystems für ein
-eingebettetes System. Ziel ist es, die Struktur und das Verhalten eines hierarchischen
-Dateisystems softwaretechnisch abzubilden und durch geeignete Entwurfsmuster
-(Composite, Factory, Visitor) erweiterbar und wartbar zu gestalten.  
-Die Anforderungen ergeben sich aus der gegebenen Systemspezifikation der Übung.
-
-\subsection{Systemüberblick}
-Das System verwaltet drei Arten von Dateisystemelementen:
-\begin{itemize}
+	
+	\clearpage
+	\section{Anforderungsdefinition (Systemspezifikation)}
+	
+	Das zu entwickelnde System dient der Simulation eines einfachen Dateisystems für ein
+	eingebettetes System. Ziel ist es, die Struktur und das Verhalten eines hierarchischen
+	Dateisystems softwaretechnisch abzubilden und durch geeignete Entwurfsmuster
+	(Composite, Factory, Visitor) erweiterbar und wartbar zu gestalten.  
+	Die Anforderungen ergeben sich aus der gegebenen Systemspezifikation der Übung.
+	
+	\subsection{Systemüberblick}
+	Das System verwaltet drei Arten von Dateisystemelementen:
+	\begin{itemize}
     \item \textbf{Dateien}
     \item \textbf{Ordner}
     \item \textbf{Verweise} (Referenzen auf Dateien, Ordner oder weitere Verweise)
-\end{itemize}
-
-Diese Elemente bilden gemeinsam eine hierarchische Struktur, in der Ordner beliebige
-Kombinationen dieser Elemente enthalten können. Jedes Element besitzt einen Namen,
-der nachträglich veränderbar ist.
-
-\subsection{Funktionale Anforderungen}
-
-\subsubsection{Dateien}
-Eine Datei verfügt über folgende unveränderliche Eigenschaften, die bei ihrer Erzeugung
-festgelegt werden:
-\begin{itemize}
+	\end{itemize}
+	
+	Diese Elemente bilden gemeinsam eine hierarchische Struktur, in der Ordner beliebige
+	Kombinationen dieser Elemente enthalten können. Jedes Element besitzt einen Namen,
+	der nachträglich veränderbar ist.
+	
+	\subsection{Funktionale Anforderungen}
+	
+	\subsubsection{Dateien}
+	Eine Datei verfügt über folgende unveränderliche Eigenschaften, die bei ihrer Erzeugung
+	festgelegt werden:
+	\begin{itemize}
     \item Blockgröße auf dem Speichermedium (Bytes)
     \item Anzahl reservierter Blöcke
-\end{itemize}
-Zusätzlich wird die aktuelle Dateigröße in Bytes verwaltet.  
-Das Schreiben in eine Datei erfolgt über:
-\begin{itemize}
+	\end{itemize}
+	Zusätzlich wird die aktuelle Dateigröße in Bytes verwaltet.  
+	Das Schreiben in eine Datei erfolgt über:
+	\begin{itemize}
     \item \texttt{Write(size\_t const bytes)}
-\end{itemize}
-Die Datei darf niemals größer werden als der durch die reservierten Blöcke bereitgestellte Speicher.
-
-\subsubsection{Ordner}
-Ein Ordner kann beliebig viele Dateien, Verweise und weitere Ordner enthalten.
-Er bildet die Grundlage des hierarchischen Dateisystems.
-
-\subsubsection{Verweise}
-Ein Verweis referenziert exakt ein Zielobjekt (Datei, Ordner oder weiteren Verweis).
-Der Name des Verweises kann verändert werden, zusätzlich muss der Name des Zielobjekts
-im Rahmen der Filterausgabe ausgegeben werden.
-
-\subsection{Erzeugung der Elemente}
-Für die Erstellung aller Dateisystemelemente ist eine einfache \textbf{Fabrik} zu implementieren.
-Diese kapselt die Instanziierungslogik und stellt sicher, dass die Objekterzeugung einheitlich erfolgt.
-
-\subsection{Besucher (Visitor) Anforderungen}
-
-\subsubsection{Visitor: Dump}
-\begin{itemize}
+	\end{itemize}
+	Die Datei darf niemals größer werden als der durch die reservierten Blöcke bereitgestellte Speicher.
+	
+	\subsubsection{Ordner}
+	Ein Ordner kann beliebig viele Dateien, Verweise und weitere Ordner enthalten.
+	Er bildet die Grundlage des hierarchischen Dateisystems.
+	
+	\subsubsection{Verweise}
+	Ein Verweis referenziert exakt ein Zielobjekt (Datei, Ordner oder weiteren Verweis).
+	Der Name des Verweises kann verändert werden, zusätzlich muss der Name des Zielobjekts
+	im Rahmen der Filterausgabe ausgegeben werden.
+	
+	\subsection{Erzeugung der Elemente}
+	Für die Erstellung aller Dateisystemelemente ist eine einfache \textbf{Fabrik} zu implementieren.
+	Diese kapselt die Instanziierungslogik und stellt sicher, dass die Objekterzeugung einheitlich erfolgt.
+	\clearpage
+	\subsection{Besucher (Visitor) Anforderungen}
+	
+	\subsubsection{Visitor: Dump}
+	\begin{itemize}
     \item Gibt die gesamte Dateisystemhierarchie aus.
     \item Ausgabe sowohl auf der Standardausgabe als auch in einer Datei möglich.
     \item Muss Dateien, Ordner und Verweise in strukturierter Form darstellen.
-\end{itemize}
-
-\subsubsection{Visitor: FilterFiles}
-\begin{itemize}
+	\end{itemize}
+	
+	\subsubsection{Visitor: FilterFiles}
+	\begin{itemize}
     \item Filtert Dateien anhand eines minimalen und maximalen Größenschwellwerts.
     \item Ausgabe aller gefilterten Dateien mit ihrem vollständigen Pfad.
     \item Bei Verweisen muss zusätzlich der Name des referenzierten Zielobjekts ausgegeben werden.
-\end{itemize}
+	\end{itemize}
+	
+	
+	\clearpage
+	\section{Systementwurf}
+	\subsection{Klassendiagramm}
+	\begin{center}
+		\includegraphics[width=16cm]{./FileSystem.png}
+	\end{center}
+	\newpage
+	
+	\subsection{Designentscheidungen}
+	
+	Aus der Aufgabenstellung lassen sich folgenden Designpattern ableiten:
+	\begin{itemize}
+		\item Composite Pattern für die hierarchische Struktur des Dateisystems.
+		\item Factory Pattern für die einheitliche Objekterzeugung der Dateisystemelemente.
+		\item Visitor Pattern für die Implementierung der verschiedenen Besucheroperationen.
+		\item Template Methode Pattern für die gemeinsame Struktur der Filter Visitor.
+	\end{itemize}
+	\subsection{Composite Pattern}
+	Dieses Pattern wird verwendet, um die hierarchische Struktur des Dateisystems abzubilden.
+	Die Basisklasse \texttt{FSObject} definiert die gemeinsamen Schnittstellen für alle Dateisystemelemente.
+	\\Ordner implementieren die Fähigkeit, andere \texttt{FSObject}-Instanzen zu enthalten
+	(wie Dateien, Verweise und weitere Ordner), wodurch eine Baumstruktur entsteht.
+	\\Bei der gewählten Implementierung wurde besonders darauf geachtet, dass das Liskovsersche Substitutionsprinzip eingehalten wird.
+	Aus diesem Grund wurden die Methoden zur Verwaltung von Kindobjekten nur in der \texttt{Folder}-Klasse implementiert.
+	Die Schnittstelle für die Methoden der besonderen Kindklassen wurden in capabiltiy Interfaces ausgelagert (\texttt{IFolder}, \texttt{ILink}).
+\\Dadurch wird verhindert, dass Objekte, die keine Kinder enthalten können (wie Dateien und Verweise),
+diese Methoden erben und somit das Substitutionsprinzip verletzen.
+
+\subsection{Factory Pattern}
+Für die konkrete Implementierung der Objekterzeugung wurde das Pattern Simple Factory verwendet.
+Die Klasse \texttt{FSObjectFactory} kapselt die Logik zur Erstellung von Dateien, Ordnern und Verweisen.
+Dies ermöglicht eine zentrale Verwaltung der Erzeugungslogik und erleichtert zukünftige Erweiterungen.
+Beim konkreten Desing der Factory wurde auf das Interface zwischen Factory und Client verzichtet,
+da die Factory nur eine einzige Implementierung besitzt und keine weiteren Varianten geplant sind.
+\\Dadurch wurde die Komplexität reduziert, jedoch bleibt die Erfüllung des Dependency Inversion Prinzips aus.
+Dies ist aber über die Verwendung der Simple Factory hinweg vertretbar.\\ (Dies wurde mit Prof. Wiesinger diskutiert, und ist hier zulässig.)
+
+\subsection{Visitor Pattern}
+Das Visitor Pattern wird verwendet, um verschiedene Operationen auf den Dateisystemelementen
+durchzuführen, ohne die Klassenhierarchie der Elemente zu verändern.
+Die Basisschnittstelle \texttt{IVisitor} definiert die Besuchsmethoden für jede Art von Dateisystemelement.
+Konkrete Besucherklassen wie \texttt{DumpVisitor} und \texttt{FilterFileVisitor} implementieren diese Methoden,
+um spezifische Funktionalitäten bereitzustellen.
+
+\subsection{Template Methode Pattern}
+Das Template Methode Pattern wird in den Filter Visitor Klassen verwendet,
+um die gemeinsame Struktur der Filteroperationen zu definieren.
+\\Die abstrakte Klasse \texttt{FilterVisitor} stellt die Template Methode bereit,
+die den allgemeinen Ablauf der Filterung definiert.	
+Die konkreten Filterklassen wie \texttt{FilterFileVisitor} und \texttt{FilterLinkVisitor}
+implementieren die spezifischen Filterkriterien, während die allgemeine Logik in der Basisklasse verbleibt.
+Somit ist die Erweiterung um weitere Filtertypen einfach möglich, ohne die bestehende Struktur zu verändern.
 
 
-\clearpage
-\section{Systementwurf}
-
-\subsection{Klassendiagramm}
-\includegraphics[width=14cm]{./FileSystem.png}
-\newpage
-
-\subsection{Designentscheidungen}
 
 
 \color{black}
@@ -291,105 +340,103 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 \section{Quellcode}
 
 \subsection{Object.hpp}
-\lstinputlisting{../Object.h}
+\lstinputlisting[style=cppstyle]{../Object.h}
 \clearpage
 \subsection{FSObjectFactory.hpp}
-\lstinputlisting{./../FSObjectFactory.hpp}
+\lstinputlisting[style=cppstyle]{./../FSObjectFactory.hpp}
 \clearpage
 \subsection{FSObjectFactory.cpp}
-\lstinputlisting{./../FSObjectFactory.cpp}
+\lstinputlisting[style=cppstyle]{./../FSObjectFactory.cpp}
 
 \clearpage
 \subsection{Filesystem.hpp}
-\lstinputlisting{./../Filesystem.hpp}
-
+\lstinputlisting[style=cppstyle]{./../Filesystem.hpp}
 \clearpage
 \subsection{Filesystem.cpp}
-\lstinputlisting{./../Filesystem.cpp}
+\lstinputlisting[style=cppstyle]{./../Filesystem.cpp}
 
 \clearpage
 \subsection{FSObject.hpp}
-\lstinputlisting{./../FSObject.hpp}
-
+\lstinputlisting[style=cppstyle]{./../FSObject.hpp}
 \clearpage
 \subsection{FSObject.cpp}
-\lstinputlisting{./../FSObject.cpp}
+\lstinputlisting[style=cppstyle]{./../FSObject.cpp}
 \clearpage
 
 \subsection{File.hpp}
-\lstinputlisting{./../File.hpp}
+\lstinputlisting[style=cppstyle]{./../File.hpp}
 \clearpage
 
 \subsection{File.cpp}
-\lstinputlisting{./../File.cpp}
+\lstinputlisting[style=cppstyle]{./../File.cpp}
 \clearpage
 
 \subsection{IFolder.hpp}
-\lstinputlisting{./../IFolder.hpp}
+\lstinputlisting[style=cppstyle]{./../IFolder.hpp}
 \clearpage
 
 \subsection{Folder.hpp}
-\lstinputlisting{./../Folder.hpp}
+\lstinputlisting[style=cppstyle]{./../Folder.hpp}
 \clearpage
 
 \subsection{Folder.cpp}
-\lstinputlisting{./../Folder.cpp}
+\lstinputlisting[style=cppstyle]{./../Folder.cpp}
 \clearpage
 
 \subsection{ILink.hpp}
-\lstinputlisting{./../ILink.hpp}
+\lstinputlisting[style=cppstyle]{./../ILink.hpp}
 \clearpage
 
 \subsection{Link.hpp}
-\lstinputlisting{./../Link.hpp}
+\lstinputlisting[style=cppstyle]{./../Link.hpp}
 \clearpage
 
 \subsection{Link.cpp}
-\lstinputlisting{./../Link.cpp}
+\lstinputlisting[style=cppstyle]{./../Link.cpp}
 \clearpage
 
 \subsection{IVisitor.hpp}
-\lstinputlisting{./../IVisitor.hpp}
+\lstinputlisting[style=cppstyle]{./../IVisitor.hpp}
 \clearpage
 
 \subsection{FilterVisitor.hpp}
-\lstinputlisting{./../FilterVisitor.hpp}
+\lstinputlisting[style=cppstyle]{./../FilterVisitor.hpp}
 \clearpage
 
 \subsection{FilterVisitor.cpp}
-\lstinputlisting{./../FilterVisitor.cpp}
+\lstinputlisting[style=cppstyle]{./../FilterVisitor.cpp}
 \clearpage
 
 \subsection{FilterFileVisitor.hpp}
-\lstinputlisting{./../FilterFileVisitor.hpp}
+\lstinputlisting[style=cppstyle]{./../FilterFileVisitor.hpp}
 \clearpage
 
 \subsection{FilterFileVisitor.cpp}
-\lstinputlisting{./../FilterFileVisitor.cpp}
+\lstinputlisting[style=cppstyle]{./../FilterFileVisitor.cpp}
 \clearpage
 
 \subsection{FilterLinkVisitor.hpp}
-\lstinputlisting{./../FilterLinkVisitor.hpp}
+\lstinputlisting[style=cppstyle]{./../FilterLinkVisitor.hpp}
 \clearpage
 
 \subsection{FilterLinkVisitor.cpp}
-\lstinputlisting{./../FilterLinkVisitor.cpp}
+\lstinputlisting[style=cppstyle]{./../FilterLinkVisitor.cpp}
 \clearpage
 
 \subsection{DumpVisitor.hpp}
-\lstinputlisting{./../DumpVisitor.hpp}
+\lstinputlisting[style=cppstyle]{./../DumpVisitor.hpp}
 \clearpage
 
 \subsection{DumpVisitor.cpp}
-\lstinputlisting{./../DumpVisitor.cpp}
+\lstinputlisting[style=cppstyle]{./../DumpVisitor.cpp}
 \clearpage
 
 \subsection{main.cpp}
-\lstinputlisting{./../main.cpp}
+\lstinputlisting[style=cppstyle]{./../main.cpp}
 \clearpage
 
 \subsection{Test.hpp}
-\lstinputlisting{./../Test.hpp}
+\lstinputlisting[style=cppstyle]{./../Test.hpp}
 	
 
 % Literaturverzeichnis

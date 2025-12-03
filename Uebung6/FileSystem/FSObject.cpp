@@ -18,6 +18,7 @@ std::string_view FSObject::GetName() const
 
 void FSObject::SetName(std::string_view name)
 {
+    if (name.empty()) throw ERROR_STRING_EMPTY;
     m_Name = name;
 }
 
@@ -27,7 +28,14 @@ void FSObject::SetParant(Sptr parent)
 	m_Parent = move(parent);
 }
 
+FSObject::FSObject(std::string_view name)
+{
+    if (name.empty()) throw ERROR_STRING_EMPTY;
+    m_Name = name;
+}
+
 FSObj_Wptr FSObject::GetParent() const
 {
 	return m_Parent;
 }
+

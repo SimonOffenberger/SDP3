@@ -10,40 +10,29 @@
 
 using namespace std;
 
-void FilterVisitor::Dump(const FSObj_Wptr & fsobj, std::ostream& ost) const
+void FilterVisitor::DumpPath(const FSObj_Wptr & fsobj, std::ostream& ost) const
 {
-	std::vector<FSObject::Sptr> path_components;
+	if (fsobj.expired()) return;
 
-	// get shared pointer from weak pointer
-	const FSObj_Sptr fsobj_ptr = fsobj.lock();
+	FSObject::Sptr obj = fsobj.lock();
 
-	if (fsobj_ptr == 0) throw FilterVisitor::ERROR_NULLPTR;
+	DumpPath(obj->GetParent(), ost);
 
-	FSObject::Sptr parent = fsobj_ptr->GetParent().lock();
+	if (obj) {
+		ost << "\\" << obj->GetName();
 
-	while (parent != nullptr) {
+		std::shared_ptr<const ILink> link_ptr = obj->AsLink();
 
-		path_components.push_back(parent);
-		parent = parent->GetParent().lock();
-	}
-
-	for_each(path_components.crbegin(), path_components.crend(),
-		[&](const FSObject::Sptr& obj) {
-			ost << obj->GetName() << "\\";
-		});
-
-	ost << fsobj_ptr->GetName();
-
-	std::shared_ptr<const ILink> link_ptr = fsobj_ptr->AsLink();
-
-	if (link_ptr) {
-		const FSObject::Sptr linked_obj = link_ptr->GetReferncedFSObject();
-		if (linked_obj) {
-			ost << " -> " << link_ptr->GetReferncedFSObject()->GetName();
+		if (link_ptr) {
+			const FSObject::Sptr linked_obj = link_ptr->GetReferncedFSObject();
+			if (linked_obj) {
+				ost << " -> " << link_ptr->GetReferncedFSObject()->GetName();
+			}
+			else {
+				ost << " -> " << "linked Object Expired!";
+			}
 		}
 	}
-
-	ost << "\n";
 }
 
 /** \brief Default visit for folder (no-op) */
@@ -82,7 +71,8 @@ void FilterVisitor::DumpFiltered(std::ostream& ost) const
 	if (ost.fail()) throw FilterVisitor::ERROR_BAD_OSTREAM;
 
 	for_each(m_FilterCont.cbegin(), m_FilterCont.cend(), [&](const auto & obj) {
-		Dump(obj, ost);
+		DumpPath(obj, ost);
+		ost << "\n";
 	});
 }
 

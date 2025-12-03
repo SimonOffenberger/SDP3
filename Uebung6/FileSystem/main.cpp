@@ -170,10 +170,10 @@ bool TestDumpVisitor(ostream & ost)
 
 		root_folder->Accept(dumper);
 
-		expected << "root" << std::endl
-				 << "root\\sub_folder" << std::endl
-			     << "root\\sub_folder\\sub_sub_folder" << std::endl
-			     << "root\\sub_folder\\sub_sub_folder\\file1.txt" << std::endl;
+		expected  << "|---[root/]\n"
+                  << "|  |---[sub_folder/]\n"
+                  << "|  |  |---[sub_sub_folder/]\n"
+                  << "|  |  |  |---[file1.txt]\n";
 
 		TestOK = TestOK && check_dump(ost, "DumpVisitor Test", expected.str(), result.str());
 
@@ -263,7 +263,7 @@ bool TestFilterLinkVisitor(ostream& ost)
 
 		link_filter.DumpFiltered(result);
 
-		expected << "root\\sub_folder\\sub_sub_folder\\LinkToFile1 -> file1.txt" << std::endl;
+		expected << "\\root\\sub_folder\\sub_sub_folder\\LinkToFile1 -> file1.txt" << std::endl;
 
 		TestOK = TestOK && check_dump(ost, "Filter Link Visitor Test Dump ", expected.str(), result.str());
 
@@ -362,8 +362,8 @@ bool TestFilterFileVisitor(ostream& ost)
 
         file_filter.DumpFiltered(result);
 
-        expected << "root\\file3.txt" << std::endl
-                 << "root\\sub_folder\\sub_sub_folder\\file1.txt" << std::endl;
+        expected << "\\root\\file3.txt" << std::endl
+                 << "\\root\\sub_folder\\sub_sub_folder\\file1.txt" << std::endl;
 
         TestOK = TestOK && check_dump(ost, "Filter File Visitor Test Dump ", expected.str(), result.str());
 

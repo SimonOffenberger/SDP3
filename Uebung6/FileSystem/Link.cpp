@@ -1,10 +1,18 @@
+/*****************************************************************//**
+ * \file Link.cpp
+ * \brief A link to another FSObject
+ *
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
 #include "Link.hpp"
 
 /** \brief Construct a link to another FSObject */
 Link::Link(FSObj_Sptr linked_obj, std::string_view name) : FSObject(name)
 {
     if (linked_obj == nullptr) throw Link::ERROR_NULLPTR;
-
+    if (name.empty()) throw Link::ERROR_STRING_EMPTY;
+  
     m_Ref = move(linked_obj);
 }
 

@@ -21,6 +21,7 @@ class FSObject : public Object
 public:
 	// Public Error Messages
 	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
+    inline static const std::string ERROR_STRING_EMPTY = "ERROR String Empty";
 
 	// Smart pointer types
 	using Sptr = std::shared_ptr<FSObject>;

@@ -32,6 +32,9 @@ static bool TestFilterLinkVisitor(ostream& ost);
 static bool TestFilterFileVisitor(ostream& ost);
 static bool TestVisitor(ostream& ost,IVisitor & visit);
 static bool TestFactory(ostream& ost);
+static bool TestLink(ostream& ost);
+static bool TestFolder(ostream& ost);
+static bool TestFile(ostream& ost);
 
 int main()
 {
@@ -99,7 +102,9 @@ int main()
         TestOK = TestOK && TestFilterLinkVisitor(cout);
         TestOK = TestOK && TestFilterFileVisitor(cout);
         TestOK = TestOK && TestFactory(cout);
-
+        TestOK = TestOK && TestLink(cout);
+        TestOK = TestOK && TestFolder(cout);
+        TestOK = TestOK && TestFile(cout);
 
         if (WriteOutputFile) {
 
@@ -110,6 +115,9 @@ int main()
             TestOK = TestOK && TestFilterLinkVisitor(output);
             TestOK = TestOK && TestFilterFileVisitor(output);
             TestOK = TestOK && TestFactory(output);
+            TestOK = TestOK && TestLink(output);
+            TestOK = TestOK && TestFolder(output);
+            TestOK = TestOK && TestFile(output);
 
             if (TestOK) {
                 output << TestCaseOK;
@@ -587,5 +595,148 @@ bool TestFactory(ostream& ost)
 
     ost << TestEnd;
 
+    return TestOK;
+}
+
+bool TestLink(ostream& ost)
+{
+    assert(ost.good());
+
+    ost << TestStart;
+
+    bool TestOK = true;
+    string error_msg;
+
+    // test link to nullptr
+    try
+    {
+        Link::Sptr link = make_shared<Link>(nullptr, "LinkToNothing");
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Exception nullptr CTOR Link", Link::ERROR_NULLPTR, error_msg);
+    error_msg.clear();
+
+    // test Link with empty string
+    try
+    {
+        File::Sptr file = make_shared<File>("file1.txt", 2048);
+        Link::Sptr link = make_shared<Link>(file, "");
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Exception empty string CTOR Link", Link::ERROR_STRING_EMPTY, error_msg);
+    error_msg.clear();
+
+
+    // test Link GetReferencedFSObject
+    try
+    {
+        File::Sptr file = make_shared<File>("file1.txt", 2048);
+        Link::Sptr link = make_shared<Link>(file, file->GetName());
+
+        FSObj_Sptr ref = link->GetReferncedFSObject();// <= should be File not Folder
+
+        TestOK = TestOK && check_dump(ost, "Test GetReferencedFSObject", file->GetName(), ref->GetName());
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    return TestOK;
+}
+bool TestFolder(ostream& ost)
+{
+    assert(ost.good());
+
+    ost << TestStart;
+
+    bool TestOK = true;
+    string error_msg;
+
+    try
+    {
+        // test
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test ", true, true);
+    error_msg.clear();
+    
+    ost << TestEnd;
+    return TestOK;
+}
+bool TestFile(ostream& ost)
+{
+    assert(ost.good());
+
+    ost << TestStart;
+
+    bool TestOK = true;
+    string error_msg;
+
+    try
+    {
+        // test
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test ", true, true);
+    error_msg.clear();
+
+    ost << TestEnd;
     return TestOK;
 }

@@ -38,6 +38,11 @@ public:
 	 */
 	virtual IFolder::Sptr AsFolder();
 
+	/** \brief Try to "cast" this FSObject to a folder
+	 * \return Shared pointer to IFolder or nullptr
+	 */
+	virtual std::shared_ptr<const IFolder> AsFolder() const;
+
 	/** \brief Try to cast this FSObject to a link
 	 * \return Shared pointer to ILink or nullptr
 	 */

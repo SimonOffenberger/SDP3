@@ -28,13 +28,13 @@ protected:
 	 * \param file File to check
 	 * \return true if file size is within range
 	 */
-	virtual bool DoFilter(const std::shared_ptr<File>& file) override;
+	virtual bool DoFilter(const std::shared_ptr<const File>& file) const override;
 
 	/** \brief Links are not accepted by this filter
 	 * \param link Link to check
 	 * \return false always
 	 */
-	virtual bool DoFilter(const std::shared_ptr<Link>& link) override;
+	virtual bool DoFilter(const std::shared_ptr<const Link>& link) const override;
 
 private:
 	// cannot be const because there are checks in the constructor

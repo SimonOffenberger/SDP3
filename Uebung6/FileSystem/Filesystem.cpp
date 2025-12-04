@@ -1,15 +1,16 @@
 #include "Filesystem.hpp"
+#include <stdexcept>
 
 FileSystem::FileSystem(FSObject::Sptr root)
 {
-	if (root == nullptr) throw ERROR_NULLPTR;
+	if (root == nullptr) throw std::invalid_argument(ERROR_NULLPTR);
 	
 	m_Root = move(root);
 }
 
 IVisitor& FileSystem::Work(IVisitor& visitor)
 {
-	if (m_Root == nullptr) throw ERROR_NULLPTR;
+	if (m_Root == nullptr) throw std::invalid_argument(ERROR_NULLPTR);
 
 	m_Root->Accept(visitor);
 
@@ -23,7 +24,7 @@ FSObject::Sptr FileSystem::ReturnRoot()
 
 void FileSystem::SetRoot(FSObject::Sptr root)
 {
-	if (root == nullptr) throw ERROR_NULLPTR;
+	if (root == nullptr) throw std::invalid_argument(ERROR_NULLPTR);
 
 	m_Root = move(root);
 }

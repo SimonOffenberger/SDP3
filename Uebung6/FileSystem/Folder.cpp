@@ -1,15 +1,15 @@
 #include "Folder.hpp"
-
+#include <stdexcept>
 /** \brief Add child to folder, sets parent pointer on child */
 void Folder::Add(FSObj_Sptr fsobj)
 {
- if (fsobj == nullptr) throw FSObject::ERROR_NULLPTR;
+ if (fsobj == nullptr) throw std::invalid_argument(FSObject::ERROR_NULLPTR);
  fsobj->SetParant(std::move(shared_from_this()));
  m_Children.emplace_back(move(fsobj));
 }
 
 /** \brief Get child by index */
-FSObj_Sptr Folder::GetChild(const size_t idx)
+FSObj_Sptr Folder::GetChild(const size_t idx) const
 {
  if(idx < m_Children.size())
  {
@@ -28,9 +28,14 @@ void Folder::Remove(FSObj_Sptr fsobj)
 }
 
 /** \brief Return this as IFolder shared pointer */
+std::shared_ptr<const IFolder> Folder::AsFolder() const
+{
+	return shared_from_this();
+}
+
 IFolder::Sptr Folder::AsFolder()
 {
- return shared_from_this();
+	return shared_from_this();
 }
 
 /** \brief Accept a visitor and forward to children */
@@ -40,7 +45,7 @@ void Folder::Accept(IVisitor& visit)
 
  for(auto& child : m_Children)
  {
- child->Accept(visit);
-	}
+	child->Accept(visit);
+ }
 }
 

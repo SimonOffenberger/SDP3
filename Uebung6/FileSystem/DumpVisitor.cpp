@@ -11,34 +11,34 @@
 
 
 /** \brief Visit folder and dump its path */
-void DumpVisitor::Visit(const std::shared_ptr<Folder>& folder)
+void DumpVisitor::Visit(const std::shared_ptr<const Folder> folder)
 {
-	if (m_ost.fail()) throw ERROR_BAD_OSTREAM;
-	if (folder == nullptr) throw ERROR_NULLPTR;
+	if (m_ost.fail()) throw std::invalid_argument(ERROR_BAD_OSTREAM);
+	if (folder == nullptr) throw std::invalid_argument(ERROR_NULLPTR);
 
 	Dump(folder);
 }
 
 /** \brief Visit file and dump its path */
-void DumpVisitor::Visit(const std::shared_ptr<File>& file)
+void DumpVisitor::Visit(const std::shared_ptr<const File> file)
 {
-	if (m_ost.fail()) throw ERROR_BAD_OSTREAM;
-	if (file == nullptr) throw ERROR_NULLPTR;
+	if (m_ost.fail()) throw std::invalid_argument(ERROR_BAD_OSTREAM);
+	if (file == nullptr) throw std::invalid_argument(ERROR_NULLPTR);
 
 	Dump(file);
 }
 
 /** \brief Visit link and dump its path */
-void DumpVisitor::Visit(const std::shared_ptr<Link>& Link)
+void DumpVisitor::Visit(const std::shared_ptr<const Link> Link)
 {
-	if (m_ost.fail()) throw ERROR_BAD_OSTREAM;
-	if (Link == nullptr) throw ERROR_NULLPTR;
+	if (m_ost.fail()) throw std::invalid_argument(ERROR_BAD_OSTREAM);
+	if (Link == nullptr) throw std::invalid_argument(ERROR_NULLPTR);
 
 	Dump(Link);
 }
 
 /** \brief Dump full path for a FSObject to the internal ostream */
-void DumpVisitor::Dump(const std::shared_ptr<FSObject>& fsobj)
+void DumpVisitor::Dump(const std::shared_ptr<const FSObject>& fsobj)
 {
 	assert(fsobj != nullptr);
 

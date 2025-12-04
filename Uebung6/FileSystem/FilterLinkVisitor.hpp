@@ -20,13 +20,13 @@ protected:
 	 * \param file File to check
 	 * \return false always
 	 */
-	virtual bool DoFilter(const std::shared_ptr<File>& file) override;
+	virtual bool DoFilter(const std::shared_ptr<const File>& file) const override;
 
 	/** \brief Links are accepted by this filter
 	 * \param link Link to check
 	 * \return true if link is present
 	 */
-	virtual bool DoFilter(const std::shared_ptr<Link>& link) override;
+	virtual bool DoFilter(const std::shared_ptr<const Link>& link) const override;
 
 private:
 };

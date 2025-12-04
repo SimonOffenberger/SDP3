@@ -1,6 +1,6 @@
 
 *******************************************
-             TESTCASE START                
+	      TESTCASE START 
 *******************************************
 
 DumpVisitor Test
@@ -25,7 +25,7 @@ Test Exception Bad Ostream in DumpVisitor
 
 
 *******************************************
-             TESTCASE START                
+	      TESTCASE START 
 *******************************************
 
 Test Exception nullptr in Visit File
@@ -42,7 +42,7 @@ Test Exception nullptr in Visit Link
 
 
 *******************************************
-             TESTCASE START                
+	      TESTCASE START 
 *******************************************
 
 Test Exception nullptr in Visit File
@@ -59,7 +59,7 @@ Test Exception nullptr in Visit Link
 
 
 *******************************************
-             TESTCASE START                
+	      TESTCASE START 
 *******************************************
 
 Test Exception nullptr in Visit File
@@ -76,7 +76,7 @@ Test Exception nullptr in Visit Link
 
 
 *******************************************
-             TESTCASE START                
+	      TESTCASE START 
 *******************************************
 
 FilterLinkVisitor Test filtered amount
@@ -101,7 +101,7 @@ Test for Exception in Dump with bad Ostream
 
 
 *******************************************
-             TESTCASE START                
+	      TESTCASE START 
 *******************************************
 
 FilterFileVisitor Test filtered amount
@@ -134,7 +134,7 @@ Test for Exception in Filter File Visiter CTOR
 
 
 *******************************************
-             TESTCASE START                
+	      TESTCASE START 
 *******************************************
 
 Test if file was constructed
@@ -157,7 +157,7 @@ Test Exception nullptr CTOR Link
 
 
 *******************************************
-             TESTCASE START                
+	      TESTCASE START 
 *******************************************
 
 Test normal CTOR Link
@@ -183,17 +183,17 @@ Empty error buffer
 
 
 *******************************************
-             TESTCASE START                
+	      TESTCASE START 
 *******************************************
 
 Test normal CTOR Folder
 [Test OK] Result: (Expected: MyFolder == Result: MyFolder)
 
 Get Child from folder
-[Test OK] Result: (Expected: 0000022EDCA6A0D0 == Result: 0000022EDCA6A0D0)
+[Test OK] Result: (Expected: 0000025FF61B6C70 == Result: 0000025FF61B6C70)
 
 Get next Child from folder
-[Test OK] Result: (Expected: 0000022EDCA79C00 == Result: 0000022EDCA79C00)
+[Test OK] Result: (Expected: 0000025FF61B6D30 == Result: 0000025FF61B6D30)
 
 Get Child for invalid index
 [Test OK] Result: (Expected: 0000000000000000 == Result: 0000000000000000)
@@ -202,7 +202,7 @@ Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test Remove Child from Folder
-[Test OK] Result: (Expected: 0000022EDCA79C00 == Result: 0000022EDCA79C00)
+[Test OK] Result: (Expected: 0000025FF61B6D30 == Result: 0000025FF61B6D30)
 
 Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -218,7 +218,7 @@ Test Folder - CTOR with empty string
 
 
 *******************************************
-             TESTCASE START                
+	      TESTCASE START 
 *******************************************
 
 Test normal CTOR File

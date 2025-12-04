@@ -28,23 +28,23 @@ public:
 	/** \brief Visit folder
 	 * \param folder Folder to visit
 	 */
-	virtual void Visit(const std::shared_ptr<Folder>& folder) override;
+	virtual void Visit(const std::shared_ptr<const Folder> folder) override;
 
 	/** \brief Visit file
 	 * \param file File to visit
 	 */
-	virtual void Visit(const std::shared_ptr<File>& file) override;
+	virtual void Visit(const std::shared_ptr<const File> file) override;
 
 	/** \brief Visit link
 	 * \param Link Link to visit
 	 */
-	virtual void Visit(const std::shared_ptr<Link>& Link) override;
+	virtual void Visit(const std::shared_ptr<const Link> Link) override;
 
 private:
 	/** \brief Dump a single FSObject path to the output stream
 	 * \param fsobj Shared pointer to object
 	 */
-	void Dump(const std::shared_ptr<FSObject>& fsobj);
+	void Dump(const std::shared_ptr<const FSObject>& fsobj);
 
 	// Output stream reference
 	std::ostream & m_ost;

@@ -39,12 +39,17 @@ public:
 	 * \param idx Index (by value is faster than by reference)
 	 * \return Shared pointer to child or nullptr
 	 */
-	virtual FSObj_Sptr GetChild(const size_t idx) override;
+	virtual FSObj_Sptr GetChild(const size_t idx) const override;
 
 	/** \brief Remove a child from the folder
 	 * \param fsobj Child to remove
 	 */
 	virtual void Remove(FSObj_Sptr fsobj);
+
+	/** \brief Cast this FSObject to a folder interface
+	 * \return Shared pointer to IFolder
+	 */
+	virtual std::shared_ptr<const IFolder> AsFolder() const override;
 
 	/** \brief Cast this FSObject to a folder interface
 	 * \return Shared pointer to IFolder

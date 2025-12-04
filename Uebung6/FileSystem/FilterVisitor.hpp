@@ -23,22 +23,22 @@ public:
 	inline static const std::string ERROR_BAD_OSTREAM = "ERROR: bad output stream";
 
 	// constainer Alias for filtered objects (weak pointers)
-	using TContFSobj = std::vector<FSObj_Wptr>;
+	using TContFSobj = std::vector<std::weak_ptr<const FSObject>>;
 
 	/** \brief Visit a folder (default no-op)
 	 * \param folder Folder to visit
 	 */
-	virtual void Visit(const std::shared_ptr<Folder>& folder) override;
+	virtual void Visit(const std::shared_ptr<const Folder>folder) override;
 
 	/** \brief Visit a file and apply filter
 	 * \param file File to visit
 	 */
-	virtual void Visit(const std::shared_ptr<File>& file) override;
+	virtual void Visit(const std::shared_ptr<const File>file) override;
 
 	/** \brief Visit a link and apply filter
 	 * \param link Link to visit
 	 */
-	virtual void Visit(const std::shared_ptr<Link>& link) override;
+	virtual void Visit(const std::shared_ptr<const Link> link) override;
 
 	/** \brief Dump filtered objects to stream
 	 * \param ost Output stream
@@ -56,13 +56,13 @@ protected:
 	 * \param file File to check
 	 * \return true if accepted
 	 */
-	virtual bool DoFilter(const std::shared_ptr<File>& file)=0;
+	virtual bool DoFilter(const std::shared_ptr<const File>& file) const = 0;
 
 	/** \brief Check if a link matches the filter
 	 * \param link Link to check
 	 * \return true if accepted
 	 */
-	virtual bool DoFilter(const std::shared_ptr<Link>& link)=0;
+	virtual bool DoFilter(const std::shared_ptr<const Link>& link) const = 0;
 
 	FilterVisitor() = default;
 
@@ -72,7 +72,7 @@ private:
 	 * \param fsobj Weak pointer to object
 	 * \param ost Output stream
 	 */
-	void DumpPath(const FSObj_Wptr& fsobj, std::ostream& ost) const;
+	void DumpPath(const std::weak_ptr<const FSObject>& fsobj, std::ostream& ost) const;
 
 	TContFSobj m_FilterCont;
 };

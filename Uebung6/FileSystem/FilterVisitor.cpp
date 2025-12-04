@@ -4,47 +4,49 @@
 #include "Link.hpp"
 
 #include <vector>
-#include <algorithm>
 #include <iostream>
 #include <cassert>
+#include <stdexcept>
 
-using namespace std;
 
-void FilterVisitor::DumpPath(const FSObj_Wptr & fsobj, std::ostream& ost) const
+void FilterVisitor::DumpPath(const std::weak_ptr<const FSObject> & fsobj, std::ostream& ost) const
 {
+	// end recursion on expired weak pointer
 	if (fsobj.expired()) return;
 
-	FSObject::Sptr obj = fsobj.lock();
+	const std::shared_ptr<const FSObject> obj = fsobj.lock();
+	if (!obj) return; // defensive: lock could fail
 
+	// first dump parent path
 	DumpPath(obj->GetParent(), ost);
 
-	if (obj) {
-		ost << "\\" << obj->GetName();
+	if (!ost.good()) throw std::invalid_argument(FilterVisitor::ERROR_BAD_OSTREAM);
 
-		std::shared_ptr<const ILink> link_ptr = obj->AsLink();
+	ost << "\\" << obj->GetName();
 
-		if (link_ptr) {
-			const FSObject::Sptr linked_obj = link_ptr->GetReferncedFSObject();
-			if (linked_obj) {
-				ost << " -> " << link_ptr->GetReferncedFSObject()->GetName();
-			}
-			else {
-				ost << " -> " << "linked Object Expired!";
-			}
+	const std::shared_ptr<const ILink> link_ptr = obj->AsLink();
+
+	if (link_ptr) {
+		const FSObject::Sptr linked_obj = link_ptr->GetReferncedFSObject();
+		if (linked_obj) {
+			ost << " -> " << linked_obj->GetName();
+		}
+		else {
+			ost << " -> " << "linked Object Expired!";
 		}
 	}
 }
 
 /** \brief Default visit for folder (no-op) */
-void FilterVisitor::Visit(const std::shared_ptr<Folder>& folder)
-{	
-	if (folder == nullptr) throw ERROR_NULLPTR;
+void FilterVisitor::Visit(const std::shared_ptr<const Folder> folder)
+{
+	if (folder == nullptr) throw std::invalid_argument(ERROR_NULLPTR);
 }
 
 /** \brief Visit a file and if it matches add to filtered container */
-void FilterVisitor::Visit(const std::shared_ptr<File>& file)
-{	
-	if (file == nullptr) throw ERROR_NULLPTR;
+void FilterVisitor::Visit(const std::shared_ptr<const File> file)
+{
+	if (file == nullptr) throw std::invalid_argument(ERROR_NULLPTR);
 
 	// if file matches filter add to container
 	if(DoFilter(file))
@@ -54,10 +56,9 @@ void FilterVisitor::Visit(const std::shared_ptr<File>& file)
 }
 
 /** \brief Visit a link and if it matches add to filtered container */
-void FilterVisitor::Visit(const std::shared_ptr<Link>& link)
+void FilterVisitor::Visit(const std::shared_ptr<const Link> link)
 {
-	if (link == nullptr) throw ERROR_NULLPTR;
-
+	if (link == nullptr) throw std::invalid_argument(ERROR_NULLPTR);
 
 	// if link matches filter add to container
 	if (DoFilter(link))
@@ -69,12 +70,12 @@ void FilterVisitor::Visit(const std::shared_ptr<Link>& link)
 /** \brief Dump all filtered objects to given ostream */
 void FilterVisitor::DumpFiltered(std::ostream& ost) const
 {
-	if (ost.fail()) throw FilterVisitor::ERROR_BAD_OSTREAM;
+	if (!ost.good()) throw std::invalid_argument(FilterVisitor::ERROR_BAD_OSTREAM);
 
-	for_each(m_FilterCont.cbegin(), m_FilterCont.cend(), [&](const auto & obj) {
+	for (const auto & obj : m_FilterCont) {
 		DumpPath(obj, ost);
-		ost << "\n";
-	});
+		ost << '\n';
+	}
 }
 
 /** \brief Return the filtered objects container */

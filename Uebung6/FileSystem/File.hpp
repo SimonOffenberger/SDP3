@@ -15,7 +15,7 @@ class File : public FSObject, public std::enable_shared_from_this<File>
 public:
 	// Public Error Messages
     inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
-    static inline const std::string ERR_OUT_OF_SPACE = "Not enough space to write data";
+    inline static const std::string ERR_OUT_OF_SPACE = "Not enough space to write data";
 
 	// Smart pointer types
     using Uptr = std::unique_ptr<File>;

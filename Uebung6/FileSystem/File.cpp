@@ -1,9 +1,17 @@
+/*****************************************************************//**
+ * \file File.cpp
+ * \brief File class representing a file in the filesystem
+ *
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
+
 #include "File.hpp"
 #include <stdexcept>
 /** \brief Accept a visitor for this file */
 void File::Accept(IVisitor& visit)
 {
-    visit.Visit(shared_from_this());
+    visit.Visit(move(shared_from_this()));
 }
 
 /** \brief Write bytes to the file, throws on out of space */

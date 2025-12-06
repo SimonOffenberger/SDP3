@@ -32,5 +32,5 @@ FSObj_Sptr Link::GetReferncedFSObject() const
 /** \brief Accept a visitor */
 void Link::Accept(IVisitor& visit)
 {
-    visit.Visit(shared_from_this());
+    visit.Visit(move(shared_from_this()));
 }

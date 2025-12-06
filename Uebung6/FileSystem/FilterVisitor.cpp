@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file FilterVisitor.cpp
+ * \brief Visitor that filters filesystem objects based on criteria defines in derived classes
+ *
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
 #include "FilterVisitor.hpp"
 #include "Folder.hpp"
 #include "File.hpp"
@@ -14,7 +21,7 @@ void FilterVisitor::DumpPath(const std::weak_ptr<const FSObject> & fsobj, std::o
 	// end recursion on expired weak pointer
 	if (fsobj.expired()) return;
 
-	const std::shared_ptr<const FSObject> obj = fsobj.lock();
+	const auto obj = fsobj.lock();
 	if (!obj) return; // defensive: lock could fail
 
 	// first dump parent path

@@ -72,7 +72,7 @@ private:
 	 * \param fsobj Weak pointer to object
 	 * \param ost Output stream
 	 */
-	void DumpPath(const std::weak_ptr<const FSObject>& fsobj, std::ostream& ost) const;
+	void DumpPath(const std::weak_ptr<const FSObject> & fsobj, std::ostream& ost) const;
 
 	TContFSobj m_FilterCont;
 };

@@ -19,6 +19,8 @@
 class FSObjectFactory : public Object
 {
 public:
+	using Uptr = std::unique_ptr<FSObjectFactory>;
+
 	inline static const std::string ERROR_NULLPTR = "ERROR Nullptr";
 
 	/** \brief Create a File FSObject

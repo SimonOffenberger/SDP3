@@ -190,10 +190,10 @@ Test normal CTOR Folder
 [Test OK] Result: (Expected: MyFolder == Result: MyFolder)
 
 Get Child from folder
-[Test OK] Result: (Expected: 0000025FF61B6C70 == Result: 0000025FF61B6C70)
+[Test OK] Result: (Expected: 0000027F833A1150 == Result: 0000027F833A1150)
 
 Get next Child from folder
-[Test OK] Result: (Expected: 0000025FF61B6D30 == Result: 0000025FF61B6D30)
+[Test OK] Result: (Expected: 0000027F833A7580 == Result: 0000027F833A7580)
 
 Get Child for invalid index
 [Test OK] Result: (Expected: 0000000000000000 == Result: 0000000000000000)
@@ -202,7 +202,7 @@ Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test Remove Child from Folder
-[Test OK] Result: (Expected: 0000025FF61B6D30 == Result: 0000025FF61B6D30)
+[Test OK] Result: (Expected: 0000027F833A7580 == Result: 0000027F833A7580)
 
 Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)

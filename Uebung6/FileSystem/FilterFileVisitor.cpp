@@ -1,5 +1,11 @@
+/*****************************************************************//**
+ * \file FilterFileVisitor.cpp
+ * \brief Visitor that filters files by size range
+ *
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
 #include "FilterFileVisitor.hpp"
-
 #include "Folder.hpp"
 #include "File.hpp"
 #include "Link.hpp"

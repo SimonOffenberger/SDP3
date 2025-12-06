@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   FilterLinkVisitor.cpp
+ * \brief  Visitor that filters links in the filesystem
+ *
+ * \author Simon
+ * \date   December 2025
+ *********************************************************************/
 #include "FilterLinkVisitor.hpp"
 #include <cassert>
 

@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file FSObject.cpp
+ * \brief Base class for filesystem objects
+ *
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
 #include "FSObject.hpp"
 #include <string>
 #include <stdexcept>

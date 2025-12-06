@@ -1,5 +1,11 @@
+/*****************************************************************//**
+ * \file DumpVisitor.cpp
+ * \brief Visitor that dumps filesystem object paths to an output stream
+ *
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
 #include "DumpVisitor.hpp"
-
 #include "Folder.hpp"
 #include "File.hpp"
 #include "Link.hpp"
@@ -38,10 +44,12 @@ void DumpVisitor::Visit(const std::shared_ptr<const Link> Link)
 }
 
 /** \brief Dump full path for a FSObject to the internal ostream */
-void DumpVisitor::Dump(const std::shared_ptr<const FSObject>& fsobj)
+void DumpVisitor::Dump(const std::shared_ptr<const FSObject> fsobj)
 {
+	assert(m_ost.good());
 	assert(fsobj != nullptr);
 
+	// Get parent pointer
 	FSObject::Sptr parent = fsobj->GetParent().lock();
 
 	// Print an indentation token for each ancestor

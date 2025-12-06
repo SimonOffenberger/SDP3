@@ -1,10 +1,19 @@
+/*****************************************************************//**
+ * \file Folder.cpp
+ * \brief Folder class representing a folder in the filesystem
+ *
+ * \author Simon
+ * \date   November 2025
+ *********************************************************************/
 #include "Folder.hpp"
 #include <stdexcept>
 /** \brief Add child to folder, sets parent pointer on child */
 void Folder::Add(FSObj_Sptr fsobj)
 {
  if (fsobj == nullptr) throw std::invalid_argument(FSObject::ERROR_NULLPTR);
+
  fsobj->SetParant(std::move(shared_from_this()));
+
  m_Children.emplace_back(move(fsobj));
 }
 
@@ -41,7 +50,7 @@ IFolder::Sptr Folder::AsFolder()
 /** \brief Accept a visitor and forward to children */
 void Folder::Accept(IVisitor& visit)
 {
- visit.Visit(shared_from_this());
+ visit.Visit(move(shared_from_this()));
 
  for(auto& child : m_Children)
  {

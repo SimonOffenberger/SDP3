@@ -12,7 +12,7 @@
 #include "IVisitor.hpp"
 #include "FSObject.hpp"
 
-class DumpVisitor : public IVisitor
+class DumpVisitor : public Object, public IVisitor
 {
 public: 
 
@@ -44,7 +44,7 @@ private:
 	/** \brief Dump a single FSObject path to the output stream
 	 * \param fsobj Shared pointer to object
 	 */
-	void Dump(const std::shared_ptr<const FSObject>& fsobj);
+	void Dump(const std::shared_ptr<const FSObject> fsobj);
 
 	// Output stream reference
 	std::ostream & m_ost;

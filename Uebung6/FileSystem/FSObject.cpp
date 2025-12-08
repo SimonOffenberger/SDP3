@@ -35,7 +35,7 @@ void FSObject::SetName(std::string_view name)
     m_Name = name;
 }
 
-void FSObject::SetParant(Sptr parent)
+void FSObject::SetParent(Sptr parent)
 {
 	if (parent == nullptr) throw std::invalid_argument(ERROR_NULLPTR);
 	m_Parent = move(parent);

@@ -12,7 +12,7 @@ void Folder::Add(FSObj_Sptr fsobj)
 {
  if (fsobj == nullptr) throw std::invalid_argument(FSObject::ERROR_NULLPTR);
 
- fsobj->SetParant(std::move(shared_from_this()));
+ fsobj->SetParent(std::move(shared_from_this()));
 
  m_Children.emplace_back(move(fsobj));
 }

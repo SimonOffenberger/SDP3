@@ -232,10 +232,10 @@ Test normal CTOR Folder
 [Test OK] Result: (Expected: MyFolder == Result: MyFolder)
 
 Get Child from folder
-[Test OK] Result: (Expected: 0000023F51138FF0 == Result: 0000023F51138FF0)
+[Test OK] Result: (Expected: 0000019AC9D37440 == Result: 0000019AC9D37440)
 
 Get next Child from folder
-[Test OK] Result: (Expected: 0000023F511390B0 == Result: 0000023F511390B0)
+[Test OK] Result: (Expected: 0000019AC9D37500 == Result: 0000019AC9D37500)
 
 Get Child for invalid index
 [Test OK] Result: (Expected: 0000000000000000 == Result: 0000000000000000)
@@ -244,7 +244,7 @@ Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test Remove Child from Folder
-[Test OK] Result: (Expected: 0000023F511390B0 == Result: 0000023F511390B0)
+[Test OK] Result: (Expected: 0000019AC9D37500 == Result: 0000019AC9D37500)
 
 Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -256,10 +256,10 @@ Test Folder - CTOR with empty string
 [Test OK] Result: (Expected: ERROR String Empty == Result: ERROR String Empty)
 
 Test nested folders - root has sub1
-[Test OK] Result: (Expected: 0000023F51138FF0 == Result: 0000023F51138FF0)
+[Test OK] Result: (Expected: 0000019AC9D37440 == Result: 0000019AC9D37440)
 
 Test nested folders - sub1 has sub2
-[Test OK] Result: (Expected: 0000023F511390C0 == Result: 0000023F511390C0)
+[Test OK] Result: (Expected: 0000019AC9D37510 == Result: 0000019AC9D37510)
 
 Test nested folders - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -271,19 +271,19 @@ Test parent pointer - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test remove non-existent child
-[Test OK] Result: (Expected: 0000023F51138FF0 == Result: 0000023F51138FF0)
+[Test OK] Result: (Expected: 0000019AC9D37440 == Result: 0000019AC9D37440)
 
 Test remove non-existent - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test mixed children - file
-[Test OK] Result: (Expected: 0000023F51138FF0 == Result: 0000023F51138FF0)
+[Test OK] Result: (Expected: 0000019AC9D37440 == Result: 0000019AC9D37440)
 
 Test mixed children - folder
-[Test OK] Result: (Expected: 0000023F511390B8 == Result: 0000023F511390B8)
+[Test OK] Result: (Expected: 0000019AC9D37508 == Result: 0000019AC9D37508)
 
 Test mixed children - link
-[Test OK] Result: (Expected: 0000023F51146730 == Result: 0000023F51146730)
+[Test OK] Result: (Expected: 0000019AC9D46760 == Result: 0000019AC9D46760)
 
 Test mixed children - error buffer
 [Test OK] Result: (Expected: true == Result: true)

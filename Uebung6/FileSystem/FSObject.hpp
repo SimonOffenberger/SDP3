@@ -67,7 +67,7 @@ public:
 	/** \brief Set parent of this FSObject
 	 * \param parent Shared pointer to parent FSObject
 	 */
-	void SetParant(Sptr parent);
+	void SetParent(Sptr parent);
 
 protected:
 	/** \brief Construct an FSObject with optional name

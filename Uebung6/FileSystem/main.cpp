@@ -684,6 +684,110 @@ bool TestLink(ostream& ost)
     TestOK = TestOK && check_dump(ost, "Empty error buffer", true, error_msg.empty());
     error_msg.clear();
 
+    // Link to a Link (chained links)
+    try
+    {
+        File::Sptr file = make_shared<File>("original.txt", 2048);
+        Link::Sptr link1 = make_shared<Link>(file, "Link1");
+        Link::Sptr link2 = make_shared<Link>(link1, "Link2");
+
+        TestOK = TestOK && check_dump(ost, "Test chained links",
+            link1->GetName(), link2->GetReferncedFSObject()->GetName());
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test chained links - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    //Link when referenced object is destroyed (weak_ptr expiration)
+    try
+    {
+        Link::Sptr link;
+        {
+            File::Sptr file = make_shared<File>("temp.txt", 2048);
+            link = make_shared<Link>(file, "LinkToTemp");
+            TestOK = TestOK && check_dump(ost, "Test link before destruction",
+                true, link->GetReferncedFSObject() != nullptr);
+        } // file goes out of scope here
+
+        FSObj_Sptr expired_ref = link->GetReferncedFSObject();
+        TestOK = TestOK && check_dump(ost, "Test link after object destruction",
+            true, expired_ref == nullptr);
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test weak_ptr expiration - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    //AsLink() method returns valid pointer
+    try
+    {
+        File::Sptr file = make_shared<File>("file.txt", 2048);
+        Link::Sptr link = make_shared<Link>(file, "TestLink");
+
+        std::shared_ptr<const ILink> ilink = link->AsLink();
+        TestOK = TestOK && check_dump(ost, "Test AsLink() returns valid pointer",
+            true, ilink != nullptr);
+        TestOK = TestOK && check_dump(ost, "Test AsLink() reference matches",
+            file->GetName(), ilink->GetReferncedFSObject()->GetName());
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test AsLink() - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    //Link SetName functionality
+    try
+    {
+        File::Sptr file = make_shared<File>("file.txt", 2048);
+        Link::Sptr link = make_shared<Link>(file, "OriginalName");
+
+        link->SetName("NewName");
+        TestOK = TestOK && check_dump(ost, "Test Link SetName",
+            string_view("NewName"), link->GetName());
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test SetName - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    //Link SetName with empty string (should throw)
+    try
+    {
+        File::Sptr file = make_shared<File>("file.txt", 2048);
+        Link::Sptr link = make_shared<Link>(file, "OriginalName");
+        link->SetName(""); // should throw
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test Link SetName empty string",
+        FSObject::ERROR_STRING_EMPTY, error_msg);
+    error_msg.clear();
+
+    // Link Accept visitor
+    try
+    {
+        File::Sptr file = make_shared<File>("file.txt", 2048);
+        Link::Sptr link = make_shared<Link>(file, "TestLink");
+        stringstream result;
+        DumpVisitor visitor(result);
+
+        link->Accept(visitor);
+        TestOK = TestOK && check_dump(ost, "Test Link Accept visitor - not empty",
+            false, result.str().empty());
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test Link Accept - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    ost << TestEnd;
     return TestOK;
 }
 bool TestFolder(ostream& ost)
@@ -802,6 +906,142 @@ bool TestFolder(ostream& ost)
     TestOK = TestOK && check_dump(ost, "Test Folder - CTOR with empty string", FSObject::ERROR_STRING_EMPTY, error_msg);
     error_msg.clear();
 
+    //Nested folder structure
+        try
+    {
+        Folder::Sptr root = make_shared<Folder>("root");
+        Folder::Sptr sub1 = make_shared<Folder>("sub1");
+        Folder::Sptr sub2 = make_shared<Folder>("sub2");
+
+        root->Add(sub1);
+        sub1->Add(sub2);
+
+        TestOK = TestOK && check_dump(ost, "Test nested folders - root has sub1",
+            sub1, static_pointer_cast<Folder>(root->GetChild(0)));
+        TestOK = TestOK && check_dump(ost, "Test nested folders - sub1 has sub2",
+            sub2, static_pointer_cast<Folder>(sub1->GetChild(0)));
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test nested folders - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    //Parent pointer is set correctly when adding child
+    try
+    {
+        Folder::Sptr parent = make_shared<Folder>("parent");
+        File::Sptr child = make_shared<File>("child.txt", 2048);
+
+        parent->Add(child);
+        FSObj_Wptr parent_wptr = child->GetParent();
+        FSObj_Sptr parent_sptr = parent_wptr.lock();
+
+        TestOK = TestOK && check_dump(ost, "Test parent pointer set on Add",
+            parent->GetName(), parent_sptr->GetName());
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test parent pointer - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    //Remove non-existent child (should not crash)
+    try
+    {
+        Folder::Sptr folder = make_shared<Folder>("folder");
+        File::Sptr file1 = make_shared<File>("file1.txt", 2048);
+        File::Sptr file2 = make_shared<File>("file2.txt", 2048);
+
+        folder->Add(file1);
+        folder->Remove(file2); // file2 was never added
+
+        TestOK = TestOK && check_dump(ost, "Test remove non-existent child",
+            static_pointer_cast<FSObject>(file1), folder->GetChild(0));
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test remove non-existent - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    //Multiple children of different types
+    try
+    {
+        Folder::Sptr folder = make_shared<Folder>("mixed");
+        File::Sptr file = make_shared<File>("file.txt", 2048);
+        Folder::Sptr subfolder = make_shared<Folder>("subfolder");
+        Link::Sptr link = make_shared<Link>(file, "link");
+
+        folder->Add(file);
+        folder->Add(subfolder);
+        folder->Add(link);
+
+        TestOK = TestOK && check_dump(ost, "Test mixed children - file",
+            static_pointer_cast<FSObject>(file), folder->GetChild(0));
+        TestOK = TestOK && check_dump(ost, "Test mixed children - folder",
+            static_pointer_cast<FSObject>(subfolder), folder->GetChild(1));
+        TestOK = TestOK && check_dump(ost, "Test mixed children - link",
+            static_pointer_cast<FSObject>(link), folder->GetChild(2));
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test mixed children - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    //AsFolder() returns valid pointer
+    try
+    {
+        Folder::Sptr folder = make_shared<Folder>("test");
+        IFolder::Sptr ifolder = folder->AsFolder();
+
+        TestOK = TestOK && check_dump(ost, "Test AsFolder() returns valid pointer",
+            true, ifolder != nullptr);
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test AsFolder() - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    //Accept visitor with children
+    try
+    {
+        Folder::Sptr folder = make_shared<Folder>("root");
+        File::Sptr file = make_shared<File>("file.txt", 2048);
+        folder->Add(file);
+
+        stringstream result;
+        DumpVisitor visitor(result);
+        folder->Accept(visitor);
+
+        // Should visit both folder and file
+        TestOK = TestOK && check_dump(ost, "Test Accept visits children",
+            true, result.str().find("root") != string::npos &&
+            result.str().find("file.txt") != string::npos);
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test Accept visitor - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    //SetName on folder
+    try
+    {
+        Folder::Sptr folder = make_shared<Folder>("original");
+        folder->SetName("renamed");
+
+        TestOK = TestOK && check_dump(ost, "Test Folder SetName",
+            string_view("renamed"), folder->GetName());
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test Folder SetName - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
     ost << TestEnd;
     return TestOK;
 }
@@ -867,6 +1107,160 @@ bool TestFile(ostream& ost)
     }
 
     TestOK = TestOK && check_dump(ost, "Test CTOR Empty string - error buffer empty", error_msg, File::ERROR_STRING_EMPTY);
+    error_msg.clear();
+
+    // Write multiple times
+    try
+    {
+        File::Sptr file = make_shared<File>("multi.txt", 10, 2048);
+
+        file->Write(1000);
+        file->Write(2000);
+        file->Write(3000);
+
+        TestOK = TestOK && check_dump(ost, "Test multiple writes",
+            static_cast<size_t>(6000), file->GetSize());
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test multiple writes - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    // Write exactly to capacity
+    try
+    {
+        size_t blocks = 5;
+        size_t blocksize = 1024;
+        File::Sptr file = make_shared<File>("exact.txt", blocks, blocksize);
+
+        file->Write(blocks * blocksize); // Write exactly to capacity
+
+        TestOK = TestOK && check_dump(ost, "Test write to exact capacity",
+            blocks * blocksize, file->GetSize());
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test exact capacity - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    // Write exceeds capacity (should throw)
+    try
+    {
+        File::Sptr file = make_shared<File>("overflow.txt", 2, 1024);
+        file->Write(3000); // Exceeds 2 * 1024 = 2048
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test write exceeds capacity",
+        File::ERR_OUT_OF_SPACE, error_msg);
+    error_msg.clear();
+
+    // Write zero bytes
+    try
+    {
+        File::Sptr file = make_shared<File>("zero.txt", 10, 2048);
+        file->Write(0);
+
+        TestOK = TestOK && check_dump(ost, "Test write zero bytes",
+            static_cast<size_t>(0), file->GetSize());
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test write zero - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    // Multiple writes approaching capacity
+    try
+    {
+        File::Sptr file = make_shared<File>("approach.txt", 3, 1000);
+        file->Write(1000);
+        file->Write(1000);
+        file->Write(1000); // Total = 3000, capacity = 3000
+
+        TestOK = TestOK && check_dump(ost, "Test multiple writes to capacity",
+            static_cast<size_t>(3000), file->GetSize());
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test approach capacity - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    // Write after reaching capacity (should throw)
+    try
+    {
+        File::Sptr file = make_shared<File>("full.txt", 2, 1024);
+        file->Write(2048); // Fill to capacity
+        file->Write(1);    // Should throw
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test write when full",File::ERR_OUT_OF_SPACE, error_msg);
+    error_msg.clear();
+
+    // File with default blocksize (4096)
+    try
+    {
+        File::Sptr file = make_shared<File>("default.txt", 5); // Default blocksize = 4096
+        file->Write(10000);
+
+        TestOK = TestOK && check_dump(ost, "Test default blocksize", static_cast<size_t>(10000), file->GetSize());
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test default blocksize - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    // Accept visitor
+    try
+    {
+        File::Sptr file = make_shared<File>("visitor.txt", 10, 2048);
+        stringstream result;
+        DumpVisitor visitor(result);
+
+        file->Accept(visitor);
+
+        TestOK = TestOK && check_dump(ost, "Test File Accept visitor", true, result.str().find("visitor.txt") != string::npos);
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test File Accept - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    // SetName on file
+    try
+    {
+        File::Sptr file = make_shared<File>("old.txt", 10, 2048);
+        file->SetName("new.txt");
+
+        TestOK = TestOK && check_dump(ost, "Test File SetName",
+            string_view("new.txt"), file->GetName());
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test File SetName - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    // File AsFolder should return nullptr
+    try
+    {
+        File::Sptr file = make_shared<File>("notfolder.txt", 10, 2048);
+        IFolder::Sptr folder_ptr = file->AsFolder();
+
+        TestOK = TestOK && check_dump(ost, "Test File AsFolder returns nullptr", true, folder_ptr == nullptr);
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    TestOK = TestOK && check_dump(ost, "Test File AsFolder - error buffer", true, error_msg.empty());
     error_msg.clear();
 
     ost << TestEnd;

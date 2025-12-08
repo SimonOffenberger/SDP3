@@ -181,6 +181,48 @@ Test GetReferencedFSObject
 Empty error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
+Test chained links
+[Test OK] Result: (Expected: Link1 == Result: Link1)
+
+Test chained links - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test link before destruction
+[Test OK] Result: (Expected: true == Result: true)
+
+Test link after object destruction
+[Test OK] Result: (Expected: true == Result: true)
+
+Test weak_ptr expiration - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test AsLink() returns valid pointer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test AsLink() reference matches
+[Test OK] Result: (Expected: file.txt == Result: file.txt)
+
+Test AsLink() - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Link SetName
+[Test OK] Result: (Expected: NewName == Result: NewName)
+
+Test SetName - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Link SetName empty string
+[Test OK] Result: (Expected: ERROR String Empty == Result: ERROR String Empty)
+
+Test Link Accept visitor - not empty
+[Test OK] Result: (Expected: false == Result: false)
+
+Test Link Accept - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
 
 *******************************************
 	      TESTCASE START 
@@ -190,10 +232,10 @@ Test normal CTOR Folder
 [Test OK] Result: (Expected: MyFolder == Result: MyFolder)
 
 Get Child from folder
-[Test OK] Result: (Expected: 0000027F833A1150 == Result: 0000027F833A1150)
+[Test OK] Result: (Expected: 0000023F51138FF0 == Result: 0000023F51138FF0)
 
 Get next Child from folder
-[Test OK] Result: (Expected: 0000027F833A7580 == Result: 0000027F833A7580)
+[Test OK] Result: (Expected: 0000023F511390B0 == Result: 0000023F511390B0)
 
 Get Child for invalid index
 [Test OK] Result: (Expected: 0000000000000000 == Result: 0000000000000000)
@@ -202,7 +244,7 @@ Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test Remove Child from Folder
-[Test OK] Result: (Expected: 0000027F833A7580 == Result: 0000027F833A7580)
+[Test OK] Result: (Expected: 0000023F511390B0 == Result: 0000023F511390B0)
 
 Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -212,6 +254,57 @@ Test Folder - add nullptr
 
 Test Folder - CTOR with empty string
 [Test OK] Result: (Expected: ERROR String Empty == Result: ERROR String Empty)
+
+Test nested folders - root has sub1
+[Test OK] Result: (Expected: 0000023F51138FF0 == Result: 0000023F51138FF0)
+
+Test nested folders - sub1 has sub2
+[Test OK] Result: (Expected: 0000023F511390C0 == Result: 0000023F511390C0)
+
+Test nested folders - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test parent pointer set on Add
+[Test OK] Result: (Expected: parent == Result: parent)
+
+Test parent pointer - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test remove non-existent child
+[Test OK] Result: (Expected: 0000023F51138FF0 == Result: 0000023F51138FF0)
+
+Test remove non-existent - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test mixed children - file
+[Test OK] Result: (Expected: 0000023F51138FF0 == Result: 0000023F51138FF0)
+
+Test mixed children - folder
+[Test OK] Result: (Expected: 0000023F511390B8 == Result: 0000023F511390B8)
+
+Test mixed children - link
+[Test OK] Result: (Expected: 0000023F51146730 == Result: 0000023F51146730)
+
+Test mixed children - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test AsFolder() returns valid pointer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test AsFolder() - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Accept visits children
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Accept visitor - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Folder SetName
+[Test OK] Result: (Expected: renamed == Result: renamed)
+
+Test Folder SetName - error buffer
+[Test OK] Result: (Expected: true == Result: true)
 
 
 *******************************************
@@ -235,6 +328,60 @@ Test normal - error buffer empty
 
 Test CTOR Empty string - error buffer empty
 [Test OK] Result: (Expected: ERROR String Empty == Result: ERROR String Empty)
+
+Test multiple writes
+[Test OK] Result: (Expected: 6000 == Result: 6000)
+
+Test multiple writes - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test write to exact capacity
+[Test OK] Result: (Expected: 5120 == Result: 5120)
+
+Test exact capacity - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test write exceeds capacity
+[Test OK] Result: (Expected: Not enough space to write data == Result: Not enough space to write data)
+
+Test write zero bytes
+[Test OK] Result: (Expected: 0 == Result: 0)
+
+Test write zero - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test multiple writes to capacity
+[Test OK] Result: (Expected: 3000 == Result: 3000)
+
+Test approach capacity - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test write when full
+[Test OK] Result: (Expected: Not enough space to write data == Result: Not enough space to write data)
+
+Test default blocksize
+[Test OK] Result: (Expected: 10000 == Result: 10000)
+
+Test default blocksize - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test File Accept visitor
+[Test OK] Result: (Expected: true == Result: true)
+
+Test File Accept - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test File SetName
+[Test OK] Result: (Expected: new.txt == Result: new.txt)
+
+Test File SetName - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test File AsFolder returns nullptr
+[Test OK] Result: (Expected: true == Result: true)
+
+Test File AsFolder - error buffer
+[Test OK] Result: (Expected: true == Result: true)
 
 
 *******************************************

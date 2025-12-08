@@ -76,7 +76,8 @@ void Folder::Accept(IVisitor& visit)
 FSObj_Sptr Folder::Clone() const
 {
 	// Create a shared_ptr-owned copy so we can set parent pointers correctly
-	auto newFolder = std::make_shared<Folder>(*this);
+	// Use explicit new here so protected copy ctor is accessible in this class context
+	auto newFolder = std::shared_ptr<Folder>(new Folder(*this));
 
 	// Set parent of each cloned child to the new folder
 	for (auto & child : newFolder->m_Children)

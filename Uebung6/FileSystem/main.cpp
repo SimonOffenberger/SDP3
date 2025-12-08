@@ -935,18 +935,27 @@ bool TestFolder(ostream& ost)
         Folder::Sptr folder = make_shared<Folder>( folder_name );
         File::Sptr file1 = make_shared<File>("file1.txt", 2048);
         File::Sptr file2 = make_shared<File>("file2.txt", 4096);
-        
+		Folder::Sptr sub_folder = make_shared<Folder>("SubFolder");
+		File::Sptr sub_file = make_shared<File>("sub_file.txt", 1024);
+
         folder->Add(file1);
         folder->Add(file2);
+		folder->Add(sub_folder);
+		sub_folder->Add(sub_file);
 
 		// Call Copy Ctor
-        Folder::Sptr folder_copy = make_shared<Folder>(*folder);
+        FSObject::Sptr folder_copy = folder->Clone();
 
-		TestOK = TestOK && check_dump(ost, "Test Copy Ctor Folder - Child 0", file1->GetName(), folder_copy->GetChild(0)->GetName());
+		TestOK = TestOK && check_dump(ost, "Test Copy Ctor Folder - Child 0", file1->GetName(), folder_copy->AsFolder()->GetChild(0)->GetName());
+		TestOK = TestOK && check_dump(ost, "Test Copy Ctor Folder - Sub Folder File", sub_file->GetName(), folder_copy->AsFolder()->GetChild(2)->AsFolder()->GetChild(0)->GetName());
 
 		file1->SetName("modified_file1.txt");
+		sub_file->SetName("modified_sub.txt");
 
-		TestOK = TestOK && check_dump(ost, "Test Copy Ctor Folder test for Deep Copy", true,file1->GetName() !=folder_copy->GetChild(0)->GetName());
+		TestOK = TestOK && check_dump(ost, "Test Copy Ctor Folder test for Deep Copy", true,file1->GetName() !=folder_copy->AsFolder()->GetChild(0)->GetName());
+		TestOK = TestOK && check_dump(ost, "Test Copy Ctor Folder test for Deep Copy in Sub Folder File", true,sub_file->GetName()!= folder_copy->AsFolder()->GetChild(2)->AsFolder()->GetChild(0)->GetName());
+
+		TestOK = TestOK && check_dump(ost, "Test Parent of Copied Folder", static_pointer_cast<FSObject>(folder_copy), folder_copy->AsFolder()->GetChild(0)->GetParent().lock());
 
     }
     catch (const string& err) {

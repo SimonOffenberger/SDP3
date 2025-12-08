@@ -30,6 +30,13 @@ public:
 	 */
 	Folder(std::string_view name) : FSObject(name) {}
 
+	/**
+	 * \brief Copy Constructor of a Folder .
+	 * This makes a deep copy of the folder and its children.
+	 * \param fold
+	 */
+	Folder(const Folder& fold);
+
 	/** \brief Add a child FSObject to this folder
 	 * \param fsobj Shared pointer to the child
 	 */
@@ -60,6 +67,11 @@ public:
 	 * \param visit Visitor to accept
 	 */
 	virtual void Accept(IVisitor& visit) override;
+
+	/** \brief Clones it self as a new
+	*  \return Shared pointer to the cloned FSObject
+	*/
+	virtual FSObj_Sptr Clone() const override;
 	
 private:
 	Folder::Cont m_Children;

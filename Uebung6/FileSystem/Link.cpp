@@ -34,3 +34,9 @@ void Link::Accept(IVisitor& visit)
 {
     visit.Visit(move(shared_from_this()));
 }
+
+FSObj_Sptr Link::Clone() const 
+{
+	// Call Copy Constructor of Link
+    return make_shared<Link>(Link::Link(*this));
+}

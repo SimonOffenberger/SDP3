@@ -28,3 +28,8 @@ size_t File::GetSize() const
 {
     return m_size; 
 }
+
+FSObj_Sptr File::Clone() const
+{
+    return std::make_shared<File>(File::File( *this ));
+}

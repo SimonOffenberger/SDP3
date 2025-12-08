@@ -624,10 +624,15 @@ bool TestLink(ostream& ost)
         Folder::Sptr folder = make_shared<Folder>(folder_name);
         Link::Sptr link = make_shared<Link>(folder, link_name);
     
-        Link::Sptr link_copy = link;
+		// Call Copy CTOR
+        Link::Sptr link_copy = make_shared<Link>( *link );
 
         TestOK = TestOK && check_dump(ost, "Test Copy CTOR of Link", link->GetReferncedFSObject(), link_copy->GetReferncedFSObject());
 
+		// modify copied link referenced FSObject name
+		link_copy->GetReferncedFSObject()->SetName("NewFolderName");
+
+        TestOK = TestOK && check_dump(ost, "Test for shallow Copy of Link", link->GetReferncedFSObject(), link_copy->GetReferncedFSObject());
     }
     catch (const string& err) {
         error_msg = err;
@@ -655,7 +660,7 @@ bool TestLink(ostream& ost)
     
         Link::Sptr link_ass = make_shared<Link>(folder, "Ass Link");
             
-        link_ass = link;
+        *link_ass = *link;
 
         TestOK = TestOK && check_dump(ost, "Test Assign Op of Link", link->GetReferncedFSObject(), link_ass->GetReferncedFSObject());
 
@@ -674,6 +679,32 @@ bool TestLink(ostream& ost)
     }
 
     TestOK = TestOK && check_dump(ost, "Test Assing Op Link - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    // test Self Assign of Link
+    try
+    {
+        std::string_view folder_name = "MyFolder";
+        std::string_view link_name = "LinkToMyFolder";
+        Folder::Sptr folder = make_shared<Folder>(folder_name);
+        Link::Sptr link = make_shared<Link>(folder, link_name);
+
+        *link = *link; // <= could throw
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Self Assing Op Link - error buffer", true, error_msg.empty());
     error_msg.clear();
 
     // test link to nullptr
@@ -901,16 +932,21 @@ bool TestFolder(ostream& ost)
     try
     {
         string_view folder_name = "MyFolder";
-        Folder::Sptr folder = make_shared<Folder>(folder_name);
+        Folder::Sptr folder = make_shared<Folder>( folder_name );
         File::Sptr file1 = make_shared<File>("file1.txt", 2048);
         File::Sptr file2 = make_shared<File>("file2.txt", 4096);
         
         folder->Add(file1);
         folder->Add(file2);
 
-        Folder::Sptr folder_copy = folder;
+		// Call Copy Ctor
+        Folder::Sptr folder_copy = make_shared<Folder>(*folder);
 
-		TestOK = TestOK && check_dump(ost, "Test Copy Ctor Folder - Child 0", static_pointer_cast<FSObject>(file1), folder_copy->GetChild(0));
+		TestOK = TestOK && check_dump(ost, "Test Copy Ctor Folder - Child 0", file1->GetName(), folder_copy->GetChild(0)->GetName());
+
+		file1->SetName("modified_file1.txt");
+
+		TestOK = TestOK && check_dump(ost, "Test Copy Ctor Folder test for Deep Copy", true,file1->GetName() !=folder_copy->GetChild(0)->GetName());
 
     }
     catch (const string& err) {
@@ -940,10 +976,41 @@ bool TestFolder(ostream& ost)
         folder->Add(file1);
         folder->Add(file2);
 
-        Folder::Sptr folder_ass = make_shared<Folder>("Ass folder");
-        folder_ass = folder;
+        Folder folder_ass{ "Ass folder"};
+        folder_ass = *folder;
 
-		TestOK = TestOK && check_dump(ost, "Test Assign Op Folder - Child 0", static_pointer_cast<FSObject>(file1), folder_ass->GetChild(0));
+		TestOK = TestOK && check_dump(ost, "Test Assign Op Folder - Child 0", static_pointer_cast<FSObject>(file1), folder_ass.GetChild(0));
+
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Folder - error buffer", error_msg.empty(), true);
+    error_msg.clear();
+
+	// test Assign Opterator of Folder Self Assign
+    try
+    {
+        string_view folder_name = "MyFolder";
+        Folder::Sptr folder = make_shared<Folder>(folder_name);
+        File::Sptr file1 = make_shared<File>("file1.txt", 2048);
+        File::Sptr file2 = make_shared<File>("file2.txt", 4096);
+        
+        folder->Add(file1);
+        folder->Add(file2);
+        *folder = *folder;
+
+		TestOK = TestOK && check_dump(ost, "Test Self Assign Folder - Child 0", static_pointer_cast<FSObject>(file1), folder->GetChild(0));
 
     }
     catch (const string& err) {
@@ -1221,14 +1288,16 @@ bool TestFile(ostream& ost)
         string_view file_name = "file1.txt";
         size_t block_size = 2048;
         size_t res_blocks = 20;
-        File::Sptr file = make_shared<File>(file_name, res_blocks, block_size);
+        File file = { file_name, res_blocks, block_size };
         
-		File::Sptr file_copy = file; // Copy ctor
+		File file_copy = file; // Copy ctor
 
         // Write to file
         size_t write_size = 4096;
-        file->Write(write_size);
-        TestOK = TestOK && check_dump(ost, "Test Copy Ctor ",file->GetName(), file_copy->GetName());
+        file.Write(write_size);
+        TestOK = TestOK && check_dump(ost, "Test Copy Ctor ",file.GetName(), file_copy.GetName());
+
+        TestOK = TestOK && check_dump(ost, "Test Copy Ctor ",file.GetName(), file_copy.GetName());
     }
     catch (const string& err) {
         error_msg = err;
@@ -1246,38 +1315,7 @@ bool TestFile(ostream& ost)
     TestOK = TestOK && check_dump(ost, "Test normal - error buffer empty", error_msg.empty(), true);
     error_msg.clear();
 
-	// File Assignment OP
-    try
-    {
-        string_view file_name = "file1.txt";
-        size_t block_size = 2048;
-        size_t res_blocks = 20;
-        File::Sptr file = make_shared<File>(file_name, res_blocks, block_size);
-        
-		File::Sptr file_ass = make_shared<File>("file Ass", res_blocks, block_size);
-            
-        file_ass = file; // Assign Opterator
-
-        // Write to file
-        size_t write_size = 4096;
-        file->Write(write_size);
-        TestOK = TestOK && check_dump(ost, "Test Assign Operator ",file->GetName(), file_ass->GetName());
-    }
-    catch (const string& err) {
-        error_msg = err;
-    }
-    catch (bad_alloc const& error) {
-        error_msg = error.what();
-    }
-    catch (const exception& err) {
-        error_msg = err.what();
-    }
-    catch (...) {
-        error_msg = "Unhandelt Exception";
-    }
-
-    TestOK = TestOK && check_dump(ost, "Test normal - error buffer empty", error_msg.empty(), true);
-    error_msg.clear();
+	// Assign Operator is deletet because of const members!
 
     // File with empty string
     try

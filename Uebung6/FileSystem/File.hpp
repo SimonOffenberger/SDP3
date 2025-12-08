@@ -48,6 +48,11 @@ public:
 		 */
     size_t GetSize() const;
 
+	/** \brief Clones it self as a new
+	*  \return Shared pointer to the cloned FSObject
+	*/
+	virtual FSObj_Sptr Clone() const override;
+
 private:
 	size_t m_size;
 	const size_t m_blocksize;

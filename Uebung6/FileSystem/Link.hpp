@@ -41,6 +41,11 @@ public:
 	 */
 	virtual void Accept(IVisitor& visit) override;
 
+	/** \brief Clones it self as a new
+	*  \return Shared pointer to the cloned FSObject
+	*/
+	virtual FSObj_Sptr Clone() const override;
+
 private:
     /** \brief Weak pointer to the linked FSObject
 	*/

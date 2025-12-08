@@ -32,6 +32,11 @@ public:
 	 * \param visit Visitor to accept
 	 */
 	virtual void Accept(IVisitor& visit) =0;
+
+	/** \brief Clones it self as a new 
+	 *  \return Shared pointer to the cloned FSObject
+	 */
+	virtual FSObj_Sptr Clone() const = 0;
 	
 	/** \brief Try to "cast" this FSObject to a folder
 	 * \return Shared pointer to IFolder or nullptr

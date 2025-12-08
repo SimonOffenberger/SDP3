@@ -50,6 +50,10 @@ public:
 	 */
 	const TContFSobj & GetFilteredObjects() const;
 
+	// delete Copy and Assign Opertor to prevent untestet Behaviour
+	void operator=(FilterVisitor visit) = delete;
+	FilterVisitor(FilterVisitor& visit) = delete;
+
 protected: 
 
 	/** \brief Check if a file matches the filter

@@ -22,6 +22,10 @@ public:
 	 */
 	FilterFileVisitor(const size_t min, const size_t max);
 
+	// delete Copy and Assign Opertor to prevent untestet Behaviour
+	void operator=(FilterFileVisitor visit) = delete;
+	FilterFileVisitor(FilterFileVisitor& visit) = delete;
+
 protected:
 
 	/** \brief Do filter check for files

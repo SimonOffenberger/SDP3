@@ -14,6 +14,12 @@ class FilterLinkVisitor : public FilterVisitor
 {
 public:
 
+	FilterLinkVisitor() = default;
+
+	// delete Copy and Assign Opertor to prevent untestet Behaviour
+	void operator=(FilterLinkVisitor visit) = delete;
+	FilterLinkVisitor(FilterLinkVisitor& visit) = delete;
+
 protected:
 
 	/** \brief Links are accepted by this filter

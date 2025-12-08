@@ -53,6 +53,10 @@ public:
 	 */
 	void CreateTestFilesystem();
 
+	// delete Copy and Assign Opertor to prevent untestet Behaviour
+	void operator=(FileSystem visit) = delete;
+	FileSystem(FileSystem& visit) = delete;
+
 private:
 
 	FSObject::Sptr m_Root;

@@ -169,6 +169,18 @@ Test normal CTOR Link
 Test normal CTOR Link - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
+Test Copy CTOR of Link
+[Test OK] Result: (Expected: 000001A4FD430F18 == Result: 000001A4FD430F18)
+
+Test normal COPY CTOR Link - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Assign Op of Link
+[Test OK] Result: (Expected: 000001A4FD430F18 == Result: 000001A4FD430F18)
+
+Test Assing Op Link - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
 Test Exception nullptr CTOR Link
 [Test OK] Result: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
 
@@ -232,10 +244,10 @@ Test normal CTOR Folder
 [Test OK] Result: (Expected: MyFolder == Result: MyFolder)
 
 Get Child from folder
-[Test OK] Result: (Expected: 0000019AC9D37440 == Result: 0000019AC9D37440)
+[Test OK] Result: (Expected: 000001A4FD447160 == Result: 000001A4FD447160)
 
 Get next Child from folder
-[Test OK] Result: (Expected: 0000019AC9D37500 == Result: 0000019AC9D37500)
+[Test OK] Result: (Expected: 000001A4FD447820 == Result: 000001A4FD447820)
 
 Get Child for invalid index
 [Test OK] Result: (Expected: 0000000000000000 == Result: 0000000000000000)
@@ -243,8 +255,20 @@ Get Child for invalid index
 Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
+Test Copy Ctor Folder - Child 0
+[Test OK] Result: (Expected: 000001A4FD446DA0 == Result: 000001A4FD446DA0)
+
+Test Folder - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Assign Op Folder - Child 0
+[Test OK] Result: (Expected: 000001A4FD446FE0 == Result: 000001A4FD446FE0)
+
+Test Folder - error buffer
+[Test OK] Result: (Expected: true == Result: true)
+
 Test Remove Child from Folder
-[Test OK] Result: (Expected: 0000019AC9D37500 == Result: 0000019AC9D37500)
+[Test OK] Result: (Expected: 000001A4FD447160 == Result: 000001A4FD447160)
 
 Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -256,10 +280,10 @@ Test Folder - CTOR with empty string
 [Test OK] Result: (Expected: ERROR String Empty == Result: ERROR String Empty)
 
 Test nested folders - root has sub1
-[Test OK] Result: (Expected: 0000019AC9D37440 == Result: 0000019AC9D37440)
+[Test OK] Result: (Expected: 000001A4FD431130 == Result: 000001A4FD431130)
 
 Test nested folders - sub1 has sub2
-[Test OK] Result: (Expected: 0000019AC9D37510 == Result: 0000019AC9D37510)
+[Test OK] Result: (Expected: 000001A4FD436D40 == Result: 000001A4FD436D40)
 
 Test nested folders - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -271,19 +295,19 @@ Test parent pointer - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test remove non-existent child
-[Test OK] Result: (Expected: 0000019AC9D37440 == Result: 0000019AC9D37440)
+[Test OK] Result: (Expected: 000001A4FD4473A0 == Result: 000001A4FD4473A0)
 
 Test remove non-existent - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test mixed children - file
-[Test OK] Result: (Expected: 0000019AC9D37440 == Result: 0000019AC9D37440)
+[Test OK] Result: (Expected: 000001A4FD447160 == Result: 000001A4FD447160)
 
 Test mixed children - folder
-[Test OK] Result: (Expected: 0000019AC9D37508 == Result: 0000019AC9D37508)
+[Test OK] Result: (Expected: 000001A4FD431138 == Result: 000001A4FD431138)
 
 Test mixed children - link
-[Test OK] Result: (Expected: 0000019AC9D46760 == Result: 0000019AC9D46760)
+[Test OK] Result: (Expected: 000001A4FD4479A0 == Result: 000001A4FD4479A0)
 
 Test mixed children - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -322,6 +346,18 @@ Test normal CTOR File - size
 
 Test normal - write file size
 [Test OK] Result: (Expected: 4096 == Result: 4096)
+
+Test normal - error buffer empty
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Copy Ctor 
+[Test OK] Result: (Expected: file1.txt == Result: file1.txt)
+
+Test normal - error buffer empty
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Assign Operator 
+[Test OK] Result: (Expected: file1.txt == Result: file1.txt)
 
 Test normal - error buffer empty
 [Test OK] Result: (Expected: true == Result: true)
@@ -382,6 +418,52 @@ Test File AsFolder returns nullptr
 
 Test File AsFolder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+*******************************************
+	      TESTCASE START 
+*******************************************
+
+Dump of Test Filesystem via Dump Visitor:
+
+|---[root/]
+|  |---[file1.txt]
+|  |---[file2.txt]
+|  |---[file3.txt]
+|  |---[file4.txt]
+|  |---[sub_folder/]
+|  |  |---[file5.txt]
+|  |  |---[file6.txt]
+|  |  |---[sub_sub_folder/]
+|  |  |  |---[file7.txt]
+|  |  |  |---[LinkToRoot->]
+
+
+Test normal op Filesystem - error buffer empty
+[Test OK] Result: (Expected: true == Result: true)
+
+Test ReturnRoot matches
+[Test OK] Result: (Expected: |---[root/]
+ == Result: |---[root/]
+)
+
+Test normal op Filesystem - error buffer empty
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Exception Set Null Root
+[Test OK] Result: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test Exception Set Null Factory
+[Test OK] Result: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test Exception no Factory in Create Test FileSystem
+[Test OK] Result: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
+
+Test Exception Work with no root set
+[Test OK] Result: (Expected: ERROR Nullptr == Result: ERROR Nullptr)
 
 
 *******************************************

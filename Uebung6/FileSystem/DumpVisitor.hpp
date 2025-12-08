@@ -40,6 +40,10 @@ public:
 	 */
 	virtual void Visit(const std::shared_ptr<const Link> Link) override;
 
+	// delete Copy and Assign Opertor to prevent untestet Behaviour
+	void operator=(DumpVisitor visit) = delete;
+	DumpVisitor(DumpVisitor& visit) = delete;
+
 private:
 	/** \brief Dump a single FSObject path to the output stream
 	 * \param fsobj Shared pointer to object

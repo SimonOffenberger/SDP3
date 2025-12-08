@@ -35,40 +35,40 @@ static bool TestFactory(ostream& ost);
 static bool TestLink(ostream& ost);
 static bool TestFolder(ostream& ost);
 static bool TestFile(ostream& ost);
+static bool TestFileSystem(ostream& ost);
 
 int main()
 {
-	DumpVisitor visitor(std::cout);
-
-	FilterLinkVisitor filter_link_visitor;
-
-	FilterFileVisitor filter_file_visitor(4096, 16384);
-
-	FileSystem homework;
-
-	homework.SetFactory(std::make_unique<FSObjectFactory>());
-	homework.CreateTestFilesystem();
-
-
-	homework.Work(visitor);
-
-	std::cout <<"-----------------------------------" << std::endl;
-    homework.Work(filter_link_visitor);
-
-	filter_link_visitor.DumpFiltered(std::cout);
-
-	std::cout << "-----------------------------------" << std::endl;
-
-    homework.Work(filter_file_visitor);
-
-	filter_file_visitor.DumpFiltered(std::cout);
-
-
-    bool TestOK = true;
 
     ofstream output{ "Testoutput.txt" };
 
     try {
+	    DumpVisitor visitor(std::cout);
+
+	    FilterLinkVisitor filter_link_visitor;
+
+	    FilterFileVisitor filter_file_visitor(4096, 16384);
+
+	    FileSystem homework;
+
+	    homework.SetFactory(std::make_unique<FSObjectFactory>());
+	    homework.CreateTestFilesystem();
+
+	    homework.Work(visitor);
+
+	    std::cout <<"-----------------------------------" << std::endl;
+        homework.Work(filter_link_visitor);
+
+	    filter_link_visitor.DumpFiltered(std::cout);
+
+	    std::cout << "-----------------------------------" << std::endl;
+
+        homework.Work(filter_file_visitor);
+
+	    filter_file_visitor.DumpFiltered(std::cout);
+
+
+        bool TestOK = true;
 
         DumpVisitor dumper{ cout };
         FilterLinkVisitor filter_link;
@@ -84,6 +84,7 @@ int main()
         TestOK = TestOK && TestLink(cout);
         TestOK = TestOK && TestFolder(cout);
         TestOK = TestOK && TestFile(cout);
+        TestOK = TestOK && TestFileSystem(cout);
 
         if (WriteOutputFile) {
 
@@ -97,6 +98,7 @@ int main()
             TestOK = TestOK && TestLink(output);
             TestOK = TestOK && TestFolder(output);
             TestOK = TestOK && TestFile(output);
+            TestOK = TestOK && TestFileSystem(output);
 
             if (TestOK) {
                 output << TestCaseOK;
@@ -614,6 +616,66 @@ bool TestLink(ostream& ost)
     TestOK = TestOK && check_dump(ost, "Test normal CTOR Link - error buffer", true, error_msg.empty());
     error_msg.clear();
 
+    // test Copy CTOR of Link
+    try
+    {
+        std::string_view folder_name = "MyFolder";
+        std::string_view link_name = "LinkToMyFolder";
+        Folder::Sptr folder = make_shared<Folder>(folder_name);
+        Link::Sptr link = make_shared<Link>(folder, link_name);
+    
+        Link::Sptr link_copy = link;
+
+        TestOK = TestOK && check_dump(ost, "Test Copy CTOR of Link", link->GetReferncedFSObject(), link_copy->GetReferncedFSObject());
+
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test normal COPY CTOR Link - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
+    // test Assign Op of Link
+    try
+    {
+        std::string_view folder_name = "MyFolder";
+        std::string_view link_name = "LinkToMyFolder";
+        Folder::Sptr folder = make_shared<Folder>(folder_name);
+        Link::Sptr link = make_shared<Link>(folder, link_name);
+    
+        Link::Sptr link_ass = make_shared<Link>(folder, "Ass Link");
+            
+        link_ass = link;
+
+        TestOK = TestOK && check_dump(ost, "Test Assign Op of Link", link->GetReferncedFSObject(), link_ass->GetReferncedFSObject());
+
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Assing Op Link - error buffer", true, error_msg.empty());
+    error_msg.clear();
+
     // test link to nullptr
     try
     {
@@ -818,6 +880,71 @@ bool TestFolder(ostream& ost)
         TestOK = TestOK && check_dump(ost, "Get Child from folder", static_pointer_cast<FSObject>(file1), folder->GetChild(0));
         TestOK = TestOK && check_dump(ost, "Get next Child from folder", static_pointer_cast<FSObject>(file2), folder->GetChild(1));
         TestOK = TestOK && check_dump(ost, "Get Child for invalid index", err_file, shared_null);
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Folder - error buffer", error_msg.empty(), true);
+    error_msg.clear();
+
+    // test Copy Ctor of Folder
+    try
+    {
+        string_view folder_name = "MyFolder";
+        Folder::Sptr folder = make_shared<Folder>(folder_name);
+        File::Sptr file1 = make_shared<File>("file1.txt", 2048);
+        File::Sptr file2 = make_shared<File>("file2.txt", 4096);
+        
+        folder->Add(file1);
+        folder->Add(file2);
+
+        Folder::Sptr folder_copy = folder;
+
+		TestOK = TestOK && check_dump(ost, "Test Copy Ctor Folder - Child 0", static_pointer_cast<FSObject>(file1), folder_copy->GetChild(0));
+
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Folder - error buffer", error_msg.empty(), true);
+    error_msg.clear();
+
+	// test Assign Opterator of Folder
+    try
+    {
+        string_view folder_name = "MyFolder";
+        Folder::Sptr folder = make_shared<Folder>(folder_name);
+        File::Sptr file1 = make_shared<File>("file1.txt", 2048);
+        File::Sptr file2 = make_shared<File>("file2.txt", 4096);
+        
+        folder->Add(file1);
+        folder->Add(file2);
+
+        Folder::Sptr folder_ass = make_shared<Folder>("Ass folder");
+        folder_ass = folder;
+
+		TestOK = TestOK && check_dump(ost, "Test Assign Op Folder - Child 0", static_pointer_cast<FSObject>(file1), folder_ass->GetChild(0));
+
     }
     catch (const string& err) {
         error_msg = err;
@@ -1088,6 +1215,70 @@ bool TestFile(ostream& ost)
     TestOK = TestOK && check_dump(ost, "Test normal - error buffer empty", error_msg.empty(), true);
     error_msg.clear();
 
+    // File Copy Ctor
+    try
+    {
+        string_view file_name = "file1.txt";
+        size_t block_size = 2048;
+        size_t res_blocks = 20;
+        File::Sptr file = make_shared<File>(file_name, res_blocks, block_size);
+        
+		File::Sptr file_copy = file; // Copy ctor
+
+        // Write to file
+        size_t write_size = 4096;
+        file->Write(write_size);
+        TestOK = TestOK && check_dump(ost, "Test Copy Ctor ",file->GetName(), file_copy->GetName());
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test normal - error buffer empty", error_msg.empty(), true);
+    error_msg.clear();
+
+	// File Assignment OP
+    try
+    {
+        string_view file_name = "file1.txt";
+        size_t block_size = 2048;
+        size_t res_blocks = 20;
+        File::Sptr file = make_shared<File>(file_name, res_blocks, block_size);
+        
+		File::Sptr file_ass = make_shared<File>("file Ass", res_blocks, block_size);
+            
+        file_ass = file; // Assign Opterator
+
+        // Write to file
+        size_t write_size = 4096;
+        file->Write(write_size);
+        TestOK = TestOK && check_dump(ost, "Test Assign Operator ",file->GetName(), file_ass->GetName());
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test normal - error buffer empty", error_msg.empty(), true);
+    error_msg.clear();
+
     // File with empty string
     try
     {
@@ -1264,5 +1455,189 @@ bool TestFile(ostream& ost)
     error_msg.clear();
 
     ost << TestEnd;
+    return TestOK;
+}
+
+bool TestFileSystem(ostream& ost)
+{
+    assert(ost.good());
+
+    ost << TestStart;
+
+    bool TestOK = true;
+    string error_msg;
+
+    try
+    {
+		FileSystem fsys;
+        
+		fsys.SetFactory(make_unique<FSObjectFactory>());
+
+		// build a Test filesystem using the set Factory
+        fsys.CreateTestFilesystem();
+        
+		DumpVisitor dumper(ost);
+
+		ost << "Dump of Test Filesystem via Dump Visitor:\n\n";
+
+		fsys.Work(dumper);
+
+		ost << "\n\n";
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test normal op Filesystem - error buffer empty", error_msg.empty(), true);
+    error_msg.clear();
+
+    try
+    {
+		FileSystem fsys;
+
+
+		FSObjectFactory factory;
+
+		FSObject::Sptr root = factory.CreateFolder("root");
+
+        fsys.SetRoot(move(root));
+        
+        stringstream result;
+        stringstream expected;
+
+
+		DumpVisitor dumper(result);
+        
+		fsys.Work(dumper);
+
+        root = move(fsys.ReturnRoot());
+
+		DumpVisitor expected_dumper(expected);
+
+		root->Accept(expected_dumper);
+
+		TestOK = TestOK && check_dump(ost, "Test ReturnRoot matches",
+			expected.str(), result.str());
+
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test normal op Filesystem - error buffer empty", error_msg.empty(), true);
+    error_msg.clear();
+
+
+    try
+    {
+		FileSystem fsys;
+        FSObject::Sptr root = nullptr;
+   
+		fsys.SetRoot(move(root)); // <= should throw
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Exception Set Null Root", FileSystem::ERROR_NULLPTR ,error_msg);
+    error_msg.clear();
+
+    try
+    {
+		FileSystem fsys;
+        FSObjectFactory::Uptr factory = nullptr;
+   
+        fsys.SetFactory(move(factory)); // <= should throw
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Exception Set Null Factory", FileSystem::ERROR_NULLPTR ,error_msg);
+    error_msg.clear();
+
+    try
+    {
+		FileSystem fsys;
+   
+		fsys.CreateTestFilesystem(); // <= should throw because no factory set
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Exception no Factory in Create Test FileSystem", FileSystem::ERROR_NULLPTR ,error_msg);
+    error_msg.clear();
+
+    try
+    {
+		FileSystem fsys;
+		DumpVisitor dumper(ost);
+		fsys.Work(dumper); // <= should throw because root is null
+    }
+    catch (const string& err) {
+        error_msg = err;
+    }
+    catch (bad_alloc const& error) {
+        error_msg = error.what();
+    }
+    catch (const exception& err) {
+        error_msg = err.what();
+    }
+    catch (...) {
+        error_msg = "Unhandelt Exception";
+    }
+
+    TestOK = TestOK && check_dump(ost, "Test Exception Work with no root set", FileSystem::ERROR_NULLPTR ,error_msg);
+    error_msg.clear();
+
+
+    ost << TestEnd;
+
     return TestOK;
 }

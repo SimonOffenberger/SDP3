@@ -10,6 +10,12 @@
 #include <stdexcept>
 #include <algorithm>
 
+constexpr size_t BLOCKSIZE_SMALL = 2048;
+constexpr size_t BLOCKSIZE_MEDIUM = 8192;
+constexpr size_t BLOCKSIZE_LARGE = 32768;
+constexpr size_t BLOCKSIZE_CUSTOM = 12288;
+
+
 FileSystem::FileSystem(FSObject::Sptr root)
 {
 	if (root == nullptr) throw std::invalid_argument(ERROR_NULLPTR);
@@ -57,15 +63,15 @@ void FileSystem::CreateTestFilesystem()
 	sub_sub_folder->SetName("sub_sub_folder");
 
 	root_folder->SetName("root");
-	root_folder_ptr->Add(m_Factory->CreateFile("file1.txt", 2048));
-	root_folder_ptr->Add(m_Factory->CreateFile("file2.txt", 2048));
-	root_folder_ptr->Add(m_Factory->CreateFile("file3.txt", 2048));
-	root_folder_ptr->Add(m_Factory->CreateFile("file4.txt", 2048));
+	root_folder_ptr->Add(m_Factory->CreateFile("file1.txt", BLOCKSIZE_SMALL));
+	root_folder_ptr->Add(m_Factory->CreateFile("file2.txt", BLOCKSIZE_SMALL));
+	root_folder_ptr->Add(m_Factory->CreateFile("file3.txt", BLOCKSIZE_SMALL));
+	root_folder_ptr->Add(m_Factory->CreateFile("file4.txt", BLOCKSIZE_SMALL));
 	root_folder_ptr->Add(sub_folder);
-	sub_folder_ptr->Add(m_Factory->CreateFile("file5.txt", 8192));
-	sub_folder_ptr->Add(m_Factory->CreateFile("file6.txt", 32768));
+	sub_folder_ptr->Add(m_Factory->CreateFile("file5.txt", BLOCKSIZE_MEDIUM));
+	sub_folder_ptr->Add(m_Factory->CreateFile("file6.txt", BLOCKSIZE_LARGE));
 	sub_folder_ptr->Add(sub_sub_folder);
-	sub_sub_folder_ptr->Add(m_Factory->CreateFile("file7.txt", 12288));
+	sub_sub_folder_ptr->Add(m_Factory->CreateFile("file7.txt", BLOCKSIZE_CUSTOM));
 	sub_sub_folder_ptr->Add(m_Factory->CreateLink("LinkToRoot", root_folder));
 
 	m_Root = move(root_folder);

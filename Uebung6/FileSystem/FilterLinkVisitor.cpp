@@ -7,17 +7,19 @@
  *********************************************************************/
 #include "FilterLinkVisitor.hpp"
 #include <cassert>
+#include <stdexcept>
 
 /** \brief Files are not accepted by link filter */
 bool FilterLinkVisitor::DoFilter(const std::shared_ptr<const File>& file) const
 {
-	assert(file != nullptr);
+	if(file == nullptr) throw std::invalid_argument(ERROR_NULLPTR);
 	return false;
 }
 
 /** \brief Links are accepted by link filter */
 bool FilterLinkVisitor::DoFilter(const std::shared_ptr<const Link>& link) const
 {
-	assert(link != nullptr);
+	if(link == nullptr) throw std::invalid_argument(ERROR_NULLPTR);
+
 	return true;
 }

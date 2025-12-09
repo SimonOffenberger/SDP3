@@ -22,14 +22,13 @@ public:
 	// Smart pointer types
 	using Uptr = std::unique_ptr<Folder>;
 	using Sptr = std::shared_ptr<Folder>;
-	using Wptr = std::shared_ptr<Folder>;
+	using Wptr = std::weak_ptr<Folder>;
 	using Cont = std::vector<FSObj_Sptr>;
 
 	/** \brief Construct a folder with a name
 	 * \param name Name of the folder
 	 */
 	Folder(std::string_view name) : FSObject(name) {}
-
 
 	/** \brief Add a child FSObject to this folder
 	 * \param fsobj Shared pointer to the child
@@ -67,14 +66,25 @@ public:
 	*/
 	virtual FSObj_Sptr Clone() const override;
 
+	/** \brief Assignment operator for Folder
+	 * This makes a deep copy of the folder and its children.
+	 * \param fold Folder to copy from
+	 */
+	void operator=(const Folder& fold);
+
 protected:
 	/**
 	 * \brief Copy Constructor of a Folder .
 	 * This makes a deep copy of the folder and its children.
+	 * This is protected to prevent direct usage, use Clone() instead
+	 * This is done because the parent pointer needs to be set correctly, and this 
+	 * cannot be done in the copy constructor directly.
 	 * \param fold
 	 */
 	Folder(const Folder& fold);
 	
+	// DTOR is defaulted because no special action is needed!
+
 private:
 	Folder::Cont m_Children;
 };

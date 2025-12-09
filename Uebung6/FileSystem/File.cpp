@@ -31,5 +31,6 @@ size_t File::GetSize() const
 
 FSObj_Sptr File::Clone() const
 {
+	// Call copy constructor
     return std::make_shared<File>(File::File( *this ));
 }

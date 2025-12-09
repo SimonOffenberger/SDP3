@@ -13,11 +13,12 @@
 Folder::Folder(const Folder& fold) : FSObject(fold)
 {
 	m_Children.reserve(fold.m_Children.size());
+
 	for (const auto & child : fold.m_Children)
 	{
 		// clone each child; do not call Add() because it needs shared_from_this()
 		// and we are still in the constructor so shared_from_this() is not available yet.
-		m_Children.emplace_back(child->Clone());
+		m_Children.emplace_back(move(child->Clone()));
 	}
 }
 
@@ -89,5 +90,27 @@ FSObj_Sptr Folder::Clone() const
 	}
 
 	return newFolder;
+}
+
+
+void Folder::operator=(const Folder& fold)
+{
+	// prevent self-assignment
+	if (this != &fold)
+	{
+		// call base class assignment
+		FSObject::operator=(fold);
+
+		// clear current children
+		m_Children.clear();
+
+		// deep copy of children
+		m_Children.reserve(fold.m_Children.size());
+
+		for (const auto& child : fold.m_Children)
+		{
+			Add(move(child->Clone()));
+		}
+	}
 }
 

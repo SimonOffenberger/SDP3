@@ -41,6 +41,10 @@ int main()
 {
 
     ofstream output{ "Testoutput.txt" };
+    if (!output.is_open()) {
+        cerr << "Konnte Testoutput.txt nicht oeffnen" << TestCaseFail;
+        return 1;
+    }
 
     try {
 	    DumpVisitor visitor(std::cout);
@@ -623,7 +627,9 @@ bool TestLink(ostream& ost)
         std::string_view link_name = "LinkToMyFolder";
         Folder::Sptr folder = make_shared<Folder>(folder_name);
         Link::Sptr link = make_shared<Link>(folder, link_name);
-    
+		Folder::Sptr parent_folder = make_shared<Folder>("AnotherFolder");
+		parent_folder->Add(link); // set parent of link
+
 		// Call Copy CTOR
         Link::Sptr link_copy = make_shared<Link>( *link );
 
@@ -633,6 +639,11 @@ bool TestLink(ostream& ost)
 		link_copy->GetReferncedFSObject()->SetName("NewFolderName");
 
         TestOK = TestOK && check_dump(ost, "Test for shallow Copy of Link", link->GetReferncedFSObject(), link_copy->GetReferncedFSObject());
+        
+		parent_folder->SetName("Modified");
+
+        TestOK = TestOK && check_dump(ost, "Test for parent of Copied Link", parent_folder->GetName(), link_copy->GetParent().lock()->GetName());
+    
     }
     catch (const string& err) {
         error_msg = err;
@@ -657,12 +668,18 @@ bool TestLink(ostream& ost)
         std::string_view link_name = "LinkToMyFolder";
         Folder::Sptr folder = make_shared<Folder>(folder_name);
         Link::Sptr link = make_shared<Link>(folder, link_name);
-    
+		Folder::Sptr another_folder = make_shared<Folder>("AnotherFolder");
+		another_folder->Add(link); // set parent of link
+
         Link::Sptr link_ass = make_shared<Link>(folder, "Ass Link");
             
         *link_ass = *link;
 
         TestOK = TestOK && check_dump(ost, "Test Assign Op of Link", link->GetReferncedFSObject(), link_ass->GetReferncedFSObject());
+        
+        another_folder->SetName("Modified");
+
+        TestOK = TestOK && check_dump(ost, "Test Assign Op for Parent of Link", another_folder->GetName(), link_ass->GetParent().lock()->GetName());
 
     }
     catch (const string& err) {
@@ -985,10 +1002,14 @@ bool TestFolder(ostream& ost)
         folder->Add(file1);
         folder->Add(file2);
 
-        Folder folder_ass{ "Ass folder"};
-        folder_ass = *folder;
+        Folder::Sptr folder_ass = make_shared<Folder>( "Ass folder");
+        *folder_ass = *folder;
 
-		TestOK = TestOK && check_dump(ost, "Test Assign Op Folder - Child 0", static_pointer_cast<FSObject>(file1), folder_ass.GetChild(0));
+		TestOK = TestOK && check_dump(ost, "Test Assign Op Folder - Child 0", file1->GetName(), folder_ass->GetChild(0)->GetName());
+		
+        folder->SetName("Modified Name");
+
+        TestOK = TestOK && check_dump(ost, "Test Assign Op Folder Parent - Child 0", folder_ass->GetName(), folder_ass->GetChild(0)->GetParent().lock()->GetName());
 
     }
     catch (const string& err) {
@@ -1297,16 +1318,20 @@ bool TestFile(ostream& ost)
         string_view file_name = "file1.txt";
         size_t block_size = 2048;
         size_t res_blocks = 20;
-        File file = { file_name, res_blocks, block_size };
-        
-		File file_copy = file; // Copy ctor
+        File::Sptr file = make_shared<File>( file_name, res_blocks, block_size );
+		Folder::Sptr parent_folder = make_shared<Folder>("ParentFolder");
+        parent_folder->Add(file);
+
+		File file_copy = *file; // Copy ctor
 
         // Write to file
         size_t write_size = 4096;
-        file.Write(write_size);
-        TestOK = TestOK && check_dump(ost, "Test Copy Ctor ",file.GetName(), file_copy.GetName());
 
-        TestOK = TestOK && check_dump(ost, "Test Copy Ctor ",file.GetName(), file_copy.GetName());
+        file->Write(write_size);
+
+        TestOK = TestOK && check_dump(ost, "Test Copy Ctor ",file->GetName(), file_copy.GetName());
+
+        TestOK = TestOK && check_dump(ost, "Test Copy Ctor Parent of file", file->GetParent().lock()->GetName(), file_copy.GetParent().lock()->GetName());
     }
     catch (const string& err) {
         error_msg = err;

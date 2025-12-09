@@ -299,6 +299,19 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \\Dadurch wird verhindert, dass Objekte, die keine Kinder enthalten können (wie Dateien und Verweise),
 diese Methoden erben und somit das Substitutionsprinzip verletzen.
 
+\subsubsection{Copy Ctor und Assignment Operator}
+Für die Klassen File und Link ist der Default Copy Constructor und Assignment Operator ausreichend.
+Für die Klasse Folder wurde der Copy Constructor und Assignment Operator
+überschrieben, um eine tiefe Kopie der enthaltenen Kindobjekte zu gewährleisten.
+Dadurch wird sichergestellt, dass bei der Kopie eines Ordners
+alle enthaltenen Objekte ebenfalls kopiert werden,
+anstatt nur Referenzen auf die Originalobjekte zu übernehmen.
+Dies verhindert unerwartete Seiteneffekte bei der Manipulation von Ordnern und ihren Inhalten.
+Weiters ist darauf zu achten, dass bei der Implementierung des Copy Constructors und Assignment Operators
+auch die Parent Beziehung der Kindobjekte korrekt gesetzt wird.
+
+Der Destruktor der Klassen muss nicht überschrieben werden, da auschließlich mit Smart Pointern gearbeitet wird.
+
 \subsection{Factory Pattern}
 Für die konkrete Implementierung der Objekterzeugung wurde das Pattern Simple Factory verwendet.
 Die Klasse \texttt{FSObjectFactory} kapselt die Logik zur Erstellung von Dateien, Ordnern und Verweisen.

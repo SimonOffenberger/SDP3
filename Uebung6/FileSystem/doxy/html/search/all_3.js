@@ -15,7 +15,7 @@ var searchData=
   ['filtervisitor_12',['FilterVisitor',['../class_filter_visitor.html',1,'']]],
   ['filtervisitor_2ecpp_13',['FilterVisitor.cpp',['../_filter_visitor_8cpp.html',1,'']]],
   ['filtervisitor_2ehpp_14',['FilterVisitor.hpp',['../_filter_visitor_8hpp.html',1,'']]],
-  ['folder_15',['Folder',['../class_folder.html',1,'Folder'],['../class_folder.html#afc294d1810c0f9ef39f2611aee89fbca',1,'Folder::Folder()']]],
+  ['folder_15',['Folder',['../class_folder.html',1,'Folder'],['../class_folder.html#afc294d1810c0f9ef39f2611aee89fbca',1,'Folder::Folder(std::string_view name)'],['../class_folder.html#a575323318b3a7a6fabab366c725a752c',1,'Folder::Folder(const Folder &amp;fold)']]],
   ['folder_2ecpp_16',['Folder.cpp',['../_folder_8cpp.html',1,'']]],
   ['folder_2ehpp_17',['Folder.hpp',['../_folder_8hpp.html',1,'']]],
   ['fsobject_18',['FSObject',['../class_f_s_object.html',1,'FSObject'],['../class_f_s_object.html#a8fb4b0e0ec2d80b7d785bf0d1bfa6bb7',1,'FSObject::FSObject()']]],

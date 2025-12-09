@@ -170,10 +170,10 @@ Test normal CTOR Link - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test Copy CTOR of Link
-[Test OK] Result: (Expected: 0000022EF02910E8 == Result: 0000022EF02910E8)
+[Test OK] Result: (Expected: 000001C8BDA974B8 == Result: 000001C8BDA974B8)
 
 Test for shallow Copy of Link
-[Test OK] Result: (Expected: 0000022EF02910E8 == Result: 0000022EF02910E8)
+[Test OK] Result: (Expected: 000001C8BDA974B8 == Result: 000001C8BDA974B8)
 
 Test for parent of Copied Link
 [Test OK] Result: (Expected: Modified == Result: Modified)
@@ -182,7 +182,7 @@ Test normal COPY CTOR Link - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test Assign Op of Link
-[Test OK] Result: (Expected: 0000022EF02910E8 == Result: 0000022EF02910E8)
+[Test OK] Result: (Expected: 000001C8BDA974B8 == Result: 000001C8BDA974B8)
 
 Test Assign Op for Parent of Link
 [Test OK] Result: (Expected: Modified == Result: Modified)
@@ -256,10 +256,10 @@ Test normal CTOR Folder
 [Test OK] Result: (Expected: MyFolder == Result: MyFolder)
 
 Get Child from folder
-[Test OK] Result: (Expected: 0000022EF02A76C0 == Result: 0000022EF02A76C0)
+[Test OK] Result: (Expected: 000001C8BDA97580 == Result: 000001C8BDA97580)
 
 Get next Child from folder
-[Test OK] Result: (Expected: 0000022EF02A7480 == Result: 0000022EF02A7480)
+[Test OK] Result: (Expected: 000001C8BDAA78E0 == Result: 000001C8BDAA78E0)
 
 Get Child for invalid index
 [Test OK] Result: (Expected: 0000000000000000 == Result: 0000000000000000)
@@ -280,7 +280,7 @@ Test Copy Ctor Folder test for Deep Copy in Sub Folder File
 [Test OK] Result: (Expected: true == Result: true)
 
 Test Parent of Copied Folder
-[Test OK] Result: (Expected: 0000022EF02A75F8 == Result: 0000022EF02A75F8)
+[Test OK] Result: (Expected: 000001C8BDAA7B28 == Result: 000001C8BDAA7B28)
 
 Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -295,13 +295,13 @@ Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test Self Assign Folder - Child 0
-[Test OK] Result: (Expected: 0000022EF02A6A00 == Result: 0000022EF02A6A00)
+[Test OK] Result: (Expected: 000001C8BDA97580 == Result: 000001C8BDA97580)
 
 Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test Remove Child from Folder
-[Test OK] Result: (Expected: 0000022EF02A76C0 == Result: 0000022EF02A76C0)
+[Test OK] Result: (Expected: 000001C8BDAA78E0 == Result: 000001C8BDAA78E0)
 
 Test Folder - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -313,10 +313,10 @@ Test Folder - CTOR with empty string
 [Test OK] Result: (Expected: ERROR String Empty == Result: ERROR String Empty)
 
 Test nested folders - root has sub1
-[Test OK] Result: (Expected: 0000022EF029B010 == Result: 0000022EF029B010)
+[Test OK] Result: (Expected: 000001C8BDA97580 == Result: 000001C8BDA97580)
 
 Test nested folders - sub1 has sub2
-[Test OK] Result: (Expected: 0000022EF029B0E0 == Result: 0000022EF029B0E0)
+[Test OK] Result: (Expected: 000001C8BDAA78E0 == Result: 000001C8BDAA78E0)
 
 Test nested folders - error buffer
 [Test OK] Result: (Expected: true == Result: true)
@@ -328,19 +328,19 @@ Test parent pointer - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test remove non-existent child
-[Test OK] Result: (Expected: 0000022EF02A6C40 == Result: 0000022EF02A6C40)
+[Test OK] Result: (Expected: 000001C8BDA97580 == Result: 000001C8BDA97580)
 
 Test remove non-existent - error buffer
 [Test OK] Result: (Expected: true == Result: true)
 
 Test mixed children - file
-[Test OK] Result: (Expected: 0000022EF02A7840 == Result: 0000022EF02A7840)
+[Test OK] Result: (Expected: 000001C8BDA97580 == Result: 000001C8BDA97580)
 
 Test mixed children - folder
-[Test OK] Result: (Expected: 0000022EF029B018 == Result: 0000022EF029B018)
+[Test OK] Result: (Expected: 000001C8BDAA78E8 == Result: 000001C8BDAA78E8)
 
 Test mixed children - link
-[Test OK] Result: (Expected: 0000022EF02A73C0 == Result: 0000022EF02A73C0)
+[Test OK] Result: (Expected: 000001C8BDAA79B0 == Result: 000001C8BDAA79B0)
 
 Test mixed children - error buffer
 [Test OK] Result: (Expected: true == Result: true)

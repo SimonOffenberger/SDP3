@@ -119,43 +119,46 @@ $(function(){initNavTree('_f_s_object_8hpp_source.html','',''); });
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">using </span>Wptr = std::weak_ptr&lt;FSObject&gt;;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_f_s_object.html#addad51e0e85a75e3de9453410ce9e5d1">   34</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_f_s_object.html#addad51e0e85a75e3de9453410ce9e5d1">Accept</a>(<a class="code hl_class" href="class_i_visitor.html">IVisitor</a>&amp; visit) =0;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">virtual</span> IFolder::Sptr <a class="code hl_function" href="class_f_s_object.html#af1185a4888f4e85c5e1b2b60391f3f18">AsFolder</a>();</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">virtual</span> std::shared_ptr&lt;const IFolder&gt; <a class="code hl_function" href="class_f_s_object.html#af1185a4888f4e85c5e1b2b60391f3f18">AsFolder</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_f_s_object.html#abfbed5ad342c9aa829aae1fab1c7e52d">   39</a></span>    <span class="keyword">virtual</span> FSObj_Sptr <a class="code hl_function" href="class_f_s_object.html#abfbed5ad342c9aa829aae1fab1c7e52d">Clone</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">virtual</span> IFolder::Sptr <a class="code hl_function" href="class_f_s_object.html#af1185a4888f4e85c5e1b2b60391f3f18">AsFolder</a>();</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">virtual</span> std::shared_ptr&lt;const ILink&gt; <a class="code hl_function" href="class_f_s_object.html#aa38a416a3798a9746d70aa5fcd3a2997">AsLink</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">virtual</span> std::shared_ptr&lt;const IFolder&gt; <a class="code hl_function" href="class_f_s_object.html#af1185a4888f4e85c5e1b2b60391f3f18">AsFolder</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    std::string_view <a class="code hl_function" href="class_f_s_object.html#a45a3a507d09c23729f2fd9dd4cf7c296">GetName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">virtual</span> std::shared_ptr&lt;const ILink&gt; <a class="code hl_function" href="class_f_s_object.html#aa38a416a3798a9746d70aa5fcd3a2997">AsLink</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_f_s_object.html#a07e7d325c0b1e0051d1382f9fe5439c6">SetName</a>(std::string_view name);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    FSObj_Wptr <a class="code hl_function" href="class_f_s_object.html#ab0dbe6305a976a871fde1b7a364f70e1">GetParent</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    std::string_view <a class="code hl_function" href="class_f_s_object.html#a45a3a507d09c23729f2fd9dd4cf7c296">GetName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_f_s_object.html#a07e7d325c0b1e0051d1382f9fe5439c6">SetName</a>(std::string_view name);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_f_s_object.html#ab1b5213f8a7ee790ab62fb5593825bad">SetParant</a>(Sptr parent);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_function" href="class_f_s_object.html#a8fb4b0e0ec2d80b7d785bf0d1bfa6bb7">FSObject</a>(std::string_view name = <span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    std::string m_Name;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    FSObj_Wptr m_Parent;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>};</div>
-</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    FSObj_Wptr <a class="code hl_function" href="class_f_s_object.html#ab0dbe6305a976a871fde1b7a364f70e1">GetParent</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_f_s_object.html#a1ea015d35ad689380d48eae748b0a061">SetParent</a>(Sptr parent);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_function" href="class_f_s_object.html#a8fb4b0e0ec2d80b7d785bf0d1bfa6bb7">FSObject</a>(std::string_view name = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    std::string m_Name;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    FSObj_Wptr m_Parent;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>};</div>
+</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_i_folder_8hpp_html"><div class="ttname"><a href="_i_folder_8hpp.html">IFolder.hpp</a></div><div class="ttdoc">Interface for folder-like FSObjects.</div></div>
 <div class="ttc" id="a_i_link_8hpp_html"><div class="ttname"><a href="_i_link_8hpp.html">ILink.hpp</a></div><div class="ttdoc">Interface for folder-like FSObjects.</div></div>
 <div class="ttc" id="a_i_visitor_8hpp_html"><div class="ttname"><a href="_i_visitor_8hpp.html">IVisitor.hpp</a></div><div class="ttdoc">Interface for visitor pattern in filesystem objects.</div></div>
 <div class="ttc" id="a_object_8h_html"><div class="ttname"><a href="_object_8h.html">Object.h</a></div><div class="ttdoc">Root base class for all objects.</div></div>
 <div class="ttc" id="aclass_f_s_object_html_a07e7d325c0b1e0051d1382f9fe5439c6"><div class="ttname"><a href="class_f_s_object.html#a07e7d325c0b1e0051d1382f9fe5439c6">FSObject::SetName</a></div><div class="ttdeci">void SetName(std::string_view name)</div><div class="ttdoc">Set the name of the object.</div><div class="ttdef"><b>Definition</b> FSObject.cpp:32</div></div>
+<div class="ttc" id="aclass_f_s_object_html_a1ea015d35ad689380d48eae748b0a061"><div class="ttname"><a href="class_f_s_object.html#a1ea015d35ad689380d48eae748b0a061">FSObject::SetParent</a></div><div class="ttdeci">void SetParent(Sptr parent)</div><div class="ttdoc">Set parent of this FSObject.</div><div class="ttdef"><b>Definition</b> FSObject.cpp:38</div></div>
 <div class="ttc" id="aclass_f_s_object_html_a45a3a507d09c23729f2fd9dd4cf7c296"><div class="ttname"><a href="class_f_s_object.html#a45a3a507d09c23729f2fd9dd4cf7c296">FSObject::GetName</a></div><div class="ttdeci">std::string_view GetName() const</div><div class="ttdoc">Get the name of the object.</div><div class="ttdef"><b>Definition</b> FSObject.cpp:27</div></div>
 <div class="ttc" id="aclass_f_s_object_html_a8fb4b0e0ec2d80b7d785bf0d1bfa6bb7"><div class="ttname"><a href="class_f_s_object.html#a8fb4b0e0ec2d80b7d785bf0d1bfa6bb7">FSObject::FSObject</a></div><div class="ttdeci">FSObject(std::string_view name=&quot;&quot;)</div><div class="ttdoc">Construct an FSObject with optional name.</div><div class="ttdef"><b>Definition</b> FSObject.cpp:44</div></div>
 <div class="ttc" id="aclass_f_s_object_html_aa38a416a3798a9746d70aa5fcd3a2997"><div class="ttname"><a href="class_f_s_object.html#aa38a416a3798a9746d70aa5fcd3a2997">FSObject::AsLink</a></div><div class="ttdeci">virtual std::shared_ptr&lt; const ILink &gt; AsLink() const</div><div class="ttdoc">Try to cast this FSObject to a link.</div><div class="ttdef"><b>Definition</b> FSObject.cpp:22</div></div>
 <div class="ttc" id="aclass_f_s_object_html_ab0dbe6305a976a871fde1b7a364f70e1"><div class="ttname"><a href="class_f_s_object.html#ab0dbe6305a976a871fde1b7a364f70e1">FSObject::GetParent</a></div><div class="ttdeci">FSObj_Wptr GetParent() const</div><div class="ttdoc">Get parent as weak pointer.</div><div class="ttdef"><b>Definition</b> FSObject.cpp:50</div></div>
-<div class="ttc" id="aclass_f_s_object_html_ab1b5213f8a7ee790ab62fb5593825bad"><div class="ttname"><a href="class_f_s_object.html#ab1b5213f8a7ee790ab62fb5593825bad">FSObject::SetParant</a></div><div class="ttdeci">void SetParant(Sptr parent)</div><div class="ttdoc">Set parent of this FSObject.</div><div class="ttdef"><b>Definition</b> FSObject.cpp:38</div></div>
+<div class="ttc" id="aclass_f_s_object_html_abfbed5ad342c9aa829aae1fab1c7e52d"><div class="ttname"><a href="class_f_s_object.html#abfbed5ad342c9aa829aae1fab1c7e52d">FSObject::Clone</a></div><div class="ttdeci">virtual FSObj_Sptr Clone() const =0</div><div class="ttdoc">Clones it self as a new.</div></div>
 <div class="ttc" id="aclass_f_s_object_html_addad51e0e85a75e3de9453410ce9e5d1"><div class="ttname"><a href="class_f_s_object.html#addad51e0e85a75e3de9453410ce9e5d1">FSObject::Accept</a></div><div class="ttdeci">virtual void Accept(IVisitor &amp;visit)=0</div><div class="ttdoc">Accept a visitor (pure virtual)</div></div>
 <div class="ttc" id="aclass_f_s_object_html_af1185a4888f4e85c5e1b2b60391f3f18"><div class="ttname"><a href="class_f_s_object.html#af1185a4888f4e85c5e1b2b60391f3f18">FSObject::AsFolder</a></div><div class="ttdeci">virtual IFolder::Sptr AsFolder()</div><div class="ttdoc">Try to &quot;cast&quot; this FSObject to a folder.</div><div class="ttdef"><b>Definition</b> FSObject.cpp:12</div></div>
 <div class="ttc" id="aclass_i_visitor_html"><div class="ttname"><a href="class_i_visitor.html">IVisitor</a></div><div class="ttdef"><b>Definition</b> IVisitor.hpp:19</div></div>

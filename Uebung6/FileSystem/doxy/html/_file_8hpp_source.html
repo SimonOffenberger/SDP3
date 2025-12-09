@@ -124,18 +124,21 @@ $(function(){initNavTree('_file_8hpp_source.html','',''); });
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_file.html#af4d87c0bf438905ab55d9a2ba8834ec7">Write</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span> bytes);</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_file.html#ad80e11267b1ad8448e228b5e02d34f4f">GetSize</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">size_t</span> m_size;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">const</span> <span class="keywordtype">size_t</span> m_blocksize;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">const</span> <span class="keywordtype">size_t</span> m_res_blocks;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">virtual</span> FSObj_Sptr <a class="code hl_function" href="class_file.html#ab843e7c6ab60f7eae08776cd62340884">Clone</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">size_t</span> m_size;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">const</span> <span class="keywordtype">size_t</span> m_blocksize;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">const</span> <span class="keywordtype">size_t</span> m_res_blocks;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
 </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_f_s_object_8hpp_html"><div class="ttname"><a href="_f_s_object_8hpp.html">FSObject.hpp</a></div><div class="ttdoc">Base class for filesystem objects.</div></div>
 <div class="ttc" id="aclass_f_s_object_html_a8fb4b0e0ec2d80b7d785bf0d1bfa6bb7"><div class="ttname"><a href="class_f_s_object.html#a8fb4b0e0ec2d80b7d785bf0d1bfa6bb7">FSObject::FSObject</a></div><div class="ttdeci">FSObject(std::string_view name=&quot;&quot;)</div><div class="ttdoc">Construct an FSObject with optional name.</div><div class="ttdef"><b>Definition</b> FSObject.cpp:44</div></div>
 <div class="ttc" id="aclass_file_html_a030e2d798a7bc915bb17ff0d38ed259e"><div class="ttname"><a href="class_file.html#a030e2d798a7bc915bb17ff0d38ed259e">File::Accept</a></div><div class="ttdeci">virtual void Accept(IVisitor &amp;visit) override</div><div class="ttdoc">Accept a visitor.</div><div class="ttdef"><b>Definition</b> File.cpp:12</div></div>
 <div class="ttc" id="aclass_file_html_aa557e73cacd78b7ca8845abcb61be01a"><div class="ttname"><a href="class_file.html#aa557e73cacd78b7ca8845abcb61be01a">File::File</a></div><div class="ttdeci">File(std::string_view name, const size_t res_blocks, const size_t blocksize=4096)</div><div class="ttdoc">Construct a file.</div><div class="ttdef"><b>Definition</b> File.hpp:30</div></div>
+<div class="ttc" id="aclass_file_html_ab843e7c6ab60f7eae08776cd62340884"><div class="ttname"><a href="class_file.html#ab843e7c6ab60f7eae08776cd62340884">File::Clone</a></div><div class="ttdeci">virtual FSObj_Sptr Clone() const override</div><div class="ttdoc">Clones it self as a new.</div><div class="ttdef"><b>Definition</b> File.cpp:32</div></div>
 <div class="ttc" id="aclass_file_html_ad80e11267b1ad8448e228b5e02d34f4f"><div class="ttname"><a href="class_file.html#ad80e11267b1ad8448e228b5e02d34f4f">File::GetSize</a></div><div class="ttdeci">size_t GetSize() const</div><div class="ttdoc">Get current size of the file.</div><div class="ttdef"><b>Definition</b> File.cpp:27</div></div>
 <div class="ttc" id="aclass_file_html_af4d87c0bf438905ab55d9a2ba8834ec7"><div class="ttname"><a href="class_file.html#af4d87c0bf438905ab55d9a2ba8834ec7">File::Write</a></div><div class="ttdeci">void Write(const size_t bytes)</div><div class="ttdoc">Write bytes to the file (increases size)</div><div class="ttdef"><b>Definition</b> File.cpp:18</div></div>
 <div class="ttc" id="aclass_i_visitor_html"><div class="ttname"><a href="class_i_visitor.html">IVisitor</a></div><div class="ttdef"><b>Definition</b> IVisitor.hpp:19</div></div>

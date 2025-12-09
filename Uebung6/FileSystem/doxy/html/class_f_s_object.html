@@ -119,6 +119,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Wptr</b> = std::weak
 Public Member Functions</h2></td></tr>
 <tr class="memitem:addad51e0e85a75e3de9453410ce9e5d1" id="r_addad51e0e85a75e3de9453410ce9e5d1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addad51e0e85a75e3de9453410ce9e5d1">Accept</a> (<a class="el" href="class_i_visitor.html">IVisitor</a> &amp;visit)=0</td></tr>
 <tr class="memdesc:addad51e0e85a75e3de9453410ce9e5d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accept a visitor (pure virtual)  <br /></td></tr>
+<tr class="memitem:abfbed5ad342c9aa829aae1fab1c7e52d" id="r_abfbed5ad342c9aa829aae1fab1c7e52d"><td class="memItemLeft" align="right" valign="top">virtual FSObj_Sptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfbed5ad342c9aa829aae1fab1c7e52d">Clone</a> () const =0</td></tr>
+<tr class="memdesc:abfbed5ad342c9aa829aae1fab1c7e52d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clones it self as a new.  <br /></td></tr>
 <tr class="memitem:af1185a4888f4e85c5e1b2b60391f3f18" id="r_af1185a4888f4e85c5e1b2b60391f3f18"><td class="memItemLeft" align="right" valign="top">virtual IFolder::Sptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1185a4888f4e85c5e1b2b60391f3f18">AsFolder</a> ()</td></tr>
 <tr class="memdesc:af1185a4888f4e85c5e1b2b60391f3f18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to "cast" this <a class="el" href="class_f_s_object.html">FSObject</a> to a folder.  <br /></td></tr>
 <tr class="memitem:a532e66249339dfc3d274058c5b6c2eef" id="r_a532e66249339dfc3d274058c5b6c2eef"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; const <a class="el" href="class_i_folder.html">IFolder</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a532e66249339dfc3d274058c5b6c2eef">AsFolder</a> () const</td></tr>
@@ -131,8 +133,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a07e7d325c0b1e0051d1382f9fe5439c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the name of the object.  <br /></td></tr>
 <tr class="memitem:ab0dbe6305a976a871fde1b7a364f70e1" id="r_ab0dbe6305a976a871fde1b7a364f70e1"><td class="memItemLeft" align="right" valign="top">FSObj_Wptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0dbe6305a976a871fde1b7a364f70e1">GetParent</a> () const</td></tr>
 <tr class="memdesc:ab0dbe6305a976a871fde1b7a364f70e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get parent as weak pointer.  <br /></td></tr>
-<tr class="memitem:ab1b5213f8a7ee790ab62fb5593825bad" id="r_ab1b5213f8a7ee790ab62fb5593825bad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1b5213f8a7ee790ab62fb5593825bad">SetParant</a> (Sptr parent)</td></tr>
-<tr class="memdesc:ab1b5213f8a7ee790ab62fb5593825bad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set parent of this <a class="el" href="class_f_s_object.html">FSObject</a>.  <br /></td></tr>
+<tr class="memitem:a1ea015d35ad689380d48eae748b0a061" id="r_a1ea015d35ad689380d48eae748b0a061"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ea015d35ad689380d48eae748b0a061">SetParent</a> (Sptr parent)</td></tr>
+<tr class="memdesc:a1ea015d35ad689380d48eae748b0a061"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set parent of this <a class="el" href="class_f_s_object.html">FSObject</a>.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_object')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_object.html">Object</a></td></tr>
 <tr class="memitem:aa3e791419d84c4c346ef9499513b8e00 inherit pub_methods_class_object" id="r_aa3e791419d84c4c346ef9499513b8e00"><td class="memItemLeft" align="right" valign="top">
 virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Object</b> ()</td></tr>
@@ -314,6 +316,36 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="abfbed5ad342c9aa829aae1fab1c7e52d" name="abfbed5ad342c9aa829aae1fab1c7e52d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfbed5ad342c9aa829aae1fab1c7e52d">&#9670;&#160;</a></span>Clone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual FSObj_Sptr FSObject::Clone </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clones it self as a new. </p>
+<dl class="section return"><dt>Returns</dt><dd>Shared pointer to the cloned <a class="el" href="class_f_s_object.html">FSObject</a> </dd></dl>
+
+<p>Implemented in <a class="el" href="class_file.html#ab843e7c6ab60f7eae08776cd62340884">File</a>, <a class="el" href="class_folder.html#af8e5884f0c7f3739fdad6f12f4a10f85">Folder</a>, and <a class="el" href="class_link.html#ae05335bb301c16c76c180022cf1f0668">Link</a>.</p>
+
+</div>
+</div>
 <a id="a45a3a507d09c23729f2fd9dd4cf7c296" name="a45a3a507d09c23729f2fd9dd4cf7c296"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a45a3a507d09c23729f2fd9dd4cf7c296">&#9670;&#160;</a></span>GetName()</h2>
 
@@ -379,14 +411,14 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab1b5213f8a7ee790ab62fb5593825bad" name="ab1b5213f8a7ee790ab62fb5593825bad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1b5213f8a7ee790ab62fb5593825bad">&#9670;&#160;</a></span>SetParant()</h2>
+<a id="a1ea015d35ad689380d48eae748b0a061" name="a1ea015d35ad689380d48eae748b0a061"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ea015d35ad689380d48eae748b0a061">&#9670;&#160;</a></span>SetParent()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void FSObject::SetParant </td>
+          <td class="memname">void FSObject::SetParent </td>
           <td>(</td>
           <td class="paramtype">Sptr</td>          <td class="paramname"><span class="paramname"><em>parent</em></span></td><td>)</td>
           <td></td>

@@ -134,6 +134,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0cc9ab65b667500729b6e5b8970b1db8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the referenced <a class="el" href="class_f_s_object.html">FSObject</a>.  <br /></td></tr>
 <tr class="memitem:afe8e0bc3d75284a5eaedc5226410b703" id="r_afe8e0bc3d75284a5eaedc5226410b703"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe8e0bc3d75284a5eaedc5226410b703">Accept</a> (<a class="el" href="class_i_visitor.html">IVisitor</a> &amp;visit) override</td></tr>
 <tr class="memdesc:afe8e0bc3d75284a5eaedc5226410b703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accept a visitor.  <br /></td></tr>
+<tr class="memitem:ae05335bb301c16c76c180022cf1f0668" id="r_ae05335bb301c16c76c180022cf1f0668"><td class="memItemLeft" align="right" valign="top">virtual FSObj_Sptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae05335bb301c16c76c180022cf1f0668">Clone</a> () const override</td></tr>
+<tr class="memdesc:ae05335bb301c16c76c180022cf1f0668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clones it self as a new.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_f_s_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_f_s_object')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_f_s_object.html">FSObject</a></td></tr>
 <tr class="memitem:af1185a4888f4e85c5e1b2b60391f3f18 inherit pub_methods_class_f_s_object" id="r_af1185a4888f4e85c5e1b2b60391f3f18"><td class="memItemLeft" align="right" valign="top">virtual IFolder::Sptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_s_object.html#af1185a4888f4e85c5e1b2b60391f3f18">AsFolder</a> ()</td></tr>
 <tr class="memdesc:af1185a4888f4e85c5e1b2b60391f3f18 inherit pub_methods_class_f_s_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to "cast" this <a class="el" href="class_f_s_object.html">FSObject</a> to a folder.  <br /></td></tr>
@@ -145,8 +147,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a07e7d325c0b1e0051d1382f9fe5439c6 inherit pub_methods_class_f_s_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the name of the object.  <br /></td></tr>
 <tr class="memitem:ab0dbe6305a976a871fde1b7a364f70e1 inherit pub_methods_class_f_s_object" id="r_ab0dbe6305a976a871fde1b7a364f70e1"><td class="memItemLeft" align="right" valign="top">FSObj_Wptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_s_object.html#ab0dbe6305a976a871fde1b7a364f70e1">GetParent</a> () const</td></tr>
 <tr class="memdesc:ab0dbe6305a976a871fde1b7a364f70e1 inherit pub_methods_class_f_s_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get parent as weak pointer.  <br /></td></tr>
-<tr class="memitem:ab1b5213f8a7ee790ab62fb5593825bad inherit pub_methods_class_f_s_object" id="r_ab1b5213f8a7ee790ab62fb5593825bad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_s_object.html#ab1b5213f8a7ee790ab62fb5593825bad">SetParant</a> (Sptr parent)</td></tr>
-<tr class="memdesc:ab1b5213f8a7ee790ab62fb5593825bad inherit pub_methods_class_f_s_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set parent of this <a class="el" href="class_f_s_object.html">FSObject</a>.  <br /></td></tr>
+<tr class="memitem:a1ea015d35ad689380d48eae748b0a061 inherit pub_methods_class_f_s_object" id="r_a1ea015d35ad689380d48eae748b0a061"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_s_object.html#a1ea015d35ad689380d48eae748b0a061">SetParent</a> (Sptr parent)</td></tr>
+<tr class="memdesc:a1ea015d35ad689380d48eae748b0a061 inherit pub_methods_class_f_s_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set parent of this <a class="el" href="class_f_s_object.html">FSObject</a>.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_object"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_object')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_object.html">Object</a></td></tr>
 <tr class="memitem:aa3e791419d84c4c346ef9499513b8e00 inherit pub_methods_class_object" id="r_aa3e791419d84c4c346ef9499513b8e00"><td class="memItemLeft" align="right" valign="top">
 virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Object</b> ()</td></tr>
@@ -275,6 +277,36 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>E
 <dl class="section return"><dt>Returns</dt><dd>Shared pointer to <a class="el" href="class_i_link.html">ILink</a> </dd></dl>
 
 <p>Reimplemented from <a class="el" href="class_f_s_object.html#aa38a416a3798a9746d70aa5fcd3a2997">FSObject</a>.</p>
+
+</div>
+</div>
+<a id="ae05335bb301c16c76c180022cf1f0668" name="ae05335bb301c16c76c180022cf1f0668"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae05335bb301c16c76c180022cf1f0668">&#9670;&#160;</a></span>Clone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FSObj_Sptr Link::Clone </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clones it self as a new. </p>
+<dl class="section return"><dt>Returns</dt><dd>Shared pointer to the cloned <a class="el" href="class_f_s_object.html">FSObject</a> </dd></dl>
+
+<p>Implements <a class="el" href="class_f_s_object.html#abfbed5ad342c9aa829aae1fab1c7e52d">FSObject</a>.</p>
 
 </div>
 </div>

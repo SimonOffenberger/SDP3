@@ -22,6 +22,7 @@ FileSystem::FileSystem(FSObject::Sptr root)
 	
 	m_Root = move(root);
 }
+
 void FileSystem::Work(IVisitor& visitor)
 {
 	if (m_Root == nullptr) throw std::invalid_argument(ERROR_NULLPTR);

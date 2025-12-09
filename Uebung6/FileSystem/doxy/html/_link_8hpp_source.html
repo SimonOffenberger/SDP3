@@ -117,13 +117,15 @@ $(function(){initNavTree('_link_8hpp_source.html','',''); });
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">virtual</span> FSObj_Sptr <a class="code hl_function" href="class_link.html#a0cc9ab65b667500729b6e5b8970b1db8">GetReferncedFSObject</a>() <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_link.html#afe8e0bc3d75284a5eaedc5226410b703">Accept</a>(<a class="code hl_class" href="class_i_visitor.html">IVisitor</a>&amp; visit) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    FSObj_Wptr m_Ref;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">virtual</span> FSObj_Sptr <a class="code hl_function" href="class_link.html#ae05335bb301c16c76c180022cf1f0668">Clone</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    FSObj_Wptr m_Ref;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
 </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_f_s_object_8hpp_html"><div class="ttname"><a href="_f_s_object_8hpp.html">FSObject.hpp</a></div><div class="ttdoc">Base class for filesystem objects.</div></div>
 <div class="ttc" id="a_i_visitor_8hpp_html"><div class="ttname"><a href="_i_visitor_8hpp.html">IVisitor.hpp</a></div><div class="ttdoc">Interface for visitor pattern in filesystem objects.</div></div>
 <div class="ttc" id="aclass_f_s_object_html_a8fb4b0e0ec2d80b7d785bf0d1bfa6bb7"><div class="ttname"><a href="class_f_s_object.html#a8fb4b0e0ec2d80b7d785bf0d1bfa6bb7">FSObject::FSObject</a></div><div class="ttdeci">FSObject(std::string_view name=&quot;&quot;)</div><div class="ttdoc">Construct an FSObject with optional name.</div><div class="ttdef"><b>Definition</b> FSObject.cpp:44</div></div>
@@ -132,6 +134,7 @@ $(function(){initNavTree('_link_8hpp_source.html','',''); });
 <div class="ttc" id="aclass_link_html_a0cc9ab65b667500729b6e5b8970b1db8"><div class="ttname"><a href="class_link.html#a0cc9ab65b667500729b6e5b8970b1db8">Link::GetReferncedFSObject</a></div><div class="ttdeci">virtual FSObj_Sptr GetReferncedFSObject() const override</div><div class="ttdoc">Get the referenced FSObject.</div><div class="ttdef"><b>Definition</b> Link.cpp:27</div></div>
 <div class="ttc" id="aclass_link_html_a72a5b9bf12806c74da79742591163fe4"><div class="ttname"><a href="class_link.html#a72a5b9bf12806c74da79742591163fe4">Link::Link</a></div><div class="ttdeci">Link(FSObj_Sptr linked_obj, std::string_view name=&quot;&quot;)</div><div class="ttdoc">Constructor taking a shared pointer to the linked FSObject.</div><div class="ttdef"><b>Definition</b> Link.cpp:12</div></div>
 <div class="ttc" id="aclass_link_html_ac0d5cdb12109417deb8ff952ec5a5a0a"><div class="ttname"><a href="class_link.html#ac0d5cdb12109417deb8ff952ec5a5a0a">Link::AsLink</a></div><div class="ttdeci">virtual std::shared_ptr&lt; const ILink &gt; AsLink() const override</div><div class="ttdoc">Cast this object to link interface.</div><div class="ttdef"><b>Definition</b> Link.cpp:21</div></div>
+<div class="ttc" id="aclass_link_html_ae05335bb301c16c76c180022cf1f0668"><div class="ttname"><a href="class_link.html#ae05335bb301c16c76c180022cf1f0668">Link::Clone</a></div><div class="ttdeci">virtual FSObj_Sptr Clone() const override</div><div class="ttdoc">Clones it self as a new.</div><div class="ttdef"><b>Definition</b> Link.cpp:38</div></div>
 <div class="ttc" id="aclass_link_html_afe8e0bc3d75284a5eaedc5226410b703"><div class="ttname"><a href="class_link.html#afe8e0bc3d75284a5eaedc5226410b703">Link::Accept</a></div><div class="ttdeci">virtual void Accept(IVisitor &amp;visit) override</div><div class="ttdoc">Accept a visitor.</div><div class="ttdef"><b>Definition</b> Link.cpp:33</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

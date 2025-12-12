@@ -1,0 +1,215 @@
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Espresso
+
+Test ICoffee Description
+[Test OK] Result: (Expected: Espresso: == Result: Espresso:)
+
+Test ICoffee Price
+[Test OK] Result: (Expected: 3 == Result: 3)
+
+Test for Exception in Testcase
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Mocha
+
+Test ICoffee Description
+[Test OK] Result: (Expected: Mocha: == Result: Mocha:)
+
+Test ICoffee Price
+[Test OK] Result: (Expected: 2.7 == Result: 2.7)
+
+Test for Exception in Testcase
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Decaff
+
+Test ICoffee Description
+[Test OK] Result: (Expected: Decaff: == Result: Decaff:)
+
+Test ICoffee Price
+[Test OK] Result: (Expected: 2.8 == Result: 2.8)
+
+Test for Exception in Testcase
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Extended One
+
+Test ICoffee Description
+[Test OK] Result: (Expected: Extended One: == Result: Extended One:)
+
+Test ICoffee Price
+[Test OK] Result: (Expected: 5 == Result: 5)
+
+Test for Exception in Testcase
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Espresso with Milk
+
+Test ICoffee Description
+[Test OK] Result: (Expected: Espresso: Milk, == Result: Espresso: Milk,)
+
+Test ICoffee Price
+[Test OK] Result: (Expected: 5.5 == Result: 5.5)
+
+Test for Exception in Testcase
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Extended One with SojaMilk
+
+Test ICoffee Description
+[Test OK] Result: (Expected: Extended One: SojaMilk, == Result: Extended One: SojaMilk,)
+
+Test ICoffee Price
+[Test OK] Result: (Expected: 20 == Result: 20)
+
+Test for Exception in Testcase
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Mocha with Sugar
+
+Test ICoffee Description
+[Test OK] Result: (Expected: Mocha: Sugar, == Result: Mocha: Sugar,)
+
+Test ICoffee Price
+[Test OK] Result: (Expected: 4.2 == Result: 4.2)
+
+Test for Exception in Testcase
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Decaff with Cream
+
+Test ICoffee Description
+[Test OK] Result: (Expected: Decaff: Cream, == Result: Decaff: Cream,)
+
+Test ICoffee Price
+[Test OK] Result: (Expected: 4.8 == Result: 4.8)
+
+Test for Exception in Testcase
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Decaff with Cream and Cream
+
+Test ICoffee Description
+[Test OK] Result: (Expected: Decaff: Cream, Cream, == Result: Decaff: Cream, Cream,)
+
+Test ICoffee Price
+[Test OK] Result: (Expected: 6.8 == Result: 6.8)
+
+Test for Exception in Testcase
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
+
+*******************************************
+             TESTCASE START                
+*******************************************
+
+Test Mocha alla Diabetes
+
+Test ICoffee Description
+[Test OK] Result: (Expected: Mocha: Sugar, Sugar, Sugar, Sugar, Sugar, Sugar, Sugar, Sugar, Sugar, == Result: Mocha: Sugar, Sugar, Sugar, Sugar, Sugar, Sugar, Sugar, Sugar, Sugar,)
+
+Test ICoffee Price
+[Test OK] Result: (Expected: 16.2 == Result: 16.2)
+
+Test for Exception in Testcase
+[Test OK] Result: (Expected: true == Result: true)
+
+
+*******************************************
+
+Test CoffeePreparation Display 1
+[Test OK] Result: (Expected: Espresso: Milk 5.5 Euro
+ == Result: Espresso: Milk 5.5 Euro
+)
+
+Test CoffeePreparation Display 2
+[Test OK] Result: (Expected: Extended One: SojaMilk 20 Euro
+ == Result: Extended One: SojaMilk 20 Euro
+)
+
+Test CoffeePreparation Display 3
+[Test OK] Result: (Expected: Mocha: Sugar 4.2 Euro
+ == Result: Mocha: Sugar 4.2 Euro
+)
+
+Test for Exception in Testcase
+[Test OK] Result: (Expected: true == Result: true)
+
+Test Exception Bad Ostream in CoffeePreparation
+[Test OK] Result: (Expected: Error Bad Ostream == Result: Error Bad Ostream)
+
+Test for Exception in Ingedient CTOR
+[Test OK] Result: (Expected: Error Nullptr! == Result: Error Nullptr!)
+
+TEST OK!!

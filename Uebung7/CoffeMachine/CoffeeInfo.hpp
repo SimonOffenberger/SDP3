@@ -1,9 +1,14 @@
+/**
+ * @file CoffeeInfo.hpp
+ * @brief Defines static price and label constants for all coffee drinks and add-ons.
+ */
 #ifndef COFFEE_INFO_HPP
 #define	COFFEE_INFO_HPP
 
 #include <string>
+#include "Object.h"
 
-class CoffeeInfo {
+class CoffeeInfo : Object {
 public:
 
 	inline static const double mEspressoPrice = 3;
@@ -31,6 +36,7 @@ public:
 	inline static const std::string mCreamInfo = "Cream";
 
 private:
+	CoffeeInfo() = default;
 };
 
 

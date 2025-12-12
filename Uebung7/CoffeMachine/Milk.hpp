@@ -1,3 +1,7 @@
+/**
+ * @file Milk.hpp
+ * @brief Declares the milk ingredient decorator for coffee orders.
+ */
 #ifndef MILK_HPP
 #define	MILK_HPP
 
@@ -9,10 +13,20 @@
 class Milk : public Ingredient {
 public:
 
+	/**
+	 * @brief Wrap a coffee with milk.
+	 * @param cof Coffee to decorate.
+	 */
 	Milk(ICoffee::Uptr cof) : Ingredient{ move(cof) } {}
 
+	/**
+	 * @brief Return price including milk surcharge.
+	 */
 	virtual double GetCost() override;
 
+	/**
+	 * @brief Append milk label to description.
+	 */
 	virtual std::string GetDescription() override;
 
 };

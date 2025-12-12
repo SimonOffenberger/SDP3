@@ -1,3 +1,7 @@
+/**
+ * @file Mocha.cpp
+ * @brief Implements the mocha coffee pricing and description.
+ */
 #include "Mocha.hpp"
 #include "CoffeeInfo.hpp"
 

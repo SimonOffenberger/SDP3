@@ -1,15 +1,19 @@
+/**
+ * @file CoffeePreparation.cpp
+ * @brief Implements the coffee preparation queue with display and pickup helpers.
+ */
 #include "CoffeePreparation.hpp"
 
 void CoffeePreparation::Prepare(ICoffee::Uptr coffee)
 {
-	if (coffee == nullptr) throw ERROR_NULLPTR;
+	if (coffee == nullptr) throw std::invalid_argument(ERROR_NULLPTR);
 	
 	mCoffeeQueue.push(move(coffee));
 }
 
 void CoffeePreparation::Display(std::ostream& ost)
 {
-	if (ost.bad()) throw ERROR_BAD_OSTREAM;
+	if (ost.bad()) throw std::invalid_argument(ERROR_BAD_OSTREAM);
 
 	std::string description = mCoffeeQueue.front()->GetDescription();
 	

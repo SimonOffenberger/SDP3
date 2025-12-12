@@ -1,3 +1,7 @@
+/**
+ * @file Cream.cpp
+ * @brief Implements the cream ingredient decorator behavior.
+ */
 #include "Cream.hpp"
 #include "CoffeeInfo.hpp"
 

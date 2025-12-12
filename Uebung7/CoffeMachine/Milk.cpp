@@ -1,3 +1,7 @@
+/**
+ * @file Milk.cpp
+ * @brief Implements the milk ingredient decorator behavior.
+ */
 #include "Milk.hpp"
 #include "CoffeeInfo.hpp"
 

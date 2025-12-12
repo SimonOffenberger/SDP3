@@ -1,3 +1,7 @@
+/**
+ * @file Sugar.cpp
+ * @brief Implements the sugar ingredient decorator behavior.
+ */
 #include "Sugar.hpp"
 #include "CoffeeInfo.hpp"
 

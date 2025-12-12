@@ -1,3 +1,7 @@
+/**
+ * @file main.cpp
+ * @brief Runs sample preparations and tests for the coffee machine decorators.
+ */
 #include "vld.h"
 #include "Mocha.hpp"
 #include "ExtendedOne.hpp"
@@ -14,91 +18,238 @@
 #include <memory>
 #include <iostream>
 #include <cassert>
+#include <sstream>
+#include <fstream>
 
 using namespace std;
 
 static bool TestCoffeeIngridient(std::ostream& ost,ICoffee::Uptr cof, const std::string& description, const double price);
+static bool TestCoffeeIngridientException(std::ostream& ost);
+static bool TestCoffeePreparation(std::ostream& ost);
+
+
+#define WriteOutputFile  true
 
 int main()
-{
-	ICoffee::Uptr Coff{ std::make_unique<Cream>(std::make_unique<Sugar>(std::make_unique<Milk>(std::make_unique<Espresso>()))) };
+{	
+	bool TestOK = true;
+	ofstream output{ "Testoutput.txt" };
 
-	CoffeePreparation CoffeeMachine;
+	if (!output.is_open()) {
+		cerr << "Konnte Testoutput.txt nicht oeffnen" << TestCaseFail;
+		return 1;
+	}
 
-	CoffeeMachine.Prepare(move(Coff));
-	
-	CoffeeMachine.Display(std::cout);
+	try {
 
-	Coff = CoffeeMachine.Finished();
+		ICoffee::Uptr Coff{ std::make_unique<Cream>(std::make_unique<Sugar>(std::make_unique<Milk>(std::make_unique<Espresso>()))) };
 
-	cout << TestStart;
-	cout << "Test Espresso" << endl << endl; 
-	TestCoffeeIngridient(std::cout, make_unique<Espresso>(), CoffeeInfo::mEspressoInfo +":", CoffeeInfo::mEspressoPrice);
-	cout << TestEnd;
+		CoffeePreparation CoffeeMachine;
 
-	cout << TestStart;
-	cout << "Test Mocha" << endl << endl; 
-	TestCoffeeIngridient(std::cout, make_unique<Mocha>(), CoffeeInfo::mMochaInfo +":", CoffeeInfo::mMochaPrice);
-	cout << TestEnd;
+		CoffeeMachine.Prepare(move(Coff));
 
-	cout << TestStart;
-	cout << "Test Decaff" << endl << endl; 
-	TestCoffeeIngridient(std::cout, make_unique<Decaff>(), CoffeeInfo::mDecaffInfo +":", CoffeeInfo::mDecaffPrice);
-	cout << TestEnd;
+		CoffeeMachine.Display(std::cout);
 
-	cout << TestStart;
-	cout << "Test Extended One" << endl << endl; 
-	TestCoffeeIngridient(std::cout, make_unique<ExtendedOne>(), CoffeeInfo::mExtendedInfo +":", CoffeeInfo::mExtendedPrice);
-	cout << TestEnd;
-	
-	cout << TestStart;
-	cout << "Test Espresso with Milk" << endl << endl;
-	TestCoffeeIngridient(std::cout, make_unique<Milk>(make_unique<Espresso>()),
-									CoffeeInfo::mEspressoInfo + ": " + CoffeeInfo::mMilkInfo+",",
-									CoffeeInfo::mEspressoPrice+CoffeeInfo::mMilkPrice);
-	cout << TestEnd;
-	
-	cout << TestStart;
-	cout << "Test Extended One with SojaMilk" << endl << endl;
-	TestCoffeeIngridient(std::cout, make_unique<SojaMilk>(make_unique<ExtendedOne>()),
-									CoffeeInfo::mExtendedInfo + ": " + CoffeeInfo::mSojaMilkInfo+",",
-									CoffeeInfo::mExtendedPrice+CoffeeInfo::mSojaMilkPrice);
-	cout << TestEnd;
-	
-	cout << TestStart;
-	cout << "Test Mocha with Sugar" << endl << endl;
-	TestCoffeeIngridient(std::cout, make_unique<Sugar>(make_unique<Mocha>()),
-									CoffeeInfo::mMochaInfo + ": " + CoffeeInfo::mSugarInfo+",",
-									CoffeeInfo::mMochaPrice+CoffeeInfo::mSugarPrice);
-	cout << TestEnd;
-	
-	cout << TestStart;
-	cout << "Test Decaff with Cream" << endl << endl;
-	TestCoffeeIngridient(std::cout, make_unique<Cream>(make_unique<Decaff>()),
-									CoffeeInfo::mDecaffInfo + ": " + CoffeeInfo::mCreamInfo+",",
-									CoffeeInfo::mDecaffPrice+CoffeeInfo::mCreamPrice);
-	cout << TestEnd;
-	
-	cout << TestStart;
-	cout << "Test Decaff with Cream and Cream" << endl << endl;
-	TestCoffeeIngridient(std::cout, make_unique<Cream>(make_unique<Cream>(make_unique<Decaff>())),
-									CoffeeInfo::mDecaffInfo + ": " + CoffeeInfo::mCreamInfo+", " + CoffeeInfo::mCreamInfo + ",",
-									CoffeeInfo::mDecaffPrice+CoffeeInfo::mCreamPrice+ CoffeeInfo::mCreamPrice);
-	cout << TestEnd;
-	
-	cout << TestStart;
-	cout << "Test Mocha alla Diabetes" << endl << endl;
-	TestCoffeeIngridient(std::cout, make_unique<Sugar>(make_unique<Sugar>(make_unique<Sugar>(
-								    make_unique<Sugar>(make_unique<Sugar>(make_unique<Sugar>(
-								    make_unique<Sugar>(make_unique<Sugar>(make_unique<Sugar>(
-								    make_unique<Mocha>()))))))))),
-									CoffeeInfo::mMochaInfo + ": " + CoffeeInfo::mSugarInfo+", " 
-								  + CoffeeInfo::mSugarInfo + ", " + CoffeeInfo::mSugarInfo + ", "
-								  + CoffeeInfo::mSugarInfo + ", " + CoffeeInfo::mSugarInfo + ", "
-								  + CoffeeInfo::mSugarInfo + ", " + CoffeeInfo::mSugarInfo + ", " 
-								  + CoffeeInfo::mSugarInfo + ", " + CoffeeInfo::mSugarInfo + ",",
-									CoffeeInfo::mMochaPrice+CoffeeInfo::mSugarPrice*9);
-	cout << TestEnd;
+		Coff = CoffeeMachine.Finished();
+
+		cout << TestStart;
+		cout << "Test Espresso" << endl << endl;
+		TestCoffeeIngridient(std::cout, make_unique<Espresso>(), CoffeeInfo::mEspressoInfo + ":", CoffeeInfo::mEspressoPrice);
+		cout << TestEnd;
+
+		cout << TestStart;
+		cout << "Test Mocha" << endl << endl;
+		TestCoffeeIngridient(std::cout, make_unique<Mocha>(), CoffeeInfo::mMochaInfo + ":", CoffeeInfo::mMochaPrice);
+		cout << TestEnd;
+
+		cout << TestStart;
+		cout << "Test Decaff" << endl << endl;
+		TestCoffeeIngridient(std::cout, make_unique<Decaff>(), CoffeeInfo::mDecaffInfo + ":", CoffeeInfo::mDecaffPrice);
+		cout << TestEnd;
+
+		cout << TestStart;
+		cout << "Test Extended One" << endl << endl;
+		TestCoffeeIngridient(std::cout, make_unique<ExtendedOne>(), CoffeeInfo::mExtendedInfo + ":", CoffeeInfo::mExtendedPrice);
+		cout << TestEnd;
+
+		cout << TestStart;
+		cout << "Test Espresso with Milk" << endl << endl;
+		TestCoffeeIngridient(std::cout, make_unique<Milk>(make_unique<Espresso>()),
+			CoffeeInfo::mEspressoInfo + ": " + CoffeeInfo::mMilkInfo + ",",
+			CoffeeInfo::mEspressoPrice + CoffeeInfo::mMilkPrice);
+		cout << TestEnd;
+
+		cout << TestStart;
+		cout << "Test Extended One with SojaMilk" << endl << endl;
+		TestCoffeeIngridient(std::cout, make_unique<SojaMilk>(make_unique<ExtendedOne>()),
+			CoffeeInfo::mExtendedInfo + ": " + CoffeeInfo::mSojaMilkInfo + ",",
+			CoffeeInfo::mExtendedPrice + CoffeeInfo::mSojaMilkPrice);
+		cout << TestEnd;
+
+		cout << TestStart;
+		cout << "Test Mocha with Sugar" << endl << endl;
+		TestCoffeeIngridient(std::cout, make_unique<Sugar>(make_unique<Mocha>()),
+			CoffeeInfo::mMochaInfo + ": " + CoffeeInfo::mSugarInfo + ",",
+			CoffeeInfo::mMochaPrice + CoffeeInfo::mSugarPrice);
+		cout << TestEnd;
+
+		cout << TestStart;
+		cout << "Test Decaff with Cream" << endl << endl;
+		TestCoffeeIngridient(std::cout, make_unique<Cream>(make_unique<Decaff>()),
+			CoffeeInfo::mDecaffInfo + ": " + CoffeeInfo::mCreamInfo + ",",
+			CoffeeInfo::mDecaffPrice + CoffeeInfo::mCreamPrice);
+		cout << TestEnd;
+
+		cout << TestStart;
+		cout << "Test Decaff with Cream and Cream" << endl << endl;
+		TestCoffeeIngridient(std::cout, make_unique<Cream>(make_unique<Cream>(make_unique<Decaff>())),
+			CoffeeInfo::mDecaffInfo + ": " + CoffeeInfo::mCreamInfo + ", " + CoffeeInfo::mCreamInfo + ",",
+			CoffeeInfo::mDecaffPrice + CoffeeInfo::mCreamPrice + CoffeeInfo::mCreamPrice);
+		cout << TestEnd;
+
+		cout << TestStart;
+		cout << "Test Mocha alla Diabetes" << endl << endl;
+		TestCoffeeIngridient(std::cout, make_unique<Sugar>(make_unique<Sugar>(make_unique<Sugar>(
+			make_unique<Sugar>(make_unique<Sugar>(make_unique<Sugar>(
+				make_unique<Sugar>(make_unique<Sugar>(make_unique<Sugar>(
+					make_unique<Mocha>()))))))))),
+			CoffeeInfo::mMochaInfo + ": " + CoffeeInfo::mSugarInfo + ", "
+			+ CoffeeInfo::mSugarInfo + ", " + CoffeeInfo::mSugarInfo + ", "
+			+ CoffeeInfo::mSugarInfo + ", " + CoffeeInfo::mSugarInfo + ", "
+			+ CoffeeInfo::mSugarInfo + ", " + CoffeeInfo::mSugarInfo + ", "
+			+ CoffeeInfo::mSugarInfo + ", " + CoffeeInfo::mSugarInfo + ",",
+			CoffeeInfo::mMochaPrice + CoffeeInfo::mSugarPrice * 9);
+		cout << TestEnd;
+
+
+		TestCoffeePreparation(std::cout);
+
+		TestCoffeeIngridientException(std::cout);
+
+
+		if (WriteOutputFile) {
+
+
+			ICoffee::Uptr Coff{ std::make_unique<Cream>(std::make_unique<Sugar>(std::make_unique<Milk>(std::make_unique<Espresso>()))) };
+
+			CoffeePreparation CoffeeMachine;
+
+			CoffeeMachine.Prepare(move(Coff));
+
+			CoffeeMachine.Display(std::cout);
+
+			Coff = CoffeeMachine.Finished();
+
+			output << TestStart;
+			output << "Test Espresso" << endl << endl;
+			TestCoffeeIngridient(output, make_unique<Espresso>(), CoffeeInfo::mEspressoInfo + ":", CoffeeInfo::mEspressoPrice);
+			output << TestEnd;
+
+			output << TestStart;
+			output << "Test Mocha" << endl << endl;
+			TestCoffeeIngridient(output, make_unique<Mocha>(), CoffeeInfo::mMochaInfo + ":", CoffeeInfo::mMochaPrice);
+			output << TestEnd;
+
+			output << TestStart;
+			output << "Test Decaff" << endl << endl;
+			TestCoffeeIngridient(output, make_unique<Decaff>(), CoffeeInfo::mDecaffInfo + ":", CoffeeInfo::mDecaffPrice);
+			output << TestEnd;
+
+			output << TestStart;
+			output << "Test Extended One" << endl << endl;
+			TestCoffeeIngridient(output, make_unique<ExtendedOne>(), CoffeeInfo::mExtendedInfo + ":", CoffeeInfo::mExtendedPrice);
+			output << TestEnd;
+
+			output << TestStart;
+			output << "Test Espresso with Milk" << endl << endl;
+			TestCoffeeIngridient(output, make_unique<Milk>(make_unique<Espresso>()),
+				CoffeeInfo::mEspressoInfo + ": " + CoffeeInfo::mMilkInfo + ",",
+				CoffeeInfo::mEspressoPrice + CoffeeInfo::mMilkPrice);
+			output << TestEnd;
+
+			output << TestStart;
+			output << "Test Extended One with SojaMilk" << endl << endl;
+			TestCoffeeIngridient(output, make_unique<SojaMilk>(make_unique<ExtendedOne>()),
+				CoffeeInfo::mExtendedInfo + ": " + CoffeeInfo::mSojaMilkInfo + ",",
+				CoffeeInfo::mExtendedPrice + CoffeeInfo::mSojaMilkPrice);
+			output << TestEnd;
+
+			output << TestStart;
+			output << "Test Mocha with Sugar" << endl << endl;
+			TestCoffeeIngridient(output, make_unique<Sugar>(make_unique<Mocha>()),
+				CoffeeInfo::mMochaInfo + ": " + CoffeeInfo::mSugarInfo + ",",
+				CoffeeInfo::mMochaPrice + CoffeeInfo::mSugarPrice);
+			output << TestEnd;
+
+			output << TestStart;
+			output << "Test Decaff with Cream" << endl << endl;
+			TestCoffeeIngridient(output, make_unique<Cream>(make_unique<Decaff>()),
+				CoffeeInfo::mDecaffInfo + ": " + CoffeeInfo::mCreamInfo + ",",
+				CoffeeInfo::mDecaffPrice + CoffeeInfo::mCreamPrice);
+			output << TestEnd;
+
+			output << TestStart;
+			output << "Test Decaff with Cream and Cream" << endl << endl;
+			TestCoffeeIngridient(output, make_unique<Cream>(make_unique<Cream>(make_unique<Decaff>())),
+				CoffeeInfo::mDecaffInfo + ": " + CoffeeInfo::mCreamInfo + ", " + CoffeeInfo::mCreamInfo + ",",
+				CoffeeInfo::mDecaffPrice + CoffeeInfo::mCreamPrice + CoffeeInfo::mCreamPrice);
+			output << TestEnd;
+
+			output << TestStart;
+			output << "Test Mocha alla Diabetes" << endl << endl;
+			TestCoffeeIngridient(output, make_unique<Sugar>(make_unique<Sugar>(make_unique<Sugar>(
+				make_unique<Sugar>(make_unique<Sugar>(make_unique<Sugar>(
+					make_unique<Sugar>(make_unique<Sugar>(make_unique<Sugar>(
+						make_unique<Mocha>()))))))))),
+				CoffeeInfo::mMochaInfo + ": " + CoffeeInfo::mSugarInfo + ", "
+				+ CoffeeInfo::mSugarInfo + ", " + CoffeeInfo::mSugarInfo + ", "
+				+ CoffeeInfo::mSugarInfo + ", " + CoffeeInfo::mSugarInfo + ", "
+				+ CoffeeInfo::mSugarInfo + ", " + CoffeeInfo::mSugarInfo + ", "
+				+ CoffeeInfo::mSugarInfo + ", " + CoffeeInfo::mSugarInfo + ",",
+				CoffeeInfo::mMochaPrice + CoffeeInfo::mSugarPrice * 9);
+			output << TestEnd;
+
+
+			TestCoffeePreparation(output);
+
+			TestCoffeeIngridientException(output);
+
+
+
+
+			if (TestOK) {
+				output << TestCaseOK;
+			}
+			else {
+				output << TestCaseFail;
+			}
+
+			output.close();
+		}
+
+		if (TestOK) {
+			cout << TestCaseOK;
+		}
+		else {
+			cout << TestCaseFail;
+		}
+	}
+	catch (const string& err) {
+		cerr << err << TestCaseFail;
+	}
+	catch (bad_alloc const& error) {
+		cerr << error.what() << TestCaseFail;
+	}
+	catch (const exception& err) {
+		cerr << err.what() << TestCaseFail;
+	}
+	catch (...) {
+		cerr << "Unhandelt Exception" << TestCaseFail;
+	}
+
+	if (output.is_open()) output.close();
+
+	return 0;
 
 
 }
@@ -132,4 +283,126 @@ bool TestCoffeeIngridient(std::ostream & ost,ICoffee::Uptr cof, const std::strin
 
 
 	return TestOK;
+}
+
+bool TestCoffeeIngridientException(std::ostream& ost)
+{
+	assert(ost.good());
+
+	std::string error_msg;
+	bool TestOK = true;
+
+	try {
+		ICoffee::Uptr cof = make_unique<Milk>(nullptr);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Test for Exception in Ingedient CTOR", Ingredient::ERROR_NULLPTR, error_msg);
+
+	return TestOK;
+}
+
+bool TestCoffeePreparation(std::ostream& ost) {
+
+	assert(ost.good());
+
+
+	std::string error_msg;
+	bool TestOK = true;
+
+	try {
+		CoffeePreparation CoffeeMachine;
+
+		CoffeeMachine.Prepare(make_unique<Milk>(make_unique<Espresso>()));
+		CoffeeMachine.Prepare(make_unique<SojaMilk>(make_unique<ExtendedOne>()));
+		CoffeeMachine.Prepare(make_unique<Sugar>(make_unique<Mocha>()));
+
+		stringstream expected_output;
+		stringstream actual_output;
+
+
+		CoffeeMachine.Display(actual_output);
+
+		expected_output << CoffeeInfo::mEspressoInfo + ": " + CoffeeInfo::mMilkInfo + " " << CoffeeInfo::mEspressoPrice + CoffeeInfo::mMilkPrice << " Euro" << std::endl;
+
+		TestOK = TestOK && check_dump(ost, "Test CoffeePreparation Display 1", actual_output.str(), expected_output.str());
+
+		ICoffee::Uptr cof = CoffeeMachine.Finished();
+
+		actual_output.str("");
+		expected_output.str("");
+
+		CoffeeMachine.Display(actual_output);
+
+		expected_output << CoffeeInfo::mExtendedInfo + ": " + CoffeeInfo::mSojaMilkInfo + " " << CoffeeInfo::mExtendedPrice + CoffeeInfo::mSojaMilkPrice << " Euro" << std::endl;
+
+		TestOK = TestOK && check_dump(ost, "Test CoffeePreparation Display 2", actual_output.str(), expected_output.str());
+
+		cof = CoffeeMachine.Finished();
+
+		actual_output.str("");
+		expected_output.str("");
+
+		CoffeeMachine.Display(actual_output);
+
+		expected_output << CoffeeInfo::mMochaInfo + ": " + CoffeeInfo::mSugarInfo + " " << CoffeeInfo::mMochaPrice + CoffeeInfo::mSugarPrice<< " Euro" << std::endl;
+
+		TestOK = TestOK && check_dump(ost, "Test CoffeePreparation Display 3", actual_output.str(), expected_output.str());
+
+		cof = CoffeeMachine.Finished();
+
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Test for Exception in Testcase", true, error_msg.empty());
+
+	try {
+
+		CoffeePreparation CoffeeMachine;
+
+		stringstream badstream;
+
+		badstream.setstate(ios::badbit);
+
+		CoffeeMachine.Display(badstream);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Test Exception Bad Ostream in CoffeePreparation", CoffeePreparation::ERROR_BAD_OSTREAM, error_msg);
+
+
+	return TestOK;	
 }

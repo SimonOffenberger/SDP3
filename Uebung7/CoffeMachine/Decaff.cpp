@@ -1,3 +1,7 @@
+/**
+ * @file Decaff.cpp
+ * @brief Implements the decaffeinated coffee pricing and description.
+ */
 #include "Decaff.hpp"
 #include "CoffeeInfo.hpp"
 

@@ -190,7 +190,9 @@ Test for Exception in Testcase
 
 Test CoffeePreparation Display 1
 [Test OK] Result: (Expected: Espresso: Milk 5.5 Euro
+Extended One: SojaMilk 20 Euro
  == Result: Espresso: Milk 5.5 Euro
+Extended One: SojaMilk 20 Euro
 )
 
 Test CoffeePreparation Display 2
@@ -198,16 +200,17 @@ Test CoffeePreparation Display 2
  == Result: Extended One: SojaMilk 20 Euro
 )
 
-Test CoffeePreparation Display 3
-[Test OK] Result: (Expected: Mocha: Sugar 4.2 Euro
- == Result: Mocha: Sugar 4.2 Euro
-)
-
 Test for Exception in Testcase
 [Test OK] Result: (Expected: true == Result: true)
 
 Test Exception Bad Ostream in CoffeePreparation
 [Test OK] Result: (Expected: Error Bad Ostream == Result: Error Bad Ostream)
+
+Test Exception Queue is Empty Display
+[Test OK] Result: (Expected: Error No Coffe in the Machine! == Result: Error No Coffe in the Machine!)
+
+Test Exception Queue is Empty Finished
+[Test OK] Result: (Expected: Error No Coffe in the Machine! == Result: Error No Coffe in the Machine!)
 
 Test for Exception in Ingedient CTOR
 [Test OK] Result: (Expected: Error Nullptr! == Result: Error Nullptr!)

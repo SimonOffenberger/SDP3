@@ -29,6 +29,9 @@ public:
 	 */
 	virtual std::string GetDescription() override;
 
+	// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour
+	void operator=(Sugar& ind) = delete;
+	Sugar(Sugar& ind) = delete;
 };
 
 #endif // !SUGAR_HPP

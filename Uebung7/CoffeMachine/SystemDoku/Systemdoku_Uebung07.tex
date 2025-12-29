@@ -80,8 +80,8 @@
 
 % Kopfzeile
 % ---------
-\lhead{{\footnotesize{s. Offenberger, S. Vogelhuber}}}   %  (links)
-\chead{{\footnotesize{Systemdokumentation - Filesystem}}} %  (mitte)
+\lhead{{\footnotesize{S. Offenberger, S. Vogelhuber}}}   %  (links)
+\chead{{\footnotesize{Systemdokumentation - CoffeeMachine}}} %  (mitte)
 \rhead{{\footnotesize{Seite \thepage}}}      %  (rechts)
 
 % Fusszeile
@@ -127,7 +127,7 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \title {\vspace{1cm}
        \includegraphics[width=8cm]{./Images/FhOOeLogoOkt2009_HSD_Rot_pastell}\\
        \vspace{2cm}
-       {\textbf{Systemdokumentation\\Projekt Filesystem}}\\
+       {\textbf{Systemdokumentation\\Projekt CoffeeMachine}}\\
        \vspace{5mm}
        {\small{Version 1.0}}\\
        \vspace{5mm}
@@ -204,6 +204,84 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 \clearpage
 \section{Anforderungsdefinition (Systemspezifikation)}
 
+Das zu entwickelnde System dient der Simulation eines einfachen \textbf{Kaffeeautomaten} zur softwaretechnischen Abbildung von Kaffeevarianten und optionalen Zutaten. Ziel ist es, verschiedene Kaffeesorten dynamisch mit beliebig vielen (auch mehrfach wählbaren) Zutaten zu kombinieren und daraus \textbf{Gesamtpreis} sowie \textbf{Beschreibung} zu ermitteln.
+Die Implementierung hat das \textbf{Decorator-Pattern} zu verwenden und so gestaltet zu sein, dass neue Kaffeesorten und Zutaten ohne Anpassung bestehender Klassen ergänzt werden können. 
+
+\subsection{Systemüberblick}
+Das System verwaltet zwei Elementgruppen:
+\begin{itemize}
+\item \textbf{Kaffeesorten} (Basisprodukte), z.B. \textit{Verlängerter}, \textit{Espresso}, \textit{Koffeinfrei}
+\item \textbf{Zutaten} (Erweiterungen/Dekoratoren), z.B. \textit{Zucker}, \textit{Milch}, \textit{Schlagobers}
+\end{itemize}
+
+Eine konkrete Bestellung besteht aus genau \textbf{einer Kaffeesorte} und \textbf{0..n Zutaten}. Zutaten dürfen \textbf{mehrfach} hinzugefügt werden.
+Für jede Bestellung müssen eine \textbf{textuelle Beschreibung} sowie der \textbf{Gesamtpreis} ausgegeben werden können. 
+
+\subsection{Funktionale Anforderungen}
+
+\subsubsection{Kaffeesorten (Basiskomponenten)}
+\begin{itemize}
+\item Jede Kaffeesorte besitzt eine \textbf{Beschreibung} (z.B. Name der Sorte) sowie einen \textbf{Basispreis}.
+\item Eine Kaffeesorte stellt mindestens folgende Operationen bereit:
+\begin{itemize}
+\item \texttt{GetCost()} liefert den Basispreis (ohne Zutaten).
+\item \texttt{GetDescription()} liefert die Basisbeschreibung (ohne Zutatenliste).
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Zutaten (Decorator)}
+\begin{itemize}
+\item Jede Zutat referenziert \textbf{genau ein} bereits existierendes Kaffeeobjekt (Kaffeesorte oder bereits dekoriertes Objekt).
+\item Eine Zutat erweitert:
+\begin{itemize}
+\item den Preis um ihren \textbf{Zutatenpreis},
+\item die Beschreibung um ihren \textbf{Zutatennamen} (als Bestandteil der Zutatenliste).
+\end{itemize}
+\item Zutaten müssen \textbf{beliebig oft} hintereinander hinzugefügt werden können (z.B. \textit{Milch, Milch}).
+\end{itemize}
+
+\subsubsection{Preis- und Beschreibungsdaten (Preisliste)}
+\begin{itemize}
+\item Preise und Beschreibungen von Kaffeesorten und Zutaten werden in einer separaten \textbf{Preisliste} (z.B. Konstanten in Header/Klasse/Namespace) definiert.
+\item Die fachliche Logik (Berechnung und Ausgabe) darf nicht durch „Hardcoding“ von Preisen in vielen Klassen unübersichtlich werden.
+\end{itemize}
+
+\subsubsection{Preis- und Beschreibungsausgabe}
+\begin{itemize}
+\item \texttt{GetCost()} liefert den \textbf{Gesamtpreis} des aktuell zusammengesetzten Kaffees (Basis + alle Zutaten).
+\item \texttt{GetDescription()} liefert eine \textbf{druckbare Beschreibung} zur Ausgabe auf \texttt{std::cout}, inkl. Zutaten in der Reihenfolge ihrer Hinzufügung.
+\item Die Ausgabe soll mindestens Ausgaben in folgender Form ermöglichen:
+\textit{Espresso: Zucker, Schlagobers 2.89 Euro} 
+
+
+\end{itemize}
+
+\subsection{Erweiterbarkeit (Designanforderung)}
+\begin{itemize}
+\item Das Design muss sicherstellen, dass \textbf{neue Kaffeesorten} und \textbf{neue Zutaten} hinzugefügt werden können, \textbf{ohne bestehende Klassen ändern zu müssen} (Open/Closed-Prinzip).
+\item Diese Erweiterbarkeit ist nachzuweisen durch das Hinzufügen mindestens von:
+\begin{itemize}
+\item Kaffeesorte \textbf{„Mocca“}
+\item Zutat \textbf{„Sojamilch“}
+\end{itemize}
+\end{itemize}
+
+\subsection{Zusatzkomponente: \texttt{coffeePreparation} (FIFO)}
+Zusätzlich ist eine Klasse \texttt{coffeePreparation} zu implementieren, die Bestellungen nach dem \textbf{FIFO-Prinzip} verwaltet. Sie stellt folgende Schnittstelle bereit: 
+
+
+\begin{itemize}
+\item \texttt{void Prepare(Coffee*);} \hfill // fügt einen Kaffee zur Vorbereitung hinzu
+\item \texttt{void Display(std\:\:ostream\& os);} \hfill // gibt alle aktuell vorbereiteten Kaffees aus
+\item \texttt{Coffee* Finished();} \hfill // entfernt und liefert den zuerst vorbereiteten Kaffee
+\end{itemize}
+
+\subsubsection{Verhaltensanforderungen \texttt{coffeePreparation}}
+\begin{itemize}
+\item \texttt{Prepare} reiht Bestellungen in eine Warteschlange ein.
+\item \texttt{Finished} liefert das \textbf{älteste} Element der Warteschlange und entfernt es aus der Struktur.
+\item \texttt{Display} gibt den aktuellen Inhalt der Warteschlange in geeigneter Form aus (z.B. je Bestellung eine Zeile mit Beschreibung und Preis).
+\end{itemize}
 
 \clearpage
 \section{Systementwurf}
@@ -214,6 +292,13 @@ pdfkeywords={Dokumentation, Systemdokumentation}
 
 \subsection{Designentscheidungen}
 
+Wie in der Aufgabenstellung gefordet wurde das Decorator-Pattern verwendet, um die Kaffeesorten und Zutaten zu implementieren.\\
+Dies ermöglicht es, neue Zutaten und Kaffeesorten hinzuzufügen, ohne bestehende Klassen ändern zu müssen.\\
+Dies wurde durch hinzufügen der Klassen \texttt{Mocha} und \texttt{SojaMilk} demonstriert.\\
+Die Basiskomponente ist das Interface \texttt{ICoffee}, welche die Schnittstelle für alle Kaffeesorten und Zutaten definiert.
+Die konkreten Kaffeesorten (\texttt{Espresso}, \texttt{Decaff}, \texttt{Mocha}, \texttt{ExtendedOne}) erben direkt von \texttt{ICoffee} und implementieren die Methoden \texttt{GetCost()} und \texttt{GetDescription()}.
+Die Zutatenklassen (\texttt{Ingredient} und deren Unterklassen \texttt{Milk}, \texttt{SojaMilk}, \texttt{Sugar}, \texttt{Cream}) erben ebenfalls von \texttt{ICoffee} und enthalten eine Referenz auf ein \texttt{ICoffee}-Objekt, das sie dekorieren.
+Die Methoden \texttt{GetCost()} und \\ \texttt{GetDescription()} der Zutatenklassen rufen die entsprechenden Methoden des dekorierten Objekts auf und erweitern deren Ergebnisse um den Preis und die Beschreibung der Zutat.
 
 \color{black}
 
@@ -240,12 +325,16 @@ Die HTML-Startdatei befindet sich im Verzeichnis \href{run:./../doxy/html/index.
 \subsection{Ingredient.hpp}
 \lstinputlisting{./../Ingredient.hpp}
 \clearpage
+\subsection{Ingredient.cpp}
+\lstinputlisting{./../Ingredient.cpp}
+\clearpage
 
 \subsection{CoffeePreparation.hpp}
 \lstinputlisting{./../CoffeePreparation.hpp}
 \clearpage
 \subsection{CoffeePreparation.cpp}
 \lstinputlisting{./../CoffeePreparation.cpp}
+\clearpage
 
 \subsection{SojaMilk.hpp}
 \lstinputlisting{./../SojaMilk.hpp}

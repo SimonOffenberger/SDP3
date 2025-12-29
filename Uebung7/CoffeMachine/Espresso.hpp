@@ -10,8 +10,11 @@
 
 
 class Espresso : public ICoffee , public Object {
+public:
 
 	using Sptr = std::shared_ptr<Espresso>;
+
+	Espresso() = default;
 
 	/**
 	 * @brief Return the price of an espresso.
@@ -23,6 +26,10 @@ class Espresso : public ICoffee , public Object {
 	 */
 	virtual std::string GetDescription() override;
 
+
+	// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour
+	void operator=(Espresso& ind) = delete;
+	Espresso(Espresso& ind) = delete;
 };
 
 #endif // !ESPRESSO_HPP

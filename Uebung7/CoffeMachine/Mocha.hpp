@@ -10,8 +10,10 @@
 
 
 class Mocha : public ICoffee, public Object {
+public:
 
-	using Sptr = std::shared_ptr<Mocha>;
+	Mocha() = default;
+
 
 	/**
 	 * @brief Return the price of a mocha.
@@ -23,6 +25,9 @@ class Mocha : public ICoffee, public Object {
 	 */
 	virtual std::string GetDescription() override;
 
+	// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour
+	void operator=(Mocha& ind) = delete;
+	Mocha(Mocha& ind) = delete;
 };
 
 #endif // !MOCHA_HPP

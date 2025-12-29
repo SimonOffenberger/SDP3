@@ -9,8 +9,11 @@
 #include "ICoffee.hpp"
 
 class Decaff : public ICoffee, public Object {
-
+public:
 	using Sptr = std::shared_ptr<Decaff>;
+
+	Decaff() = default;
+
 
 	/**
 	 * @brief Return the price of a decaffeinated coffee.
@@ -21,6 +24,10 @@ class Decaff : public ICoffee, public Object {
 	 * @brief Provide the decaff description label.
 	 */
 	virtual std::string GetDescription() override;
+
+	// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour
+	void operator=(Decaff& ind) = delete;
+	Decaff(Decaff& ind) = delete;
 
 };
 

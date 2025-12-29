@@ -42,16 +42,6 @@ int main()
 
 	try {
 
-		ICoffee::Uptr Coff{ std::make_unique<Cream>(std::make_unique<Sugar>(std::make_unique<Milk>(std::make_unique<Espresso>()))) };
-
-		CoffeePreparation CoffeeMachine;
-
-		CoffeeMachine.Prepare(move(Coff));
-
-		CoffeeMachine.Display(std::cout);
-
-		Coff = CoffeeMachine.Finished();
-
 		cout << TestStart;
 		cout << "Test Espresso" << endl << endl;
 		TestCoffeeIngridient(std::cout, make_unique<Espresso>(), CoffeeInfo::mEspressoInfo + ":", CoffeeInfo::mEspressoPrice);
@@ -129,17 +119,6 @@ int main()
 
 		if (WriteOutputFile) {
 
-
-			ICoffee::Uptr Coff{ std::make_unique<Cream>(std::make_unique<Sugar>(std::make_unique<Milk>(std::make_unique<Espresso>()))) };
-
-			CoffeePreparation CoffeeMachine;
-
-			CoffeeMachine.Prepare(move(Coff));
-
-			CoffeeMachine.Display(std::cout);
-
-			Coff = CoffeeMachine.Finished();
-
 			output << TestStart;
 			output << "Test Espresso" << endl << endl;
 			TestCoffeeIngridient(output, make_unique<Espresso>(), CoffeeInfo::mEspressoInfo + ":", CoffeeInfo::mEspressoPrice);
@@ -215,8 +194,6 @@ int main()
 			TestCoffeeIngridientException(output);
 
 
-
-
 			if (TestOK) {
 				output << TestCaseOK;
 			}
@@ -281,7 +258,6 @@ bool TestCoffeeIngridient(std::ostream & ost,ICoffee::Uptr cof, const std::strin
 
 	TestOK = TestOK && check_dump(ost, "Test for Exception in Testcase", true, error_msg.empty());
 
-
 	return TestOK;
 }
 
@@ -326,7 +302,6 @@ bool TestCoffeePreparation(std::ostream& ost) {
 
 		CoffeeMachine.Prepare(make_unique<Milk>(make_unique<Espresso>()));
 		CoffeeMachine.Prepare(make_unique<SojaMilk>(make_unique<ExtendedOne>()));
-		CoffeeMachine.Prepare(make_unique<Sugar>(make_unique<Mocha>()));
 
 		stringstream expected_output;
 		stringstream actual_output;
@@ -335,6 +310,7 @@ bool TestCoffeePreparation(std::ostream& ost) {
 		CoffeeMachine.Display(actual_output);
 
 		expected_output << CoffeeInfo::mEspressoInfo + ": " + CoffeeInfo::mMilkInfo + " " << CoffeeInfo::mEspressoPrice + CoffeeInfo::mMilkPrice << " Euro" << std::endl;
+		expected_output << CoffeeInfo::mExtendedInfo + ": " + CoffeeInfo::mSojaMilkInfo + " " << CoffeeInfo::mExtendedPrice + CoffeeInfo::mSojaMilkPrice << " Euro" << std::endl;
 
 		TestOK = TestOK && check_dump(ost, "Test CoffeePreparation Display 1", actual_output.str(), expected_output.str());
 
@@ -348,17 +324,6 @@ bool TestCoffeePreparation(std::ostream& ost) {
 		expected_output << CoffeeInfo::mExtendedInfo + ": " + CoffeeInfo::mSojaMilkInfo + " " << CoffeeInfo::mExtendedPrice + CoffeeInfo::mSojaMilkPrice << " Euro" << std::endl;
 
 		TestOK = TestOK && check_dump(ost, "Test CoffeePreparation Display 2", actual_output.str(), expected_output.str());
-
-		cof = CoffeeMachine.Finished();
-
-		actual_output.str("");
-		expected_output.str("");
-
-		CoffeeMachine.Display(actual_output);
-
-		expected_output << CoffeeInfo::mMochaInfo + ": " + CoffeeInfo::mSugarInfo + " " << CoffeeInfo::mMochaPrice + CoffeeInfo::mSugarPrice<< " Euro" << std::endl;
-
-		TestOK = TestOK && check_dump(ost, "Test CoffeePreparation Display 3", actual_output.str(), expected_output.str());
 
 		cof = CoffeeMachine.Finished();
 
@@ -402,6 +367,48 @@ bool TestCoffeePreparation(std::ostream& ost) {
 	}
 
 	TestOK = TestOK && check_dump(ost, "Test Exception Bad Ostream in CoffeePreparation", CoffeePreparation::ERROR_BAD_OSTREAM, error_msg);
+
+	try {
+
+		CoffeePreparation CoffeeMachine;
+
+		CoffeeMachine.Display(ost);
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Test Exception Queue is Empty Display", CoffeePreparation::ERROR_NO_COFFE_IN_MACHINE, error_msg);
+
+	try {
+
+		CoffeePreparation CoffeeMachine;
+
+		CoffeeMachine.Finished();
+	}
+	catch (const string& err) {
+		error_msg = err;
+	}
+	catch (bad_alloc const& error) {
+		error_msg = error.what();
+	}
+	catch (const exception& err) {
+		error_msg = err.what();
+	}
+	catch (...) {
+		error_msg = "Unhandelt Exception";
+	}
+
+	TestOK = TestOK && check_dump(ost, "Test Exception Queue is Empty Finished", CoffeePreparation::ERROR_NO_COFFE_IN_MACHINE, error_msg);
 
 
 	return TestOK;	

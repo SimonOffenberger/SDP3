@@ -29,6 +29,9 @@ public:
 	 */
 	virtual std::string GetDescription() override;
 
+	// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour
+	void operator=(Milk& ind) = delete;
+	Milk(Milk& ind) = delete;
 };
 
 #endif // !MILK_HPP

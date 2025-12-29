@@ -15,12 +15,12 @@ protected:
    /**
     * @brief Base constructor for derived objects.
     */
-   Object(){};
+   Object() = default;
 public:
    /**
     * @brief Virtual destructor to allow safe polymorphic deletion.
     */
-   virtual ~Object(){}
+    virtual ~Object() = default;
 };
 
 #endif // OBJECT_H

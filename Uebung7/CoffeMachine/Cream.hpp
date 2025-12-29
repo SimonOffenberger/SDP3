@@ -13,6 +13,9 @@
 class Cream : public Ingredient {
 public:
 
+	using Uptr = std::unique_ptr<Cream>;
+
+
 	/**
 	 * @brief Wrap a coffee with cream.
 	 * @param cof Coffee to decorate.
@@ -28,6 +31,10 @@ public:
 	 * @brief Append cream label to description.
 	 */
 	virtual std::string GetDescription() override;
+
+	// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour
+	void operator=(Cream& ind) = delete;
+	Cream(Cream& ind) = delete;
 
 };
 

@@ -24,6 +24,12 @@ public:
 	 */
 	virtual std::string GetDescription() override;
 
+
+	// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour
+	void operator=(Ingredient& ind) = delete;
+	Ingredient(Ingredient& ind) = delete;
+
+
 protected:
 
 	/**

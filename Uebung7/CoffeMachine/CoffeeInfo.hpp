@@ -35,7 +35,7 @@ public:
 	inline static const double mCreamPrice = 2;
 	inline static const std::string mCreamInfo = "Cream";
 
-private:
+protected:
 	CoffeeInfo() = default;
 };
 

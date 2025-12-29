@@ -1,0 +1,28 @@
+var files_dup =
+[
+    [ "CoffeeInfo.hpp", "_coffee_info_8hpp.html", "_coffee_info_8hpp" ],
+    [ "CoffeePreparation.cpp", "_coffee_preparation_8cpp.html", null ],
+    [ "CoffeePreparation.hpp", "_coffee_preparation_8hpp.html", "_coffee_preparation_8hpp" ],
+    [ "Cream.cpp", "_cream_8cpp.html", null ],
+    [ "Cream.hpp", "_cream_8hpp.html", "_cream_8hpp" ],
+    [ "Decaff.cpp", "_decaff_8cpp.html", null ],
+    [ "Decaff.hpp", "_decaff_8hpp.html", "_decaff_8hpp" ],
+    [ "Espresso.cpp", "_espresso_8cpp.html", null ],
+    [ "Espresso.hpp", "_espresso_8hpp.html", "_espresso_8hpp" ],
+    [ "ExtendedOne.cpp", "_extended_one_8cpp.html", null ],
+    [ "ExtendedOne.hpp", "_extended_one_8hpp.html", "_extended_one_8hpp" ],
+    [ "ICoffee.hpp", "_i_coffee_8hpp.html", "_i_coffee_8hpp" ],
+    [ "Ingredient.cpp", "_ingredient_8cpp.html", null ],
+    [ "Ingredient.hpp", "_ingredient_8hpp.html", "_ingredient_8hpp" ],
+    [ "main.cpp", "main_8cpp.html", null ],
+    [ "Milk.cpp", "_milk_8cpp.html", null ],
+    [ "Milk.hpp", "_milk_8hpp.html", "_milk_8hpp" ],
+    [ "Mocha.cpp", "_mocha_8cpp.html", null ],
+    [ "Mocha.hpp", "_mocha_8hpp.html", "_mocha_8hpp" ],
+    [ "Object.h", "_object_8h.html", "_object_8h" ],
+    [ "SojaMilk.cpp", "_soja_milk_8cpp.html", null ],
+    [ "SojaMilk.hpp", "_soja_milk_8hpp.html", "_soja_milk_8hpp" ],
+    [ "Sugar.cpp", "_sugar_8cpp.html", null ],
+    [ "Sugar.hpp", "_sugar_8hpp.html", "_sugar_8hpp" ],
+    [ "Test.hpp", "_test_8hpp.html", "_test_8hpp" ]
+];

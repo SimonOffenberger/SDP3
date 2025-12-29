@@ -10,8 +10,12 @@
 
 
 class ExtendedOne : public ICoffee, public Object {
+public:
 
 	using Sptr = std::shared_ptr<ExtendedOne>;
+
+	ExtendedOne() = default;
+
 
 	/**
 	 * @brief Return the price of the extended variant.
@@ -23,6 +27,9 @@ class ExtendedOne : public ICoffee, public Object {
 	 */
 	virtual std::string GetDescription() override;
 
+	// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour
+	void operator=(ExtendedOne& ind) = delete;
+	ExtendedOne(ExtendedOne& ind) = delete;
 };
 
 #endif // !EXTENDED_ONE_HPP

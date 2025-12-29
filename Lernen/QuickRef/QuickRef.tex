@@ -1,0 +1,159 @@
+% Systemdokumentation OOP3
+% Unterlage fÃ¼r Studenten als Leitfaden fÃ¼r die Erstellung einer SystemDoku
+% 17. Oktober 2022
+% ---------------------------------------------------------------------------
+
+
+
+% Dokumentklasse
+% --------------
+\documentclass[12pt,naustrian,a4widepaper]{scrartcl}   
+% article style
+%   - 11pt Schriftgroesse
+%   - new austrian (neue Rechtschreibung)
+%   - Papierformat A4
+%   - pdf-hyperlinks
+
+
+% Packages
+% --------
+\usepackage[utf8]{inputenc}  % fuer Umlaute, Ü
+\usepackage[T1]{fontenc}
+\usepackage{a4wide}
+\usepackage{times}      % Times Schriften (zusammen mit fontencoding, s.o.)
+
+\usepackage{babel}
+\usepackage{graphicx}	  % fÃ¼r das Einbinden von Grafiken
+\usepackage{color}      % fÃ¼r fÃ¤rbigen Text
+\usepackage{framed}     % fÃ¼r (Text-) Rahmen
+\usepackage{fancyhdr}   % fÃ¼r Kopf- und Fusszeilen
+\usepackage{listings}   % fÃ¼r den Sourcecode
+\usepackage{pdfpages}
+\usepackage[margin=1.5cm]{geometry} % Verkleinert die Ränder
+
+\pagestyle{fancy}       % Kopf- / Fusszeile aktivieren
+
+
+% Beginn des Dokumentes
+% ---------------------
+\begin{document}
+
+\subsection*{0) In 10 Sekunden: Compile-Fails zuerst}
+\begin{itemize}
+  \item Fehlende \texttt{;} / \texttt{)} / \texttt{\}} / falsche Klammern
+  \item Tippfehler in Typen/Namen (z.B. \texttt{Tocket} vs \texttt{Ticket})
+\end{itemize}
+
+\subsection*{1) Polymorphie-Check (häufigster Punktverlust)}
+\begin{itemize}
+  \item \textbf{Virtueller Destruktor} in Basisklasse (wenn über Base-Pointer/Ref genutzt):
+  \item \textbf{\texttt{override}} in abgeleiteten Klassen:
+  \item \textbf{Slicing vermeiden:} keine Base-by-value Parameter/Returns; stattdessen
+  \texttt{Base\&}, \texttt{Base*}, \texttt{std::unique\_ptr<Base>}.
+\end{itemize}
+
+\subsection*{2) Copy/Assign korrekt (Rule of 0/5)}
+\begin{itemize}
+  \item Wenn Copy/Assign \textbf{verboten} sein soll:
+\begin{verbatim}
+Base(Base const&) = delete;
+Base& operator=(Base const&) = delete;
+\end{verbatim}
+  \item Bei Ownership: \textbf{\texttt{std::unique\_ptr}} bevorzugen (statt roher Pointer).
+\end{itemize}
+
+\subsection*{3) Ownership / Speicher (Factories \& Container)}
+\begin{itemize}
+  \item Factory-Rückgabe (typisch):
+\begin{verbatim}
+std::unique_ptr<Base> Create(...);
+\end{verbatim}
+  \item Container-Speicherung:
+\begin{verbatim}
+std::vector<std::unique_ptr<Base>> v;
+\end{verbatim}
+  \item Nie: \texttt{return \&local;} oder \texttt{new} ohne klaren Besitzer.
+  \item Base-Pointer korrekt zuweisen:
+\begin{verbatim}
+Base* p = &derived;   // nicht: Base* p = derived;
+\end{verbatim}
+\end{itemize}
+
+\subsection*{4) Sichtbarkeit \& \texttt{const}}
+\begin{itemize}
+  \item Interface-Methoden: \texttt{public}
+  \item Member: fast immer \texttt{private}
+\end{itemize}
+
+\subsection*{Pattern-spezifische Mini-Checklisten}
+
+\subsubsection*{Template Method}
+\begin{itemize}
+  \item Template-Funktion definiert Ablauf, ruft Hooks:
+\begin{verbatim}
+void Print() const { header(); DoPrint(); footer(); }
+protected: virtual void DoPrint() const = 0;
+\end{verbatim}
+  \item Hook ist \texttt{virtual}, häufig \texttt{= 0}.
+\end{itemize}
+
+\subsubsection*{Factory Method}
+\begin{itemize}
+  \item Creator-Interface:
+\begin{verbatim}
+virtual std::unique_ptr<Product> Create(...) = 0;
+\end{verbatim}
+  \item Konkrete Creator erstellen konkrete Products.
+  \item High-Level nutzt \textbf{Creator-Abstraktion} (nicht \texttt{new ConcreteProduct} im High-Level).
+\end{itemize}
+
+\subsubsection*{Strategy}
+\begin{itemize}
+  \item Strategy-Interface + austauschbar:
+\begin{verbatim}
+struct Strategy { virtual ~Strategy()=default; virtual void Run()=0; };
+\end{verbatim}
+  \item Kontext hält \texttt{unique\_ptr<Strategy>} oder Referenz.
+\end{itemize}
+
+\subsubsection*{Observer}
+\begin{itemize}
+  \item \texttt{Attach / Detach / Notify}
+  \item Bei \texttt{Notify}: Iterator-Invalidierung vermeiden (z.B. Liste kopieren)
+  \item Ownership-Zyklen vermeiden (oft \texttt{weak\_ptr} bei bidirektional)
+\end{itemize}
+
+\subsubsection*{Visitor}
+\begin{itemize}
+  \item \texttt{Accept(Visitor\&)} in Elementen
+  \item \texttt{Visit(Concrete\&)} im Visitor
+  \item Kein \texttt{dynamic\_cast} nötig (Doppeldispatch korrekt)
+\end{itemize}
+
+\subsubsection*{Decorator}
+\begin{itemize}
+  \item Decorator erbt von Component und hält Component:
+\begin{verbatim}
+std::unique_ptr<Component> inner_;
+\end{verbatim}
+  \item Delegieren + erweitern (Aufruf weiterleiten nicht vergessen)
+\end{itemize}
+
+\subsection*{5) DIP-Schnellcheck (falls gefordert)}
+\begin{itemize}
+  \item High-Level soll nur \textbf{Abstraktionen} kennen, keine konkreten Klassen.
+  \item Lösung: \textbf{Dependency Injection} (Ctor/Setter/Parameter) oder Factory.
+\end{itemize}
+
+\subsection*{30-Sekunden Final Scan (immer machen)}
+\begin{itemize}
+  \item Base hat \texttt{virtual \textasciitilde Base()}?
+  \item \texttt{override} überall korrekt?
+  \item Pointer-Zuweisung mit \texttt{\&}?
+  \item \texttt{operator=} liefert \texttt{T\&}?
+  \item Ownership klar (\texttt{unique\_ptr})?
+  \item Keine Base-by-value Übergaben/Returns?
+\end{itemize}
+
+
+\end{document}

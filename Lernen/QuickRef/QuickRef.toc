@@ -1,0 +1,4 @@
+\babel@toc {naustrian}{}\relax 
+\babel@toc {naustrian}{}\relax 
+\contentsline {subsection}{\numberline {0.1}Team}{3}{subsection.0.1}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

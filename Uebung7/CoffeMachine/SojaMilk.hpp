@@ -22,12 +22,12 @@ public:
 	/**
 	 * @brief Return price including soja milk surcharge.
 	 */
-	virtual double GetCost() override;
+	virtual double GetCost() const override;
 
 	/**
 	 * @brief Append soja milk label to description.
 	 */
-	virtual std::string GetDescription() override;
+	virtual std::string GetDescription() const override;
 
 	// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour
 	void operator=(SojaMilk& ind) = delete;

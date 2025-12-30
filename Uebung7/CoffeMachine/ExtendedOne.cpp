@@ -6,12 +6,12 @@
 #include "CoffeeInfo.hpp"
 
 
-double ExtendedOne::GetCost()
+double ExtendedOne::GetCost() const
 {
 	return CoffeeInfo::mExtendedPrice;
 }
 
-std::string ExtendedOne::GetDescription()
+std::string ExtendedOne::GetDescription() const
 {
 	return CoffeeInfo::mExtendedInfo + ":";
 }

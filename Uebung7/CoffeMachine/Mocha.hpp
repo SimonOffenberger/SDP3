@@ -18,12 +18,12 @@ public:
 	/**
 	 * @brief Return the price of a mocha.
 	 */
-	virtual double GetCost() override;
+	virtual double GetCost() const override;
 
 	/**
 	 * @brief Provide the mocha description label.
 	 */
-	virtual std::string GetDescription() override;
+	virtual std::string GetDescription() const override;
 
 	// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour
 	void operator=(Mocha& ind) = delete;

@@ -28,7 +28,7 @@ public:
 	 * @brief Prints all coffees description and price to a stream.
 	 * @param ost Target output stream; must be valid.
 	 */
-	void Display(std::ostream& ost);
+	void Display(std::ostream& ost) const;
 
 	/**
 	 * @brief Remove and return the next finished coffee.

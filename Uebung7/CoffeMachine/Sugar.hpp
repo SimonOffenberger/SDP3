@@ -22,12 +22,12 @@ public:
 	/**
 	 * @brief Return price including sugar surcharge.
 	 */
-	virtual double GetCost() override;
+	virtual double GetCost() const override;
 
 	/**
 	 * @brief Append sugar label to description.
 	 */
-	virtual std::string GetDescription() override;
+	virtual std::string GetDescription() const override;
 
 	// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour
 	void operator=(Sugar& ind) = delete;

@@ -5,12 +5,12 @@
 #include "Milk.hpp"
 #include "CoffeeInfo.hpp"
 
-double Milk::GetCost()
+double Milk::GetCost() const
 {
    return CoffeeInfo::mMilkPrice + Ingredient::GetCost();
 }
 
-std::string Milk::GetDescription()
+std::string Milk::GetDescription() const
 {
 	return Ingredient::GetDescription() + " " + CoffeeInfo::mMilkInfo + ",";
 }

@@ -25,12 +25,12 @@ public:
 	/**
 	 * @brief Return price including cream surcharge.
 	 */
-	virtual double GetCost() override;
+	virtual double GetCost() const override;
 
 	/**
 	 * @brief Append cream label to description.
 	 */
-	virtual std::string GetDescription() override;
+	virtual std::string GetDescription() const override;
 
 	// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour
 	void operator=(Cream& ind) = delete;

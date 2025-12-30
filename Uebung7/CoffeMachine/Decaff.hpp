@@ -10,7 +10,8 @@
 
 class Decaff : public ICoffee, public Object {
 public:
-	using Sptr = std::shared_ptr<Decaff>;
+
+	using Uptr = std::unique_ptr<Decaff>;
 
 	Decaff() = default;
 
@@ -18,12 +19,12 @@ public:
 	/**
 	 * @brief Return the price of a decaffeinated coffee.
 	 */
-	virtual double GetCost() override;
+	virtual double GetCost() const override;
 
 	/**
 	 * @brief Provide the decaff description label.
 	 */
-	virtual std::string GetDescription() override;
+	virtual std::string GetDescription() const override;
 
 	// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour
 	void operator=(Decaff& ind) = delete;

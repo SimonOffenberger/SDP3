@@ -17,13 +17,13 @@ public:
 	 * @brief Compute the total cost of the coffee including decorations.
 	 * @return Final price in Euros.
 	 */
-	virtual double GetCost() = 0;
+	virtual double GetCost() const = 0;
 
 	/**
 	 * @brief Provide a human-readable description of the coffee order.
 	 * @return Description string ending with a separator.
 	 */
-	virtual std::string GetDescription() = 0;
+	virtual std::string GetDescription() const = 0;
 
 	virtual ~ICoffee() = default;
 };

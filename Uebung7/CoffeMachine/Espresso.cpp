@@ -6,12 +6,12 @@
 #include "CoffeeInfo.hpp"
 
 
-double Espresso::GetCost()
+double Espresso::GetCost() const
 {
 	return CoffeeInfo::mEspressoPrice;
 }
 
-std::string Espresso::GetDescription()
+std::string Espresso::GetDescription() const
 {
 	return CoffeeInfo::mEspressoInfo + ":";
 }

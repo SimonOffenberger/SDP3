@@ -16,13 +16,13 @@ public:
 	 * @brief Forward cost request to the decorated coffee.
 	 * @return Accumulated coffee price.
 	 */
-	virtual double GetCost() override;
+	virtual double GetCost() const override;
 
 	/**
 	 * @brief Forward description request to the decorated coffee.
 	 * @return Aggregated description string.
 	 */
-	virtual std::string GetDescription() override;
+	virtual std::string GetDescription() const override;
 
 
 	// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour

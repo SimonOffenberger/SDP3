@@ -5,12 +5,12 @@
 #include "Sugar.hpp"
 #include "CoffeeInfo.hpp"
 
-double Sugar::GetCost()
+double Sugar::GetCost() const
 {
 	return CoffeeInfo::mSugarPrice + Ingredient::GetCost();
 }
 
-std::string Sugar::GetDescription()
+std::string Sugar::GetDescription() const
 {
 	return Ingredient::GetDescription() + " " + CoffeeInfo::mSugarInfo + ",";
 }

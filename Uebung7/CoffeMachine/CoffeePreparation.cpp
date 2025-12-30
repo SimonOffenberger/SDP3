@@ -11,7 +11,7 @@ void CoffeePreparation::Prepare(ICoffee::Uptr coffee)
 	mCoffeeQueue.push_back(move(coffee));
 }
 
-void CoffeePreparation::Display(std::ostream& ost)
+void CoffeePreparation::Display(std::ostream& ost) const
 {
 	if (ost.bad()) throw std::invalid_argument(ERROR_BAD_OSTREAM);
 	if (mCoffeeQueue.empty()) throw std::runtime_error(ERROR_NO_COFFE_IN_MACHINE);

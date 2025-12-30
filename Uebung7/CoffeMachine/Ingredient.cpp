@@ -13,12 +13,12 @@ Ingredient::Ingredient(ICoffee::Uptr mCoffeeIngredient)
     mDecorator = move(mCoffeeIngredient);
 }
 
-double Ingredient::GetCost()
+double Ingredient::GetCost() const
 {   
     return mDecorator->GetCost();
 }
 
-std::string Ingredient::GetDescription()
+std::string Ingredient::GetDescription() const
 {
     return mDecorator->GetDescription();
 }

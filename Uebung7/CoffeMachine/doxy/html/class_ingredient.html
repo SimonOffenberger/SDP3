@@ -110,10 +110,10 @@ Inheritance diagram for Ingredient:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af4acc13b5912cb9c75bfddb20b0ff8cc" id="r_af4acc13b5912cb9c75bfddb20b0ff8cc"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4acc13b5912cb9c75bfddb20b0ff8cc">GetCost</a> () override</td></tr>
-<tr class="memdesc:af4acc13b5912cb9c75bfddb20b0ff8cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forward cost request to the decorated coffee.  <br /></td></tr>
-<tr class="memitem:a66b01de1e81b55eb13d9dc8e5e4819c2" id="r_a66b01de1e81b55eb13d9dc8e5e4819c2"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66b01de1e81b55eb13d9dc8e5e4819c2">GetDescription</a> () override</td></tr>
-<tr class="memdesc:a66b01de1e81b55eb13d9dc8e5e4819c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forward description request to the decorated coffee.  <br /></td></tr>
+<tr class="memitem:a977689579eeebe9cb8bbd18bd081197b" id="r_a977689579eeebe9cb8bbd18bd081197b"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a977689579eeebe9cb8bbd18bd081197b">GetCost</a> () const override</td></tr>
+<tr class="memdesc:a977689579eeebe9cb8bbd18bd081197b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forward cost request to the decorated coffee.  <br /></td></tr>
+<tr class="memitem:a570cb83e50626e3cd3b651add4ed6c34" id="r_a570cb83e50626e3cd3b651add4ed6c34"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a570cb83e50626e3cd3b651add4ed6c34">GetDescription</a> () const override</td></tr>
+<tr class="memdesc:a570cb83e50626e3cd3b651add4ed6c34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forward description request to the decorated coffee.  <br /></td></tr>
 <tr class="memitem:acd3907cba526faa13f28a61e8156cde7" id="r_acd3907cba526faa13f28a61e8156cde7"><td class="memItemLeft" align="right" valign="top"><a id="acd3907cba526faa13f28a61e8156cde7" name="acd3907cba526faa13f28a61e8156cde7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_ingredient.html">Ingredient</a> &amp;ind)=delete</td></tr>
 <tr class="memitem:aaf3a23625c19b11ad4a7e768ce307692" id="r_aaf3a23625c19b11ad4a7e768ce307692"><td class="memItemLeft" align="right" valign="top"><a id="aaf3a23625c19b11ad4a7e768ce307692" name="aaf3a23625c19b11ad4a7e768ce307692"></a>
@@ -183,8 +183,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Uptr</b> = std::uniq
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="af4acc13b5912cb9c75bfddb20b0ff8cc" name="af4acc13b5912cb9c75bfddb20b0ff8cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4acc13b5912cb9c75bfddb20b0ff8cc">&#9670;&#160;</a></span>GetCost()</h2>
+<a id="a977689579eeebe9cb8bbd18bd081197b" name="a977689579eeebe9cb8bbd18bd081197b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a977689579eeebe9cb8bbd18bd081197b">&#9670;&#160;</a></span>GetCost()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,7 +196,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Uptr</b> = std::uniq
           <td class="memname">double Ingredient::GetCost </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -209,14 +209,14 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Uptr</b> = std::uniq
 <p>Forward cost request to the decorated coffee. </p>
 <dl class="section return"><dt>Returns</dt><dd>Accumulated coffee price. </dd></dl>
 
-<p>Implements <a class="el" href="class_i_coffee.html#abfe474afa6a26320ba5912c155b4f24c">ICoffee</a>.</p>
+<p>Implements <a class="el" href="class_i_coffee.html#a848868c04c28b49f92315295bce95622">ICoffee</a>.</p>
 
-<p>Reimplemented in <a class="el" href="class_cream.html#a9ee1299f44f720b4d06895323acc49a1">Cream</a>, <a class="el" href="class_milk.html#a323c87d6ca39fb3a8ab6af48044bff60">Milk</a>, <a class="el" href="class_soja_milk.html#a4645300d98b8b65f6b8475e64a4d6c0e">SojaMilk</a>, and <a class="el" href="class_sugar.html#a4344e8c1c290d0853a84429ff81f58c9">Sugar</a>.</p>
+<p>Reimplemented in <a class="el" href="class_cream.html#ae529c66578036034d791eeb995b82cf5">Cream</a>, <a class="el" href="class_milk.html#a1d328d9df6a3ac2a1cb105cfcb72a120">Milk</a>, <a class="el" href="class_soja_milk.html#aaf576ea046358ae7e5f6960041edb638">SojaMilk</a>, and <a class="el" href="class_sugar.html#acf07a12ef101c84fe0b7990832ac1003">Sugar</a>.</p>
 
 </div>
 </div>
-<a id="a66b01de1e81b55eb13d9dc8e5e4819c2" name="a66b01de1e81b55eb13d9dc8e5e4819c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66b01de1e81b55eb13d9dc8e5e4819c2">&#9670;&#160;</a></span>GetDescription()</h2>
+<a id="a570cb83e50626e3cd3b651add4ed6c34" name="a570cb83e50626e3cd3b651add4ed6c34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a570cb83e50626e3cd3b651add4ed6c34">&#9670;&#160;</a></span>GetDescription()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,7 +228,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Uptr</b> = std::uniq
           <td class="memname">std::string Ingredient::GetDescription </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -241,9 +241,9 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Uptr</b> = std::uniq
 <p>Forward description request to the decorated coffee. </p>
 <dl class="section return"><dt>Returns</dt><dd>Aggregated description string. </dd></dl>
 
-<p>Implements <a class="el" href="class_i_coffee.html#a8f086ad69e5cbdb3ee48bd6b18ace4e4">ICoffee</a>.</p>
+<p>Implements <a class="el" href="class_i_coffee.html#acc7ef38e27555ad1e9531388ca2193be">ICoffee</a>.</p>
 
-<p>Reimplemented in <a class="el" href="class_cream.html#acf7ece11315170bf1586faa4feac7044">Cream</a>, <a class="el" href="class_milk.html#a1a71c538e51c716a6ace71b87a6f965a">Milk</a>, <a class="el" href="class_soja_milk.html#a8a069e6fcc8085609e633af9bed2cda8">SojaMilk</a>, and <a class="el" href="class_sugar.html#abe684e7bf752da7c1b93fd4437b13a41">Sugar</a>.</p>
+<p>Reimplemented in <a class="el" href="class_cream.html#a8a2abf5c55f45715a2a5371dc6bbcb31">Cream</a>, <a class="el" href="class_milk.html#ab0aec5e77d72c15a298e1b8b7967f3e7">Milk</a>, <a class="el" href="class_soja_milk.html#a57e47ef3da6df6fec2591da297fc5830">SojaMilk</a>, and <a class="el" href="class_sugar.html#aac9193a32f6662d0c6e707f9663705d8">Sugar</a>.</p>
 
 </div>
 </div>

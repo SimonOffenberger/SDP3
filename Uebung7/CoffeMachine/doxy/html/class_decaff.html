@@ -106,18 +106,18 @@ Inheritance diagram for Decaff:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ad12a9fd6c89f8460d08139a992b59fab" id="r_ad12a9fd6c89f8460d08139a992b59fab"><td class="memItemLeft" align="right" valign="top"><a id="ad12a9fd6c89f8460d08139a992b59fab" name="ad12a9fd6c89f8460d08139a992b59fab"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Sptr</b> = std::shared_ptr&lt;<a class="el" href="class_decaff.html">Decaff</a>&gt;</td></tr>
+<tr class="memitem:aa76aabd4a5baddbd694fd388ed75541f" id="r_aa76aabd4a5baddbd694fd388ed75541f"><td class="memItemLeft" align="right" valign="top"><a id="aa76aabd4a5baddbd694fd388ed75541f" name="aa76aabd4a5baddbd694fd388ed75541f"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Uptr</b> = std::unique_ptr&lt;<a class="el" href="class_decaff.html">Decaff</a>&gt;</td></tr>
 <tr class="inherit_header pub_types_class_i_coffee"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_types_class_i_coffee')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Types inherited from <a class="el" href="class_i_coffee.html">ICoffee</a></td></tr>
 <tr class="memitem:a09c4add993585589a7f6f6e38730e877 inherit pub_types_class_i_coffee" id="r_a09c4add993585589a7f6f6e38730e877"><td class="memItemLeft" align="right" valign="top">
 using&#160;</td><td class="memItemRight" valign="bottom"><b>Uptr</b> = std::unique_ptr&lt;<a class="el" href="class_i_coffee.html">ICoffee</a>&gt;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a134a25cb89130384b3f9ed48c4b1dcf0" id="r_a134a25cb89130384b3f9ed48c4b1dcf0"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a134a25cb89130384b3f9ed48c4b1dcf0">GetCost</a> () override</td></tr>
-<tr class="memdesc:a134a25cb89130384b3f9ed48c4b1dcf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the price of a decaffeinated coffee.  <br /></td></tr>
-<tr class="memitem:a138c4fc3ab78eefb76af687521129c89" id="r_a138c4fc3ab78eefb76af687521129c89"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a138c4fc3ab78eefb76af687521129c89">GetDescription</a> () override</td></tr>
-<tr class="memdesc:a138c4fc3ab78eefb76af687521129c89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide the decaff description label.  <br /></td></tr>
+<tr class="memitem:aee417b05cdc47f98570d7ac6fd39f8c9" id="r_aee417b05cdc47f98570d7ac6fd39f8c9"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee417b05cdc47f98570d7ac6fd39f8c9">GetCost</a> () const override</td></tr>
+<tr class="memdesc:aee417b05cdc47f98570d7ac6fd39f8c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the price of a decaffeinated coffee.  <br /></td></tr>
+<tr class="memitem:a4b155c98b8e2d896d732f2970b72c4a1" id="r_a4b155c98b8e2d896d732f2970b72c4a1"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b155c98b8e2d896d732f2970b72c4a1">GetDescription</a> () const override</td></tr>
+<tr class="memdesc:a4b155c98b8e2d896d732f2970b72c4a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide the decaff description label.  <br /></td></tr>
 <tr class="memitem:a7bbed8a962351c309dca2f56feb731b2" id="r_a7bbed8a962351c309dca2f56feb731b2"><td class="memItemLeft" align="right" valign="top"><a id="a7bbed8a962351c309dca2f56feb731b2" name="a7bbed8a962351c309dca2f56feb731b2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_decaff.html">Decaff</a> &amp;ind)=delete</td></tr>
 <tr class="memitem:a30d253fcd8bf54647ad5f6678487392b" id="r_a30d253fcd8bf54647ad5f6678487392b"><td class="memItemLeft" align="right" valign="top"><a id="a30d253fcd8bf54647ad5f6678487392b" name="a30d253fcd8bf54647ad5f6678487392b"></a>
@@ -135,8 +135,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memdesc:afe9eeddd7068a37f62d3276a2fb49864 inherit pro_methods_class_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base constructor for derived objects. <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a134a25cb89130384b3f9ed48c4b1dcf0" name="a134a25cb89130384b3f9ed48c4b1dcf0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a134a25cb89130384b3f9ed48c4b1dcf0">&#9670;&#160;</a></span>GetCost()</h2>
+<a id="aee417b05cdc47f98570d7ac6fd39f8c9" name="aee417b05cdc47f98570d7ac6fd39f8c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee417b05cdc47f98570d7ac6fd39f8c9">&#9670;&#160;</a></span>GetCost()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -148,7 +148,7 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">double Decaff::GetCost </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -160,12 +160,12 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Return the price of a decaffeinated coffee. </p>
 
-<p>Implements <a class="el" href="class_i_coffee.html#abfe474afa6a26320ba5912c155b4f24c">ICoffee</a>.</p>
+<p>Implements <a class="el" href="class_i_coffee.html#a848868c04c28b49f92315295bce95622">ICoffee</a>.</p>
 
 </div>
 </div>
-<a id="a138c4fc3ab78eefb76af687521129c89" name="a138c4fc3ab78eefb76af687521129c89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a138c4fc3ab78eefb76af687521129c89">&#9670;&#160;</a></span>GetDescription()</h2>
+<a id="a4b155c98b8e2d896d732f2970b72c4a1" name="a4b155c98b8e2d896d732f2970b72c4a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b155c98b8e2d896d732f2970b72c4a1">&#9670;&#160;</a></span>GetDescription()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,7 +177,7 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">std::string Decaff::GetDescription </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -189,7 +189,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Provide the decaff description label. </p>
 
-<p>Implements <a class="el" href="class_i_coffee.html#a8f086ad69e5cbdb3ee48bd6b18ace4e4">ICoffee</a>.</p>
+<p>Implements <a class="el" href="class_i_coffee.html#acc7ef38e27555ad1e9531388ca2193be">ICoffee</a>.</p>
 
 </div>
 </div>

@@ -1,5 +1,5 @@
 var class_extended_one =
 [
-    [ "GetCost", "class_extended_one.html#afc84df2511062d12750cafe179a6992c", null ],
-    [ "GetDescription", "class_extended_one.html#a7a00ddb170a40f4d7bc167d6e018bdbd", null ]
+    [ "GetCost", "class_extended_one.html#a9e175ccb4fde122bb83a7e74b9c972c9", null ],
+    [ "GetDescription", "class_extended_one.html#a7a0ec19b2953ed58e6197be507d7707c", null ]
 ];

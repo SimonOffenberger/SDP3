@@ -118,14 +118,14 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Uptr</b> = std::uniq
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abfe474afa6a26320ba5912c155b4f24c" id="r_abfe474afa6a26320ba5912c155b4f24c"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfe474afa6a26320ba5912c155b4f24c">GetCost</a> ()=0</td></tr>
-<tr class="memdesc:abfe474afa6a26320ba5912c155b4f24c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the total cost of the coffee including decorations.  <br /></td></tr>
-<tr class="memitem:a8f086ad69e5cbdb3ee48bd6b18ace4e4" id="r_a8f086ad69e5cbdb3ee48bd6b18ace4e4"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f086ad69e5cbdb3ee48bd6b18ace4e4">GetDescription</a> ()=0</td></tr>
-<tr class="memdesc:a8f086ad69e5cbdb3ee48bd6b18ace4e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide a human-readable description of the coffee order.  <br /></td></tr>
+<tr class="memitem:a848868c04c28b49f92315295bce95622" id="r_a848868c04c28b49f92315295bce95622"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a848868c04c28b49f92315295bce95622">GetCost</a> () const =0</td></tr>
+<tr class="memdesc:a848868c04c28b49f92315295bce95622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the total cost of the coffee including decorations.  <br /></td></tr>
+<tr class="memitem:acc7ef38e27555ad1e9531388ca2193be" id="r_acc7ef38e27555ad1e9531388ca2193be"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc7ef38e27555ad1e9531388ca2193be">GetDescription</a> () const =0</td></tr>
+<tr class="memdesc:acc7ef38e27555ad1e9531388ca2193be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide a human-readable description of the coffee order.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="abfe474afa6a26320ba5912c155b4f24c" name="abfe474afa6a26320ba5912c155b4f24c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfe474afa6a26320ba5912c155b4f24c">&#9670;&#160;</a></span>GetCost()</h2>
+<a id="a848868c04c28b49f92315295bce95622" name="a848868c04c28b49f92315295bce95622"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a848868c04c28b49f92315295bce95622">&#9670;&#160;</a></span>GetCost()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -137,7 +137,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">virtual double ICoffee::GetCost </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -150,12 +150,12 @@ Public Member Functions</h2></td></tr>
 <p>Compute the total cost of the coffee including decorations. </p>
 <dl class="section return"><dt>Returns</dt><dd>Final price in Euros. </dd></dl>
 
-<p>Implemented in <a class="el" href="class_cream.html#a9ee1299f44f720b4d06895323acc49a1">Cream</a>, <a class="el" href="class_decaff.html#a134a25cb89130384b3f9ed48c4b1dcf0">Decaff</a>, <a class="el" href="class_espresso.html#a871201c6a33e375b03dc56232843a970">Espresso</a>, <a class="el" href="class_extended_one.html#afc84df2511062d12750cafe179a6992c">ExtendedOne</a>, <a class="el" href="class_ingredient.html#af4acc13b5912cb9c75bfddb20b0ff8cc">Ingredient</a>, <a class="el" href="class_milk.html#a323c87d6ca39fb3a8ab6af48044bff60">Milk</a>, <a class="el" href="class_mocha.html#afa0293f3f40ed0a107cd07d3cdae705d">Mocha</a>, <a class="el" href="class_soja_milk.html#a4645300d98b8b65f6b8475e64a4d6c0e">SojaMilk</a>, and <a class="el" href="class_sugar.html#a4344e8c1c290d0853a84429ff81f58c9">Sugar</a>.</p>
+<p>Implemented in <a class="el" href="class_cream.html#ae529c66578036034d791eeb995b82cf5">Cream</a>, <a class="el" href="class_decaff.html#aee417b05cdc47f98570d7ac6fd39f8c9">Decaff</a>, <a class="el" href="class_espresso.html#a121de387814f4bf006bcb827cf594aa0">Espresso</a>, <a class="el" href="class_extended_one.html#a9e175ccb4fde122bb83a7e74b9c972c9">ExtendedOne</a>, <a class="el" href="class_ingredient.html#a977689579eeebe9cb8bbd18bd081197b">Ingredient</a>, <a class="el" href="class_milk.html#a1d328d9df6a3ac2a1cb105cfcb72a120">Milk</a>, <a class="el" href="class_mocha.html#ab0da588d74945ac19912cc9bf89a92ae">Mocha</a>, <a class="el" href="class_soja_milk.html#aaf576ea046358ae7e5f6960041edb638">SojaMilk</a>, and <a class="el" href="class_sugar.html#acf07a12ef101c84fe0b7990832ac1003">Sugar</a>.</p>
 
 </div>
 </div>
-<a id="a8f086ad69e5cbdb3ee48bd6b18ace4e4" name="a8f086ad69e5cbdb3ee48bd6b18ace4e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f086ad69e5cbdb3ee48bd6b18ace4e4">&#9670;&#160;</a></span>GetDescription()</h2>
+<a id="acc7ef38e27555ad1e9531388ca2193be" name="acc7ef38e27555ad1e9531388ca2193be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc7ef38e27555ad1e9531388ca2193be">&#9670;&#160;</a></span>GetDescription()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,7 +167,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">virtual std::string ICoffee::GetDescription </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -180,7 +180,7 @@ Public Member Functions</h2></td></tr>
 <p>Provide a human-readable description of the coffee order. </p>
 <dl class="section return"><dt>Returns</dt><dd>Description string ending with a separator. </dd></dl>
 
-<p>Implemented in <a class="el" href="class_cream.html#acf7ece11315170bf1586faa4feac7044">Cream</a>, <a class="el" href="class_decaff.html#a138c4fc3ab78eefb76af687521129c89">Decaff</a>, <a class="el" href="class_espresso.html#a8a6c4591b4dbb58701f788de543861e5">Espresso</a>, <a class="el" href="class_extended_one.html#a7a00ddb170a40f4d7bc167d6e018bdbd">ExtendedOne</a>, <a class="el" href="class_ingredient.html#a66b01de1e81b55eb13d9dc8e5e4819c2">Ingredient</a>, <a class="el" href="class_milk.html#a1a71c538e51c716a6ace71b87a6f965a">Milk</a>, <a class="el" href="class_mocha.html#a9fb19c04d21bf3dd6e5c667c30e9a64e">Mocha</a>, <a class="el" href="class_soja_milk.html#a8a069e6fcc8085609e633af9bed2cda8">SojaMilk</a>, and <a class="el" href="class_sugar.html#abe684e7bf752da7c1b93fd4437b13a41">Sugar</a>.</p>
+<p>Implemented in <a class="el" href="class_cream.html#a8a2abf5c55f45715a2a5371dc6bbcb31">Cream</a>, <a class="el" href="class_decaff.html#a4b155c98b8e2d896d732f2970b72c4a1">Decaff</a>, <a class="el" href="class_espresso.html#a1f8c98a1fbc0b97793ab0880cab4d022">Espresso</a>, <a class="el" href="class_extended_one.html#a7a0ec19b2953ed58e6197be507d7707c">ExtendedOne</a>, <a class="el" href="class_ingredient.html#a570cb83e50626e3cd3b651add4ed6c34">Ingredient</a>, <a class="el" href="class_milk.html#ab0aec5e77d72c15a298e1b8b7967f3e7">Milk</a>, <a class="el" href="class_mocha.html#a8104e65decd9c5bd2884b9f003a38036">Mocha</a>, <a class="el" href="class_soja_milk.html#a57e47ef3da6df6fec2591da297fc5830">SojaMilk</a>, and <a class="el" href="class_sugar.html#aac9193a32f6662d0c6e707f9663705d8">Sugar</a>.</p>
 
 </div>
 </div>

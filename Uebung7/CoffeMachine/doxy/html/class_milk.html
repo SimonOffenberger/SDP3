@@ -109,10 +109,10 @@ Inheritance diagram for Milk:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a24aeb8ae6471036672ea0515ad81fe84" id="r_a24aeb8ae6471036672ea0515ad81fe84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24aeb8ae6471036672ea0515ad81fe84">Milk</a> (ICoffee::Uptr cof)</td></tr>
 <tr class="memdesc:a24aeb8ae6471036672ea0515ad81fe84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrap a coffee with milk.  <br /></td></tr>
-<tr class="memitem:a323c87d6ca39fb3a8ab6af48044bff60" id="r_a323c87d6ca39fb3a8ab6af48044bff60"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a323c87d6ca39fb3a8ab6af48044bff60">GetCost</a> () override</td></tr>
-<tr class="memdesc:a323c87d6ca39fb3a8ab6af48044bff60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return price including milk surcharge.  <br /></td></tr>
-<tr class="memitem:a1a71c538e51c716a6ace71b87a6f965a" id="r_a1a71c538e51c716a6ace71b87a6f965a"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a71c538e51c716a6ace71b87a6f965a">GetDescription</a> () override</td></tr>
-<tr class="memdesc:a1a71c538e51c716a6ace71b87a6f965a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append milk label to description.  <br /></td></tr>
+<tr class="memitem:a1d328d9df6a3ac2a1cb105cfcb72a120" id="r_a1d328d9df6a3ac2a1cb105cfcb72a120"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d328d9df6a3ac2a1cb105cfcb72a120">GetCost</a> () const override</td></tr>
+<tr class="memdesc:a1d328d9df6a3ac2a1cb105cfcb72a120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return price including milk surcharge.  <br /></td></tr>
+<tr class="memitem:ab0aec5e77d72c15a298e1b8b7967f3e7" id="r_ab0aec5e77d72c15a298e1b8b7967f3e7"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0aec5e77d72c15a298e1b8b7967f3e7">GetDescription</a> () const override</td></tr>
+<tr class="memdesc:ab0aec5e77d72c15a298e1b8b7967f3e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append milk label to description.  <br /></td></tr>
 <tr class="memitem:af25b627be21b25c77ccda72b7c3f0568" id="r_af25b627be21b25c77ccda72b7c3f0568"><td class="memItemLeft" align="right" valign="top"><a id="af25b627be21b25c77ccda72b7c3f0568" name="af25b627be21b25c77ccda72b7c3f0568"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_milk.html">Milk</a> &amp;ind)=delete</td></tr>
 <tr class="memitem:a643ee4131463e0ad00d37618a050337e" id="r_a643ee4131463e0ad00d37618a050337e"><td class="memItemLeft" align="right" valign="top"><a id="a643ee4131463e0ad00d37618a050337e" name="a643ee4131463e0ad00d37618a050337e"></a>
@@ -181,8 +181,8 @@ ICoffee::Uptr&#160;</td><td class="memItemRight" valign="bottom"><b>mDecorator</
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a323c87d6ca39fb3a8ab6af48044bff60" name="a323c87d6ca39fb3a8ab6af48044bff60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a323c87d6ca39fb3a8ab6af48044bff60">&#9670;&#160;</a></span>GetCost()</h2>
+<a id="a1d328d9df6a3ac2a1cb105cfcb72a120" name="a1d328d9df6a3ac2a1cb105cfcb72a120"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d328d9df6a3ac2a1cb105cfcb72a120">&#9670;&#160;</a></span>GetCost()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -194,7 +194,7 @@ ICoffee::Uptr&#160;</td><td class="memItemRight" valign="bottom"><b>mDecorator</
           <td class="memname">double Milk::GetCost </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -206,12 +206,12 @@ ICoffee::Uptr&#160;</td><td class="memItemRight" valign="bottom"><b>mDecorator</
 
 <p>Return price including milk surcharge. </p>
 
-<p>Reimplemented from <a class="el" href="class_ingredient.html#af4acc13b5912cb9c75bfddb20b0ff8cc">Ingredient</a>.</p>
+<p>Reimplemented from <a class="el" href="class_ingredient.html#a977689579eeebe9cb8bbd18bd081197b">Ingredient</a>.</p>
 
 </div>
 </div>
-<a id="a1a71c538e51c716a6ace71b87a6f965a" name="a1a71c538e51c716a6ace71b87a6f965a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a71c538e51c716a6ace71b87a6f965a">&#9670;&#160;</a></span>GetDescription()</h2>
+<a id="ab0aec5e77d72c15a298e1b8b7967f3e7" name="ab0aec5e77d72c15a298e1b8b7967f3e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0aec5e77d72c15a298e1b8b7967f3e7">&#9670;&#160;</a></span>GetDescription()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,7 +223,7 @@ ICoffee::Uptr&#160;</td><td class="memItemRight" valign="bottom"><b>mDecorator</
           <td class="memname">std::string Milk::GetDescription </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -235,7 +235,7 @@ ICoffee::Uptr&#160;</td><td class="memItemRight" valign="bottom"><b>mDecorator</
 
 <p>Append milk label to description. </p>
 
-<p>Reimplemented from <a class="el" href="class_ingredient.html#a66b01de1e81b55eb13d9dc8e5e4819c2">Ingredient</a>.</p>
+<p>Reimplemented from <a class="el" href="class_ingredient.html#a570cb83e50626e3cd3b651add4ed6c34">Ingredient</a>.</p>
 
 </div>
 </div>

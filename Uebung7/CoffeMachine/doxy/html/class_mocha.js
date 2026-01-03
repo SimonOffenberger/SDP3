@@ -1,5 +1,5 @@
 var class_mocha =
 [
-    [ "GetCost", "class_mocha.html#afa0293f3f40ed0a107cd07d3cdae705d", null ],
-    [ "GetDescription", "class_mocha.html#a9fb19c04d21bf3dd6e5c667c30e9a64e", null ]
+    [ "GetCost", "class_mocha.html#ab0da588d74945ac19912cc9bf89a92ae", null ],
+    [ "GetDescription", "class_mocha.html#a8104e65decd9c5bd2884b9f003a38036", null ]
 ];

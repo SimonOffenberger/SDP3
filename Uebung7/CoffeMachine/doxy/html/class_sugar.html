@@ -109,10 +109,10 @@ Inheritance diagram for Sugar:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a46cf185acb734bac418c866be01e06b8" id="r_a46cf185acb734bac418c866be01e06b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46cf185acb734bac418c866be01e06b8">Sugar</a> (ICoffee::Uptr cof)</td></tr>
 <tr class="memdesc:a46cf185acb734bac418c866be01e06b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrap a coffee with sugar.  <br /></td></tr>
-<tr class="memitem:a4344e8c1c290d0853a84429ff81f58c9" id="r_a4344e8c1c290d0853a84429ff81f58c9"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4344e8c1c290d0853a84429ff81f58c9">GetCost</a> () override</td></tr>
-<tr class="memdesc:a4344e8c1c290d0853a84429ff81f58c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return price including sugar surcharge.  <br /></td></tr>
-<tr class="memitem:abe684e7bf752da7c1b93fd4437b13a41" id="r_abe684e7bf752da7c1b93fd4437b13a41"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe684e7bf752da7c1b93fd4437b13a41">GetDescription</a> () override</td></tr>
-<tr class="memdesc:abe684e7bf752da7c1b93fd4437b13a41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append sugar label to description.  <br /></td></tr>
+<tr class="memitem:acf07a12ef101c84fe0b7990832ac1003" id="r_acf07a12ef101c84fe0b7990832ac1003"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf07a12ef101c84fe0b7990832ac1003">GetCost</a> () const override</td></tr>
+<tr class="memdesc:acf07a12ef101c84fe0b7990832ac1003"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return price including sugar surcharge.  <br /></td></tr>
+<tr class="memitem:aac9193a32f6662d0c6e707f9663705d8" id="r_aac9193a32f6662d0c6e707f9663705d8"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac9193a32f6662d0c6e707f9663705d8">GetDescription</a> () const override</td></tr>
+<tr class="memdesc:aac9193a32f6662d0c6e707f9663705d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append sugar label to description.  <br /></td></tr>
 <tr class="memitem:aaaa50a7e5b5fd6d8972f57801e32f475" id="r_aaaa50a7e5b5fd6d8972f57801e32f475"><td class="memItemLeft" align="right" valign="top"><a id="aaaa50a7e5b5fd6d8972f57801e32f475" name="aaaa50a7e5b5fd6d8972f57801e32f475"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_sugar.html">Sugar</a> &amp;ind)=delete</td></tr>
 <tr class="memitem:a226f97ecc1149f127d2bd085f4900aec" id="r_a226f97ecc1149f127d2bd085f4900aec"><td class="memItemLeft" align="right" valign="top"><a id="a226f97ecc1149f127d2bd085f4900aec" name="a226f97ecc1149f127d2bd085f4900aec"></a>
@@ -181,8 +181,8 @@ ICoffee::Uptr&#160;</td><td class="memItemRight" valign="bottom"><b>mDecorator</
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a4344e8c1c290d0853a84429ff81f58c9" name="a4344e8c1c290d0853a84429ff81f58c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4344e8c1c290d0853a84429ff81f58c9">&#9670;&#160;</a></span>GetCost()</h2>
+<a id="acf07a12ef101c84fe0b7990832ac1003" name="acf07a12ef101c84fe0b7990832ac1003"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf07a12ef101c84fe0b7990832ac1003">&#9670;&#160;</a></span>GetCost()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -194,7 +194,7 @@ ICoffee::Uptr&#160;</td><td class="memItemRight" valign="bottom"><b>mDecorator</
           <td class="memname">double Sugar::GetCost </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -206,12 +206,12 @@ ICoffee::Uptr&#160;</td><td class="memItemRight" valign="bottom"><b>mDecorator</
 
 <p>Return price including sugar surcharge. </p>
 
-<p>Reimplemented from <a class="el" href="class_ingredient.html#af4acc13b5912cb9c75bfddb20b0ff8cc">Ingredient</a>.</p>
+<p>Reimplemented from <a class="el" href="class_ingredient.html#a977689579eeebe9cb8bbd18bd081197b">Ingredient</a>.</p>
 
 </div>
 </div>
-<a id="abe684e7bf752da7c1b93fd4437b13a41" name="abe684e7bf752da7c1b93fd4437b13a41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe684e7bf752da7c1b93fd4437b13a41">&#9670;&#160;</a></span>GetDescription()</h2>
+<a id="aac9193a32f6662d0c6e707f9663705d8" name="aac9193a32f6662d0c6e707f9663705d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac9193a32f6662d0c6e707f9663705d8">&#9670;&#160;</a></span>GetDescription()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,7 +223,7 @@ ICoffee::Uptr&#160;</td><td class="memItemRight" valign="bottom"><b>mDecorator</
           <td class="memname">std::string Sugar::GetDescription </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -235,7 +235,7 @@ ICoffee::Uptr&#160;</td><td class="memItemRight" valign="bottom"><b>mDecorator</
 
 <p>Append sugar label to description. </p>
 
-<p>Reimplemented from <a class="el" href="class_ingredient.html#a66b01de1e81b55eb13d9dc8e5e4819c2">Ingredient</a>.</p>
+<p>Reimplemented from <a class="el" href="class_ingredient.html#a570cb83e50626e3cd3b651add4ed6c34">Ingredient</a>.</p>
 
 </div>
 </div>

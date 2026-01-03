@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['display_0',['Display',['../class_coffee_preparation.html#a90974cf4953e70220828a0d0f5a7f696',1,'CoffeePreparation']]]
+  ['display_0',['Display',['../class_coffee_preparation.html#af4d717ed90babf4598c1f29e34186d10',1,'CoffeePreparation']]]
 ];

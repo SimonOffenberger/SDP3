@@ -105,26 +105,25 @@ $(function(){initNavTree('_extended_one_8hpp_source.html','',''); });
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_extended_one.html">   12</a></span><span class="keyword">class </span>ExtendedOne : <span class="keyword">public</span> <a class="code hl_class" href="class_i_coffee.html">ICoffee</a>, <span class="keyword">public</span> <a class="code hl_function" href="class_object.html#afe9eeddd7068a37f62d3276a2fb49864">Object</a> {</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">using </span>Sptr = std::shared_ptr&lt;ExtendedOne&gt;;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">using </span>Uptr = std::unique_ptr&lt;ExtendedOne&gt;;</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    ExtendedOne() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code hl_function" href="class_extended_one.html#afc84df2511062d12750cafe179a6992c">GetCost</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">virtual</span> std::string <a class="code hl_function" href="class_extended_one.html#a7a00ddb170a40f4d7bc167d6e018bdbd">GetDescription</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> operator=(ExtendedOne&amp; ind) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    ExtendedOne(ExtendedOne&amp; ind) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code hl_function" href="class_extended_one.html#a9e175ccb4fde122bb83a7e74b9c972c9">GetCost</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">virtual</span> std::string <a class="code hl_function" href="class_extended_one.html#a7a0ec19b2953ed58e6197be507d7707c">GetDescription</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// explicitly delete Assign Op and Copy Ctor to prevent untestet behaviour</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> operator=(ExtendedOne&amp; ind) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    ExtendedOne(ExtendedOne&amp; ind) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
 </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif </span><span class="comment">// !EXTENDED_ONE_HPP</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif </span><span class="comment">// !EXTENDED_ONE_HPP</span></div>
 <div class="ttc" id="a_i_coffee_8hpp_html"><div class="ttname"><a href="_i_coffee_8hpp.html">ICoffee.hpp</a></div><div class="ttdoc">Declares the abstract coffee interface for pricing and descriptions.</div></div>
 <div class="ttc" id="a_object_8h_html"><div class="ttname"><a href="_object_8h.html">Object.h</a></div><div class="ttdoc">Defines a minimal base object with virtual destructor support.</div></div>
-<div class="ttc" id="aclass_extended_one_html_a7a00ddb170a40f4d7bc167d6e018bdbd"><div class="ttname"><a href="class_extended_one.html#a7a00ddb170a40f4d7bc167d6e018bdbd">ExtendedOne::GetDescription</a></div><div class="ttdeci">virtual std::string GetDescription() override</div><div class="ttdoc">Provide the extended variant description label.</div><div class="ttdef"><b>Definition</b> ExtendedOne.cpp:14</div></div>
-<div class="ttc" id="aclass_extended_one_html_afc84df2511062d12750cafe179a6992c"><div class="ttname"><a href="class_extended_one.html#afc84df2511062d12750cafe179a6992c">ExtendedOne::GetCost</a></div><div class="ttdeci">virtual double GetCost() override</div><div class="ttdoc">Return the price of the extended variant.</div><div class="ttdef"><b>Definition</b> ExtendedOne.cpp:9</div></div>
+<div class="ttc" id="aclass_extended_one_html_a7a0ec19b2953ed58e6197be507d7707c"><div class="ttname"><a href="class_extended_one.html#a7a0ec19b2953ed58e6197be507d7707c">ExtendedOne::GetDescription</a></div><div class="ttdeci">virtual std::string GetDescription() const override</div><div class="ttdoc">Provide the extended variant description label.</div><div class="ttdef"><b>Definition</b> ExtendedOne.cpp:14</div></div>
+<div class="ttc" id="aclass_extended_one_html_a9e175ccb4fde122bb83a7e74b9c972c9"><div class="ttname"><a href="class_extended_one.html#a9e175ccb4fde122bb83a7e74b9c972c9">ExtendedOne::GetCost</a></div><div class="ttdeci">virtual double GetCost() const override</div><div class="ttdoc">Return the price of the extended variant.</div><div class="ttdef"><b>Definition</b> ExtendedOne.cpp:9</div></div>
 <div class="ttc" id="aclass_i_coffee_html"><div class="ttname"><a href="class_i_coffee.html">ICoffee</a></div><div class="ttdef"><b>Definition</b> ICoffee.hpp:11</div></div>
 <div class="ttc" id="aclass_object_html_afe9eeddd7068a37f62d3276a2fb49864"><div class="ttname"><a href="class_object.html#afe9eeddd7068a37f62d3276a2fb49864">Object::Object</a></div><div class="ttdeci">Object()=default</div><div class="ttdoc">Base constructor for derived objects.</div></div>
 </div><!-- fragment --></div><!-- contents -->

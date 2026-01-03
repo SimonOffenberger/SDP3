@@ -106,9 +106,9 @@ $(function(){initNavTree('_i_coffee_8hpp_source.html','',''); });
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">using </span>Uptr = std::unique_ptr&lt;ICoffee&gt;;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_i_coffee.html#abfe474afa6a26320ba5912c155b4f24c">   20</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code hl_function" href="class_i_coffee.html#abfe474afa6a26320ba5912c155b4f24c">GetCost</a>() = 0;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_i_coffee.html#a848868c04c28b49f92315295bce95622">   20</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code hl_function" href="class_i_coffee.html#a848868c04c28b49f92315295bce95622">GetCost</a>() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_i_coffee.html#a8f086ad69e5cbdb3ee48bd6b18ace4e4">   26</a></span>    <span class="keyword">virtual</span> std::string <a class="code hl_function" href="class_i_coffee.html#a8f086ad69e5cbdb3ee48bd6b18ace4e4">GetDescription</a>() = 0;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_i_coffee.html#acc7ef38e27555ad1e9531388ca2193be">   26</a></span>    <span class="keyword">virtual</span> std::string <a class="code hl_function" href="class_i_coffee.html#acc7ef38e27555ad1e9531388ca2193be">GetDescription</a>() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_i_coffee.html">~ICoffee</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
@@ -117,8 +117,8 @@ $(function(){initNavTree('_i_coffee_8hpp_source.html','',''); });
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#endif </span><span class="comment">// !ICOFFEE_HPP</span></div>
 <div class="ttc" id="aclass_i_coffee_html"><div class="ttname"><a href="class_i_coffee.html">ICoffee</a></div><div class="ttdef"><b>Definition</b> ICoffee.hpp:11</div></div>
-<div class="ttc" id="aclass_i_coffee_html_a8f086ad69e5cbdb3ee48bd6b18ace4e4"><div class="ttname"><a href="class_i_coffee.html#a8f086ad69e5cbdb3ee48bd6b18ace4e4">ICoffee::GetDescription</a></div><div class="ttdeci">virtual std::string GetDescription()=0</div><div class="ttdoc">Provide a human-readable description of the coffee order.</div></div>
-<div class="ttc" id="aclass_i_coffee_html_abfe474afa6a26320ba5912c155b4f24c"><div class="ttname"><a href="class_i_coffee.html#abfe474afa6a26320ba5912c155b4f24c">ICoffee::GetCost</a></div><div class="ttdeci">virtual double GetCost()=0</div><div class="ttdoc">Compute the total cost of the coffee including decorations.</div></div>
+<div class="ttc" id="aclass_i_coffee_html_a848868c04c28b49f92315295bce95622"><div class="ttname"><a href="class_i_coffee.html#a848868c04c28b49f92315295bce95622">ICoffee::GetCost</a></div><div class="ttdeci">virtual double GetCost() const =0</div><div class="ttdoc">Compute the total cost of the coffee including decorations.</div></div>
+<div class="ttc" id="aclass_i_coffee_html_acc7ef38e27555ad1e9531388ca2193be"><div class="ttname"><a href="class_i_coffee.html#acc7ef38e27555ad1e9531388ca2193be">ICoffee::GetDescription</a></div><div class="ttdeci">virtual std::string GetDescription() const =0</div><div class="ttdoc">Provide a human-readable description of the coffee order.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
